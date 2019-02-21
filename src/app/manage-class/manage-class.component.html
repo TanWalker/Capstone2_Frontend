@@ -1,39 +1,5 @@
-<mat-toolbar>
-  <mat-toolbar-row>
-    <span>Quản lý nhóm</span>
-  </mat-toolbar-row>
-</mat-toolbar>
-<button mat-flat-button color="warn" (click)="openDialog()" class="btn-add-team">Thêm nhóm <mat-icon class="btn-icon">group_add</mat-icon></button>
-<mat-divider></mat-divider>
-
-<mat-toolbar>
-  Team 1
-  <span class="title-bar-spacer"></span>
-  <button mat-flat-button color="warn">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-stroked-button>
-    <mat-icon>delete</mat-icon>
-  </button>
-</mat-toolbar>
-<mat-toolbar>
-  Team 2
-  <span class="title-bar-spacer"></span>
-  <button mat-flat-button color="warn">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-stroked-button>
-    <mat-icon>delete</mat-icon>
-  </button>
-</mat-toolbar>
-<mat-toolbar>
-  Team 3
-  <span class="title-bar-spacer"></span>
-  <button mat-flat-button color="warn">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-stroked-button>
-    <mat-icon>delete</mat-icon>
-  </button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="content">
+  <router-outlet></router-outlet>
+  <div style="margin-bottom:50px;"></div>
+</div>
+<app-tab-bar></app-tab-bar>
