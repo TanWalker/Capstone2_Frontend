@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Login } from '../../models/login';
 import { UserService } from '../../services/user.service';
 import { Result } from '../../models/result';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   public loginInfo: Login = new Login();
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginInfo).subscribe(
       (response: Result) => {
         console.log(response);
+         // response should return token and user info
+         this.authService.setUser(response.value, response.value.token);
 
         // token
       }
