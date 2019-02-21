@@ -21,10 +21,11 @@ public setUser(user: User, token: string) {
   this.currentUser = user;
 
   // set token
+  console.log('set token');
   localStorage.setItem('access_token', token);
 
   // set current user
-  localStorage.setItem('current_user', JSON.stringify(this.currentUser));
+ // localStorage.setItem('current_user', JSON.stringify(this.currentUser));
 
 }
 

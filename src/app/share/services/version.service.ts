@@ -12,7 +12,7 @@ constructor(
 ) { }
 
 getVersionBE() {
-  return this.http.get(`${environment.urls.api}` + `/backendversion`);
+  return this.http.get(`${environment.urls.api}` + `/public/backendversion`);
 }
 getVersionFRe() {
   console.log(environment.VERSION);

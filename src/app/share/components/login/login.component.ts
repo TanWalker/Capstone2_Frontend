@@ -4,6 +4,7 @@ import { Login } from '../../models/login';
 import { UserService } from '../../services/user.service';
 import { Result } from '../../models/result';
 import { AuthService } from '../../services/auth.service';
+import { VersionService } from '../../services/version.service';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private versionService: VersionService
   ) { }
 
   ngOnInit() {
+    this.versionService.getVersionBE().subscribe(
+      (res) => {
+        console.log(res);
+      }
+    );
   }
 
   login() {
@@ -27,16 +34,20 @@ export class LoginComponent implements OnInit {
     // post login model
 
     // step 1 : set value for login
-    this.loginInfo.username = 'aaaaaa';
-    this.loginInfo.password = '12312';
-
+    this.loginInfo.username = 'darkwin';
+    this.loginInfo.password = '0511730580';
+    const token = '1';
+        // this.authService.setUser(response.value, response.value.token);
+        this.authService.setUser( null , token);
 
     this.userService.login(this.loginInfo).subscribe(
       (response: Result) => {
         console.log(response);
          // response should return token and user info
-         this.authService.setUser(response.value, response.value.token);
 
+       //  const token = '1';
+        // this.authService.setUser(response.value, response.value.token);
+        this.authService.setUser(response.value, token);
         // token
       }
     );

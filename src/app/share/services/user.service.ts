@@ -13,6 +13,6 @@ constructor(
 ) { }
 
 login(loginInfo: Login) {
-  return this.http.post(`${environment.urls.api}` + `/login`, loginInfo);
+  return this.http.post(`${environment.urls.api}/public/login`, loginInfo);
 }
 }
