@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './manage-class/edit/edit.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { ConfirmDialogComponent } from './manage-class/manage-class.component';
+import { MessageBoxComponent } from './share/components/message-box/message-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
     TabBarComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    MessageBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { ConfirmDialogComponent } from './manage-class/manage-class.component';
 
   ],
   entryComponents: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    MessageBoxComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

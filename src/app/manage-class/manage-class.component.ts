@@ -35,7 +35,10 @@ export class ManageClassComponent implements OnInit {
   templateUrl: 'dialog-add-class.html',
 })
 export class ConfirmDialogComponent {
-  constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) { }
   onNoClick(): void {
     this.dialogRef.close();
   }
