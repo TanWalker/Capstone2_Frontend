@@ -6,7 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   selector: 'app-manage-class',
   templateUrl: './manage-class.component.html',
-  styleUrls: ['./manage-class.component.css']
+  styleUrls: ['./manage-class.component.scss']
 })
 export class ManageClassComponent implements OnInit {
 
