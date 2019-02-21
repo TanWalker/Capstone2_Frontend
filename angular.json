@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/library/fontawesome/css/all.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/library/fontawesome/js/all.js"
+            ]
           },
           "configurations": {
             "production": {

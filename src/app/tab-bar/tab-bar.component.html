@@ -1,0 +1,31 @@
+<div class="tab-bar flex">
+  <a routerLink="/profiles" [ngClass]="currentUrl.includes('/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
+    <div class="tab-icon">
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <span class="tab-title">bromboy2010</span>
+  </a>
+  <a routerLink="/class" [ngClass]="currentUrl.includes('/class') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple >
+    <div class="tab-icon">
+      <i class="fas fa-users-class"></i>
+    </div>
+    <span class="tab-title">Nhóm</span>
+  </a>
+  <a class="flex-item-center" matRipple >
+    <div class="tab-icon special-tab">
+      <i class="far fa-plus-circle"></i>
+    </div>
+  </a>
+  <a class="flex-item-center" matRipple >
+    <div class="tab-icon">
+      <i class="far fa-books"></i>
+    </div>
+    <span class="tab-title">Thư viện</span>
+  </a>
+  <a class="flex-item-center" matRipple >
+    <div class="tab-icon">
+      <i class="far fa-newspaper"></i>
+    </div>
+    <span class="tab-title">Tin tức</span>
+  </a>
+</div>

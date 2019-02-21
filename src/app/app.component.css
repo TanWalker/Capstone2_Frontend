@@ -1,0 +1,7 @@
+.content {
+  height: 97%;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  padding: 10px;
+  
+}
