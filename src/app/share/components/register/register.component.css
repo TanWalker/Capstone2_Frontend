@@ -16,6 +16,6 @@
   margin-bottom: 15px;
 }
 
-/deep/ div.mat-form-field-wrapper {
+::ng-deep div.mat-form-field-wrapper {
   padding-bottom: 7px !important;
 }

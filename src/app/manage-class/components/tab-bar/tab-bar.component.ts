@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-tab-bar',
   templateUrl: './tab-bar.component.html',
-  styleUrls: ['./tab-bar.component.scss'],
+  styleUrls: ['./tab-bar.component.css'],
 
 })
 export class TabBarComponent implements OnInit {
