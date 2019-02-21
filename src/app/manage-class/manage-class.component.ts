@@ -21,14 +21,14 @@ export class ManageClassComponent implements OnInit {
   ngOnInit() {
     // this.getVersion();
   }
-  getVersion() {
+  /* getVersion() {
     this.versionService.getVersionBE().subscribe(
       (data) => {
         console.log(data);
       }
     );
     this.versionService.getVersionFRe();
-  }
+  } */
 }
 @Component({
   selector: 'app-dialog-add-class',

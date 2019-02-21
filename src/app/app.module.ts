@@ -10,12 +10,14 @@ import { EditComponent } from './manage-class/edit/edit.component';
 import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { ConfirmDialogComponent } from './manage-class/manage-class.component';
 import { MessageBoxComponent } from './share/components/message-box/message-box.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
     TabBarComponent,
+    ProfilesComponent,
     ConfirmDialogComponent,
     MessageBoxComponent
   ],
