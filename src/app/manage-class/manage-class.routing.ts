@@ -10,14 +10,14 @@ const routes: Routes = [
     component: ManageClassComponent,
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
-      {path: 'classes', component: ClassesComponent},
-      {path: 'edit', component: EditComponent},
-      {path: 'profiles', component: ProfilesComponent}
+      { path: 'classes', component: ClassesComponent },
+      { path: 'edit', component: EditComponent },
+      { path: 'profiles', component: ProfilesComponent }
     ]
-  },
+  }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ManageClassRoutes { }
+export class ManageClassRoutes {}
