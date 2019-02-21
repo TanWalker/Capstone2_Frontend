@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ManageClassComponent } from './manage-class.component';
 import { NgModule } from '@angular/core';
-import { EditComponent} from './edit/edit.component';
 import { ClassesComponent } from './classes/classes.component';
+import { EditComponent } from './dialogs/edit/edit.component';
 const routes: Routes = [
   {
     path: 'class',

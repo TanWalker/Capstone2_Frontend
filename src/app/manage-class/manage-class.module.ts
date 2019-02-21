@@ -5,7 +5,8 @@ import { MaterialModule } from '../material';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClassesComponent } from './classes/classes.component';
-import { TabBarComponent } from '../share/components/tab-bar/tab-bar.component';
+import { TabBarComponent } from './components/tab-bar/tab-bar.component';
+import { EditComponent } from './dialogs/edit/edit.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { TabBarComponent } from '../share/components/tab-bar/tab-bar.component';
     RouterModule,
     BrowserAnimationsModule,
   ],
-  declarations: [ManageClassComponent, ClassesComponent, TabBarComponent]
+  declarations: [ManageClassComponent, ClassesComponent, TabBarComponent, EditComponent ]
 })
 export class ManageClassModule { }
