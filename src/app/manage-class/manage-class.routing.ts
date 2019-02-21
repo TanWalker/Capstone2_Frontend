@@ -3,6 +3,7 @@ import { ManageClassComponent } from './manage-class.component';
 import { NgModule } from '@angular/core';
 import { ClassesComponent } from './classes/classes.component';
 import { EditComponent } from './dialogs/edit/edit.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -10,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
       {path: 'classes', component: ClassesComponent},
-      {path: 'edit', component: EditComponent}
+      {path: 'edit', component: EditComponent},
+      {path: 'profiles', component: ProfilesComponent}
     ]
   },
 ];

@@ -1,0 +1,22 @@
+
+.big-center-logo {
+      display: inline-block;
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+    
+    .form>* {
+      width: 100%;
+    }
+    
+    .user-access-title {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom:15px;
+    }
+    /deep/ div.mat-form-field-wrapper {
+      padding-bottom: 7px !important;
+    }
+    
