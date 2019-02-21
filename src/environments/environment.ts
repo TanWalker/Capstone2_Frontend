@@ -5,8 +5,10 @@
 export const environment = {
   production: false,
   urls: {
-  api: 'http://localhost:3000',
+  api: 'http://localhost:3000/api',
  },
+ VERSION: require('../../package.json').version
+
 };
 
 /*

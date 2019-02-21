@@ -11,7 +11,10 @@ constructor(
   private http: HttpClient,
 ) { }
 
-getVersion() {
+getVersionBE() {
   return this.http.get(`${environment.urls.api}` + `/backendversion`);
+}
+getVersionFRe() {
+  console.log(environment.VERSION);
 }
 }

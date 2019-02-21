@@ -16,10 +16,11 @@ export class ManageClassComponent implements OnInit {
     this.getVersion();
   }
   getVersion() {
-    this.versionService.getVersion().subscribe(
+    this.versionService.getVersionBE().subscribe(
       (data) => {
         console.log(data);
       }
     );
+    this.versionService.getVersionFRe();
   }
 }
