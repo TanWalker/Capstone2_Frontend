@@ -13,7 +13,7 @@ export class ManageClassComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorModule,
   ) {
-    this.epicFunction();
+    // this.epicFunction();
   }
   epicFunction() {
     console.log('hello `Home` component');
