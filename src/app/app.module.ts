@@ -5,11 +5,12 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 import { ManageClassRoutes } from './manage-class/manage-class.routing';
 import { ManageClassModule } from './manage-class/manage-class.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MessageBoxComponent } from './share/components/message-box/message-box.component';
 import { LoginComponent } from './share/components/login/login.component';
 import { RegisterComponent } from './share/components/register/register.component';
 import { ConfirmDialogComponent } from './manage-class/classes/classes.component';
+import { AuthInterceptor } from './share/interceptors/auth-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,13 @@ import { ConfirmDialogComponent } from './manage-class/classes/classes.component
     ConfirmDialogComponent,
     MessageBoxComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

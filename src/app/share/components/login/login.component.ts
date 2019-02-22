@@ -31,23 +31,21 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    // post login model
-
-    // step 1 : set value for login
-    this.loginInfo.username = 'darkwin';
-    this.loginInfo.password = '0511730580';
-    const token = '1';
-        // this.authService.setUser(response.value, response.value.token);
-        this.authService.setUser( null , token);
-
+      // step 1 : set value for login
+      this.loginInfo.username = 'darkwin';
+      this.loginInfo.password = '0511730580';
     this.userService.login(this.loginInfo).subscribe(
       (response: Result) => {
-        console.log(response);
+
          // response should return token and user info
 
-       //  const token = '1';
+        const data = response.success ? response.value : '';
+
+        const token = data.token;
+
+        // const expiresIn = data.expiresIn;
         // this.authService.setUser(response.value, response.value.token);
-        this.authService.setUser(response.value, token);
+        this.authService.setUser(data.user, token);
         // token
       }
     );
