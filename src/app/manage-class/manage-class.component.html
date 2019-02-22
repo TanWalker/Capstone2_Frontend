@@ -1,10 +1,9 @@
-<router-outlet></router-outlet>
-<div style="margin-bottom:50px;"></div>
-<app-tab-bar></app-tab-bar>
+<!-- check if desktop or mobile device -->
 <div *ngIf="isMobile">
-asdasd
+  <router-outlet></router-outlet>
+  <div style="margin-bottom:50px;"></div>
+  <app-tab-bar></app-tab-bar>
 </div>
-
 <div *ngIf="!isMobile">
-asdasdaaa
+  <router-outlet></router-outlet>
 </div>
