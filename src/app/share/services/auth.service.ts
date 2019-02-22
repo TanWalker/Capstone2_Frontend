@@ -21,11 +21,10 @@ public setUser(user: User, token: string) {
   this.currentUser = user;
 
   // set token
-  console.log('set token');
   localStorage.setItem('access_token', token);
 
   // set current user
- // localStorage.setItem('current_user', JSON.stringify(this.currentUser));
+  localStorage.setItem('current_user', JSON.stringify(this.currentUser));
 
 }
 
@@ -51,5 +50,35 @@ public logout(): void {
   // Go back to the home route
   this.router.navigate(['/']);
 }
+
+
+public isLogined() {
+  if (!this.currentUser.username) {
+    return false;
+  } else {
+    return true;
+  }
+}
+public getCurrentUser() {
+  return this.currentUser;
+}
+
+public autoGetCurrentUser() {
+    this.currentUser = JSON.parse(localStorage.getItem('current_user'));
+}
+
+// private getAuthData() {
+//   const token = localStorage.getItem('access_token');
+// //  const expirationDate: any = localStorage.getItem('expires_at');
+//   const current_user = localStorage.getItem('current_user');
+//   if ( !token || ! expirationDate) {
+//     return;
+//   }
+//   return {
+//     token: token,
+//     expirationDate: new Date( expirationDate * 1000),
+//     current_user: current_user
+//   };
+// }
 
 }
