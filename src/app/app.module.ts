@@ -11,6 +11,8 @@ import { LoginComponent } from './share/components/login/login.component';
 import { RegisterComponent } from './share/components/register/register.component';
 import { ConfirmDialogComponent } from './manage-class/classes/classes.component';
 import { AuthInterceptor } from './share/interceptors/auth-interceptor';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,10 @@ import { AuthInterceptor } from './share/interceptors/auth-interceptor';
     MaterialModule,
     ManageClassRoutes,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    DeviceDetectorModule.forRoot()
+
   ],
   entryComponents: [
     ConfirmDialogComponent,

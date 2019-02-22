@@ -1,17 +1,38 @@
 <div class="center-xs">
-      <div class="big-center-logo center-xs" layout-align="center center">
-        <img src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png" width="100%">
-      </div>
-    </div>
-    <div class="user-access-title">Đăng nhập</div>
-    <div class="form margin-top-20">
-      <mat-form-field appearance="outline">
-        <mat-label>Tài khoản</mat-label>
-        <input matInput placeholder="Tên tài khoản">
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Mật khẩu</mat-label>
-        <input type="password" matInput placeholder="Nhập mật khẩu">
-      </mat-form-field>
-      <button class="margin-top-30" mat-flat-button color="primary" (click)="login()">Đăng nhập</button>
-    </div>
+  <div class="big-center-logo center-xs" layout-align="center center">
+    <img
+      src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png"
+      width="100%"
+    />
+  </div>
+</div>
+<div class="user-access-title">Đăng nhập</div>
+<div class="form margin-top-20">
+  <mat-form-field appearance="outline">
+    <mat-label>Tài khoản</mat-label>
+    <input 
+    matInput
+    placeholder="Tên tài khoản" 
+    [formControl]="userName"
+    [(ngModel)] = "loginInfo.username"
+    >
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Mật khẩu</mat-label>
+    <input type="password"
+     matInput
+     placeholder="Nhập mật khẩu"
+     [formControl]="password"
+     [(ngModel)] = "loginInfo.password"
+     />
+  </mat-form-field>
+  <div class="">{{ message }}</div>
+  <button
+    class="margin-top-30"
+    mat-flat-button
+    color="primary"
+    (click)="login()"
+  >
+    Đăng nhập
+  </button>
+</div>

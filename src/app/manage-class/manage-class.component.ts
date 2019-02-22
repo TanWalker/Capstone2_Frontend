@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceDetectorModule } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class ManageClassComponent implements OnInit {
 
   deviceInfo = null;
   constructor(
-    private deviceService: DeviceDetectorModule,
+    private deviceService: DeviceDetectorService,
   ) {
     // this.epicFunction();
   }

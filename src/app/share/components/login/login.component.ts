@@ -4,7 +4,7 @@ import { Login } from '../../models/login';
 import { UserService } from '../../services/user.service';
 import { Result } from '../../models/result';
 import { AuthService } from '../../services/auth.service';
-import { VersionService } from '../../services/version.service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,43 +13,63 @@ import { VersionService } from '../../services/version.service';
 })
 export class LoginComponent implements OnInit {
 
+  // local
   public loginInfo: Login = new Login();
+  public isSubmit = false;
+  public loginForm: FormGroup;
+  public userName = new FormControl('', [Validators.required]);
+  public password = new FormControl('', [Validators.required]);
+  public message = '';
   constructor(
     private router: Router,
     private userService: UserService,
     private authService: AuthService,
-    private versionService: VersionService
+    private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
-    this.versionService.getVersionBE().subscribe(
-      (res) => {
-        console.log(res);
-      }
-    );
+   this.initialValidation();
   }
 
+  initialValidation() {
+    this.loginForm = this.formBuilder.group({});
+    this.loginForm.addControl('userName', this.userName);
+    this.loginForm.addControl('password', this.password);
+  }
   login() {
 
-      // step 1 : set value for login
-      this.loginInfo.username = 'darkwin';
-      this.loginInfo.password = '0511730580';
+     // set isSubmit
+     this.isSubmit = true;
+     // check validation
+     if (this.loginForm.invalid) {
+       return;
+     }
+
     this.userService.login(this.loginInfo).subscribe(
       (response: Result) => {
 
-         // response should return token and user info
+        console.log(response);
 
+        if (response.success) {
+
+        // response should return token and user info
         const data = response.success ? response.value : '';
-
         const token = data.token;
-
         // const expiresIn = data.expiresIn;
         // this.authService.setUser(response.value, response.value.token);
         this.authService.setUser(data.user, token);
-        // token
+        this.router.navigate(['/class']);
+        // reset form
+        this.isSubmit = false;
+
+        } else {
+            this.message = response.errorMessage.toString();
+        }
+
+      } , error => {
+        console.log(JSON.stringify(error));
       }
     );
 
-    this.router.navigate(['/class']);
   }
 }
