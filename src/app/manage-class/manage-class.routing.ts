@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
       { path: 'classes', component: ClassesComponent },
-      { path: 'edit', component: EditComponent },
+      { path: 'classes/edit', component: EditComponent },
       { path: 'profiles', component: ProfilesComponent }
     ]
   }

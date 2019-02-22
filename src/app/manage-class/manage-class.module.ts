@@ -8,13 +8,15 @@ import { ClassesComponent } from './classes/classes.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
 import { EditComponent } from './dialogs/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DeviceDetectorModule.forRoot()
   ],
   declarations: [
     ManageClassComponent,

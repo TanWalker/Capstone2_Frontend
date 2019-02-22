@@ -38,6 +38,11 @@ body {
   font-weight: 800;
 }
 
+/* algin system */
+.float-right{
+  float: right;
+}
+
 /* margin system */
 
 

@@ -13,9 +13,9 @@
 </div>
 <div class="row">
     <div class="col-xs" style="padding-right: 10px;">
-        <button mat-flat-button (click)="onNoClick()">Hủy</button>
+        <button mat-flat-button [mat-dialog-close]>Hủy</button>
     </div>
     <div class="col-xs end-xs">
-        <button mat-flat-button color="primary">Lưu</button>
+        <button mat-flat-button color="primary" (click)="createTeam()">Tạo</button>
     </div>
 </div>
