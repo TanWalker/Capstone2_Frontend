@@ -8,6 +8,8 @@ import { ClassesComponent } from './classes/classes.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
 import { EditComponent } from './dialogs/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
+import { ClassComponent } from './components/class/class.component';
+import { AddClassComponent } from './dialogs/add-class/add-class.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,12 @@ import { ProfilesComponent } from './profiles/profiles.component';
     ClassesComponent,
     TabBarComponent,
     EditComponent,
-    ProfilesComponent
-  ]
+    ProfilesComponent,
+    ClassComponent,
+    AddClassComponent
+  ],
+  entryComponents: [
+    AddClassComponent
+  ],
 })
 export class ManageClassModule {}
