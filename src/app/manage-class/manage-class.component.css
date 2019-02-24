@@ -30,9 +30,15 @@
   /* position: sticky; */
   top: 0;
   z-index: 10;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   position: absolute;
 }
 .top-navbar-space{
   margin-bottom:64px;
+}
+::ng-deep html{
+  height: calc(100vh - 64px);
+}
+.ng-star-inserted{
+  height: 100%;
 }
