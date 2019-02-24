@@ -9,7 +9,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MessageBoxComponent } from './share/components/message-box/message-box.component';
 import { LoginComponent } from './share/components/login/login.component';
 import { RegisterComponent } from './share/components/register/register.component';
-import { ConfirmDialogComponent } from './manage-class/classes/classes.component';
 import { AuthInterceptor } from './share/interceptors/auth-interceptor';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeviceDetectorModule } from 'ngx-device-detector';
@@ -18,7 +17,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmDialogComponent,
     MessageBoxComponent,
     LoginComponent,
     RegisterComponent,
@@ -42,7 +40,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 
   ],
   entryComponents: [
-    ConfirmDialogComponent,
     MessageBoxComponent
   ],
   providers: [

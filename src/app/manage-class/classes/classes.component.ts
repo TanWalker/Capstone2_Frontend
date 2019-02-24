@@ -1,6 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { Class } from 'src/app/share/models/class';
+import { AddClassComponent } from '../dialogs/add-class/add-class.component';
 
 @Component({
   selector: 'app-classes',
@@ -8,35 +10,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent implements OnInit {
+  public classes: Class[] = [];
   constructor(public dialog: MatDialog, private router: Router) {}
   openDialog(): void {
-    this.dialog.open(ConfirmDialogComponent, {});
+    this.dialog.open(AddClassComponent, {});
   }
   ngOnInit() {
     // this.getVersion();
+    this.getClasses();
   }
-  /* getVersion() {
-     this.versionService.getVersionBE().subscribe(
-       (data) => {
-         console.log(data);
-       }
-     );
-     this.versionService.getVersionFRe();
-   } */
+  public getClasses() {
+    const class1 = new Class('1' , '1' , 'ánh' , '15');
+    const class2 = new Class('2' , '1' , 'dương' , '16');
+    const class3 = new Class('3' , '1' , 'tiến' , '17');
+    const class4 = new Class('4' , '1' , 'trí' , '18');
+
+     this.classes.push(class1);
+     this.classes.push(class2);
+     this.classes.push(class3);
+     this.classes.push(class4);
+
+    console.log(this.classes);
+
+
+  }
 }
 
-@Component({
-  selector: 'app-dialog-add-class',
-  templateUrl: 'dialog-add-class.html'
-})
-export class ConfirmDialogComponent {
-  constructor(
-    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router
-  ) {}
-  createTeam(): void {
-    this.router.navigate(['/class/classes/edit']);
-    this.dialogRef.close();
-  }
-}
+
