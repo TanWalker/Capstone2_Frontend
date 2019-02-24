@@ -1,50 +1,55 @@
-<div class="center-xs">
-  <div class="big-center-logo center-xs" layout-align="center center">
-    <img
-      src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png"
-      width="100%"
-    />
+<div class="outside-access-view">
+  <div class="center-xs">
+    <div class="big-center-logo center-xs" layout-align="center center">
+      <img
+        src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png"
+        width="100%"
+      />
+    </div>
   </div>
-</div>
-<div class="user-access-title margin-left-15">Đăng nhập</div>
-<div class="form margin-top-20 padding-left-right-15">
-  <mat-form-field appearance="outline" class="margin-top-15">
-    <mat-label>Tài khoản</mat-label>
-    <input 
-    matInput
-    placeholder="Tên tài khoản" 
-    [formControl]="userName"
-    [(ngModel)] = "loginInfo.username"
+  <div class="user-access-title margin-left-15">Đăng nhập</div>
+  <div class="form margin-top-20 padding-left-right-15">
+    <mat-form-field appearance="outline" class="margin-top-15">
+      <mat-label>Tài khoản</mat-label>
+      <input
+        matInput
+        placeholder="Tên tài khoản"
+        [formControl]="userName"
+        [(ngModel)]="loginInfo.username"
+      />
+      <mat-error *ngIf="userName.invalid && isSubmit" class="margin-top-15"
+        >Bạn cần nhập tên đăng nhập</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="margin-top-15">
+      <mat-label>Mật khẩu</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Nhập mật khẩu"
+        [formControl]="password"
+        [(ngModel)]="loginInfo.password"
+      />
+      <mat-error *ngIf="password.invalid && isSubmit" class="margin-top-15"
+        >Bạn cần nhập mật khẩu</mat-error
+      >
+    </mat-form-field>
+    <div class="">{{ message }}</div>
+    <button
+      class="margin-top-30"
+      mat-flat-button
+      color="primary"
+      (click)="login()"
     >
-    <mat-error *ngIf="userName.invalid && isSubmit" class="margin-top-15">Bạn cần nhập tên đăng nhập</mat-error>
-
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="margin-top-15">
-    <mat-label>Mật khẩu</mat-label>
-    <input type="password"
-     matInput
-     placeholder="Nhập mật khẩu"
-     [formControl]="password"
-     [(ngModel)] = "loginInfo.password"
-     />
-     <mat-error *ngIf="password.invalid && isSubmit" class="margin-top-15">Bạn cần nhập mật khẩu</mat-error>
-
-  </mat-form-field>
-  <div class="">{{ message }}</div>
-  <button
-    class="margin-top-30"
-    mat-flat-button
-    color="primary"
-    (click)="login()"
-  >
-    Đăng nhập
-  </button>
-  <button
-    class="margin-top-30"
-    mat-flat-button
-    color="warn"
-    (click)="regis()"
-  >
-    Đăng ký
-  </button>
+      Đăng nhập
+    </button>
+    <button
+      class="margin-top-30"
+      mat-flat-button
+      color="warn"
+      (click)="regis()"
+    >
+      Đăng ký
+    </button>
+  </div>
 </div>
