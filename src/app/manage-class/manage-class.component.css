@@ -33,12 +33,21 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   position: absolute;
 }
-.top-navbar-space{
-  margin-bottom:64px;
+.top-navbar-space {
+  margin-bottom: 64px;
 }
-::ng-deep html{
+::ng-deep html {
   height: calc(100vh - 64px);
 }
-.ng-star-inserted{
+.ng-star-inserted {
   height: 100%;
+}
+.title-site {
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: default;
+  user-select: none;
+}
+.mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover, .list-tem-active {
+  background: rgba(0,0,0,.1);
 }
