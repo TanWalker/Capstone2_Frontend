@@ -55,7 +55,9 @@ body {
   margin-left: -15px;
   margin-right: -15px;
 }
-
+.margin-left-down-10 {
+  margin-left: -10px;
+}
 .margin-left-down-15 {
   margin-left: -15px;
 }
