@@ -28,11 +28,11 @@
   color: #fff;
 }
 
-::ng-deep body {
+/* ::ng-deep body {
   background: url(./../assets/d83c78835736bef8a0aa6e193416703e.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 
 .self-middle {
   position: relative;
