@@ -51,3 +51,9 @@
 .mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover, .list-tem-active {
   background: rgba(0,0,0,.1);
 }
+.list-tem-active{
+  color: black!important;
+}
+.mat-list-item{
+  color:#3e3e3e;
+}

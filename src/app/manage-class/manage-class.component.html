@@ -23,10 +23,14 @@
     <mat-sidenav #drawer class="sidenav" mode="side" opened>
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-tem-active']">Bromboy2010</a>
-        <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-tem-active']">Nhóm</a>
-        <a mat-list-item >Thư viện</a>
-        <a mat-list-item >Tin tức</a>
+        <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-tem-active']">
+          <i class="fas fa-user-circle margin-right-15 margin-left-5"></i> Bromboy2010
+        </a>
+        <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-tem-active']">
+          <i class="fas fa-users-class margin-right-15 margin-left-5"></i> Nhóm
+        </a>
+        <a mat-list-item ><i class="far fa-books margin-right-15 margin-left-5"></i> Thư viện</a>
+        <a mat-list-item ><i class="far fa-newspaper margin-right-15 margin-left-5"></i> Tin tức</a>
       </mat-nav-list>
     </mat-sidenav>
   </mat-sidenav-container>
