@@ -7,3 +7,11 @@
   margin-right: -50%;
   transform: translate(-50%, 10%);
 }
+.mat-light-blue {
+  background-color: #889aff;
+  color: #fff;
+}
+.mat-success {
+  background-color: #00c020;
+  color: #fff;
+}

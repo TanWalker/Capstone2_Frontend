@@ -5,7 +5,6 @@ import { ClassesComponent } from './classes/classes.component';
 import { EditComponent } from './dialogs/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { UserGuard } from '../share/guards/user.guard';
-import { trigger, transition, group, query, style, animate } from '@angular/animations';
 const routes: Routes = [
   {
     path: 'class',

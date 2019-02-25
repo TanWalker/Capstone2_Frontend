@@ -28,7 +28,7 @@
   position: absolute !important;
 }
 
-.mat-toolbar.mat-primary {
+.mat-toolbar.mat-light-blue {
   /* position: sticky; */
   top: 0;
   z-index: 10;
