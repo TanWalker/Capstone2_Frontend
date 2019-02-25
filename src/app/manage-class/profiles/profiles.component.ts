@@ -8,18 +8,20 @@ export interface Gender {
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
-  styleUrls: ['./profiles.component.scss']
+  styleUrls: [
+    './profiles.component.scss',
+    './../manage-class.component.css',
+    './../../app.component.css'
+  ]
 })
-
 export class ProfilesComponent implements OnInit {
   isMobile = null;
-  constructor(private deviceService: DeviceDetectorService) { }
+  constructor(private deviceService: DeviceDetectorService) {}
   genders: Gender[] = [
     { value: '0', viewValue: 'Nam' },
-    { value: '1', viewValue: 'Nữ' },
+    { value: '1', viewValue: 'Nữ' }
   ];
   ngOnInit() {
     this.isMobile = this.deviceService.isMobile();
   }
-
 }

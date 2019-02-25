@@ -5,12 +5,8 @@
   <app-tab-bar></app-tab-bar>
 </div>
 <div *ngIf="!isMobile">
-  <mat-toolbar color="primary">
-    <button
-      type="button"
-      aria-label="Toggle sidenav"
-      mat-icon-button
-      (click)="drawer.toggle()">
+  <mat-toolbar color="light-blue">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <span class="title-site" matRipple (click)="drawer.toggle()">Swim Tracker</span>
@@ -18,10 +14,11 @@
   <div class="top-navbar-space"></div>
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav-content class="content-desktop">
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
+      <div class="margin-bottom-20"></div>
     </mat-sidenav-content>
     <mat-sidenav #drawer class="sidenav" mode="side" opened>
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar class="menu-banner">Menu</mat-toolbar>
       <mat-nav-list>
         <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-tem-active']">
           <i class="fas fa-user-circle margin-right-15 margin-left-5"></i> Bromboy2010
@@ -29,8 +26,8 @@
         <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-tem-active']">
           <i class="fas fa-users-class margin-right-15 margin-left-5"></i> Nhóm
         </a>
-        <a mat-list-item ><i class="far fa-books margin-right-15 margin-left-5"></i> Thư viện</a>
-        <a mat-list-item ><i class="far fa-newspaper margin-right-15 margin-left-5"></i> Tin tức</a>
+        <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i> Thư viện</a>
+        <a mat-list-item><i class="far fa-newspaper margin-right-15 margin-left-5"></i> Tin tức</a>
         <button mat-flat-button class="float-right margin-right-15 margin-top-10" color="warn">Đăng xuất</button>
       </mat-nav-list>
     </mat-sidenav>

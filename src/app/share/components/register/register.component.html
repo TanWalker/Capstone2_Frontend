@@ -1,14 +1,11 @@
-<div class="outside-access-view">
+<div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
   <div class="center-xs">
     <div class="big-center-logo center-xs" layout-align="center center">
-      <img
-        src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png"
-        width="100%"
-      />
+      <img src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png" width="100%" />
     </div>
   </div>
-  <div class="user-access-title">Đăng ký</div>
-  <div class="form">
+  <div class="user-access-title margin-left-15">Đăng ký</div>
+  <div class="form margin-top-20 padding-left-right-15">
     <mat-form-field appearance="outline">
       <mat-label>Tài khoản</mat-label>
       <input matInput placeholder="Tên tài khoản..." />
@@ -37,6 +34,6 @@
       <mat-label>Số điện thoại</mat-label>
       <input matInput placeholder="..." />
     </mat-form-field>
-    <button mat-flat-button color="primary" (click)="regis()">Đăng ký</button>
+    <button mat-flat-button color="success" (click)="regis()">Đăng ký</button>
   </div>
 </div>

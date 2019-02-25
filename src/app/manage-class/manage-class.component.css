@@ -2,15 +2,18 @@
   max-width: 421px;
   padding: 5px 7px 0 10px;
 }
+
 .content-mobile {
   height: 97%;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
   padding: 10px;
 }
+
 .sidenav {
   min-width: 100px;
 }
+
 .sidenav-container {
   height: 100%;
   z-index: 0;
@@ -20,40 +23,60 @@
   width: 250px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
+
 .mat-sidenav-fixed {
   position: absolute !important;
 }
-.mat-toolbar.mat-primary {
+
+.mat-toolbar.mat-light-blue {
   /* position: sticky; */
   top: 0;
   z-index: 10;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   position: absolute;
 }
+
 .top-navbar-space {
   margin-bottom: 64px;
 }
+
 ::ng-deep html {
   height: calc(100vh - 64px);
 }
+
 .ng-star-inserted {
   height: 100%;
 }
+
 .title-site {
   padding: 5px 15px;
   border-radius: 5px;
   cursor: default;
   user-select: none;
 }
-.mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover, .list-tem-active {
-  background: rgba(0,0,0,.1);
+
+.mat-list-option:focus,
+.mat-list-option:hover,
+.mat-nav-list .mat-list-item:focus,
+.mat-nav-list .mat-list-item:hover,
+.list-tem-active {
+  background: rgba(0, 0, 0, .1);
 }
-.list-tem-active{
-  color: black!important;
+
+.list-tem-active {
+  color: black !important;
 }
-.mat-list-item{
-  color:#3e3e3e;
+
+.mat-list-item {
+  color: #555555;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.menu-banner {
+  background-image: url(https://i.pinimg.com/736x/29/b1/a0/29b1a0df656482b5039bd24124e925fb--pool-graphic-design-flat-design.jpg) !important;
+  background-position: 0 50%;
+  background-size: 100%;
+  min-height: 110px;
+  padding-top: 60px;
 }

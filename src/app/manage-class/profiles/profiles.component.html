@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>Hồ sơ</span>
     <span class="title-bar-spacer"></span>
-    <button mat-flat-button color="primary">Lưu thay đổi</button>
+    <button mat-flat-button color="light-blue">Lưu thay đổi</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -35,7 +35,5 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div *ngIf="isMobile">
-    <button mat-flat-button color="warn">Đăng xuất</button>
-  </div>
+  <button *ngIf="isMobile" mat-flat-button color="warn">Đăng xuất</button>
 </div>
