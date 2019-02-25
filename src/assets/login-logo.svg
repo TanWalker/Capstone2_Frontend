@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="160" viewBox="0 0 160 160">
+  <defs>
+    <filter id="Ellipse_9" x="0" y="0" width="160" height="160" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feFlood flood-color="#425965" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="icn_surfing" transform="translate(-16 -315)">
+    <g transform="matrix(1, 0, 0, 1, 16, 315)" filter="url(#Ellipse_9)">
+      <circle id="Ellipse_9-2" data-name="Ellipse 9" cx="35" cy="35" r="35" transform="translate(45 35)" fill="#fff"/>
+    </g>
+    <g id="icn_surfing-2" data-name="icn_surfing" transform="translate(5 5)">
+      <g id="Group_65" data-name="Group 65" transform="translate(73.25 362.255)">
+        <rect id="Rectangle_102" data-name="Rectangle 102" width="24.758" height="24.758" transform="matrix(0.724, -0.69, 0.69, 0.724, 0.749, 17.818)" stroke-width="2" stroke="#d97d54" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"/>
+        <path id="Path_106" data-name="Path 106" d="M1.7,14.1a15.369,15.369,0,0,0,9.969-1.7c2.791-1.6,5.051-4.6,10.766-3.3a5.19,5.19,0,0,0-2.525,2.2c-.93,2.1,2.26,3,4.386,3.2a78.579,78.579,0,0,0,9.7-.2" transform="translate(0 3.032)" fill="none" stroke="#d97d54" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
