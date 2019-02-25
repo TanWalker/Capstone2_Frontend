@@ -28,17 +28,22 @@
   color: #fff;
 }
 
-/* ::ng-deep body {
+.background {
   background: url(./../assets/d83c78835736bef8a0aa6e193416703e.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-} */
+  width: 100%;
+  margin: 0;
+  height: 100%;
+  display: block;
+}
 
 .self-middle {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .big-center-logo {
   display: inline-block;
   width: 160px;
@@ -46,14 +51,15 @@
   overflow: hidden;
   margin-top: 15px;
 }
-.big-center-logo-desktop{
+
+.big-center-logo-desktop {
   display: inline-block;
   width: 120px;
-  height: 120px;  
+  height: 120px;
   overflow: hidden;
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   margin-top: -55px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }

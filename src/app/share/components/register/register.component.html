@@ -1,40 +1,41 @@
-<div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
+<div [ngClass]="isMobile ? '' : 'background'">
+  <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
     <div class="center-xs">
-        <div [ngClass]="isMobile ? 'big-center-logo' : 'big-center-logo-desktop'"
-          layout-align="center center">
-          <img src="./../../../../assets/plavanie.png" class="self-middle" width="100%" />
-        </div>
+      <div [ngClass]="isMobile ? 'big-center-logo' : 'big-center-logo-desktop'" layout-align="center center">
+        <img src="./../../../../assets/plavanie.png" class="self-middle" width="100%" />
       </div>
-  <div class="user-access-title margin-left-15">Đăng ký</div>
-  <div class="form margin-top-20 padding-left-right-15">
-    <mat-form-field appearance="outline">
-      <mat-label>Tài khoản</mat-label>
-      <input matInput placeholder="Tên tài khoản..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" placeholder="Địa chỉ email..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Mật khẩu</mat-label>
-      <input type="password" matInput placeholder="Nhập mật khẩu..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Họ Đệm</mat-label>
-      <input matInput placeholder="..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Tên</mat-label>
-      <input matInput placeholder="..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Ngày sinh</mat-label>
-      <input matInput type="date" placeholder="..." />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Số điện thoại</mat-label>
-      <input matInput placeholder="..." />
-    </mat-form-field>
-    <button mat-flat-button color="success" (click)="regis()">Đăng ký</button>
+    </div>
+    <div class="user-access-title margin-left-15">Đăng ký</div>
+    <div class="form margin-top-20 padding-left-right-15">
+      <mat-form-field appearance="outline">
+        <mat-label>Tài khoản</mat-label>
+        <input matInput placeholder="Tên tài khoản..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Địa chỉ email..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Mật khẩu</mat-label>
+        <input type="password" matInput placeholder="Nhập mật khẩu..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Họ Đệm</mat-label>
+        <input matInput placeholder="..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tên</mat-label>
+        <input matInput placeholder="..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Ngày sinh</mat-label>
+        <input matInput type="date" placeholder="..." />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Số điện thoại</mat-label>
+        <input matInput placeholder="..." />
+      </mat-form-field>
+      <button mat-flat-button color="success" (click)="regis()">Đăng ký</button>
+    </div>
   </div>
 </div>
