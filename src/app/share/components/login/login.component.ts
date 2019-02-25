@@ -10,6 +10,7 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-login',
@@ -24,15 +25,19 @@ export class LoginComponent implements OnInit {
   public userName = new FormControl('', [Validators.required]);
   public password = new FormControl('', [Validators.required]);
   public message = '';
+
+  isMobile = null;
   constructor(
     private router: Router,
     private userService: UserService,
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private deviceService: DeviceDetectorService
   ) {}
 
   ngOnInit() {
     this.initialValidation();
+    this.isMobile = this.deviceService.isMobile();
   }
 
   initialValidation() {

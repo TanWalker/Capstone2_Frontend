@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Result } from '../../models/result';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +12,15 @@ import { Result } from '../../models/result';
 export class RegisterComponent implements OnInit {
 
   public user: User = new User();
+
+  isMobile = null;
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit() {
+    this.isMobile = this.deviceService.isMobile();
   }
 
   regis() {

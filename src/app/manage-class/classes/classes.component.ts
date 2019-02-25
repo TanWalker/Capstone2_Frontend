@@ -7,7 +7,7 @@ import { AddClassComponent } from '../dialogs/add-class/add-class.component';
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
-  styleUrls: ['./classes.component.css']
+  styleUrls: ['./classes.component.css','../../app.component.css']
 })
 export class ClassesComponent implements OnInit {
   public classes: Class[] = [];

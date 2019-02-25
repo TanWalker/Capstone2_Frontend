@@ -1,11 +1,15 @@
 .outside-access-view {
   max-width: 768px;
   width: 100%;
-  margin: 0;
+  margin-bottom: 10px;
+}
+.outside-view-desktop{
   position: absolute;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, 10%);
+  margin: 0;
+  margin-bottom: 10px;
 }
 .mat-light-blue {
   background-color: #889aff;
