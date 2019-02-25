@@ -121,6 +121,9 @@ body {
 .margin-left-20 {
   margin-left: 20px !important;
 }
+.margin-left-25 {
+  margin-left: 25px !important;
+}
 
 .margin-top-50 {
   margin-top: 50px;
@@ -239,6 +242,10 @@ body {
 .padding-left-right-20 {
   padding-left: 20px !important;
   padding-right: 20px !important;
+}
+.padding-left-right-25 {
+  padding-left: 25px !important;
+  padding-right: 25px !important;
 }
 
 .padding-left-right-30 {

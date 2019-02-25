@@ -1,9 +1,10 @@
 <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
-  <div class="center-xs">
-    <div class="big-center-logo center-xs" layout-align="center center">
-      <img src="https://pngimage.net/wp-content/uploads/2018/06/html5-logo-png-6.png" width="100%" />
-    </div>
-  </div>
+    <div class="center-xs">
+        <div [ngClass]="isMobile ? 'big-center-logo' : 'big-center-logo-desktop'"
+          layout-align="center center">
+          <img src="./../../../../assets/plavanie.png" class="self-middle" width="100%" />
+        </div>
+      </div>
   <div class="user-access-title margin-left-15">Đăng ký</div>
   <div class="form margin-top-20 padding-left-right-15">
     <mat-form-field appearance="outline">
