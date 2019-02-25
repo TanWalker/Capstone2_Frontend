@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { Result } from '../../models/result';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   isMobile = null;
   constructor(
     private userService: UserService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -29,5 +31,8 @@ export class RegisterComponent implements OnInit {
             console.log(res);
         }
       );
+  }
+  login() {
+    this.router.navigate(['/login']);
   }
 }
