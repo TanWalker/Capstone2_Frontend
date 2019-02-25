@@ -8,15 +8,12 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
 
-constructor(
-  private http: HttpClient
-) { }
-
-login(loginInfo: Login) {
-  return this.http.post(`${environment.urls.api}/public/login`, loginInfo);
-}
-regis(user: User) {
-  return this.http.post(`${environment.urls.api}/public/register`, user);
-}
+  login(loginInfo: Login) {
+    return this.http.post(`${environment.urls.api}/public/login`, loginInfo);
+  }
+  regis(user: User) {
+    return this.http.post(`${environment.urls.api}/public/register`, user);
+  }
 }
