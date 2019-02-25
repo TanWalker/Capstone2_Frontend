@@ -11,7 +11,6 @@ import { AuthService } from '../share/services/auth.service';
 export class ManageClassComponent implements OnInit {
 
   isMobile = null;
-  currentUrl: string;
   constructor(
     private deviceService: DeviceDetectorService,
   ) {
