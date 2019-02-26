@@ -7,16 +7,16 @@
         </div>
       </div>
       <div class="user-access-title margin-left-25">Đăng nhập</div>
-      <div class="form margin-top-20 padding-left-right-25">
+      <div class="form margin-top-15 padding-left-right-25">
         <mat-form-field appearance="outline" class="margin-top-15">
           <mat-label>Tài khoản</mat-label>
           <input matInput placeholder="Tên tài khoản" [formControl]="userName" [(ngModel)]="loginInfo.username" />
-          <mat-error *ngIf="userName.invalid && isSubmit" class="margin-top-15">Bạn cần nhập tên đăng nhập</mat-error>
+          <mat-error *ngIf="userName.invalid && isSubmit">Bạn cần nhập tên đăng nhập</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="margin-top-15">
           <mat-label>Mật khẩu</mat-label>
-          <input type="password" matInput placeholder="Nhập mật khẩu" [formControl]="password" [(ngModel)]="loginInfo.password" />
-          <mat-error *ngIf="password.invalid && isSubmit" class="margin-top-15">Bạn cần nhập mật khẩu</mat-error>
+          <input type="password" matInput placeholder="Nhập mật khẩu" (keyup.enter)="login()" [formControl]="password" [(ngModel)]="loginInfo.password" />
+          <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
         </mat-form-field>
         <div class="">{{ message }}</div>
         <button class="margin-top-30" mat-flat-button color="light-blue" (click)="login()">
