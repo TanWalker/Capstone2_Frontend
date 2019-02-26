@@ -17,10 +17,11 @@
           <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
         </mat-form-field>
         <div class="">{{ message }}</div>
-        <button class="margin-top-30" mat-raised-button color="light-blue" (click)="login()">
+        <button class="margin-top-10 margin-bottom-10" mat-raised-button color="light-blue" (click)="login()">
           ĐĂNG NHẬP
         </button>
-        <button class="margin-top-30" mat-raised-button color="success" (click)="regis()">
+        <hr class="hr-text" data-content="HOẶC">
+        <button class="margin-top-10" mat-raised-button color="success" (click)="regis()">
           ĐĂNG KÝ
         </button>
       </div>
