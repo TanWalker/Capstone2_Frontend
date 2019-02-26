@@ -1,7 +1,9 @@
 .outside-access-view {
-  max-width: 414px;
+  max-width: 768px;
   width: 100%;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background: white;
+  margin: 0 auto;
 }
 
 .outside-view-desktop {
@@ -55,6 +57,10 @@
 .big-logo-outside{
   margin-bottom: -220px;
 }
+.big-logo-outside-mobile{
+  margin-top: -45px;
+  margin-bottom: -76px;
+}
 .big-center-logo {
   display: inline-block;
   width: 160px;
@@ -78,3 +84,8 @@
   border-radius: 50pt;
   line-height: 50px;
 } */
+.background-mobile{
+  width:100%;
+  height:100%;
+  background: white;
+}

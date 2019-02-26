@@ -1,8 +1,7 @@
-<div [ngClass]="isMobile ? '' : 'background'">
   <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
-    <div class="center-xs">
-      <img src="./../../../../assets/login-logo.svg" class="self-middle-logo big-logo-outside" width="90%" />
-    </div>
+      <div class="center-xs">
+          <img src="./../../../../assets/login-logo.svg" [ngClass]="isMobile ? 'big-logo-outside-mobile' : 'self-middle-logo big-logo-outside'" width="90%" />
+        </div>
     <div class="user-access-title margin-left-25">Đăng ký</div>
     <div class="form margin-top-20 padding-left-right-25">
       <mat-form-field appearance="outline">
@@ -39,4 +38,3 @@
 
     </div>
   </div>
-</div>

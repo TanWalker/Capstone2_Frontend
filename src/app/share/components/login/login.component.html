@@ -1,8 +1,7 @@
-<div [ngClass]="isMobile ? '' : 'background'">
   <div class="sign-form-modal">
     <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
       <div class="center-xs">
-        <img src="./../../../../assets/login-logo.svg" class="self-middle-logo big-logo-outside" width="90%" />
+        <img src="./../../../../assets/login-logo.svg" [ngClass]="isMobile ? 'big-logo-outside-mobile' : 'self-middle-logo big-logo-outside'" width="90%" />
       </div>
       <div class="user-access-title margin-left-25">Đăng nhập</div>
       <div class="form margin-top-15 padding-left-right-25">
@@ -27,4 +26,3 @@
       </div>
     </div>
   </div>
-</div>
