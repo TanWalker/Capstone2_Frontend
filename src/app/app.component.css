@@ -19,18 +19,27 @@
   border-radius: 7px;
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.25);
 }
-@supports (
-  (-webkit-backdrop-filter: saturate(180%) blur(20px)) or
-    (backdrop-filter: saturate(180%) blur(20px))
-) {
+
+@supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
   .outside-view-desktop {
     background: rgba(255, 255, 255, 0.75);
     -webkit-backdrop-filter: saturate(180%) blur(25px);
     backdrop-filter: saturate(180%) blur(25px);
   }
 }
+
 .mat-light-blue {
   background-color: #889aff;
+  color: #fff;
+}
+
+.mat-fb-blue {
+  background-color: rgb(66, 103, 178);
+  color: #fff;
+}
+
+.mat-gg-red {
+  background-color: rgb(213, 78, 65);
   color: #fff;
 }
 
@@ -39,6 +48,14 @@
   color: #fff;
 }
 
+.btn-icon {
+  margin-top: -5px;
+  font-size: 17px;
+  margin-right: 8px;
+}
+.mat-raised-button {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.1), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.05);
+}
 .background {
   background: url(./../assets/d83c78835736bef8a0aa6e193416703e.jpg);
   background-size: cover;
@@ -54,13 +71,16 @@
   top: 45%;
   transform: translateY(-45%);
 }
-.big-logo-outside{
+
+.big-logo-outside {
   margin-bottom: -220px;
 }
-.big-logo-outside-mobile{
+
+.big-logo-outside-mobile {
   margin-top: -45px;
   margin-bottom: -76px;
 }
+
 .big-center-logo {
   display: inline-block;
   width: 160px;
@@ -80,15 +100,17 @@
   margin-top: -55px;
   margin-bottom: 30px;
 }
+
 /* .mat-button, .mat-flat-button,.mat-stroked-button{
   border-radius: 50pt;
   line-height: 50px;
 } */
-.background-mobile{
-  width:100%;
-  height:100%;
+.background-mobile {
+  width: 100%;
+  height: 100%;
   background: white;
 }
+
 .hr-text {
   line-height: 1em;
   position: relative;
@@ -99,6 +121,7 @@
   height: 1.5em;
   opacity: 0.5;
 }
+
 .hr-text:before {
   content: "";
   background: linear-gradient(to right, transparent, #818078, transparent);
@@ -108,6 +131,7 @@
   width: 100%;
   height: 1px;
 }
+
 .hr-text:after {
   content: attr(data-content);
   position: relative;
@@ -116,6 +140,6 @@
   padding: 0 0.5em;
   line-height: 1.5em;
   color: #818078;
-  border-radius:5px;
+  border-radius: 5px;
   background-color: #ffffff;
 }

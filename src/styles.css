@@ -4,6 +4,7 @@
 html {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%;
+  font-size:14px;
 }
 
 body {
@@ -37,11 +38,26 @@ body {
   src: url(./assets/fonts/Helvetica/Regular/Helvetica-Bold.ttf);
   font-weight: 800;
 }
-
+@font-face {
+  font-family: Helvetica;
+  src: url(./assets/fonts/Helvetica/Regular/Helvetica.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Helvetica;
+  src: url(./assets/fonts/Helvetica/Regular/Helvetica-Light.ttf);
+  font-weight: 100;
+}
 /* algin system */
 .float-right{
   float: right;
 }
+
+/* Text system */
+.text-center{
+  text-align: center;
+}
+
 
 /* margin system */
 
@@ -138,7 +154,7 @@ body {
 }
 
 .margin-top-15 {
-  margin-top: 15px;
+  margin-top: 15px!important;
 }
 
 .margin-top-20 {

@@ -1,41 +1,49 @@
-  <div class="sign-form-modal">
-    <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
-      <div class="center-xs">
-        <img src="./../../../../assets/login-logo.svg" [ngClass]="isMobile ? 'big-logo-outside-mobile' : 'self-middle-logo big-logo-outside'" width="90%" />
-      </div>
-      <div class="user-access-title margin-left-25">Đăng nhập</div>
-      <div class="form margin-top-15 padding-left-right-25">
-        <mat-form-field appearance="outline" class="margin-top-15">
-          <mat-label>Tài khoản</mat-label>
-          <input matInput placeholder="Tên tài khoản" [formControl]="userName" [(ngModel)]="loginInfo.username" />
-          <mat-error *ngIf="userName.invalid && isSubmit">Bạn cần nhập tên đăng nhập</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="margin-top-15">
-          <mat-label>Mật khẩu</mat-label>
-          <input type="password" matInput placeholder="Nhập mật khẩu" (keyup.enter)="login()" [formControl]="password"
-            [(ngModel)]="loginInfo.password" />
-          <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
-        </mat-form-field>
-        <div class="">{{ message }}</div>
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="box">
-                    <mat-checkbox color="primary">Luôn đăng nhập</mat-checkbox>
-                  </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="box">
-                    <a href="#" class="forgot-password" >Quên mật khẩu?</a>
-                  </div>
-            </div>
+<div class="sign-form-modal">
+  <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
+    <div class="center-xs">
+      <img src="./../../../../assets/login-logo.svg" [ngClass]="isMobile ? 'big-logo-outside-mobile' : 'self-middle-logo big-logo-outside'"
+        width="90%" />
+    </div>
+    <div class="user-access-title margin-left-25">Đăng nhập</div>
+    <div class="form margin-top-15 padding-left-right-25">
+      <mat-form-field appearance="outline" class="margin-top-15">
+        <mat-label>Tài khoản</mat-label>
+        <input matInput placeholder="Tên tài khoản" [formControl]="userName" [(ngModel)]="loginInfo.username" />
+        <mat-error *ngIf="userName.invalid && isSubmit">Bạn cần nhập tên đăng nhập</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="margin-top-15">
+        <mat-label>Mật khẩu</mat-label>
+        <input type="password" matInput placeholder="Nhập mật khẩu" (keyup.enter)="login()" [formControl]="password"
+          [(ngModel)]="loginInfo.password" />
+        <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
+      </mat-form-field>
+      <div class="">{{ message }}</div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="box">
+            <mat-checkbox color="primary">Luôn đăng nhập</mat-checkbox>
+          </div>
         </div>
-        <button class="margin-top-20 margin-bottom-10" mat-raised-button color="light-blue" (click)="login()">
-          ĐĂNG NHẬP
-        </button>
-        <hr class="hr-text" data-content="HOẶC">
-        <button class="margin-top-10" mat-raised-button color="success" (click)="regis()">
-          ĐĂNG KÝ
-        </button>
+        <div class="col-xs-6">
+          <div class="box">
+            <a href="#" class="forgot-password">Quên mật khẩu?</a>
+          </div>
+        </div>
       </div>
+      <button class="margin-top-20 margin-bottom-10" mat-raised-button color="light-blue" (click)="login()">
+        ĐĂNG NHẬP
+      </button>
+      <hr class="hr-text" data-content="HOẶC">
+      <!--button class="margin-top-10" mat-raised-button color="success" (click)="regis()">
+          ĐĂNG KÝ
+        </button-->
+      <button class="margin-top-10" mat-raised-button color="fb-blue" (click)="login()">
+        <i class="fab fa-facebook-f btn-icon"></i> ĐĂNG NHẬP BẰNG FACEBOOK
+      </button>
+      <button class="margin-top-20 margin-bottom-10" mat-raised-button color="gg-red" (click)="login()">
+        <i class="fab fa-google btn-icon"></i> ĐĂNG NHẬP BẰNG GOOGLE
+      </button>
+      <div class="margin-top-25 text-center">Chưa có tài khoản? <a routerLink="/register">Tạo tài khoản</a></div>
     </div>
   </div>
+</div>
