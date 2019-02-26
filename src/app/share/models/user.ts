@@ -1,5 +1,6 @@
 export class User {
-    constructor() {}
+    constructor() {
+    }
 
     public  id: String = '';
     public  role_id: String = '';

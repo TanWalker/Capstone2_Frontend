@@ -10,6 +10,7 @@ import { EditComponent } from './dialogs/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,6 +18,8 @@ import { AddClassComponent } from './dialogs/add-class/add-class.component';
     MaterialModule,
     RouterModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   declarations: [
     ManageClassComponent,

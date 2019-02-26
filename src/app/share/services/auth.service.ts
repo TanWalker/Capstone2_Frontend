@@ -9,7 +9,7 @@ export class AuthService {
 
 
 // create new variable
-public currentUser = new User();
+public currentUser: User = new User();
 constructor(
   private router: Router
 ) { }
@@ -48,12 +48,12 @@ public logout(): void {
   this.currentUser = new User();
 
   // Go back to the home route
-  this.router.navigate(['/']);
+  this.router.navigate(['']);
 }
 
 
 public isLogined() {
-  if (!this.currentUser.username) {
+  if (!this.currentUser) {
     return false;
   } else {
     return true;

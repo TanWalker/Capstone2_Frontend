@@ -13,23 +13,27 @@ export class ClassesComponent implements OnInit {
   public classes: Class[] = [];
   constructor(public dialog: MatDialog, private router: Router) {}
   openDialog(): void {
-    this.dialog.open(AddClassComponent, {});
+    this.dialog.open(AddClassComponent, {
+      minWidth: '300px',
+      minHeight: '400px',
+      hasBackdrop: false
+    });
   }
   ngOnInit() {
     // this.getVersion();
     this.getClasses();
   }
   public getClasses() {
-    const class1 = new Class('1', '1', 'ánh', '15');
-    const class2 = new Class('2', '1', 'dương', '16');
-    const class3 = new Class('3', '1', 'tiến', '17');
-    const class4 = new Class('4', '1', 'trí', '18');
+    // const class1 = new Class('1', '1', 'ánh', '15');
+    // const class2 = new Class('2', '1', 'dương', '16');
+    // const class3 = new Class('3', '1', 'tiến', '17');
+    // const class4 = new Class('4', '1', 'trí', '18');
 
-    this.classes.push(class1);
-    this.classes.push(class2);
-    this.classes.push(class3);
-    this.classes.push(class4);
+    // this.classes.push(class1);
+    // this.classes.push(class2);
+    // this.classes.push(class3);
+    // this.classes.push(class4);
 
-    console.log(this.classes);
+    // console.log(this.classes);
   }
 }

@@ -9,8 +9,14 @@ import { AuthService } from '../share/services/auth.service';
 })
 export class ManageClassComponent implements OnInit {
   isMobile = null;
-  constructor(private deviceService: DeviceDetectorService) {}
+  constructor(
+    private deviceService: DeviceDetectorService,
+    private authService: AuthService
+    ) {}
   ngOnInit() {
     this.isMobile = this.deviceService.isMobile();
+  }
+  logout() {
+    this.authService.logout();
   }
 }
