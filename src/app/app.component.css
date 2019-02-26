@@ -116,5 +116,6 @@
   padding: 0 0.5em;
   line-height: 1.5em;
   color: #818078;
-  background-color: #fcfcfa;
+  border-radius:5px;
+  background-color: #ffffff;
 }
