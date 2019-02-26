@@ -4,7 +4,7 @@
 }
 
 .content-mobile {
-  height: 97%;
+  height: 100vh;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
   padding: 10px;
@@ -80,31 +80,36 @@
   min-height: 110px;
   padding-top: 60px;
 }
+
 .title-bar-spacer {
   flex: 1 1 auto;
 }
-.right-button{
+
+.right-button {
   margin-right: -10px;
 }
 
-.mat-menu-item > .menu-item-icon{
+.mat-menu-item>.menu-item-icon {
   margin-right: 15px;
   margin-bottom: -4px;
   font-size: 24px;
 }
-.user-title{
-  font-size:17px;
+
+.user-title {
+  font-size: 17px;
   padding: 0px 4px;
 }
-.mini-avatar{
+
+.mini-avatar {
   width: 36px;
   height: 36px;
   display: inline-block;
   border-radius: 74px;
   overflow: hidden;
   margin-bottom: -10px;
-  margin-right:5px;
+  margin-right: 5px;
 }
-.mat-menu-link{
-  text-decoration: none!important;
+
+.mat-menu-link {
+  text-decoration: none !important;
 }
