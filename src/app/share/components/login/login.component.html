@@ -2,9 +2,7 @@
   <div class="sign-form-modal">
     <div [ngClass]="isMobile ? 'outside-access-view' : 'outside-access-view outside-view-desktop'">
       <div class="center-xs">
-        <div [ngClass]="isMobile ? 'big-center-logo' : 'big-center-logo-desktop'" layout-align="center center">
-          <img src="./../../../../assets/plavanie.png" class="self-middle" width="100%" />
-        </div>
+        <img src="./../../../../assets/login-logo.svg" class="self-middle-logo big-logo-outside" width="90%" />
       </div>
       <div class="user-access-title margin-left-25">Đăng nhập</div>
       <div class="form margin-top-15 padding-left-right-25">
@@ -15,7 +13,8 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="margin-top-15">
           <mat-label>Mật khẩu</mat-label>
-          <input type="password" matInput placeholder="Nhập mật khẩu" (keyup.enter)="login()" [formControl]="password" [(ngModel)]="loginInfo.password" />
+          <input type="password" matInput placeholder="Nhập mật khẩu" (keyup.enter)="login()" [formControl]="password"
+            [(ngModel)]="loginInfo.password" />
           <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
         </mat-form-field>
         <div class="">{{ message }}</div>
