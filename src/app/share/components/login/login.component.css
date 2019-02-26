@@ -27,8 +27,14 @@
 
 .forgot-password:hover {
   text-decoration: underline;
-  color: rgb(46, 144, 255);
 }
 button {
   font-size: 13px;
+}
+.reg-link > a{
+  text-decoration: none;
+  color: rgb(46, 144, 255);
+}
+.reg-link > a:hover{
+  text-decoration: underline;
 }
