@@ -22,7 +22,7 @@
     (backdrop-filter: saturate(180%) blur(20px))
 ) {
   .outside-view-desktop {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     -webkit-backdrop-filter: saturate(180%) blur(25px);
     backdrop-filter: saturate(180%) blur(25px);
   }
