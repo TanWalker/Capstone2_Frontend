@@ -16,4 +16,7 @@ export class UserService {
   regis(user: User) {
     return this.http.post(`${environment.urls.api}/public/register`, user);
   }
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
 }

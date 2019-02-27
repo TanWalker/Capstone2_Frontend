@@ -42,7 +42,3 @@
 ::ng-deep .form>* {
   width: 100%;
 }
-
-::ng-deep div.mat-form-field-wrapper {
-  padding-bottom: 7px !important;
-}

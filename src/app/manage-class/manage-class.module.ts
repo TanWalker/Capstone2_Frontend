@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClassesComponent } from './classes/classes.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
-import { EditComponent } from './dialogs/edit/edit.component';
+import { EditComponent } from './classes/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';

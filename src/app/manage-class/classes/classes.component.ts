@@ -14,9 +14,7 @@ export class ClassesComponent implements OnInit {
   constructor(public dialog: MatDialog, private router: Router) {}
   openDialog(): void {
     this.dialog.open(AddClassComponent, {
-      minWidth: '300px',
-      minHeight: '400px',
-      hasBackdrop: false
+      disableClose: true
     });
   }
   ngOnInit() {
