@@ -8,11 +8,10 @@
 
 .outside-view-desktop {
   max-width: 340px;
-  position: absolute;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, 110px);
-  margin: 0;
+  position: relative;
+  top: 150px;
+  display: block;
+  height: auto;
   margin-bottom: 10px;
   background: white;
   padding-bottom: 40px;
@@ -57,12 +56,10 @@
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.1), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.05);
 }
 .background {
-  background: url(./../assets/minimalist-windows-10-wallpaper-8436120.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  
   width: 100%;
   margin: 0;
-  height: 100%;
+  /* height: 100%; */
   display: block;
 }
 
