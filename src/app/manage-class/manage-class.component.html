@@ -27,10 +27,10 @@
         </div>
         <span class="title-bar-spacer"></span>
         <div class="right-button">
-          <button mat-icon-button [matMenuTriggerFor]="menu">
+          <button mat-icon-button [matMenuTriggerFor]="moreOptions">
             <mat-icon>expand_more</mat-icon>
           </button>
-          <mat-menu #menu="matMenu">
+          <mat-menu #moreOptions="matMenu">
             <a class="mat-menu-link" routerLink="/class/profiles">
               <button mat-menu-item>
                 <i class="fas fa-user-circle menu-item-icon"></i>
@@ -52,9 +52,13 @@
           <i class="fas fa-users-class margin-right-15 margin-left-5"></i>
           Nhóm
         </a>
-        <a mat-list-item routerLink="/class/lessonplan" [routerLinkActive]="['list-tem-active']"><i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
+        <a mat-list-item [matMenuTriggerFor]="lessonMenu"><i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
           Giáo án
         </a>
+        <mat-menu #lessonMenu="matMenu" xPosition="before">
+          <a mat-menu-item routerLink="/class/lessonplan/list" [routerLinkActive]="['list-tem-active']">Các giáo án</a>
+          <a mat-menu-item routerLink="/class/lessonplan/schedule" [routerLinkActive]="['list-tem-active']">Lịch</a>
+        </mat-menu>
         <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
           Thư viện
         </a>

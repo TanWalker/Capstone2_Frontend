@@ -11,7 +11,9 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
+import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
+import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
+import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesson-plan.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,8 @@ import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
     ProfilesComponent,
     ClassComponent,
     AddClassComponent,
+    LessonPlansComponent,
+    ScheduleComponent,
     LessonPlanComponent
   ],
   entryComponents: [

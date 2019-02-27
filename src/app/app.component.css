@@ -123,8 +123,7 @@
   line-height: 50px;
 } */
 .background-mobile {
-  width: 100%;
-  height: auto;
+  height: -webkit-fill-available;
   background: white;
 }
 

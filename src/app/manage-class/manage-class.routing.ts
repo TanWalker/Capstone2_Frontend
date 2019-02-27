@@ -5,7 +5,8 @@ import { ClassesComponent } from './classes/classes.component';
 import { EditComponent } from './classes/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { UserGuard } from '../share/guards/user.guard';
-import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
+import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
+import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'classes', component: ClassesComponent },
       { path: 'classes/edit', component: EditComponent },
       { path: 'profiles', component: ProfilesComponent },
-      { path: 'lessonplan', component: LessonPlanComponent }
+      { path: 'lessonplan/list', component: LessonPlansComponent },
+      { path: 'lessonplan/schedule', component: ScheduleComponent }
     ]
   }
 ];
