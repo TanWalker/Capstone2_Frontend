@@ -5,7 +5,27 @@
   background: white;
   margin: 0 auto;
 }
+.btn-huge-large {
+  width: 100%;
+  font-size: 20px;
+  height: 60px;
+  margin: 10px 0 10px 0 !important;
+}
+.btn-icon-large {
+  line-height: 0.7;
+  font-size: 30px;
+}
 
+.mat-toolbar {
+  margin-bottom: 5px;
+}
+.icon-fa-huge-large{
+  margin-top: -5px;
+  margin-left: 5px;
+}
+.mat-divider {
+  margin-bottom: 7px;
+}
 .outside-view-desktop {
   max-width: 340px;
   position: relative;

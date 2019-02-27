@@ -5,6 +5,7 @@ import { ClassesComponent } from './classes/classes.component';
 import { EditComponent } from './classes/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { UserGuard } from '../share/guards/user.guard';
+import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -14,7 +15,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
       { path: 'classes', component: ClassesComponent },
       { path: 'classes/edit', component: EditComponent },
-      { path: 'profiles', component: ProfilesComponent }
+      { path: 'profiles', component: ProfilesComponent },
+      { path: 'lessonplan', component: LessonPlanComponent }
     ]
   }
 ];

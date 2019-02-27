@@ -12,7 +12,7 @@ import { AddClassComponent } from '../dialogs/add-class/add-class.component';
 export class ClassesComponent implements OnInit {
   public classes: Class[] = [];
   constructor(public dialog: MatDialog, private router: Router) {}
-  openDialog(): void {
+  openDialogAddTeam(): void {
     this.dialog.open(AddClassComponent, {
       disableClose: true
     });

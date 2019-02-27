@@ -38,3 +38,14 @@ button {
 .reg-link > a:hover{
   text-decoration: underline;
 }
+::ng-deep html {
+  background: url(./../../../../assets/minimalist-windows-10-wallpaper-8436120.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(3,17,66);
+}
+@media screen and (max-width: 400px) {
+  ::ng-deep html {
+    background-color: white;
+  }
+}

@@ -1,9 +1,9 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <span>Quản lý nhóm</span>
+    <span>Quản lý giáo án</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon class="btn-icon-large">group_add</mat-icon></button>
+<button mat-flat-button color="light-blue" (click)="openDialog()" class="btn-huge-large">Thêm giáo án <i class="far fa-calendar-plus icon-fa-huge-large"></i></button>
 <mat-divider></mat-divider>
 
 <div *ngFor="let class of classes">

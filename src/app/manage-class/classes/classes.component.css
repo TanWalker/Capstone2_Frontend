@@ -2,29 +2,6 @@
   flex: 1 1 auto;
 }
 
-::ng-deep .btn-add-team {
-  width: 100%;
-  font-size: 20px;
-  height: 60px;
-  margin: 10px 0 10px 0 !important;
-}
-
-.btn-icon-large {
-  line-height: 0.7;
-  font-size: 30px;
-}
-
-.mat-toolbar {
-  margin-bottom: 5px;
-}
-
-.mat-divider {
-  margin-bottom: 7px;
-}
-
-.title-bar-spacer {
-  flex: 1 1 auto;
-}
 
 .mat-flat-button {
   margin: 0 3px 0 3px;

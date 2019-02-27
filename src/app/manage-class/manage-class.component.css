@@ -113,3 +113,6 @@
 .mat-menu-link {
   text-decoration: none !important;
 }
+::ng-deep html{
+  background: none;
+}

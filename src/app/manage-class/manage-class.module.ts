@@ -11,6 +11,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LessonPlanComponent } from './lesson-plan/lesson-plan.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EditComponent,
     ProfilesComponent,
     ClassComponent,
-    AddClassComponent
+    AddClassComponent,
+    LessonPlanComponent
   ],
   entryComponents: [
     AddClassComponent

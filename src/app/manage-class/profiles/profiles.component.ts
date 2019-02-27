@@ -20,7 +20,7 @@ export class ProfilesComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService
-    ) {}
+  ) {}
   genders: Gender[] = [
     { value: '0', viewValue: 'Nam' },
     { value: '1', viewValue: 'Nữ' }
