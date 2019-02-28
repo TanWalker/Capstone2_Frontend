@@ -7,6 +7,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { UserGuard } from '../share/guards/user.guard';
 import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
 import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
+import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/lesson-plan-detail.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'classes', component: ClassesComponent },
       { path: 'classes/edit', component: EditComponent },
       { path: 'profiles', component: ProfilesComponent },
-      { path: 'lessonplan/list', component: LessonPlansComponent },
+      { path: 'lessonplan', component: LessonPlansComponent },
+      { path: 'lessonplan/plan/:id', component: LessonPlanDetailComponent },
       { path: 'lessonplan/schedule', component: ScheduleComponent }
     ]
   }

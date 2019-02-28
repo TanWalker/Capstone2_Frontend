@@ -15,6 +15,7 @@ import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
 import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
 import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesson-plan.component';
 import { AddLessonComponent } from './lesson-plans/dialogs/add-lesson/add-lesson.component';
+import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/lesson-plan-detail.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { AddLessonComponent } from './lesson-plans/dialogs/add-lesson/add-lesson
     AddLessonComponent,
     LessonPlansComponent,
     ScheduleComponent,
-    LessonPlanComponent
+    LessonPlanComponent,
+    LessonPlanDetailComponent
   ],
   entryComponents: [
     AddClassComponent,
