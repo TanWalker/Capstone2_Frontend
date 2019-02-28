@@ -1,12 +1,20 @@
 export class Lessonplan {
-  constructor(id: String , name: String , style: String , distance: String) {
+  constructor(
+    id: String,
+    name: String,
+    style_id: String,
+    distance: String,
+    repetition: String
+  ) {
     this.id = id;
     this.name = name;
-    this.style = style;
+    this.style_id = style_id;
     this.distance = distance;
-}
-  public  id: String = '';
-  public  name: String = '';
-  public  style: String = '';
-  public  distance: String = '';
+    this.repetition = repetition;
+  }
+  public id: String = '';
+  public name: String = '';
+  public style_id: String = '';
+  public distance: String = '';
+  public repetition: String = '';
 }

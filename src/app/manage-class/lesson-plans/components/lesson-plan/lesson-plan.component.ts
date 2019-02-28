@@ -12,7 +12,5 @@ export class LessonPlanComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  edit() {
-    console.log(this.lessonplan.name);
-  }
+
 }
