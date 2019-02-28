@@ -1,4 +1,4 @@
-import { MatButtonModule, MatCheckboxModule, MatTableModule, MatSidenavModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatTableModule, MatSidenavModule, MatMenuModule, MatExpansionModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -35,7 +35,8 @@ import {MatCardModule} from '@angular/material/card';
         MatCardModule,
         MatTableModule,
         MatSidenavModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule
     ],
     exports: [
         MatButtonModule,
@@ -55,7 +56,8 @@ import {MatCardModule} from '@angular/material/card';
         MatCardModule,
         MatTableModule,
         MatSidenavModule,
-        MatMenuModule
+        MatMenuModule,
+        MatExpansionModule
     ],
 })
 export class MaterialModule { }

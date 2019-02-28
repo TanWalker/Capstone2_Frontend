@@ -7,6 +7,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./lesson-plan-detail.component.css']
 })
 export class LessonPlanDetailComponent implements OnInit {
+  panelOpenState = false;
   public lessonplan_id = '';
   constructor(private route: ActivatedRoute) {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
