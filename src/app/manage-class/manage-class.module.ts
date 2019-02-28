@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
 import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
 import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesson-plan.component';
+import { AddLessonComponent } from './lesson-plans/dialogs/add-lesson/add-lesson.component';
 
 @NgModule({
   imports: [
@@ -32,12 +33,14 @@ import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesso
     ProfilesComponent,
     ClassComponent,
     AddClassComponent,
+    AddLessonComponent,
     LessonPlansComponent,
     ScheduleComponent,
     LessonPlanComponent
   ],
   entryComponents: [
-    AddClassComponent
+    AddClassComponent,
+    AddLessonComponent
   ],
 })
 export class ManageClassModule {}

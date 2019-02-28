@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Lessonplan } from 'src/app/share/models/lessionplan';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { AddLessonComponent } from './dialogs/add-lesson/add-lesson.component';
 
 @Component({
   selector: 'app-lesson-plans',
@@ -8,10 +11,15 @@ import { Lessonplan } from 'src/app/share/models/lessionplan';
 })
 export class LessonPlansComponent implements OnInit {
   public lessonplans: Lessonplan[] = [];
-  constructor() {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit() {
     this.getClasses();
+  }
+  openDialogAddLesson(): void {
+    this.dialog.open(AddLessonComponent, {
+      disableClose: true
+    });
   }
   public getClasses() {
     const lessonp1 = new Lessonplan('1', 'lesson1', '2', '300', '3');
