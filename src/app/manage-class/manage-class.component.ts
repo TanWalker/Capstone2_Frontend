@@ -31,7 +31,6 @@ export class ManageClassComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
-        console.log(this.currentUrl);
       }
     });
 
