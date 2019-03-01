@@ -58,8 +58,8 @@
 .mat-list-option:hover,
 .mat-nav-list .mat-list-item:focus,
 .mat-nav-list .mat-list-item:hover,
-.list-tem-active {
-  background: rgba(0, 0, 0, .1);
+::ng-deep .list-item-active {
+  background: rgba(0, 0, 0, .1)!important;
 }
 
 .list-tem-active {
@@ -112,3 +112,41 @@
 .mat-menu-link {
   text-decoration: none !important;
 }
+
+/* multi-level menu */
+.mat-expansion-panel {
+  margin-bottom: 0;
+  margin-top: 0;
+  border-radius: 0;
+  height: auto;
+}
+
+.mat-expansion-panel {
+  box-shadow: none;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+::ng-deep .mat-expansion-panel-body>.mat-nav-list>.mat-list-item>.mat-list-item-content {
+  padding: 0 16px 0 40px;
+}
+.mat-expansion-panel-header-title {
+  color: #555555;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.1;
+}
+.mat-expansion-panel-header:hover{
+  background: rgba(0, 0, 0, .1)!important;
+}
+.mat-expansion-panel-header{
+  padding: 0 16px;
+}
+/* ----------------- */
+

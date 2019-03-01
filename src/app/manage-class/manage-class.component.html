@@ -45,20 +45,36 @@
         </div>
       </mat-toolbar>
       <mat-nav-list>
-        <!-- <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-tem-active']">
+        <!-- <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-item-active']">
           <i class="fas fa-user-circle margin-right-15 margin-left-5"></i> Bromboy2010
         </a> -->
-        <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-tem-active']">
+        <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-item-active']">
           <i class="fas fa-users-class margin-right-15 margin-left-5"></i>
           Nhóm
         </a>
-        <a mat-list-item [matMenuTriggerFor]="lessonMenu"><i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
+        <!-- <a mat-list-item [matMenuTriggerFor]="lessonMenu"><i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
           Giáo án
         </a>
         <mat-menu #lessonMenu="matMenu" xPosition="before">
-          <a mat-menu-item routerLink="/class/lessonplan" [routerLinkActive]="['list-tem-active']">Các giáo án</a>
-          <a mat-menu-item routerLink="/class/lessonplan/schedule" [routerLinkActive]="['list-tem-active']">Lịch</a>
-        </mat-menu>
+          <a mat-menu-item routerLink="/class/lessonplan" [routerLinkActive]="['list-item-active']">Các giáo án</a>
+          <a mat-menu-item routerLink="/class/lessonplan/schedule" [routerLinkActive]="['list-item-active']">Lịch</a>
+        </mat-menu> -->
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="panelOpenState ? 'list-item-active' : ''">
+              <mat-panel-title>
+                <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
+                Giáo án
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="/class/lessonplan" [ngClass]="currentUrl == '/class/lessonplan' ? 'list-item-active' : ''">
+                <i class="fas fa-clipboard-list margin-right-15 margin-left-5"></i> Quản lý giáo án
+              </a>
+              <a mat-list-item routerLink="/class/lessonplan/schedule" [ngClass]="currentUrl == '/class/lessonplan/schedule' ? 'list-item-active' : ''">
+                <i class="fas fa-calendar-alt margin-right-15 margin-left-5"></i> Lịch
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
         <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
           Thư viện
         </a>
