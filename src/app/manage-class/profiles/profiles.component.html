@@ -12,20 +12,24 @@
 </div>
 <div class="form">
   <mat-form-field appearance="outline">
-    <mat-label>Họ và Tên</mat-label>
-    <input matInput>
+    <mat-label>Tên</mat-label>
+    <input matInput value="{{user.first_name}}">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Họ Đệm</mat-label>
+    <input matInput value="{{user.last_name}}">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
-    <input matInput>
+    <input matInput value="{{user.email}}">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Số điện thoại</mat-label>
-    <input matInput>
+    <input matInput value="{{user.phone}}">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Ngày sinh</mat-label>
-    <input matInput type="date" placeholder="Chọn ngày">
+    <input matInput type="date" placeholder="Chọn ngày" value="{{dob}}">
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Giới tính</mat-label>

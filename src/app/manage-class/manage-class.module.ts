@@ -16,7 +16,7 @@ import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
 import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesson-plan.component';
 import { AddLessonComponent } from './lesson-plans/dialogs/add-lesson/add-lesson.component';
 import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/lesson-plan-detail.component';
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
@@ -44,5 +44,8 @@ import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/les
     AddClassComponent,
     AddLessonComponent
   ],
+  providers: [
+    DatePipe
+  ]
 })
 export class ManageClassModule {}

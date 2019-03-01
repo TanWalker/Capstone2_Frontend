@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'class',
     component: ManageClassComponent,
-    // canActivate: [UserGuard],
+    canActivate: [UserGuard],
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
       { path: 'classes', component: ClassesComponent },
