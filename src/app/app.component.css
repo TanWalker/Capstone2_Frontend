@@ -46,7 +46,10 @@
     backdrop-filter: saturate(180%) blur(25px);
   }
 }
-
+.mat-ok-red {
+  background-color: #ED344E;
+  color: #fff;
+}
 .mat-light-blue {
   background-color: #889aff;
   color: #fff;

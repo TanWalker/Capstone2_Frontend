@@ -55,5 +55,13 @@ export class ClassesComponent implements OnInit, OnDestroy {
    const dialogRef = this.dialog.open(AddClassComponent, {
       disableClose: true
     });
+
+   dialogRef.afterClosed().subscribe(
+     (res) => {
+       if (res) {
+         this.getTeam();
+       }
+     }
+   );
   }
 }
