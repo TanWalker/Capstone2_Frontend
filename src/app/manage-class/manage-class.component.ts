@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthService } from '../share/services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
+import { User } from '../share/models/user';
 
 @Component({
   selector: 'app-manage-class',
@@ -9,13 +10,13 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./manage-class.component.css', './../app.component.css']
 })
 export class ManageClassComponent implements OnInit {
-  currentUrl: string;
-  isMobile = null;
-  user = this.authService.currentUser;
+  public currentUrl: string;
+  public isMobile = false;
+  public user = new User();
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
     router.events.subscribe((_: NavigationEnd) => {
       // example: NavigationStart, RoutesRecognized, NavigationEnd
@@ -27,13 +28,16 @@ export class ManageClassComponent implements OnInit {
   }
 
   ngOnInit() {
+    // install URL
     this.currentUrl = this.router.url;
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
     });
-
+    // get current user
+    this.user = this.authService.currentUser;
+    // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
     console.log(this.user);
   }

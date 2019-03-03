@@ -8,4 +8,9 @@ export const Constants = {
 
         },
        },
+    message: {
+        manage_team: {
+            have_not_team : 'Bạn chưa tạo nhóm',
+        },
+    }
 };

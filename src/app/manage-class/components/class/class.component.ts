@@ -7,11 +7,10 @@ import { Class } from 'src/app/share/models/class';
   styleUrls: ['./class.component.css', '../../../app.component.css']
 })
 export class ClassComponent implements OnInit {
-  @Input() class: Class;
+  @Input() team: Class;
   constructor() {}
 
   ngOnInit() {}
   edit() {
-    console.log(this.class.team_name);
   }
 }

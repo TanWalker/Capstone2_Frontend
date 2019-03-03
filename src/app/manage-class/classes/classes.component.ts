@@ -1,37 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
 import { Class } from 'src/app/share/models/class';
 import { AddClassComponent } from '../dialogs/add-class/add-class.component';
+import { TeamService } from 'src/app/share/services/team.service';
+import { Result } from 'src/app/share/models/result';
+import { Constants } from 'src/app/share/constants';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.css', '../../app.component.css']
 })
-export class ClassesComponent implements OnInit {
-  public classes: Class[] = [];
-  constructor(public dialog: MatDialog, private router: Router) {}
-  openDialogAddTeam(): void {
-    this.dialog.open(AddClassComponent, {
-      disableClose: true
-    });
-  }
+export class ClassesComponent implements OnInit, OnDestroy {
+  // global variable
+  public teams: Class[] = [];
+  public subTeams: any;
+  public message = {
+    have_not_team : ''
+   };
+  constructor(
+    private dialog: MatDialog,
+    private teamService: TeamService
+    ) {}
+
   ngOnInit() {
     // this.getVersion();
-    this.getClasses();
+    this.getTeam();
   }
-  public getClasses() {
-    // const class1 = new Class('1', '1', 'ánh', '15');
-    // const class2 = new Class('2', '1', 'dương', '16');
-    // const class3 = new Class('3', '1', 'tiến', '17');
-    // const class4 = new Class('4', '1', 'trí', '18');
+  ngOnDestroy() {
+    if (!isNullOrUndefined(this.subTeams)) {
+      this.subTeams.unsubscrible();
+    }
+  }
+  getTeam() {
+    this.teamService.getAllTeam().subscribe(
+      (data: Result) => {
+       if (data.success) {
+          if (data.total === 0) {
+              // set message
+              this.message.have_not_team = Constants.message.manage_team.have_not_team;
+          } else {
+              this.teams = data.values;
+              console.log(this.teams);
+          }
+       } else {
+         console.log(data.errorMessage);
+       }
+      }
+    );
+  }
 
-    // this.classes.push(class1);
-    // this.classes.push(class2);
-    // this.classes.push(class3);
-    // this.classes.push(class4);
-
-    // console.log(this.classes);
+  openDialogAddTeam(): void {
+   const dialogRef = this.dialog.open(AddClassComponent, {
+      disableClose: true
+    });
   }
 }

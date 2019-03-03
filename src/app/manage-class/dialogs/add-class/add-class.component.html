@@ -3,7 +3,7 @@
   <div class="form">
     <mat-form-field appearance="outline">
       <mat-label>Tên nhóm</mat-label>
-      <input matInput [formControl]="name" [(ngModel)]="class.team_name" placeholder="Tên nhóm" />
+      <input matInput [formControl]="name" [(ngModel)]="class.name" placeholder="Tên nhóm" />
       <mat-error *ngIf="name.invalid && isSubmit">{{message.name}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
@@ -13,7 +13,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Số lượng</mat-label>
-      <input matInput [formControl]="numberal" type="number" placeholder="Số lượng" />
+      <input matInput [formControl]="numberal" [(ngModel)]="class.number" type="number" placeholder="Số lượng" />
       <mat-error *ngIf="numberal.invalid && isSubmit">{{message.numberal}}</mat-error>
     </mat-form-field>
   </div>

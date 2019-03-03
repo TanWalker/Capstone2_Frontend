@@ -13,7 +13,6 @@ import { AuthInterceptor } from './share/interceptors/auth-interceptor';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,11 +31,6 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     FormsModule,
     DeviceDetectorModule.forRoot(),
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
 
   ],
   entryComponents: [

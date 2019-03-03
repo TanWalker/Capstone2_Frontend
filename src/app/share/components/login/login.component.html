@@ -17,12 +17,15 @@
           [(ngModel)]="loginInfo.password" />
         <mat-error *ngIf="password.invalid && isSubmit">Bạn cần nhập mật khẩu</mat-error>
       </mat-form-field>
-      <div class="">{{ message }}</div>
+      
+      <mat-chip-list *ngIf="message">
+        <mat-chip color="accent" selected class="center margin-bottom-20">{{ message }}</mat-chip>
+      </mat-chip-list>
       <div class="row">
         <div class="col-xs-6">
-          <div class="box">
+          <!-- <div class="box">
             <mat-checkbox color="primary">Luôn đăng nhập</mat-checkbox>
-          </div>
+          </div> -->
         </div>
         <div class="col-xs-6">
           <div class="box">
@@ -37,12 +40,12 @@
       <!--button class="margin-top-10" mat-raised-button color="success" (click)="regis()">
           ĐĂNG KÝ
         </button-->
-      <button class="margin-top-10" mat-raised-button color="fb-blue">
+      <!-- <button class="margin-top-10" mat-raised-button color="fb-blue">
         <i class="fab fa-facebook-f btn-icon"></i> ĐĂNG NHẬP BẰNG FACEBOOK
       </button>
       <button class="margin-top-20 margin-bottom-10" mat-raised-button color="gg-red">
         <i class="fab fa-google btn-icon"></i> ĐĂNG NHẬP BẰNG GOOGLE
-      </button>
+      </button> -->
       <div class="margin-top-25 text-center reg-link">Chưa có tài khoản? <a routerLink="/register">Tạo tài khoản</a></div>
     </div>
   </div>
