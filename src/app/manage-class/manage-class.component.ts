@@ -30,6 +30,7 @@ export class ManageClassComponent implements OnInit {
   ngOnInit() {
     // install URL
     this.currentUrl = this.router.url;
+    console.log(this.currentUrl);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;

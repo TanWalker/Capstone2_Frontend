@@ -24,6 +24,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.getVersion();
     this.getTeam();
+    console.log(this.teams);
   }
   ngOnDestroy() {
     if (!isNullOrUndefined(this.subTeams)) {
@@ -39,7 +40,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
             Constants.message.manage_team.have_not_team;
           this.teams = [];
         } else {
-          this.teams = data.values;
+          this.teams = data.values.reverse();
         }
       } else {
         console.log(data.errorMessage);
@@ -61,8 +62,9 @@ export class ClassesComponent implements OnInit, OnDestroy {
   delete($event) {
     console.log($event);
     if ($event) {
-      console.log('refreshed');
-      this.getTeam();
+      setTimeout(() => {
+        this.getTeam();
+      }, 50);
     }
   }
 }
