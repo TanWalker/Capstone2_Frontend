@@ -17,4 +17,7 @@ getAllTeam() {
 createTeam(team: Class) {
   return this.http.post(`${environment.urls.api}` + `/team`, team);
 }
+deleteTeam(id: String) {
+  return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
+}
 }

@@ -1,10 +1,26 @@
-<mat-toolbar>
-  {{ team.name }}
-  <span class="title-bar-spacer"></span>
-  <button mat-flat-button color="success" (click)="edit()">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-stroked-button>
-    <mat-icon>delete</mat-icon>
-  </button>
-</mat-toolbar>
+
+
+<div class="container-fluid my-class">
+
+  <div class="row box">
+    <div class="col-4">
+        <img src="../../../../assets/avatar_team.png" class="avatar_team">
+    </div>
+    <div class="col-6 padding-left-20">
+      <h3>{{ team.name }}</h3>
+      <h4> Độ tuổi :  {{ team.age }} </h4>  
+      <a (click)="openListMember()"> Danh sách </a>
+    </div>
+    <div class="col-2">
+        <div class="flex-box margin-top-40 padding-left-20">
+          <span class="fill-remaining-space"></span>
+                 <button mat-flat-button color="success" (click)="edit()">
+                   <mat-icon>edit</mat-icon>
+                 </button>
+                 <button mat-stroked-button (click)="delete()">
+                   <mat-icon>delete</mat-icon>
+                 </button>
+        </div>
+    </div>
+  </div>
+</div>

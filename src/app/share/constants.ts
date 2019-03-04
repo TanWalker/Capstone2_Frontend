@@ -17,5 +17,10 @@ export const Constants = {
             message: 'Bạn có muốn tạo team mới ?',
             confirm: true
         },
+        delete_team: {
+            title: 'Xác nhận',
+            message: 'Bạn có muốn xóa team này ?',
+            confirm: true
+        }
     }
 };
