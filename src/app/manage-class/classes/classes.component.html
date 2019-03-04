@@ -4,14 +4,17 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-chip-list *ngIf="message.have_not_team">
+<mat-chip-list *ngIf="teams.length === 0">
   <mat-chip color="accent" selected class="center margin-bottom-20 margin-top-20">{{ message.have_not_team }}</mat-chip>
 </mat-chip-list>
-<button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon class="btn-icon-large">group_add</mat-icon></button>
+<button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon
+    class="btn-icon-large">group_add</mat-icon></button>
+<button mat-flat-button (click)="getTeam()" class="btn-huge-large">Refresh</button>
 <mat-divider></mat-divider>
 
-
-<div *ngFor="let team of teams">
-  <app-class [team] = "team"></app-class>
+<div *ngIf="teams">
+  <div *ngFor="let team of teams">
+    <app-class [team]="team" (isDelete)="delete($event)"></app-class>
+  </div>
 </div>
 <router-outlet></router-outlet>

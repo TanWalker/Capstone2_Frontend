@@ -17,12 +17,9 @@ export class ClassesComponent implements OnInit, OnDestroy {
   public teams: Class[] = [];
   public subTeams: any;
   public message = {
-    have_not_team : ''
-   };
-  constructor(
-    private dialog: MatDialog,
-    private teamService: TeamService
-    ) {}
+    have_not_team: ''
+  };
+  constructor(private dialog: MatDialog, private teamService: TeamService) {}
 
   ngOnInit() {
     // this.getVersion();
@@ -34,34 +31,38 @@ export class ClassesComponent implements OnInit, OnDestroy {
     }
   }
   getTeam() {
-    this.teamService.getAllTeam().subscribe(
-      (data: Result) => {
-       if (data.success) {
-          if (data.total === 0) {
-              // set message
-              this.message.have_not_team = Constants.message.manage_team.have_not_team;
-          } else {
-              this.teams = data.values;
-              console.log(this.teams);
-          }
-       } else {
-         console.log(data.errorMessage);
-       }
+    this.teamService.getAllTeam().subscribe((data: Result) => {
+      if (data.success) {
+        if (data.total === 0) {
+          // set message
+          this.message.have_not_team =
+            Constants.message.manage_team.have_not_team;
+          this.teams = [];
+        } else {
+          this.teams = data.values;
+        }
+      } else {
+        console.log(data.errorMessage);
       }
-    );
+    });
   }
 
   openDialogAddTeam(): void {
-   const dialogRef = this.dialog.open(AddClassComponent, {
+    const dialogRef = this.dialog.open(AddClassComponent, {
       disableClose: true
     });
 
-   dialogRef.afterClosed().subscribe(
-     (res) => {
-       if (res) {
-         this.getTeam();
-       }
-     }
-   );
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.getTeam();
+      }
+    });
+  }
+  delete($event) {
+    console.log($event);
+    if ($event) {
+      console.log('refreshed');
+      this.getTeam();
+    }
   }
 }

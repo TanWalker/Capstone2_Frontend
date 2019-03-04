@@ -1,26 +1,19 @@
-
-
-<div class="container-fluid my-class">
-
-  <div class="row box">
-    <div class="col-4">
-        <img src="../../../../assets/avatar_team.png" class="avatar_team">
+<div class="lesson-link">
+  <mat-card>
+    <div class="row middle-xs">
+      <div class="col-xs-3 center-xs">
+        <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" width="100%">
+      </div>
+      <div class="col-xs-9 reneral-info">
+        <div class="lesson-title">Tên nhóm: {{ team.name }}</div>
+        <div>Độ tuổi: {{ team.age }}</div>
+        <button mat-flat-button color="success" (click)="edit()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="delete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
-    <div class="col-6 padding-left-20">
-      <h3>{{ team.name }}</h3>
-      <h4> Độ tuổi :  {{ team.age }} </h4>  
-      <a (click)="openListMember()"> Danh sách </a>
-    </div>
-    <div class="col-2">
-        <div class="flex-box margin-top-40 padding-left-20">
-          <span class="fill-remaining-space"></span>
-                 <button mat-flat-button color="success" (click)="edit()">
-                   <mat-icon>edit</mat-icon>
-                 </button>
-                 <button mat-stroked-button (click)="delete()">
-                   <mat-icon>delete</mat-icon>
-                 </button>
-        </div>
-    </div>
-  </div>
+  </mat-card>
 </div>

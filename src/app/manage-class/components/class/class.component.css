@@ -1,63 +1,19 @@
-.title-bar-spacer {
-    flex: 1 1 auto;
-  }
-  
-  ::ng-deep .btn-add-team {
-    width: 100%;
-    font-size: 20px;
-    height: 60px;
-    margin: 10px 0 10px 0 !important;
-  }
-  
-  .btn-icon {
-    line-height: 0.7;
-    font-size: 30px;
-  }
-  
-  .mat-toolbar {
-    margin-bottom: 5px;
-  }
-  
-  .mat-divider {
-    margin-bottom: 7px;
-  }
-  
-  .title-bar-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .mat-flat-button {
-    margin: 0 3px 0 3px;
-  }
-  
-  ::ng-deep .row>div>button {
-    width: 100%;
-  }
-  
-  ::ng-deep .cdk-overlay-dark-backdrop {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: saturate(180%) blur(30px);
-  }
-  
-  ::ng-deep .form>* {
-    width: 100%;
-  }
-  
-  ::ng-deep div.mat-form-field-wrapper {
-    padding-bottom: 7px !important;
-  }
-  .avatar_team {
-    height: 90px;
-    margin-top: 10px;
-  }
-  .my-class {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .box {
-    border: 1px solid #E3E3E3;
-    border-radius: 15px;
-    background-color: #FAFAFA;
-  }
+.mat-card{
+  margin-bottom: 10px;
+}
+.time-range-box > div:first-child{
+  border-bottom: 1px solid #dedede;
+}
+.time-range-box > div{
+  padding: 6px 0;
+}
+.reneral-info{
+  line-height: 1.5;
+}
+a.lesson-link{
+  text-decoration: none;
+}
+.lesson-title{
+  font-size: 18px;
+  font-weight: 500;
+}
