@@ -1,6 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
+import { SwimStyle } from 'src/app/share/models/swimStyle';
+import { SwimStyleService } from 'src/app/share/services/swimStyle.service';
+import { Result } from 'src/app/share/models/result';
 
 @Component({
   selector: 'app-add-exercise',
@@ -8,11 +11,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-exercise.component.css', '../../../../app.component.css']
 })
 export class AddExerciseComponent implements OnInit {
+
+  // local variable
+  public styles: SwimStyle [] = [];
+  public subStyle: any;
+  public currentStyle: SwimStyle = new SwimStyle();
   constructor(
-    public dialogRef: MatDialogRef<AddExerciseComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private router: Router
+    private dialogRef: MatDialogRef<AddExerciseComponent>,
+    private swimStyleService: SwimStyleService
+
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getSwimStyle();
+  }
+
+  getSwimStyle() {
+    this.subStyle = this.swimStyleService.getAllStyle().subscribe(
+      (data: Result) => {
+      if (data.success) {
+        this.styles = data.values ;
+        this.currentStyle = this.styles[0];
+      } else {
+        console.log('Can not get swim style');
+      }
+      }
+    );
+  }
 }
