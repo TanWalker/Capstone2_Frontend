@@ -1,4 +1,4 @@
-export class Lessonplan {
+export class Exercise {
   constructor(
     id: String,
     name: String,

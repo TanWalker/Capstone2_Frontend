@@ -5,9 +5,9 @@ import { ClassesComponent } from './classes/classes.component';
 import { EditComponent } from './classes/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { UserGuard } from '../share/guards/user.guard';
-import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
-import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
-import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/lesson-plan-detail.component';
+import { ScheduleComponent } from './exercises/schedule/schedule.component';
+import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -18,9 +18,9 @@ const routes: Routes = [
       { path: 'classes', component: ClassesComponent },
       { path: 'classes/edit', component: EditComponent },
       { path: 'profiles', component: ProfilesComponent },
-      { path: 'lessonplan', component: LessonPlansComponent },
-      { path: 'lessonplan/plan/:id', component: LessonPlanDetailComponent },
-      { path: 'lessonplan/schedule', component: ScheduleComponent }
+      { path: 'exercises', component: ExercisesComponent },
+      { path: 'exercises/detail/:id', component: ExerciseDetailComponent },
+      { path: 'exercises/schedule', component: ScheduleComponent }
     ]
   }
 ];

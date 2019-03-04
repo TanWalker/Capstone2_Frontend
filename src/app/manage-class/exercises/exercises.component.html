@@ -6,7 +6,7 @@
 <button mat-flat-button color="light-blue" (click)="openDialogAddLesson()" class="btn-huge-large">Thêm giáo án <i class="far fa-calendar-plus icon-fa-huge-large"></i></button>
 <mat-divider></mat-divider>
 
-<div *ngFor="let lessonplan of lessonplans">
-  <app-lesson-plan [lessonplan] = "lessonplan"></app-lesson-plan>
+<div *ngFor="let exercise of exercises">
+  <app-exercise [exercise] = "exercise"></app-exercise>
 </div>
 <router-outlet></router-outlet>

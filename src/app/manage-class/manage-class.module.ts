@@ -11,12 +11,12 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LessonPlansComponent } from './lesson-plans/lesson-plans.component';
-import { ScheduleComponent } from './lesson-plans/schedule/schedule.component';
-import { LessonPlanComponent } from './lesson-plans/components/lesson-plan/lesson-plan.component';
-import { AddLessonComponent } from './lesson-plans/dialogs/add-lesson/add-lesson.component';
-import { LessonPlanDetailComponent } from './lesson-plans/lesson-plan-detail/lesson-plan-detail.component';
 import { DatePipe } from '@angular/common';
+import { ScheduleComponent } from './exercises/schedule/schedule.component';
+import { AddExerciseComponent } from './exercises/dialogs/add-exercise/add-exercise.component';
+import { ExerciseComponent } from './exercises/components/exercise/exercise.component';
+import { ExercisesComponent } from './exercises/exercises.component';
+import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,15 +34,15 @@ import { DatePipe } from '@angular/common';
     ProfilesComponent,
     ClassComponent,
     AddClassComponent,
-    AddLessonComponent,
-    LessonPlansComponent,
     ScheduleComponent,
-    LessonPlanComponent,
-    LessonPlanDetailComponent
+    AddExerciseComponent,
+    ExerciseComponent,
+    ExercisesComponent,
+    ExerciseDetailComponent
   ],
   entryComponents: [
     AddClassComponent,
-    AddLessonComponent
+    AddExerciseComponent
   ],
   providers: [
     DatePipe
