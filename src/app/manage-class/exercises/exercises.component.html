@@ -1,3 +1,4 @@
+<div [ngClass]="isMobile ? '':'content-desktop'">
 <mat-toolbar>
   <mat-toolbar-row>
     <span>Quản lý bài tập</span>
@@ -9,4 +10,4 @@
 <div *ngFor="let exercise of exercises">
   <app-exercise [exercise] = "exercise"></app-exercise>
 </div>
-<router-outlet></router-outlet>
+</div>

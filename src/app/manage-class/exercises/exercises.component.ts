@@ -5,19 +5,24 @@ import { AddExerciseComponent } from './dialogs/add-exercise/add-exercise.compon
 import { Exercise } from 'src/app/share/models/exercise';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Result } from 'src/app/share/models/result';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-exercises',
   templateUrl: './exercises.component.html',
-  styleUrls: ['./exercises.component.css', '../../app.component.css']
+  styleUrls: ['./exercises.component.css', '../../app.component.css', './../manage-class.component.css']
 })
 export class ExercisesComponent implements OnInit, OnDestroy {
   public exercises: Exercise[] = [];
   public subExercise: any;
+  isMobile = null;
   constructor(
     public dialog: MatDialog,
-    public exerciseService: ExerciseService
-    ) {}
+    public exerciseService: ExerciseService,
+    private deviceService: DeviceDetectorService
+    ) {
+      this.isMobile = deviceService.isMobile();
+    }
 
   ngOnInit() {
     this.getExercises();

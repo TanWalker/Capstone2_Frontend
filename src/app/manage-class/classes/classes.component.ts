@@ -6,6 +6,7 @@ import { TeamService } from 'src/app/share/services/team.service';
 import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { isNullOrUndefined } from 'util';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 const message = {
   message: {
@@ -15,14 +16,25 @@ const message = {
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
-  styleUrls: ['./classes.component.css', '../../app.component.css']
+  styleUrls: [
+    './classes.component.css',
+    '../../app.component.css',
+    './../manage-class.component.css'
+  ]
 })
 export class ClassesComponent implements OnInit, OnDestroy {
   // global variable
   public teams: Class[] = [];
   public subTeams: any;
   public message = message;
-  constructor(private dialog: MatDialog, private teamService: TeamService) {}
+  isMobile = null;
+  constructor(
+    private dialog: MatDialog,
+    private teamService: TeamService,
+    private deviceService: DeviceDetectorService
+  ) {
+    this.isMobile = deviceService.isMobile();
+  }
   ngOnInit() {
     // this.getVersion();
     this.getTeam();
