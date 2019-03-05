@@ -5,5 +5,5 @@ export class Class {
     public  coach_id: String = '';
     public  name: String = '';
     public  age: String = '';
-    public  number: Number = 0;
+    public  number: Number = null;
 }

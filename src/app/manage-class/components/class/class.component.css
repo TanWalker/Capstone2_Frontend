@@ -46,7 +46,9 @@ a.lesson-link{
   margin-right: 10px;
 }
 .sm-icon{
-  font-size: 19px;
+  font-size: 18px;
+  height: 20px;
+  width: 20px;
 }
 .sm-icon-edit{
   font-size: 15px;
