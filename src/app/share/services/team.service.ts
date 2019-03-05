@@ -20,4 +20,8 @@ createTeam(team: Class) {
 deleteTeam(id: String) {
   return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
 }
+getMemberByTeam(id: String) {
+  return this.http.get(`${environment.urls.api}` + `/getMemberByTeam/${id}` );
+
+}
 }
