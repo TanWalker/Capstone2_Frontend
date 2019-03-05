@@ -23,9 +23,14 @@ export class ClassComponent implements OnInit {
   @Output() isDelete = new EventEmitter<boolean>();
   public message = message;
   public subDelelte: any;
+  panelOpenState = false;
+
   constructor(private teamService: TeamService, private dialog: MatDialog) {}
 
   ngOnInit() {}
+  togglePanel() {
+    this.panelOpenState = !this.panelOpenState;
+  }
   edit() {}
   openListMember() {}
   delete() {
