@@ -7,17 +7,19 @@ import { Class } from '../models/class';
   providedIn: 'root'
 })
 export class TeamService {
-
-constructor(
-  private http: HttpClient
-) { }
-getAllTeam() {
- return this.http.get(`${environment.urls.api}` + `/getTeam`);
-}
-createTeam(team: Class) {
-  return this.http.post(`${environment.urls.api}` + `/team`, team);
-}
-deleteTeam(id: String) {
-  return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
-}
+  constructor(private http: HttpClient) {}
+  getAllTeam() {
+    return this.http.get(`${environment.urls.api}` + `/getTeam`);
+  }
+  getMemberByTeam(teamid: String) {
+    return this.http.get(
+      `${environment.urls.api}` + `/getMemberByTeam/${teamid}`
+    );
+  }
+  createTeam(team: Class) {
+    return this.http.post(`${environment.urls.api}` + `/team`, team);
+  }
+  deleteTeam(id: String) {
+    return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
+  }
 }
