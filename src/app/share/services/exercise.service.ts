@@ -16,4 +16,8 @@ constructor(
  public getAllDistance() {
   return this.http.get(`${environment.urls.api}` + `/getDistance`);
 }
+ public getAllExercise() {
+  return this.http.get(`${environment.urls.api}` + `/getExercise`);
+
+ }
 }
