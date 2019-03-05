@@ -6,6 +6,7 @@ export interface Gender {
   value: string;
   viewValue: string;
 }
+
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
@@ -19,6 +20,7 @@ export class ProfilesComponent implements OnInit {
   isMobile = null;
   user = this.authService.currentUser;
   dob = this.datepipe.transform(this.user.dob, 'yyyy-MM-dd');
+
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService,
@@ -31,6 +33,9 @@ export class ProfilesComponent implements OnInit {
   ngOnInit() {
     this.isMobile = this.deviceService.isMobile();
     console.log();
+  }
+  updateAvatar( $info) {
+    console.log($info);
   }
   logout() {
     this.authService.logout();

@@ -16,6 +16,7 @@ import { AddExerciseComponent } from './exercises/dialogs/add-exercise/add-exerc
 import { ExerciseComponent } from './exercises/components/exercise/exercise.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,6 +25,7 @@ import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-de
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    UcWidgetModule
   ],
   declarations: [
     ManageClassComponent,

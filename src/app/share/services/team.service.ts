@@ -11,15 +11,13 @@ export class TeamService {
   getAllTeam() {
     return this.http.get(`${environment.urls.api}` + `/getTeam`);
   }
-  getMemberByTeam(teamid: String) {
-    return this.http.get(
-      `${environment.urls.api}` + `/getMemberByTeam/${teamid}`
-    );
-  }
   createTeam(team: Class) {
     return this.http.post(`${environment.urls.api}` + `/team`, team);
   }
   deleteTeam(id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
+  }
+  getMemberByTeam(id: String) {
+    return this.http.get(`${environment.urls.api}` + `/getMemberByTeam/${id}`);
   }
 }
