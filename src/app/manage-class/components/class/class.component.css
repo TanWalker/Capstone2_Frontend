@@ -29,6 +29,7 @@ a.lesson-link{
   height: 50px;
   flex-shrink: 0;
   line-height: 0;
+  color: rgb(100, 100, 100);
 }
 
 .team-panel-header{
@@ -45,5 +46,13 @@ a.lesson-link{
   margin-right: 10px;
 }
 .sm-icon{
-  font-size: 18px;
+  font-size: 19px;
+}
+.sm-icon-edit{
+  font-size: 15px;
+}
+.sm-btn-edit{
+  width: 23px;
+  height: 23px;
+  line-height: 22px;
 }

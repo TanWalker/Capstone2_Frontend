@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClassesComponent } from './classes/classes.component';
 import { TabBarComponent } from './components/tab-bar/tab-bar.component';
-import { EditComponent } from './classes/edit/edit.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ClassComponent } from './components/class/class.component';
 import { AddClassComponent } from './dialogs/add-class/add-class.component';
@@ -20,6 +19,7 @@ import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-de
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { MemberComponent } from './components/class/member/member.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +38,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     ManageClassComponent,
     ClassesComponent,
     TabBarComponent,
-    EditComponent,
     ProfilesComponent,
     ClassComponent,
     AddClassComponent,
@@ -46,7 +45,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     AddExerciseComponent,
     ExerciseComponent,
     ExercisesComponent,
-    ExerciseDetailComponent
+    ExerciseDetailComponent,
+    MemberComponent
   ],
   entryComponents: [
     AddClassComponent,
