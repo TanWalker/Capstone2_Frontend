@@ -3,10 +3,6 @@
     <span>Quản lý nhóm</span>
   </mat-toolbar-row>
 </mat-toolbar>
-
-<mat-chip-list *ngIf="teams.length === 0">
-  <mat-chip color="accent" selected class="center margin-bottom-20 margin-top-20">{{ message.message.have_not_team }}</mat-chip>
-</mat-chip-list>
 <button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon
     class="btn-icon-large">group_add</mat-icon></button>
 <mat-divider></mat-divider>
@@ -16,4 +12,8 @@
     <app-class [team]="team" (isDelete)="delete($event)"></app-class>
   </div>
 </div>
+<div *ngIf="teams.length === 0" class="empty-list">
+  <div>{{ message.message.have_not_team }}</div>
+</div>
 <router-outlet></router-outlet>
+
