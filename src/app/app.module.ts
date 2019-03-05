@@ -32,8 +32,7 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     FormsModule,
     DeviceDetectorModule.forRoot(),
     LayoutModule,
-    UcWidgetModule
-
+    UcWidgetModule,
   ],
   entryComponents: [
     MessageBoxComponent

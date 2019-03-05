@@ -18,6 +18,8 @@ import { ExerciseComponent } from './exercises/components/exercise/exercise.comp
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,11 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    UcWidgetModule
+    UcWidgetModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   declarations: [
     ManageClassComponent,

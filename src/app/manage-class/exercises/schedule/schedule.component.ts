@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
+  public viewDate: Date = new Date();
+
   constructor() { }
 
   ngOnInit() {
