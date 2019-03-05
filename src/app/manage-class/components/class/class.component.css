@@ -17,3 +17,33 @@ a.lesson-link{
   font-size: 18px;
   font-weight: 500;
 }
+
+.disableFont {
+  color: black;
+}
+
+.collapse-icon-btn {
+  padding: 0;
+  min-width: 0;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.team-panel-header{
+  padding: 10px;
+}
+.mid-collapse-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.class-comp > button{
+  min-width: 60px;
+  line-height: 27px;
+  margin-right: 10px;
+}
+.sm-icon{
+  font-size: 18px;
+}

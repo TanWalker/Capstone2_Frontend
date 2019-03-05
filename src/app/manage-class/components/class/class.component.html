@@ -1,5 +1,5 @@
 <div class="lesson-link">
-  <mat-card>
+  <!-- <mat-card>
     <div class="row middle-xs">
       <div class="col-xs-3 center-xs">
         <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="100%">
@@ -18,5 +18,35 @@
         </button>
       </div>
     </div>
-  </mat-card>
+  </mat-card> -->
+
+  <mat-expansion-panel disabled="true" [expanded]="panelOpenState">
+    <mat-expansion-panel-header class="disableFont team-panel-header" [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
+      <div class="col-xs-3 center-xs">
+        <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="100%">
+      </div>
+      <div class="col-xs-6 reneral-info class-comp">
+        <div class="lesson-title">Tên nhóm: {{ team.name }}</div>
+        <div>Độ tuổi: {{ team.age }}</div>
+        <button mat-flat-button color="success" class="sm-btn" (click)="edit()" class="margin-bottom-5">
+          <mat-icon class="sm-icon">edit</mat-icon>
+        </button>
+        <button mat-stroked-button class="sm-btn" (click)="delete()">
+            <mat-icon class="sm-icon">delete</mat-icon>
+          </button>
+      </div>
+      <div class="col-xs-3 center-xs mid-collapse-btn">
+        <button mat-icon-button class="collapse-icon-btn" (click)="togglePanel()">
+          <mat-icon aria-label="Example icon-button with a heart icon">expand_more</mat-icon>
+        </button>
+      </div>
+
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+  <div class="margin-bottom-10"></div>
 </div>

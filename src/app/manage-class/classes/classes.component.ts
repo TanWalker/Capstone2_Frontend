@@ -8,8 +8,8 @@ import { Constants } from 'src/app/share/constants';
 import { isNullOrUndefined } from 'util';
 
 const message = {
-  message : {
-      have_not_team : Constants.message.manage_team.have_not_team,
+  message: {
+    have_not_team: Constants.message.manage_team.have_not_team
   }
 };
 @Component({
@@ -17,7 +17,6 @@ const message = {
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.css', '../../app.component.css']
 })
-
 export class ClassesComponent implements OnInit, OnDestroy {
   // global variable
   public teams: Class[] = [];
@@ -38,8 +37,8 @@ export class ClassesComponent implements OnInit, OnDestroy {
   getTeam() {
     this.teamService.getAllTeam().subscribe((data: Result) => {
       if (data.success) {
-          this.teams = data.values;
-          console.log(this.teams);
+        this.teams = data.values;
+        console.log(this.teams);
       } else {
         console.log(data.errorMessage);
       }
