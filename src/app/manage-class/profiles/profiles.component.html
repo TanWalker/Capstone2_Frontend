@@ -9,6 +9,15 @@
 <div class="center-xs">
   <div class="profiles-avatar center-xs" layout-align="center center"><img src="../../assets/img_avatar.png" width="100%">
   </div>
+  <ngx-uploadcare-widget
+      images-only="true"
+      public-key="c7c05222d42cec64dcf7"
+      (on-upload-complete)="updateAvatar($event)"
+    
+  >
+    </ngx-uploadcare-widget>
+ 
+ 
 </div>
 <div class="form">
   <mat-form-field appearance="outline">
