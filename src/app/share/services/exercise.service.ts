@@ -5,12 +5,15 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SwimStyleService {
+export class ExerciseService {
 
 constructor(
   private http: HttpClient
 ) { }
-getAllStyle() {
-  return this.http.get(`${environment.urls.api}` + `/public/getSwimStyle`);
- }
+ public getAllStyle() {
+  return this.http.get(`${environment.urls.api}` + `/getStyle`);
+}
+ public getAllDistance() {
+  return this.http.get(`${environment.urls.api}` + `/getDistance`);
+}
 }
