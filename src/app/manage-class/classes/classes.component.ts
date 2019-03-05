@@ -7,18 +7,22 @@ import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { isNullOrUndefined } from 'util';
 
+const message = {
+  message : {
+      have_not_team : Constants.message.manage_team.have_not_team,
+  }
+};
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.css', '../../app.component.css']
 })
+
 export class ClassesComponent implements OnInit, OnDestroy {
   // global variable
   public teams: Class[] = [];
   public subTeams: any;
-  public message = {
-    have_not_team: ''
-  };
+  public message = message;
   constructor(private dialog: MatDialog, private teamService: TeamService) {}
 
   ngOnInit() {
@@ -33,14 +37,8 @@ export class ClassesComponent implements OnInit, OnDestroy {
   getTeam() {
     this.teamService.getAllTeam().subscribe((data: Result) => {
       if (data.success) {
-        if (data.total === 0) {
-          // set message
-          this.message.have_not_team =
-            Constants.message.manage_team.have_not_team;
-          this.teams = [];
-        } else {
           this.teams = data.values;
-        }
+          console.log(this.teams);
       } else {
         console.log(data.errorMessage);
       }

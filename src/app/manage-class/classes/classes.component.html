@@ -5,7 +5,7 @@
 </mat-toolbar>
 
 <mat-chip-list *ngIf="teams.length === 0">
-  <mat-chip color="accent" selected class="center margin-bottom-20 margin-top-20">{{ message.have_not_team }}</mat-chip>
+  <mat-chip color="accent" selected class="center margin-bottom-20 margin-top-20">{{ message.message.have_not_team }}</mat-chip>
 </mat-chip-list>
 <button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon
     class="btn-icon-large">group_add</mat-icon></button>
