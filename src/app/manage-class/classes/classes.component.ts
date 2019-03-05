@@ -23,7 +23,6 @@ export class ClassesComponent implements OnInit, OnDestroy {
   public subTeams: any;
   public message = message;
   constructor(private dialog: MatDialog, private teamService: TeamService) {}
-
   ngOnInit() {
     // this.getVersion();
     this.getTeam();

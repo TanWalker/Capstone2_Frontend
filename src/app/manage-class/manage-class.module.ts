@@ -17,6 +17,7 @@ import { ExerciseComponent } from './exercises/components/exercise/exercise.comp
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { MemberComponent } from './components/class/member/member.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     AddExerciseComponent,
     ExerciseComponent,
     ExercisesComponent,
-    ExerciseDetailComponent
+    ExerciseDetailComponent,
+    MemberComponent
   ],
   entryComponents: [
     AddClassComponent,

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
+import { User } from 'src/app/share/models/user';
 const message = {
   box: {
     title: Constants.box.delete_team.title,
@@ -24,15 +25,27 @@ export class ClassComponent implements OnInit {
   public message = message;
   public subDelelte: any;
   panelOpenState = false;
+  public members: User[] = [];
 
   constructor(private teamService: TeamService, private dialog: MatDialog) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getListMember();
+  }
   togglePanel() {
     this.panelOpenState = !this.panelOpenState;
   }
   edit() {}
-  openListMember() {}
+  getListMember() {
+    this.teamService.getMemberByTeam('2').subscribe((data: Result) => {
+      if (data.success) {
+        this.members = data.values;
+        console.log(this.members);
+      } else {
+        console.log(data.errorMessage);
+      }
+    });
+  }
   delete() {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {

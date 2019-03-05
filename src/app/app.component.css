@@ -126,7 +126,7 @@
   line-height: 50px;
 } */
 .background-mobile {
-  height: -webkit-fill-available;
+  height: -webkit-fill-available!important;
   background: white;
 }
 
@@ -164,4 +164,9 @@
 }
 ::ng-deep .mat-dialog-container{
   max-width: 330px;
+}
+.mat-list-theme{
+  padding: 0 13px;
+  margin: 0 15px;
+  border-bottom: 1px solid rgb(231, 231, 231);
 }
