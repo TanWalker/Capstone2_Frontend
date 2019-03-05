@@ -4,7 +4,7 @@
   <div style="margin-bottom:50px;"></div>
   <app-tab-bar></app-tab-bar>
 </div>
-<div *ngIf="!isMobile">
+<span *ngIf="!isMobile">
   <mat-toolbar color="light-blue">
     <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -84,4 +84,4 @@
       </mat-nav-list>
     </mat-sidenav>
   </mat-sidenav-container>
-</div>
+</span>

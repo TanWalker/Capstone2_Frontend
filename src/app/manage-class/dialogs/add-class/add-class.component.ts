@@ -75,12 +75,14 @@ export class AddClassComponent implements OnInit {
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
+        // openloading
         this.subTeam = this.teamService
           .createTeam(this.class)
           .subscribe((result: Result) => {
             result.success
               ? this.dialogRef.close(true)
               : console.log('create error');
+              // closeloading
           });
       }
     });
