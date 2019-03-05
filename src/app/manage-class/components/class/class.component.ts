@@ -37,7 +37,7 @@ export class ClassComponent implements OnInit {
   }
   edit() {}
   getListMember() {
-    this.teamService.getMemberByTeam('2').subscribe((data: Result) => {
+    this.teamService.getMemberByTeam(this.team.id).subscribe((data: Result) => {
       if (data.success) {
         this.members = data.values;
         console.log(this.members);

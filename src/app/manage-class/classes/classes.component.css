@@ -21,7 +21,7 @@
 }
 
 .empty-list {
-  height: calc(100% - 241px);
+  height: calc(100% - 241px)!important;
   width: 100%;
   display: flex;
   justify-content: center;

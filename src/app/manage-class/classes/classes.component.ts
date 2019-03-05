@@ -7,7 +7,6 @@ import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { isNullOrUndefined } from 'util';
 import { DeviceDetectorService } from 'ngx-device-detector';
-
 const message = {
   message: {
     have_not_team: Constants.message.manage_team.have_not_team
