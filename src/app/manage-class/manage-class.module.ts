@@ -21,6 +21,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MemberComponent } from './components/class/member/member.component';
 import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-schedule.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-sched
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    NgbModule
   ],
   declarations: [
     ManageClassComponent,
@@ -55,8 +58,6 @@ import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-sched
     AddExerciseComponent,
     AddScheduleComponent
   ],
-  providers: [
-    DatePipe
-  ]
+  providers: [DatePipe]
 })
 export class ManageClassModule {}

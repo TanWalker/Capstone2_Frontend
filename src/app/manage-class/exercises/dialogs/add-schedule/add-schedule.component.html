@@ -1,14 +1,15 @@
 <h1 mat-dialog-title><i class="fal fa-edit"></i> Tạo lịch mới</h1>
+<ngb-timepicker [(ngModel)]="time" [meridian]="true"></ngb-timepicker>
 <div mat-dialog-content>
   <div class="form">
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Giờ bắt đầu</mat-label>
       <input type="time" matInput />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Giờ kết thúc</mat-label>
       <input type="time" matInput placeholder="Tên nhóm" />
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-form-field appearance="outline">
       <mat-label>Bài tập</mat-label>
       <mat-select>

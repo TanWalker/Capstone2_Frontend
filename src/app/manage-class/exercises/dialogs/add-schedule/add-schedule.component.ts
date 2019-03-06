@@ -6,16 +6,16 @@ import { AddClassComponent } from 'src/app/manage-class/dialogs/add-class/add-cl
 @Component({
   selector: 'app-add-schedule',
   templateUrl: './add-schedule.component.html',
-  styleUrls: ['./add-schedule.component.css', '../../../../app.component.css' , '../../../manage-class.component.css']
+  styleUrls: [
+    './add-schedule.component.css',
+    '../../../../app.component.css',
+    '../../../manage-class.component.css'
+  ]
 })
 export class AddScheduleComponent implements OnInit {
-
   constructor(
     public dialogRef: MatDialogRef<AddClassComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
-
-  ngOnInit() {
-  }
-
+  ) {}
+  ngOnInit() {}
 }
