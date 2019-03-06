@@ -1,2 +1,2 @@
-<!-- <div class="loading-over"><mat-spinner></mat-spinner></div> -->
+<div [ngClass]="openLoading ? 'loading-over' : 'display-none'"><mat-spinner></mat-spinner></div>
 <div [ngClass]="isMobile ? 'background-mobile' : 'background'"><router-outlet></router-outlet></div>

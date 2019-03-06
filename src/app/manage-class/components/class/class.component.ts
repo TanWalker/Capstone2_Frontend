@@ -46,7 +46,7 @@ export class ClassComponent implements OnInit {
       }
     });
   }
-  delete() {
+  delete(team) {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
         title: this.message.box.title,
