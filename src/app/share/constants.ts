@@ -9,17 +9,25 @@ export const Constants = {
     message: {
         manage_team: {
             have_not_team : 'Không có nhóm nào cả!',
+        } ,
+        manage_exercise : {
+            have_not_exercise: 'Hiện chưa có bài tập'
         }
     },
     box: {
         create_team: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn tạo team mới ?',
+            message: 'Bạn có muốn tạo nhóm mới ?',
             confirm: true
         },
         delete_team: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn xóa team này ?',
+            message: 'Bạn có muốn xóa nhóm này ?',
+            confirm: true
+        },
+        create_exericise: {
+            title: 'Xác nhận',
+            message: 'Bạn có muốn tạo bài tập mới ?',
             confirm: true
         }
     }

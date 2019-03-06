@@ -53,7 +53,7 @@
         </button>
       </div>
     </div>
-    <mat-list class="mat-list-theme" role="list" *ngFor="let member of members.list_member; let i = index">
+    <mat-list class="mat-list-theme" role="list" *ngFor="let member of members; let i = index">
       <app-member [member]="member" [count]="i+1"></app-member>
     </mat-list>
   </mat-expansion-panel>

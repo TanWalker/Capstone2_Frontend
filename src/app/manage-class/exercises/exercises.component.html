@@ -8,7 +8,10 @@
       class="far fa-calendar-plus icon-fa-huge-large"></i></button>
   <mat-divider></mat-divider>
 
-  <div *ngFor="let exercise of exercises">
-    <app-exercise [exercise]="exercise"></app-exercise>
+  <!-- <div *ngIf="exercises.length === 0">
+   {{ message.message.have_not_exercise }}
+</div> -->
+  <div *ngFor="let item of exercises">
+    <app-exercise [exercise]="item"></app-exercise>
   </div>
 </div>

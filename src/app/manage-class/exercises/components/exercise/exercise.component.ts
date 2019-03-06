@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Exercise } from 'src/app/share/models/exercise';
 
+
 @Component({
   selector: 'app-exercise',
   templateUrl: './exercise.component.html',
