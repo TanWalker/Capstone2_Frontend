@@ -49,7 +49,7 @@ export class ClassComponent implements OnInit {
   delete(team) {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
-        title: this.message.box.title,
+        title: team,
         message: this.message.box.message,
         confirm: this.message.box.confirm
       }
