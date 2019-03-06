@@ -49,11 +49,9 @@ export class ClassesComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.teamService.getAllTeam().subscribe((data: Result) => {
       if (data.success) {
-        setTimeout(() => {
-          this.teams = data.values;
-        }, 500);
-        this.isLoading = false;
+        this.teams = data.values;
         console.log(this.teams);
+        this.isLoading = false;
       } else {
         console.log(data.errorMessage);
       }
