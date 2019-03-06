@@ -20,6 +20,7 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MemberComponent } from './components/class/member/member.component';
+import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-schedule.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -46,11 +47,13 @@ import { MemberComponent } from './components/class/member/member.component';
     ExerciseComponent,
     ExercisesComponent,
     ExerciseDetailComponent,
-    MemberComponent
+    MemberComponent,
+    AddScheduleComponent
   ],
   entryComponents: [
     AddClassComponent,
-    AddExerciseComponent
+    AddExerciseComponent,
+    AddScheduleComponent
   ],
   providers: [
     DatePipe
