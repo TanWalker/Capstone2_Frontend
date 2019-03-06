@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarEvent, CalendarEventAction } from 'angular-calendar';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
-  setHours,
-  setMinutes,
-  format
-} from 'date-fns';
+import { CalendarEvent } from 'angular-calendar';
+
 import { MatDialog } from '@angular/material';
+import { ScheduleService } from 'src/app/share/services/schedule.service';
+import { Result } from 'src/app/share/models/result';
+import { Schedule } from 'src/app/share/models/schedule';
+import { Subject } from 'rxjs';
 
 
 const colors: any = {
@@ -39,33 +31,44 @@ const colors: any = {
 export class ScheduleComponent implements OnInit {
 
   public viewDate: Date = new Date();
-  events: CalendarEvent[] = [
-    {
-      title: 'No event end date',
-      start: new Date( 2019 , 2 , 6 , 8 , 0 ),
-      end :  new Date( 2019 , 2 , 6 , 10 , 0),
-      color: colors.blue,
-      meta : 'abc',
-      id: '1',
-    },
-    {
-      title: 'No event end date',
-      start: setHours(setMinutes(new Date(), 0), 14),
-      end: setHours(setMinutes(new Date(), 0), 16),
+  public events: CalendarEvent[] = [];
+  public schedule: Schedule[] = [];
 
-      color: colors.yellow,
-      meta : 'abc',
-      id: '2',
 
-    }
-  ];
+  public subEvents: any;
+  refresh: Subject<any> = new Subject();
 
   constructor(
+    private scheduleService: ScheduleService
   ) { }
 
   ngOnInit() {
+    this.getEvent();
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
+    console.log(event);
+  }
+  getEvent() {
+    this.subEvents = this.scheduleService.getScheduleByCoach().subscribe(
+        (data: Result) => {
+         this.schedule = data.success ? data.values : [];
+         this.schedule.map(
+           (event) => {
+             this.events.push(
+              {
+                title: 'Eddy team',
+                start: new Date( event.year, event.month - 1, event.day - 1, event.start_hour, event.start_minute ),
+                end :  new Date( event.year, event.month - 1, event.day - 1, event.end_hour, event.end_minute ),
+                color: colors.blue,
+                meta : 'abc',
+                id: '1',
+              }
+             );
+           }
+         );
+         this.refresh.next();
+        }
+    );
   }
 }
