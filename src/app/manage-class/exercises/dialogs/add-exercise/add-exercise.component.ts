@@ -1,10 +1,23 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { SwimStyle } from 'src/app/share/models/swimStyle';
 import { Result } from 'src/app/share/models/result';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Distance } from 'src/app/share/models/distance';
+import { Constants } from 'src/app/share/constants';
+import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
+import { Exercise } from 'src/app/share/models/exercise';
 
+const message = {
+  box: {
+    title: Constants.box.create_exericise.title,
+    message: Constants.box.create_exericise.message,
+    confirm: Constants.box.create_exericise.confirm
+  },
+  error: {
+    have_not_exercise: Constants.message.manage_exercise.have_not_exercise
+  }
+};
 @Component({
   selector: 'app-add-exercise',
   templateUrl: './add-exercise.component.html',
@@ -13,14 +26,18 @@ import { Distance } from 'src/app/share/models/distance';
 export class AddExerciseComponent implements OnInit, OnDestroy {
 
   // local variable
+  public message = message;
   public styles: SwimStyle [] = [];
   public distances: Distance [] = [];
   public subStyle: any;
   public subDistance: any;
   public currentStyle: SwimStyle = new SwimStyle();
+  public subCreate: any;
+  public exercise: Exercise = new Exercise();
   constructor(
     private dialogRef: MatDialogRef<AddExerciseComponent>,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private dialog: MatDialog
 
   ) {}
 
@@ -54,5 +71,26 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
         }
       }
     );
+  }
+  createExercise() {
+
+    const messageDialogRef = this.dialog.open(MessageBoxComponent, {
+      data: {
+        title: this.message.box.title,
+        message: this.message.box.message,
+        confirm: this.message.box.confirm
+      }
+    });
+    messageDialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        // set name of swim style
+        this.exercise.style = this.currentStyle.swim_name;
+        this.subCreate = this.exerciseService.createExercise(this.exercise).subscribe(
+          (result: Result) => {
+            result.success ? this.dialogRef.close(true) : console.log('create exercise fail');
+          }
+        );
+      }
+    });
   }
 }

@@ -3,7 +3,7 @@
   <div class="form">
     <mat-form-field appearance="outline">
       <mat-label>Tên bài tập</mat-label>
-      <input matInput />
+      <input matInput [(ngModel)] = "exercise.name" />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-select placeholder="Kiểu bơi" [(ngModel)]="currentStyle">
@@ -16,15 +16,15 @@
         <textarea matInput placeholder="Textarea" rows=8>{{ currentStyle?.description }}</textarea>
       </mat-form-field>
       <mat-form-field appearance="outline">
-          <mat-select placeholder="Khoảng cách (m)">
+          <mat-select placeholder="Khoảng cách (m)" [(ngModel)] = "exercise.distance">
     
-            <mat-option *ngFor="let distance of distances" [value]="distance.id">{{ distance?.swim_distance }} (m)</mat-option>
+            <mat-option *ngFor="let distance of distances" [value]="distance.swim_distance">{{ distance?.swim_distance }} (m)</mat-option>
           
           </mat-select>
         </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Số lần lặp</mat-label>
-      <input matInput type="number"/>
+      <input matInput type="number" [(ngModel)] = "exercise.reps"/>
     </mat-form-field>
   </div>
 </div>
@@ -33,6 +33,6 @@
     <button mat-flat-button [mat-dialog-close]>Hủy</button>
   </div>
   <div class="col-xs end-xs">
-    <button mat-flat-button color="light-blue">Tạo</button>
+    <button mat-flat-button color="light-blue" (click)="createExercise()">Tạo</button>
   </div>
 </div>
