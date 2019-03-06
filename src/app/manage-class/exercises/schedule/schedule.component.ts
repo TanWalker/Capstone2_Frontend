@@ -39,7 +39,8 @@ export class ScheduleComponent implements OnInit {
   refresh: Subject<any> = new Subject();
 
   constructor(
-    private scheduleService: ScheduleService
+    private scheduleService: ScheduleService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -70,5 +71,7 @@ export class ScheduleComponent implements OnInit {
          this.refresh.next();
         }
     );
+  }
+  openScheduleBox() {
   }
 }
