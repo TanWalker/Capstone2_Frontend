@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService
-  ) {}
+  ) {
+    const openLoading = true;
+  }
   ngOnInit() {
     this.authService.autoGetCurrentUser();
     this.isMobile = this.deviceService.isMobile();

@@ -32,7 +32,12 @@ body {
 .fill-remaining-space {
   flex: 1 1 auto;
 }
-
+.display-none{
+  display: none;
+}
+.width-full{
+ width:100%;
+}
 /* fonts */
 @font-face {
   font-family: Helvetica;

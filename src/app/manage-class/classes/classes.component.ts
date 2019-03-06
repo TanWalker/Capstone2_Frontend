@@ -27,6 +27,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
   public subTeams: any;
   public message = message;
   isMobile = null;
+  isLoading = null;
   constructor(
     private dialog: MatDialog,
     private teamService: TeamService,
@@ -45,9 +46,13 @@ export class ClassesComponent implements OnInit, OnDestroy {
     }
   }
   getTeam() {
+    this.isLoading = true;
     this.teamService.getAllTeam().subscribe((data: Result) => {
       if (data.success) {
-        this.teams = data.values;
+        setTimeout(() => {
+          this.teams = data.values;
+        }, 500);
+        this.isLoading = false;
         console.log(this.teams);
       } else {
         console.log(data.errorMessage);

@@ -19,36 +19,42 @@
       </div>
     </div>
   </mat-card> -->
-
   <mat-expansion-panel disabled="true" [expanded]="panelOpenState">
-    <mat-expansion-panel-header class="disableFont team-panel-header" [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
-      <div class="col-xs-3 center-xs">
-        <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="100%">
-      </div>
-      <div class="col-xs-6 reneral-info class-comp">
-        <div class="lesson-title">
-          Tên nhóm: {{ team.name }}
-          <button mat-icon-button class="sm-btn-edit">
-            <mat-icon class="sm-icon-edit">edit</mat-icon>
+    <mat-expansion-panel-header class="disableFont team-panel-header">
+      <div class="row">
+        <div class="col-xs-3 center-xs">
+          <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="60%">
+        </div>
+        <div class="col-xs-6 reneral-info class-comp">
+          <div class="lesson-title">
+            Tên nhóm: {{ team.name }}
+            <button mat-icon-button class="sm-btn-edit">
+              <mat-icon class="sm-icon-edit">edit</mat-icon>
+            </button>
+          </div>
+          <div class="lesson-description">Độ tuổi: {{ team.age }}</div>
+        </div>
+        <div class="col-xs-3 center-xs mid-collapse-btn">
+          <button mat-icon-button class="collapse-icon-btn" (click)="togglePanel()">
+            <i class="far fa-clipboard-list-check fa-2x"></i>
           </button>
         </div>
-        <div>Độ tuổi: {{ team.age }}</div>
-        <button mat-flat-button color="success" class="sm-btn" (click)="addMember()" class="margin-bottom-5">
-          <mat-icon class="sm-icon">person_add</mat-icon>
-        </button>
-        <button mat-stroked-button class="sm-btn" (click)="delete()">
-          <mat-icon class="sm-icon">delete</mat-icon>
-        </button>
       </div>
-      <div class="col-xs-3 center-xs mid-collapse-btn">
-        <button mat-icon-button class="collapse-icon-btn" (click)="togglePanel()">
-          <mat-icon>list</mat-icon>
-        </button>
-      </div>
-
     </mat-expansion-panel-header>
-    <mat-list class="mat-list-theme" role="list" *ngFor="let member of members.list_member">
-      <app-member [member]="member"></app-member>
+    <div class="row">
+      <div class="col-xs-9 center-xs">
+        <button mat-flat-button color="success" (click)="addMember()" class="width-full">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+      <div class="col-xs-3 center-xs">
+        <button mat-stroked-button color="warn" (click)="delete(team.name)" class="width-full">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <mat-list class="mat-list-theme" role="list" *ngFor="let member of members.list_member; let i = index">
+      <app-member [member]="member" [count]="i+1"></app-member>
     </mat-list>
   </mat-expansion-panel>
   <div class="margin-bottom-10"></div>

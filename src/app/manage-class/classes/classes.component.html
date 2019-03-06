@@ -7,14 +7,16 @@
 <button mat-flat-button color="light-blue" (click)="openDialogAddTeam()" class="btn-huge-large">Thêm nhóm <mat-icon
     class="btn-icon-large">group_add</mat-icon></button>
 <mat-divider></mat-divider>
+<!-- <button (click)="getTeam()">refresh</button> -->
 <span *ngIf="teams">
   <div *ngFor="let team of teams">
     <app-class [team]="team" (isDelete)="delete($event)"></app-class>
   </div>
 </span>
-<div *ngIf="teams.length === 0" class="empty-list">
+<div *ngIf="teams.length === 0 && isLoading == false" class="empty-list">
   <div>{{ message.message.have_not_team }}</div>
 </div>
-
-
+<div *ngIf="isLoading == true" class="empty-list">
+    <mat-spinner></mat-spinner>
+</div>
 </div>
