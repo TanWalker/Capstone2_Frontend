@@ -83,7 +83,12 @@ body {
 .margin-left-down-15 {
   margin-left: -15px;
 }
-
+.padding-left-0{
+  padding-left: 0!important;
+}
+.padding-right-0{
+  padding-right: 0!important;
+}
 .margin-top-down-5 {
   margin-top: -5px !important;
 }
@@ -94,6 +99,9 @@ body {
 
 .margin-top-down-15 {
   margin-top: -15px !important;
+}
+.margin-right-5 {
+  margin-right: 5px!important;
 }
 
 .margin-right-15 {

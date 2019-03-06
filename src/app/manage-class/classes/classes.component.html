@@ -8,7 +8,7 @@
     class="btn-icon-large">group_add</mat-icon></button>
 <mat-divider></mat-divider>
 <!-- <button (click)="getTeam()">refresh</button> -->
-<span *ngIf="teams">
+<span *ngIf="teams" class="margin-bottom-20">
   <div *ngFor="let team of teams">
     <app-class [team]="team" (isDelete)="delete($event)"></app-class>
   </div>

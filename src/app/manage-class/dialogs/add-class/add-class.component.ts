@@ -12,6 +12,7 @@ import { Constants } from 'src/app/share/constants';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Result } from 'src/app/share/models/result';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
+import { async } from 'q';
 
 const message = {
   error: {
@@ -73,16 +74,21 @@ export class AddClassComponent implements OnInit {
         confirm: this.message.box.confirm
       }
     });
+
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         // openloading
         this.subTeam = this.teamService
           .createTeam(this.class)
           .subscribe((result: Result) => {
-            result.success
-              ? this.dialogRef.close(true)
-              : console.log('create error');
-              // closeloading
+            if (result.success) {
+              console.log('generated');
+              console.log(result.values);
+              this.dialogRef.close(true);
+            } else {
+              console.log('create error');
+            }
+            // closeloading
           });
       }
     });
