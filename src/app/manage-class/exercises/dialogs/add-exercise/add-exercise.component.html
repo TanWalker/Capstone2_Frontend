@@ -13,8 +13,8 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput placeholder="Textarea" rows=8>{{ currentStyle?.description }}</textarea>
-      </mat-form-field>
+        <textarea matInput placeholder="Textarea" rows=8 [value]="currentStyle.description"></textarea>
+    </mat-form-field>
       <mat-form-field appearance="outline">
           <mat-select placeholder="Khoảng cách (m)" [(ngModel)] = "exercise.distance">
     

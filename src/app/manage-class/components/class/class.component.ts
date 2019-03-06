@@ -65,4 +65,6 @@ export class ClassComponent implements OnInit {
       }
     });
   }
+  addMember() {
+  }
 }
