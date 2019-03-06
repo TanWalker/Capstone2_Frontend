@@ -3,7 +3,10 @@
   [viewDate]="viewDate"
   [events]="events"
   (eventClicked)="handleEvent('Clicked', $event.event)"
+  [refresh]="refresh"
   [dayStartHour]="8"
   [dayEndHour]="20"
   > </mwl-calendar-week-view>
+
+  <button mat-flat-button color="light-blue" (click)="openScheduleBox()">Tạo lịch</button>
 </div>
