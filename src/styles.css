@@ -1,17 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";  
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import '~animate.css/animate.min.css';
-@import "~bootstrap/dist/css/bootstrap.css";  
 
 html {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%;
   font-size:15px;
 }
+* {
+  outline: none !important;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+router-outlet ~ * {
+  position: absolute;
+  height: calc(100vh - 64px);
+  width: 100%;
+}
 
 body {
-  /* background: rgb(3,17,66); */
+  background: transparent;
   margin: 0;
   height: 100%;
 }

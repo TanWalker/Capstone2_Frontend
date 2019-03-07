@@ -7,7 +7,6 @@ import { Result } from 'src/app/share/models/result';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Constants } from 'src/app/share/constants';
 
-
 const message = {
   message: {
     have_not_exercise: Constants.message.manage_exercise.have_not_exercise
@@ -17,10 +16,12 @@ const message = {
 @Component({
   selector: 'app-exercises',
   templateUrl: './exercises.component.html',
-  styleUrls: ['./exercises.component.css', '../../app.component.css', './../manage-class.component.css']
+  styleUrls: [
+    './exercises.component.css',
+    '../../app.component.css',
+    './../manage-class.component.css'
+  ]
 })
-
-
 export class ExercisesComponent implements OnInit, OnDestroy {
   public exercises: Exercise[] = [];
   public subExercise: any;
@@ -30,33 +31,37 @@ export class ExercisesComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public exerciseService: ExerciseService,
     private deviceService: DeviceDetectorService
-    ) {
-      this.isMobile = deviceService.isMobile();
-    }
+  ) {
+    this.isMobile = deviceService.isMobile();
+  }
 
   ngOnInit() {
     this.getExercises();
   }
   ngOnDestroy() {
-    if (this.subExercise !== null) { this.subExercise.unsubscribe(); }
+    if (this.subExercise !== null) {
+      this.subExercise.unsubscribe();
+    }
   }
+  openDialogDistance() {}
+  openDialogSwimStyle() {}
   openDialogAddLesson(): void {
     const dialogRef = this.dialog.open(AddExerciseComponent, {
       disableClose: true
     });
-    dialogRef.afterClosed().subscribe(
-      (res) => {
-        if (res) {
-          this.getExercises();
-        }
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.getExercises();
       }
-    );
+    });
   }
   public getExercises() {
-    this.subExercise = this.exerciseService.getAllExercise().subscribe(
-      (data: Result) => {
-         data.success ? this.exercises = data.values : console.log('can not get exercise');
-      }
-    );
+    this.subExercise = this.exerciseService
+      .getAllExercise()
+      .subscribe((data: Result) => {
+        data.success
+          ? (this.exercises = data.values)
+          : console.log('can not get exercise');
+      });
   }
 }

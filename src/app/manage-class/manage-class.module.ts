@@ -22,6 +22,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MemberComponent } from './components/class/member/member.component';
 import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-schedule.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
+
 
 @NgModule({
   imports: [
@@ -51,12 +53,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ExercisesComponent,
     ExerciseDetailComponent,
     MemberComponent,
-    AddScheduleComponent
+    AddScheduleComponent,
+    EditClassComponent
   ],
   entryComponents: [
     AddClassComponent,
     AddExerciseComponent,
-    AddScheduleComponent
+    AddScheduleComponent,
+    EditClassComponent
   ],
   providers: [DatePipe]
 })
