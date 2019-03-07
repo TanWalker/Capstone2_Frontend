@@ -1,4 +1,4 @@
-<div class="lesson-link animated slideInUp fast" >
+<div class="lesson-link animated slideInUp fast">
   <!-- <mat-card>
     <div class="row middle-xs">
       <div class="col-xs-3 center-xs">
@@ -19,32 +19,34 @@
       </div>
     </div>
   </mat-card> -->
-  <mat-expansion-panel disabled="true" [expanded]="panelOpenState">
+  <mat-expansion-panel [expanded]="panelOpenState">
     <mat-expansion-panel-header class="disableFont team-panel-header">
       <div class="row">
-        <div class="col-xs-3 center-xs">
+        <div class="col-xs-4 center-xs">
           <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="60%">
         </div>
-        <div class="col-xs-6 reneral-info class-comp">
+        <div class="col-xs-8 reneral-info class-comp">
           <div class="lesson-title">
             Tên nhóm: {{ team.name }}
-            <button mat-icon-button class="sm-btn-edit">
-              <mat-icon class="sm-icon-edit">edit</mat-icon>
-            </button>
           </div>
           <div class="lesson-description">Độ tuổi: {{ team.age }}</div>
         </div>
-        <div class="col-xs-3 center-xs mid-collapse-btn">
+        <!-- <div class="col-xs-3 center-xs mid-collapse-btn">
           <button mat-icon-button class="collapse-icon-btn" (click)="togglePanel()">
             <i class="far fa-clipboard-list-check fa-2x"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </mat-expansion-panel-header>
     <div class="row">
-      <div class="col-xs-9 center-xs">
+      <div class="col-xs-6 center-xs">
         <button mat-flat-button color="success" (click)="addMember()" class="width-full">
           <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+      <div class="col-xs-3 center-xs">
+        <button mat-stroked-button color="primary" class="width-full">
+          <mat-icon>edit</mat-icon>
         </button>
       </div>
       <div class="col-xs-3 center-xs">
