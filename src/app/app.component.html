@@ -1,2 +1,8 @@
-<div [ngClass]="openLoading ? 'loading-over' : 'display-none'"><mat-spinner></mat-spinner></div>
-<div [ngClass]="isMobile ? 'background-mobile' : 'background'"><router-outlet></router-outlet></div>
+<div [ngClass]="openLoading ? 'loading-over' : 'display-none'">
+  <mat-spinner></mat-spinner>
+</div>
+<div [ngClass]="isMobile ? 'background-mobile' : 'background'">
+      <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+            <router-outlet #o="outlet"></router-outlet>
+          </main>
+</div>
