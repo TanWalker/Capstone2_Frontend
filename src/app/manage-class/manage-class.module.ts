@@ -21,7 +21,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MemberComponent } from './components/class/member/member.component';
 import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-schedule.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -36,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule
+    NgbModule,
+    NgbTimepickerModule
   ],
   declarations: [
     ManageClassComponent,
