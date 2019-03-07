@@ -12,6 +12,12 @@ html {
 * {
   outline: none !important;
 }
+.mat-flat-button[disabled][disabled]{
+  cursor: not-allowed;
+}
+h3, .h3 {
+  font-size: 1.17rem;
+}
 *, *::before, *::after {
   box-sizing: inherit;
 }
