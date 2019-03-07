@@ -15,8 +15,11 @@ export class EditClassComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialog: MatDialog
   ) {}
-  onChange($event) {
-    if (this.team.localeCompare($event) === 0) {
+  onChange($team, $age) {
+    if (
+      this.team.localeCompare($team) === 0 &&
+      this.age.localeCompare($age) === 0
+    ) {
       // if text not changed from the original
       this.isSaveBtnDisabled = true;
     } else {
