@@ -3,11 +3,13 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthService } from '../share/services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { User } from '../share/models/user';
+import { fadeAnimation } from '../animations';
 
 @Component({
   selector: 'app-manage-class',
   templateUrl: './manage-class.component.html',
-  styleUrls: ['./manage-class.component.css', './../app.component.css']
+  styleUrls: ['./manage-class.component.css', './../app.component.css'],
+  animations: [fadeAnimation]
 })
 export class ManageClassComponent implements OnInit {
   public currentUrl: string;

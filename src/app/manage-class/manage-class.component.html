@@ -1,6 +1,8 @@
 <!-- check if desktop or mobile device -->
 <div *ngIf="isMobile" class="content-mobile">
-  <router-outlet></router-outlet>
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+        <router-outlet #o="outlet"></router-outlet>
+      </main>
   <div style="margin-bottom:50px;"></div>
   <app-tab-bar></app-tab-bar>
 </div>
@@ -14,7 +16,9 @@
   <div class="top-navbar-space"></div>
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+        <router-outlet #o="outlet"></router-outlet>
+      </main>
       <div class="margin-bottom-20"></div>
     </mat-sidenav-content>
     <mat-sidenav #drawer class="sidenav" mode="side" opened>
@@ -60,21 +64,21 @@
           <a mat-menu-item routerLink="/class/lessonplan/schedule" [routerLinkActive]="['list-item-active']">Lịch</a>
         </mat-menu> -->
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="panelOpenState ? 'list-item-active' : ''">
-              <mat-panel-title>
-                <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
-                Giáo án
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-              <a mat-list-item routerLink="/class/exercises" [ngClass]="currentUrl == '/class/exercises' || currentUrl.includes('/class/exercises/detail') ? 'list-item-active' : ''">
-                <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Quản lý bài tập
-              </a>
-              <a mat-list-item routerLink="/class/exercises/schedule" [ngClass]="currentUrl == '/class/exercises/schedule' ? 'list-item-active' : ''">
-                <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Lịch
-              </a>
-            </mat-nav-list>
-          </mat-expansion-panel>
+          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="panelOpenState ? 'list-item-active' : ''">
+            <mat-panel-title>
+              <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
+              Giáo án
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLink="/class/exercises" [ngClass]="currentUrl == '/class/exercises' || currentUrl.includes('/class/exercises/detail') ? 'list-item-active' : ''">
+              <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Quản lý bài tập
+            </a>
+            <a mat-list-item routerLink="/class/exercises/schedule" [ngClass]="currentUrl == '/class/exercises/schedule' ? 'list-item-active' : ''">
+              <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Lịch
+            </a>
+          </mat-nav-list>
+        </mat-expansion-panel>
         <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
           Thư viện
         </a>
