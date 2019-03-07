@@ -1,36 +1,29 @@
 <h1 mat-dialog-title><i class="fal fa-edit"></i> Tạo lịch mới</h1>
-<ngb-timepicker [(ngModel)]="time" [meridian]="true"></ngb-timepicker>
+
 <div mat-dialog-content>
   <div class="form">
-    <!-- <mat-form-field appearance="outline">
-      <mat-label>Giờ bắt đầu</mat-label>
-      <input type="time" matInput />
-    </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Giờ kết thúc</mat-label>
-      <input type="time" matInput placeholder="Tên nhóm" />
-    </mat-form-field> -->
-    <mat-form-field appearance="outline">
-      <mat-label>Bài tập</mat-label>
-      <mat-select>
-        <mat-option>None</mat-option>
-        <mat-option value="option1">Option 1</mat-option>
-        <mat-option value="option2">Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+      <mat-label>Chọn đội</mat-label>
+      <mat-select [(ngModel)] = "schedule.team_name">
+        <mat-option *ngFor="let team of teams" [value]="team.name">{{team.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Chọn ngày</mat-label>
-      <input type="date" matInput />
+      <mat-label>Bài tập</mat-label>
+      <mat-select [(ngModel)] = "schedule.exercise_id">
+        <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">{{exercise.name}}</mat-option>
+      </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Phút bắt đầu</mat-label>
-      <input type="time" matInput />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Phút kết thúc</mat-label>
-      <input type="time" matInput />
-    </mat-form-field>
+
+    <ngb-datepicker #dp [(ngModel)]="dateModel" style="width: 220px; margin-left: 35px"></ngb-datepicker>
+
+
+    <div class="flex-box">
+      <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
+      <span class="hour" > <i class="fas fa-arrows-alt-h"></i> </span>
+      <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
+
+    </div>
   </div>
 </div>
 <div class="row margin-top-10">
@@ -38,6 +31,6 @@
     <button mat-flat-button [mat-dialog-close]>Hủy</button>
   </div>
   <div class="col-xs end-xs">
-    <button mat-flat-button color="light-blue">Tạo</button>
+    <button mat-flat-button color="light-blue" (click)="openMessageBox()">Tạo</button>
   </div>
 </div>

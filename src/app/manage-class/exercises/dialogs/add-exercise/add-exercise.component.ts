@@ -7,6 +7,7 @@ import { Distance } from 'src/app/share/models/distance';
 import { Constants } from 'src/app/share/constants';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { Exercise } from 'src/app/share/models/exercise';
+import { isNullOrUndefined } from 'util';
 
 const message = {
   box: {
@@ -48,6 +49,9 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if ( this.subStyle !== null ) { this.subStyle.unsubscribe(); }
+    if ( this.subDistance !== null ) { this.subDistance.unsubscribe(); }
+    if ( !isNullOrUndefined( this.subCreate)) { this.subCreate.unsubscribe(); }
+
   }
   getSwimStyle() {
     this.subStyle = this.exerciseService.getAllStyle().subscribe(

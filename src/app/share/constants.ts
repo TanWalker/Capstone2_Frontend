@@ -29,6 +29,11 @@ export const Constants = {
             title: 'Xác nhận',
             message: 'Bạn có muốn tạo bài tập mới ?',
             confirm: true
+        },
+        create_schedule: {
+            title: 'Xác nhận',
+            message: 'Bạn có muốn tạo lịch mới ?',
+            confirm: true
         }
     }
 };

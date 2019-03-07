@@ -42,3 +42,10 @@
 ::ng-deep .form>* {
   width: 100%;
 }
+
+.hour {
+  padding-top: 42px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #0056B3;
+}

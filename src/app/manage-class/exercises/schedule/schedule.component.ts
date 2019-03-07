@@ -55,6 +55,7 @@ export class ScheduleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
+        this.getEvent();
       }
     });
   }
@@ -65,24 +66,23 @@ export class ScheduleComponent implements OnInit {
         this.schedule = data.success ? data.values : [];
         this.schedule.map(event => {
           this.events.push({
-            title: 'Eddy team',
+            title: event.team_name,
             start: new Date(
               event.year,
               event.month - 1,
-              event.day - 1,
+              event.day,
               event.start_hour,
               event.start_minute
             ),
             end: new Date(
               event.year,
               event.month - 1,
-              event.day - 1,
+              event.day,
               event.end_hour,
               event.end_minute
             ),
             color: colors.blue,
-            meta: 'abc',
-            id: '1'
+            id: event.exercise_id
           });
         });
         this.refresh.next();

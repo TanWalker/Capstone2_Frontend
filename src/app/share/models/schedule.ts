@@ -4,7 +4,7 @@ export class Schedule {
     public id: String = '';
     public coach_id: String = '';
     public day = 1;
-    public month: 1;
+    public month = 1;
     public year = 2000;
     public start_hour = 0;
     public end_hour = 0;

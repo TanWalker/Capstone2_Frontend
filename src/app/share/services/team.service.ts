@@ -20,4 +20,8 @@ export class TeamService {
   getMemberByTeam(id: String) {
     return this.http.get(`${environment.urls.api}` + `/getMemberByTeam/${id}`);
   }
+  getTeamByCoach() {
+    return this.http.get(`${environment.urls.api}` + `/getTeamByCoach`);
+
+  }
 }

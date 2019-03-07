@@ -24,4 +24,8 @@ constructor(
  public createExercise(exercise: Exercise) {
    return this.http.post(`${environment.urls.api}` + `/Exercise` , exercise );
  }
+
+ public getExerciseByCoach() {
+   return this.http.get(`${environment.urls.api}` + `/getExerciseByCoach`);
+ }
 }
