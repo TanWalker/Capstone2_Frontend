@@ -6,6 +6,7 @@ import { MessageBoxComponent } from 'src/app/share/components/message-box/messag
 import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { User } from 'src/app/share/models/user';
+import { EditClassComponent } from '../../dialogs/edit-class/edit-class.component';
 const message = {
   box: {
     title: Constants.box.delete_team.title,
@@ -21,7 +22,7 @@ const message = {
 })
 export class ClassComponent implements OnInit {
   @Input() team: Class;
-  @Output() isDelete = new EventEmitter<boolean>();
+  @Output() isRefresh = new EventEmitter<boolean>();
   public message = message;
   public subDelelte: any;
   panelOpenState = false;
@@ -35,7 +36,6 @@ export class ClassComponent implements OnInit {
   togglePanel() {
     this.panelOpenState = !this.panelOpenState;
   }
-  edit() {}
   getListMember() {
     this.teamService.getMemberByTeam(this.team.id).subscribe((data: Result) => {
       if (data.success) {
@@ -61,7 +61,22 @@ export class ClassComponent implements OnInit {
           .subscribe((result: Result) => {
             console.log(result);
           });
-        this.isDelete.emit(true);
+        this.isRefresh.emit(true);
+      }
+    });
+  }
+  edit(team, age): void {
+    const dialogRef = this.dialog.open(EditClassComponent, {
+      disableClose: true,
+      data: {
+        team: team,
+        age: age
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.isRefresh.emit(true);
       }
     });
   }

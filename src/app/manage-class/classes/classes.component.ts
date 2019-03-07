@@ -7,6 +7,7 @@ import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { isNullOrUndefined } from 'util';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { EditClassComponent } from '../dialogs/edit-class/edit-class.component';
 const message = {
   message: {
     have_not_team: Constants.message.manage_team.have_not_team
@@ -69,7 +70,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
       }
     });
   }
-  delete($event) {
+  refresh($event) {
     console.log($event);
     if ($event) {
       setTimeout(() => {
