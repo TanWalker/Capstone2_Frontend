@@ -2,6 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import '~animate.css/animate.min.css';
+@import "~bootstrap/dist/css/bootstrap.css";  
 
 html {
   font-family: Helvetica, Arial, sans-serif;

@@ -14,6 +14,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import {NgbModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,

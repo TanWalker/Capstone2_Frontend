@@ -13,6 +13,7 @@ import { AddClassComponent } from 'src/app/manage-class/dialogs/add-class/add-cl
   ]
 })
 export class AddScheduleComponent implements OnInit {
+  time = {hour: 13, minute: 30};
   constructor(
     public dialogRef: MatDialogRef<AddClassComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
