@@ -1,0 +1,55 @@
+.title-bar-spacer {
+  flex: 1 1 auto;
+}
+
+::ng-deep .btn-add-team {
+  width: 100%;
+  font-size: 20px;
+  height: 60px;
+  margin: 10px 0 10px 0 !important;
+}
+
+.btn-icon {
+  line-height: 0.7;
+  font-size: 30px;
+}
+
+.mat-toolbar {
+  margin-bottom: 5px;
+}
+
+.mat-divider {
+  margin-bottom: 7px;
+}
+
+.title-bar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-flat-button {
+  /* margin: 0 3px 0 3px; */
+}
+
+::ng-deep .row>div>button {
+  width: 100%;
+}
+
+::ng-deep .cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: saturate(180%) blur(30px);
+}
+
+::ng-deep .form>* {
+  width: 100%;
+}
+.add-style-btn {
+  margin-top: 4px;
+  height: 54px;
+}
+.list-swim-style {
+  border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.list-swim-style:last-child {
+  border-bottom: none;
+}

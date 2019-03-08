@@ -23,8 +23,9 @@ import { MemberComponent } from './components/class/member/member.component';
 import { AddScheduleComponent } from './exercises/dialogs/add-schedule/add-schedule.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
-
-
+import { SwimstylesComponent } from './exercises/dialogs/swimstyles/swimstyles.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +33,7 @@ import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
     RouterModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatTooltipModule,
     FormsModule,
     UcWidgetModule,
     CalendarModule.forRoot({
@@ -50,17 +52,20 @@ import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
     ScheduleComponent,
     AddExerciseComponent,
     ExerciseComponent,
+    SwimstyleComponent,
     ExercisesComponent,
     ExerciseDetailComponent,
     MemberComponent,
     AddScheduleComponent,
-    EditClassComponent
+    EditClassComponent,
+    SwimstylesComponent
   ],
   entryComponents: [
     AddClassComponent,
     AddExerciseComponent,
     AddScheduleComponent,
-    EditClassComponent
+    EditClassComponent,
+    SwimstylesComponent
   ],
   providers: [DatePipe]
 })

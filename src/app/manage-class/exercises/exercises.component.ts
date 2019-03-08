@@ -6,6 +6,7 @@ import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Result } from 'src/app/share/models/result';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Constants } from 'src/app/share/constants';
+import { SwimstylesComponent } from './dialogs/swimstyles/swimstyles.component';
 
 const message = {
   message: {
@@ -44,7 +45,16 @@ export class ExercisesComponent implements OnInit, OnDestroy {
     }
   }
   openDialogDistance() {}
-  openDialogSwimStyle() {}
+  openDialogSwimStyle() {
+    const dialogRef = this.dialog.open(SwimstylesComponent, {
+      disableClose: true,
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+      }
+    });
+  }
   openDialogAddLesson(): void {
     const dialogRef = this.dialog.open(AddExerciseComponent, {
       disableClose: true

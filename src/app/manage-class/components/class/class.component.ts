@@ -73,7 +73,6 @@ export class ClassComponent implements OnInit {
         age: age
       }
     });
-
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.isRefresh.emit(true);

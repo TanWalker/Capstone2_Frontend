@@ -1,0 +1,29 @@
+<h1 mat-dialog-title><i class="far fa-swimmer"></i> Kiểu bơi</h1>
+<div mat-dialog-content>
+  <div class="row" style="min-width:100px;">
+    <div class="col-xs-9 padding-left-0">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Thêm kiểu bơi mới</mat-label>
+        <input matInput placeholder="Tên kiểu bơi mới..." #styleInput (input)="onChange(styleInput.value)">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-3 padding-right-0">
+      <button mat-flat-button color="light-blue" class="add-style-btn" [disabled]="isAddDisabled" matTooltip="Thêm kiểu bơi">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="form margin-bottom-10">
+    <mat-card>
+      <h5>Danh sách kiểu bơi</h5>
+      <mat-list role="list" *ngFor="let style of styles">
+        <app-swimstyle [style]="style"></app-swimstyle>
+      </mat-list>
+      <!-- <div *ngFor="let team of teams">
+          <app-class [team]="team" (isRefresh)="refresh($event)"></app-class>
+        </div> -->
+    </mat-card>
+  </div>
+</div>
+
+<button mat-stroked-button class="full-width margin-top-10" [mat-dialog-close]>Đóng</button>
