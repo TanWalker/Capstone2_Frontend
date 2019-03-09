@@ -17,22 +17,22 @@ export const Constants = {
     box: {
         create_team: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn tạo nhóm mới ?',
+            message: 'Bạn có muốn tạo nhóm mới?',
             confirm: true
         },
         delete_team: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn xóa nhóm này ?',
+            message: 'Bạn có muốn xóa nhóm này?',
             confirm: true
         },
         create_exericise: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn tạo bài tập mới ?',
+            message: 'Bạn có muốn tạo bài tập mới?',
             confirm: true
         },
         create_schedule: {
             title: 'Xác nhận',
-            message: 'Bạn có muốn tạo lịch mới ?',
+            message: 'Bạn có muốn tạo lịch mới?',
             confirm: true
         }
     }

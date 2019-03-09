@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Exercise } from '../models/exercise';
+import { SwimStyle } from '../models/swimStyle';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,9 @@ constructor(
  public getAllStyle() {
   return this.http.get(`${environment.urls.api}` + `/public/getStyle`);
 }
+ public addStyle(swimStyle: SwimStyle) {
+  return this.http.post(`${environment.urls.api}` + `/public/Style`, swimStyle);
+}
  public getAllDistance() {
   return this.http.get(`${environment.urls.api}` + `/public/getDistance`);
 }
@@ -22,7 +26,7 @@ constructor(
 
  }
  public createExercise(exercise: Exercise) {
-   return this.http.post(`${environment.urls.api}` + `/Exercise` , exercise );
+   return this.http.post(`${environment.urls.api}` + `/Exercise` , exercise);
  }
 
  public getExerciseByCoach() {
