@@ -8,7 +8,10 @@ import { SwimStyle } from 'src/app/share/models/swimStyle';
 })
 export class SwimstyleComponent implements OnInit {
   @Input() style: SwimStyle;
+  @Input() last: any;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.last);
+  }
 }

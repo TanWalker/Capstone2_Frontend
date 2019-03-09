@@ -10,6 +10,7 @@ import { SwimStyle } from 'src/app/share/models/swimStyle';
   styleUrls: ['./swimstyles.component.css', '../../../../app.component.css']
 })
 export class SwimstylesComponent implements OnInit {
+  public SwimStyle: SwimStyle = new SwimStyle();
   isAddDisabled = true;
   public subStyle: any;
   styles: SwimStyle[] = [];
@@ -21,6 +22,9 @@ export class SwimstylesComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.getSwimStyle();
+  }
+  addSwimStyle() {
+    console.log(this.SwimStyle);
   }
   onChange(style) {
     if (/\S/.test(style)) {

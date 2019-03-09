@@ -4,20 +4,24 @@
     <div class="col-xs-9 padding-left-0">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Thêm kiểu bơi mới</mat-label>
-        <input matInput placeholder="Tên kiểu bơi mới..." #styleInput (input)="onChange(styleInput.value)">
+        <input matInput placeholder="Tên kiểu bơi mới..." [(ngModel)]="SwimStyle.swim_name" #styleInput (input)="onChange(styleInput.value)">
       </mat-form-field>
     </div>
     <div class="col-xs-3 padding-right-0">
-      <button mat-flat-button color="light-blue" class="add-style-btn" [disabled]="isAddDisabled" matTooltip="Thêm kiểu bơi">
+      <button mat-flat-button color="light-blue" class="add-style-btn" (click)="addSwimStyle()" [disabled]="isAddDisabled" matTooltip="Thêm kiểu bơi">
         <mat-icon>add</mat-icon>
       </button>
     </div>
   </div>
+  <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mô tả kiểu bơi</mat-label>
+    <textarea matInput placeholder="Mô tả kiểu bơi mới..." [(ngModel)]="SwimStyle.description"></textarea>
+  </mat-form-field>
   <div class="form margin-bottom-10">
     <mat-card>
       <h5>Danh sách kiểu bơi</h5>
-      <mat-list role="list" *ngFor="let style of styles">
-        <app-swimstyle [style]="style"></app-swimstyle>
+      <mat-list role="list">
+        <app-swimstyle *ngFor="let style of styles, let last = last" [last]="last" [style]="style"></app-swimstyle>
       </mat-list>
       <!-- <div *ngFor="let team of teams">
           <app-class [team]="team" (isRefresh)="refresh($event)"></app-class>
