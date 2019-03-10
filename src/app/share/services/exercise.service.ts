@@ -16,7 +16,7 @@ constructor(
   return this.http.get(`${environment.urls.api}` + `/public/getStyle`);
 }
  public addStyle(swimStyle: SwimStyle) {
-  return this.http.post(`${environment.urls.api}` + `/public/Style`, swimStyle);
+  return this.http.post(`${environment.urls.api}` + `/Style`, swimStyle);
 }
  public getAllDistance() {
   return this.http.get(`${environment.urls.api}` + `/public/getDistance`);

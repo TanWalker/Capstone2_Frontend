@@ -8,9 +8,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Kiểu bơi</mat-label>
       <mat-select placeholder="Kiểu bơi" [(ngModel)]="currentStyle">
-
         <mat-option *ngFor="let style of styles" [value]="style">{{style?.swim_name}}</mat-option>
-
       </mat-select>
     </mat-form-field>
       <mat-card class="margin-bottom-20">{{currentStyle?.description}}</mat-card>
@@ -30,7 +28,7 @@
 </div>
 <div class="row margin-top-10">
   <div class="col-xs" style="padding-right: 10px;">
-    <button mat-flat-button [mat-dialog-close]>Hủy</button>
+    <button mat-flat-button [mat-dialog-close]>Đóng</button>
   </div>
   <div class="col-xs end-xs">
     <button mat-flat-button color="light-blue" (click)="createExercise()">Tạo</button>

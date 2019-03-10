@@ -26,6 +26,7 @@ import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
 import { SwimstylesComponent } from './exercises/dialogs/swimstyles/swimstyles.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +41,7 @@ import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.c
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule,
+    NgbModule
   ],
   declarations: [
     ManageClassComponent,
