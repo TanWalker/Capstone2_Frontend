@@ -50,7 +50,6 @@ export class SwimstylesComponent implements OnInit {
 
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-        // openloading
         this.exerciseService
           .addStyle(this.SwimStyle)
           .subscribe((result: Result) => {
@@ -69,7 +68,6 @@ export class SwimstylesComponent implements OnInit {
             } else {
               console.log('create error');
             }
-            // closeloading
           });
       }
     });

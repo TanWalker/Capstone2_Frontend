@@ -26,6 +26,7 @@ import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
 import { SwimstylesComponent } from './exercises/dialogs/swimstyles/swimstyles.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.component';
+import { DistanceComponent } from './exercises/dialogs/distance/distance.component';
 
 @NgModule({
   imports: [
@@ -59,14 +60,16 @@ import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.c
     MemberComponent,
     AddScheduleComponent,
     EditClassComponent,
-    SwimstylesComponent
+    SwimstylesComponent,
+    DistanceComponent
   ],
   entryComponents: [
     AddClassComponent,
     AddExerciseComponent,
     AddScheduleComponent,
     EditClassComponent,
-    SwimstylesComponent
+    SwimstylesComponent,
+    DistanceComponent
   ],
   providers: [DatePipe]
 })
