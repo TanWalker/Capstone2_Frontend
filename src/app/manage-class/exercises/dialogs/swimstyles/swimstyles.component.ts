@@ -61,7 +61,7 @@ export class SwimstylesComponent implements OnInit {
               this.getSwimStyle();
               this.snackBar.open(
                 'Đã thêm kiểu ' + this.SwimStyle.swim_name + ' mới!',
-                'đóng',
+                'Đóng',
                 {
                   duration: 4000
                 }
