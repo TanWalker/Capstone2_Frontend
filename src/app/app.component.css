@@ -51,7 +51,7 @@
   color: #fff;
 }
 .mat-light-blue {
-  background-color: #889aff;
+  background: linear-gradient(to right, #126ce6, #56ccf2);
   color: #fff;
 }
 
