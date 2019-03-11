@@ -15,7 +15,8 @@ const routes: Routes = [
     canActivate: [UserGuard],
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
-      { path: 'classes', component: ClassesComponent },
+      { path: 'classes/teams', component: ClassesComponent },
+      // { path: 'classes/members', component: ClassesComponent },
       { path: 'profiles', component: ProfilesComponent },
       { path: 'exercises', component: ExercisesComponent },
       { path: 'exercises/detail/:id', component: ExerciseDetailComponent },

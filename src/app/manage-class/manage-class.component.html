@@ -49,22 +49,31 @@
         </div>
       </mat-toolbar>
       <mat-nav-list>
-        <!-- <a mat-list-item routerLink="/class/profiles" [routerLinkActive]="['list-item-active']">
-          <i class="fas fa-user-circle margin-right-15 margin-left-5"></i> Bromboy2010
-        </a> -->
-        <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-item-active']">
+        <!-- <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-item-active']">
           <i class="fas fa-users-class margin-right-15 margin-left-5"></i>
           Nhóm
-        </a>
-        <!-- <a mat-list-item [matMenuTriggerFor]="lessonMenu"><i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
-          Giáo án
-        </a>
-        <mat-menu #lessonMenu="matMenu" xPosition="before">
-          <a mat-menu-item routerLink="/class/lessonplan" [routerLinkActive]="['list-item-active']">Các giáo án</a>
-          <a mat-menu-item routerLink="/class/lessonplan/schedule" [routerLinkActive]="['list-item-active']">Lịch</a>
-        </mat-menu> -->
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="panelOpenState ? 'list-item-active' : ''">
+        </a> -->
+
+        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false">
+          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="teamParentsTab ? 'list-item-active' : ''">
+            <mat-panel-title>
+              <i class="fas fa-users margin-right-15 margin-left-5"></i>
+              
+              Nhóm
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLink="/class/classes/teams" [ngClass]="currentUrl == '/class/classes/teams' || currentUrl.includes('/class/exercises/detail') ? 'list-item-active' : ''">
+              <i class="fas fa-users-class margin-right-15 margin-left-5"></i> Quản lý nhóm
+            </a>
+            <a mat-list-item [ngClass]="currentUrl == '/class/exercises/schedule' ? 'list-item-active' : ''">
+              <i class="fas fa-user-friends margin-right-15 margin-left-5"></i> Quản lý thành viên
+            </a>
+          </mat-nav-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false">
+          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="exerciseParentsTab ? 'list-item-active' : ''">
             <mat-panel-title>
               <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
               Giáo án
