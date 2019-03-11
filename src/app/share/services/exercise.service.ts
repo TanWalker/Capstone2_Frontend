@@ -15,7 +15,7 @@ export class ExerciseService {
   public addStyle(swimStyle: SwimStyle) {
     return this.http.post(`${environment.urls.api}` + `/Style`, swimStyle);
   }
-  public deleteStylebyId(style_id: any) {
+  public deleteStylebyId(style_id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteStyle/${style_id}`);
   }
   public getAllDistance() {

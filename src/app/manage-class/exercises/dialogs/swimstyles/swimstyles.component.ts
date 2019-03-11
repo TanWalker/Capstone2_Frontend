@@ -65,8 +65,9 @@ export class SwimstylesComponent implements OnInit {
                   duration: 4000
                 }
               );
-              this.SwimStyle.swim_name = null;
-              this.SwimStyle.description = null;
+              this.SwimStyle.swim_name = '';
+              this.SwimStyle.description = '';
+              this.isAddDisabled = true;
             } else {
               console.log('create error');
             }

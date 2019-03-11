@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SwimStyle } from 'src/app/share/models/swimStyle';
 import { Constants } from 'src/app/share/constants';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Result } from 'src/app/share/models/result';
 const message = {
@@ -24,7 +24,8 @@ export class SwimstyleComponent implements OnInit {
   public message = message;
   constructor(
     private dialog: MatDialog,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -41,32 +42,26 @@ export class SwimstyleComponent implements OnInit {
 
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-        console.log('1');
         this.exerciseService
-          .deleteStylebyId(this.style.coach_id)
+          .deleteStylebyId(this.style.id)
           .subscribe((result: Result) => {
             console.log(result);
             if (result.success) {
-              console.log('deleted');
-              console.log(result.values);
+              console.log('deleted style');
               messageDialogRef.close(true);
               this.isRefresh.emit(true);
-              // this.snackBar.open(
-              //   'Đã thêm kiểu ' + this.SwimStyle.swim_name + ' mới!',
-              //   'Đóng',
-              //   {
-              //     duration: 4000
-              //   }
-              // );
+              this.snackBar.open(
+                'Xóa kiểu ' + this.style.swim_name + ' thành công!',
+                'Đóng',
+                {
+                  duration: 4000
+                }
+              );
             } else {
               console.log('delete error');
             }
-            // console.log(result);
           });
-      } else {
-        console.log('cancelled');
       }
-      console.log('ket qua ' + res);
     });
   }
 }
