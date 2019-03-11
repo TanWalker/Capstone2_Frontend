@@ -47,6 +47,11 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn xóa kiểu bơi này?',
       confirm: true
+    },
+    create_distance: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn thêm khoảng cách mới?',
+      confirm: true
     }
   }
 };

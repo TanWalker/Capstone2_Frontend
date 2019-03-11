@@ -54,7 +54,7 @@ export class SwimstyleComponent implements OnInit {
                 'Xóa kiểu ' + this.style.swim_name + ' thành công!',
                 'Đóng',
                 {
-                  duration: 4000
+                  duration: 6000
                 }
               );
             } else {

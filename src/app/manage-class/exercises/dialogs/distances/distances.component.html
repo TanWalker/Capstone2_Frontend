@@ -1,0 +1,26 @@
+<h1 mat-dialog-title><i class="far fa-swimmer"></i> Kiểu bơi</h1>
+<div mat-dialog-content>
+  <div class="row" style="min-width:100px;">
+    <div class="col-xs-9 padding-left-0">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Khoảng cách mới</mat-label>
+        <input matInput placeholder="Khoảng cách..." type="number" [(ngModel)]="distance.swim_distance" class="text-align-right">
+        <span matSuffix>(m)</span>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-3 padding-right-0">
+      <button mat-flat-button color="light-blue" class="add-style-btn" (click)="addDistance()" matTooltip="Thêm khoảng cách">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="form margin-bottom-10">
+    <mat-card>
+      <h5>Danh sách khoảng cách</h5>
+      <mat-list role="list">
+        <app-distance *ngFor="let distance of distances, let last = last" [last]="last" [distance]="distance"></app-distance>
+      </mat-list>
+    </mat-card>
+  </div>
+</div>
+<button mat-stroked-button class="full-width margin-top-10" [mat-dialog-close]>Đóng</button>

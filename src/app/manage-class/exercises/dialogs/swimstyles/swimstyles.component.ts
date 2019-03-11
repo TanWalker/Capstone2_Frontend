@@ -62,7 +62,7 @@ export class SwimstylesComponent implements OnInit {
                 'Đã thêm kiểu ' + this.SwimStyle.swim_name + ' mới!',
                 'Đóng',
                 {
-                  duration: 4000
+                  duration: 6000
                 }
               );
               this.SwimStyle.swim_name = '';
@@ -85,7 +85,7 @@ export class SwimstylesComponent implements OnInit {
     }
   }
   getSwimStyle() {
-    this.subStyle = this.exerciseService
+    this.exerciseService
       .getAllStyle()
       .subscribe((data: Result) => {
         if (data.success) {
