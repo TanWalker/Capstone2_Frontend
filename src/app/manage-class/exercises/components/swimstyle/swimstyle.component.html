@@ -1,7 +1,7 @@
 <mat-list-item [ngClass]="last ?'remove-bottom-line list-swim-style':'list-swim-style'" role="listitem">
   {{style.swim_name}}
   <div class="title-bar-spacer"></div>
-  <button mat-icon-button color="warn">
+  <button mat-icon-button color="warn" (click)="deleteThisStyle()">
     <mat-icon>close</mat-icon>
   </button>
 </mat-list-item>

@@ -21,7 +21,7 @@
     <mat-card>
       <h5>Danh sách kiểu bơi</h5>
       <mat-list role="list">
-        <app-swimstyle *ngFor="let style of styles, let last = last" [last]="last" [style]="style"></app-swimstyle>
+        <app-swimstyle *ngFor="let style of styles, let last = last" (isRefresh)="refreshSwimStyle($event)" [last]="last" [style]="style"></app-swimstyle>
       </mat-list>
       <!-- <div *ngFor="let team of teams">
           <app-class [team]="team" (isRefresh)="refresh($event)"></app-class>

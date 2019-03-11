@@ -95,4 +95,12 @@ export class SwimstylesComponent implements OnInit {
         }
       });
   }
+  refreshSwimStyle($event) {
+    console.log($event);
+    if ($event) {
+      setTimeout(() => {
+        this.getSwimStyle();
+      }, 50);
+    }
+  }
 }

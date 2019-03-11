@@ -59,7 +59,8 @@ export class ClassComponent implements OnInit {
         this.subDelelte = this.teamService
           .deleteTeam(this.team.id)
           .subscribe((result: Result) => {
-            console.log(result);
+            console.log(this.teamService
+              .deleteTeam(this.team.id));
           });
         this.isRefresh.emit(true);
       }

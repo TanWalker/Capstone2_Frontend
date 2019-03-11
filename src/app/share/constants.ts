@@ -42,6 +42,11 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm kiểu bơi mới?',
       confirm: true
+    },
+    delete_swimStyle: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa kiểu bơi này?',
+      confirm: true
     }
   }
 };
