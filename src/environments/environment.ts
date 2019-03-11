@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   urls: {
-  api: 'http://192.168.31.209:3000/api',
-  // api: 'http://localhost:3000/api'
+  // api: 'http://192.168.31.209:3000/api',
+  api: 'http://localhost:3000/api'
  },
  VERSION: require('../../package.json').version
 
