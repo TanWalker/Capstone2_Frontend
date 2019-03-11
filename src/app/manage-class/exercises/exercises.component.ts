@@ -28,11 +28,11 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   public exercises: Exercise[] = [];
   public subExercise: any;
   public message = message;
-  isMobile = null;
+  public isMobile = false;
   constructor(
-    public dialog: MatDialog,
-    public exerciseService: ExerciseService,
-    private deviceService: DeviceDetectorService
+    private dialog: MatDialog,
+    private exerciseService: ExerciseService,
+    public deviceService: DeviceDetectorService
   ) {
     this.isMobile = deviceService.isMobile();
   }

@@ -27,6 +27,8 @@ import { SwimstylesComponent } from './exercises/dialogs/swimstyles/swimstyles.c
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.component';
 import { DistanceComponent } from './exercises/dialogs/distance/distance.component';
+import { MembersOfTeamComponent } from './components/members-of-team/members-of-team.component';
+import { MemberOfTeamComponent } from './components/members-of-team/member-of-team/member-of-team.component';
 
 @NgModule({
   imports: [
@@ -61,7 +63,9 @@ import { DistanceComponent } from './exercises/dialogs/distance/distance.compone
     AddScheduleComponent,
     EditClassComponent,
     SwimstylesComponent,
-    DistanceComponent
+    DistanceComponent,
+    MembersOfTeamComponent,
+    MemberOfTeamComponent
   ],
   entryComponents: [
     AddClassComponent,

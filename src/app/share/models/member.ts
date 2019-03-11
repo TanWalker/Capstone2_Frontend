@@ -6,4 +6,5 @@ export class Member {
   public  phone: String = '';
   public  gender: String = '';
   public  avatar: Number = 0;
+  public  username: String = '';
 }

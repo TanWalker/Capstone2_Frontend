@@ -15,7 +15,9 @@ export class ManageClassComponent implements OnInit {
   public currentUrl: string;
   public isMobile = false;
   public user = new User();
-  public panelOpenState: boolean;
+  public exerciseParentsTab: boolean;
+  public teamParentsTab: boolean;
+
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService,

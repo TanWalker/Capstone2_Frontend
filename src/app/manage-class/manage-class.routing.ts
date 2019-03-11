@@ -7,7 +7,7 @@ import { UserGuard } from '../share/guards/user.guard';
 import { ScheduleComponent } from './exercises/schedule/schedule.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 import { ExercisesComponent } from './exercises/exercises.component';
-import { MemberComponent } from './components/class/member/member.component';
+import { MembersOfTeamComponent } from './components/members-of-team/members-of-team.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -16,13 +16,11 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'classes', pathMatch: 'full' },
       { path: 'classes/teams', component: ClassesComponent },
-      // { path: 'classes/members', component: ClassesComponent },
+      { path: 'classes/members', component: MembersOfTeamComponent },
       { path: 'profiles', component: ProfilesComponent },
       { path: 'exercises', component: ExercisesComponent },
       { path: 'exercises/detail/:id', component: ExerciseDetailComponent },
-      { path: 'exercises/schedule', component: ScheduleComponent },
-
-      { path: 'mem', component: MemberComponent }
+      { path: 'schedule', component: ScheduleComponent },
     ]
   }
 ];

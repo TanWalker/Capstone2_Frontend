@@ -63,13 +63,15 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
   getExercises() {
     this.subExercise = this.exerciseService.getExerciseByCoach().subscribe(
       (data: Result) => {
-       this.exercises = data.success ? data.values : [];
+        console.log(data);
+       this.exercises = data.success ? data.values.list_exercise : [];
       }
     );
   }
   getTeams() {
     this.subTeam = this.teamService.getTeamByCoach().subscribe(
       (data: Result) => {
+        console.log(data);
         this.teams = data.success ? data.values : [];
       }
     );

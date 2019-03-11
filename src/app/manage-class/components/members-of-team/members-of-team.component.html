@@ -1,0 +1,20 @@
+<div [ngClass]="isMobile ? '' : 'content-desktop'">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>Quản lý thành viên</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class=" full-width">
+    <div ngbDropdown class="d-inline-block  full-width">
+      <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+       {{ currentTeam.name }}
+      </button>
+      <div ngbDropdownMenu>
+        
+        <button ngbDropdownItem *ngFor="let team of teams"  on-click="onChange(team)">{{ team.name }}</button>
+
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+</div>
