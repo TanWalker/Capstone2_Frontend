@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Exercise } from '../models/exercise';
 import { SwimStyle } from '../models/swimStyle';
+import { Distance } from '../models/distance';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ export class ExerciseService {
   }
   public deleteStylebyId(style_id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteStyle/${style_id}`);
+  }
+  public addDistance(distance: Number) {
+    return this.http.post(`${environment.urls.api}` + `/Distance`, distance);
   }
   public getAllDistance() {
     return this.http.get(`${environment.urls.api}` + `/public/getDistance`);

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Distance } from 'src/app/share/models/distance';
 
 @Component({
   selector: 'app-distance',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./distance.component.css']
 })
 export class DistanceComponent implements OnInit {
-
-  constructor() { }
+  @Input() distance: Distance;
+  @Input() last: any;
+  constructor() {}
 
   ngOnInit() {
   }

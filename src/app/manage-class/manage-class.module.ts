@@ -26,9 +26,10 @@ import { EditClassComponent } from './dialogs/edit-class/edit-class.component';
 import { SwimstylesComponent } from './exercises/dialogs/swimstyles/swimstyles.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SwimstyleComponent } from './exercises/components/swimstyle/swimstyle.component';
-import { DistanceComponent } from './exercises/dialogs/distance/distance.component';
 import { MembersOfTeamComponent } from './components/members-of-team/members-of-team.component';
 import { MemberOfTeamComponent } from './components/members-of-team/member-of-team/member-of-team.component';
+import { DistancesComponent } from './exercises/dialogs/distances/distances.component';
+import { DistanceComponent } from './exercises/components/distance/distance.component';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import { MemberOfTeamComponent } from './components/members-of-team/member-of-te
     AddExerciseComponent,
     ExerciseComponent,
     SwimstyleComponent,
+    DistanceComponent,
     ExercisesComponent,
     ExerciseDetailComponent,
     MemberComponent,
@@ -65,7 +67,8 @@ import { MemberOfTeamComponent } from './components/members-of-team/member-of-te
     SwimstylesComponent,
     DistanceComponent,
     MembersOfTeamComponent,
-    MemberOfTeamComponent
+    MemberOfTeamComponent,
+    DistancesComponent
   ],
   entryComponents: [
     AddClassComponent,
@@ -73,7 +76,7 @@ import { MemberOfTeamComponent } from './components/members-of-team/member-of-te
     AddScheduleComponent,
     EditClassComponent,
     SwimstylesComponent,
-    DistanceComponent
+    DistancesComponent
   ],
   providers: [DatePipe]
 })
