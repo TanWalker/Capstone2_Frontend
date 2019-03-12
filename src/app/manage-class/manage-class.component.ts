@@ -21,7 +21,7 @@ export class ManageClassComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService,
-    private router: Router,
+    private router: Router
   ) {
     router.events.subscribe((_: NavigationEnd) => {
       // example: NavigationStart, RoutesRecognized, NavigationEnd
@@ -45,6 +45,13 @@ export class ManageClassComponent implements OnInit {
     this.user = this.authService.currentUser;
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
+    // set active parent tab
+    if (this.currentUrl === '/class/classes/teams' || this.currentUrl === '/class/classes/members') {
+      this.teamParentsTab = true;
+    }
+    if (this.currentUrl === '/class/exercises' || this.currentUrl === '/class/schedule') {
+      this.exerciseParentsTab = true;
+    }
     console.log(this.user);
   }
   logout() {

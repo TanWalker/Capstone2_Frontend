@@ -54,7 +54,7 @@
           Nhóm
         </a> -->
 
-        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false">
+        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false" [expanded]="teamParentsTab">
           <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="teamParentsTab ? 'list-item-active' : ''">
             <mat-panel-title>
               <i class="fas fa-users margin-right-15 margin-left-5"></i>
@@ -72,7 +72,7 @@
           </mat-nav-list>
         </mat-expansion-panel>
 
-        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false">
+        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false" [expanded]="exerciseParentsTab">
           <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="exerciseParentsTab ? 'list-item-active' : ''">
             <mat-panel-title>
               <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
