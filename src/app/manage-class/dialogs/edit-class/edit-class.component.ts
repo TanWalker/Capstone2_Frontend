@@ -63,7 +63,8 @@ export class EditClassComponent implements OnInit {
         title: this.message.box.title,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
     messageDialogRef.afterClosed().subscribe(res => {
       this.newTeam.name = this.currentTeamName;

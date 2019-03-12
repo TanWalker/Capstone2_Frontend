@@ -37,7 +37,8 @@ export class SwimstyleComponent implements OnInit {
         title: this.message.box.title,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
 
     messageDialogRef.afterClosed().subscribe(res => {

@@ -52,7 +52,8 @@ export class ClassComponent implements OnInit {
         title: team,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
