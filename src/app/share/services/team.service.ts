@@ -12,7 +12,10 @@ export class TeamService {
     return this.http.get(`${environment.urls.api}` + `/getTeam`);
   }
   createTeam(team: Class) {
-    return this.http.post(`${environment.urls.api}` + `/team`, team);
+    return this.http.post(`${environment.urls.api}` + `/addTeam`, team);
+  }
+  updateTeam(team: Class) {
+    return this.http.put(`${environment.urls.api}` + `/updateTeam`, team);
   }
   deleteTeam(id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);

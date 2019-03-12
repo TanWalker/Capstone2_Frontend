@@ -28,6 +28,11 @@ export const Constants = {
       message: 'Bạn có muốn xóa nhóm này?',
       confirm: true
     },
+    edit_team: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn cập nhật thông tin mới cho nhóm này?',
+      confirm: true
+    },
     create_exericise: {
       title: 'Xác nhận',
       message: 'Bạn có muốn tạo bài tập mới?',

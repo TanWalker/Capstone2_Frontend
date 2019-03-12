@@ -1,14 +1,13 @@
-<h1 mat-dialog-title><i class="fal fa-edit"></i> Chỉnh sửa nhóm {{team}}</h1>
+<h1 mat-dialog-title><i class="fal fa-edit"></i> Chỉnh sửa nhóm {{data.team.name}}</h1>
 <div mat-dialog-content>
   <div class="form">
     <mat-form-field appearance="outline">
       <mat-label>Tên nhóm</mat-label>
-      <input matInput placeholder="Tên nhóm" [value]="team" #teamInput (input)="onChange(teamInput.value,ageInput.value)" />
+      <input matInput placeholder="Tên nhóm" [(ngModel)]="currentTeamName" (input)="onChange()" />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Lứa tuổi </mat-label>
-      <input matInput type="number" placeholder="Lứa tuổi" #ageInput (input)="onChange(teamInput.value,ageInput.value)"
-        [value]="age" />
+      <input matInput type="number" placeholder="Lứa tuổi" [(ngModel)]="currentTeamAge" (input)="onChange()"/>
     </mat-form-field>
   </div>
 </div>
@@ -17,6 +16,6 @@
     <button mat-flat-button [mat-dialog-close]>Đóng</button>
   </div>
   <div class="col-xs end-xs">
-    <button mat-flat-button color="light-blue" [disabled]="isSaveBtnDisabled" (click)="createTeam()">Lưu</button>
+    <button mat-flat-button color="light-blue" [disabled]="isSaveBtnDisabled" (click)="updateTeam()">Lưu</button>
   </div>
 </div>
