@@ -52,6 +52,11 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm khoảng cách mới?',
       confirm: true
+    },
+    delete_distance: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa khoảng cách này?',
+      confirm: true
     }
   }
 };
