@@ -62,6 +62,11 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn xóa khoảng cách này?',
       confirm: true
+    },
+    remove_member: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa thành viên này ra khỏi nhóm?',
+      confirm: true
     }
   }
 };
