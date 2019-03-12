@@ -13,6 +13,6 @@ getScheduleByCoach() {
   return this.http.get(`${environment.urls.api}/getSchedule`);
 }
 addSchedule( schedule: Schedule ) {
-  return this.http.post(`${environment.urls.api}/Schedule`, schedule);
+  return this.http.post(`${environment.urls.api}/addSchedule`, schedule);
 }
 }
