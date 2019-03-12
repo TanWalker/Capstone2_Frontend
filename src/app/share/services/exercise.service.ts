@@ -14,13 +14,13 @@ export class ExerciseService {
     return this.http.get(`${environment.urls.api}` + `/public/getStyle`);
   }
   public addStyle(swimStyle: SwimStyle) {
-    return this.http.post(`${environment.urls.api}` + `/Style`, swimStyle);
+    return this.http.post(`${environment.urls.api}` + `/addStyle`, swimStyle);
   }
   public deleteStylebyId(style_id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteStyle/${style_id}`);
   }
   public addDistance(distance: Number) {
-    return this.http.post(`${environment.urls.api}` + `/Distance`, distance);
+    return this.http.post(`${environment.urls.api}` + `/addDistance`, distance);
   }
   public getAllDistance() {
     return this.http.get(`${environment.urls.api}` + `/public/getDistance`);
@@ -29,7 +29,7 @@ export class ExerciseService {
     return this.http.get(`${environment.urls.api}` + `/getExercise`);
   }
   public createExercise(exercise: Exercise) {
-    return this.http.post(`${environment.urls.api}` + `/Exercise`, exercise);
+    return this.http.post(`${environment.urls.api}` + `/addExercise`, exercise);
   }
 
   public getExerciseByCoach() {

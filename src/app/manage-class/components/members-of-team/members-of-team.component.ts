@@ -55,7 +55,7 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
    this.getMemberByTeam(this.currentTeam.id);
   }
   getMemberByTeam(teamId: String) {
-    this.subMembers = this.teamService.getMemberByTeam(teamId).subscribe(
+    this.subMembers = this.teamService.getMemberByTeam('2').subscribe(
       (data: Result) => {
         console.log(data);
         console.log(teamId);

@@ -79,6 +79,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
     this.subExercise = this.exerciseService
       .getAllExercise()
       .subscribe((data: Result) => {
+        console.log(data);
         data.success
           ? (this.exercises = data.values)
           : console.log('can not get exercise');
