@@ -31,18 +31,29 @@ h3,
   box-sizing: inherit;
 }
 
-router-outlet~* {
-  position: absolute;
-  height: calc(100vh - 64px);
-  width: 100%;
+
+@media only screen and (min-width : 320px) {
+  router-outlet~* {
+    position: absolute;
+    height: calc(100vh - 64px);
+    width: calc(100% - 10px);
+  }
+}
+
+@media only screen and (min-width : 1200px) {
+  router-outlet~* {
+    position: absolute;
+    height: calc(100vh - 64px);
+    width: 100%;
+  }
 }
 
 .alert-bg>.mat-dialog-container {
-  background-color:white;
+  background-color: white;
   background-image: url(assets/alert-icon.png);
-  background-size: 65%;
+  background-size: 94%;
   background-repeat: no-repeat;
-  background-position: -38px -32px;
+  background-position: -64px -57px;
 }
 
 body {
@@ -50,6 +61,7 @@ body {
   background: transparent;
   margin: 0;
   height: 100%;
+  line-height: 1.15;
 }
 
 .row {
