@@ -27,7 +27,11 @@ public setUser(user: User, token: string) {
   localStorage.setItem('current_user', JSON.stringify(this.currentUser));
 
 }
-
+public setOnlyUser(user: User) {
+  this.currentUser = user;
+  // set current user
+  localStorage.setItem('current_user', JSON.stringify(this.currentUser));
+}
 public getToken() {
   return localStorage.getItem('access_token');
 }

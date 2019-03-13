@@ -54,6 +54,9 @@ export class ManageClassComponent implements OnInit {
     }
     console.log(this.user);
   }
+  goToProfile() {
+    this.router.navigate(['/class/profiles']);
+  }
   logout() {
     this.authService.logout();
   }

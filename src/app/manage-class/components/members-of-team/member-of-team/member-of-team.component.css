@@ -1,0 +1,23 @@
+.mat-card{
+    margin-bottom: 10px;
+  }
+  .time-range-box > div:first-child{
+    border-bottom: 1px solid #dedede;
+  }
+  .time-range-box > div{
+    padding: 6px 0;
+  }
+  .reneral-info{
+    line-height: 1.5;
+  }
+  a.lesson-link{
+    text-decoration: none;
+  }
+  .lesson-title{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .member-avatar {
+    height: 100px;
+    border-radius: 8px;
+  }

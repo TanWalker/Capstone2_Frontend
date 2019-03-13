@@ -18,5 +18,7 @@
   </div>
   <mat-divider></mat-divider>
 
-  
+  <div *ngFor="let member of members">
+      <app-member-of-team [member]="member"></app-member-of-team>
+    </div>
 </div>

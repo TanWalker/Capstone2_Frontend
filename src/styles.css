@@ -187,7 +187,7 @@ body {
 }
 
 .margin-left-up-10 {
-  margin-left: 10px;
+  margin-left: 10px !important;
 }
 
 .margin-left-10 {

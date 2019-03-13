@@ -27,7 +27,7 @@ export class MemberComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // console.log(this.member1);
+     console.log(this.member);
   }
   removeMember() {
     console.log(this.member);

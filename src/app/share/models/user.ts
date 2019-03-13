@@ -7,6 +7,7 @@ export class User {
     public  username: String = '';
     public  first_name: String = '';
     public	last_name: String = '';
+    public  display_name: String = '';
     public 	dob: Date ;
     public	phone: String = '';
     public	email: String = '';
