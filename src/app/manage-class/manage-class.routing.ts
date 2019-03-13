@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ManageClassComponent,
     canActivate: [UserGuard],
     children: [
-      { path: '', redirectTo: 'classes', pathMatch: 'full' },
+      { path: '', redirectTo: 'classes/teams', pathMatch: 'full' },
       { path: 'classes/teams', component: ClassesComponent },
       { path: 'classes/members', component: MembersOfTeamComponent },
       { path: 'profiles', component: ProfilesComponent },

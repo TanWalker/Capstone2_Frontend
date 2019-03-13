@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
           // response should return token and user info
           const data = response.success ? response.values : '';
           const token = data.token;
-          const user = data.user;
           // const expiresIn = data.expiresIn;
           // this.authService.setUser(response.value, response.value.token);
           this.authService.setUser(data.user, token);

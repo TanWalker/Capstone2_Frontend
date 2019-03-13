@@ -29,3 +29,34 @@
 /deep/ .mat-dialog-content {
     margin-bottom: 20px!important;
 }
+.message-is-verify {
+    background-color: #ED344E ;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    padding-left: 40px
+}
+.upload-care {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.date-box {
+    padding-left: 95px;
+    margin-bottom: 25px;
+}
+.place-holder {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.125;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin-left: 5px;
+
+}
+.verify-logo {
+    height: 30px;
+    position: absolute;
+    margin-left: 125px;
+    margin-top: 15px;
+}

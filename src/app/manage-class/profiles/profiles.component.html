@@ -1,49 +1,88 @@
-<div [ngClass]="isMobile ? '':'content-desktop'">
+<div [ngClass]="isMobile ? '' : 'content-desktop'">
   <mat-toolbar>
     <mat-toolbar-row>
       <span>Hồ sơ</span>
       <span class="title-bar-spacer"></span>
-      <button mat-flat-button color="light-blue">Lưu thay đổi</button>
+      <button mat-flat-button color="light-blue" (click)="save()">Lưu thay đổi</button>
     </mat-toolbar-row>
   </mat-toolbar>
-
+  <mat-chip-list>
+    <mat-chip class="message-is-verify"  *ngIf="!user.is_verified">
+      Bạn cần điền đầy đủ thông tin để xác thực tài khoản
+    </mat-chip>
+  </mat-chip-list>
   <div class="center-xs">
-    <div class="profiles-avatar center-xs" layout-align="center center"><img src="../../assets/img_avatar.png" width="100%">
+    
+      <img src="../../../assets/verify-2.svg" class="verify-logo" *ngIf="user.is_verified" matTooltip="{{message.message.verify}}">
+
+    <div class="profiles-avatar center-xs" layout-align="center center">
+      <img [src]="user.avatar || '../../assets/img_avatar.png'" width="100%" height="100%" />
     </div>
-    <ngx-uploadcare-widget images-only="true" public-key="c7c05222d42cec64dcf7" (on-upload-complete)="updateAvatar($event)">
-    </ngx-uploadcare-widget>
-
-
   </div>
+  <ngx-uploadcare-widget-custom
+    images-only="true"
+    public-key="{{ getKey() }}"
+    (on-upload-complete)="updateAvatar($event)"
+  
+    #uploadCare
+  >
+  </ngx-uploadcare-widget-custom>
+  <button mat-flat-button  color="ok-red" class="upload-care"  (click)="uploadCare.openDialog()">Thay đổi ảnh đại diện</button>
   <div class="form">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Tên</mat-label>
-      <input matInput value="{{user.first_name}}">
+      <input matInput [formControl]="first_name" [(ngModel)]="user.first_name"/>
+      <mat-error *ngIf="first_name && isSubmit">{{ message.error.first_name }}</mat-error>
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Họ Đệm</mat-label>
-      <input matInput value="{{user.last_name}}">
+      <input matInput  [formControl]="last_name"  [(ngModel)]="user.last_name" />
+      <mat-error *ngIf="last_name && isSubmit">{{ message.error.last_name }}</mat-error>
+
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Email</mat-label>
-      <input matInput value="{{user.email}}" disabled>
+      <input matInput  [formControl]="email"  [(ngModel)]="user.email" />
+      <mat-error *ngIf="email && isSubmit">{{ message.error.email }}</mat-error>
+
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Số điện thoại</mat-label>
-      <input matInput value="{{user.phone}}">
+      <input matInput  [formControl]="phone" [(ngModel)]="user.phone" />
+      <mat-error *ngIf="phone && isSubmit">{{ message.error.phone }}</mat-error>
+
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Ngày sinh</mat-label>
-      <input matInput type="date" placeholder="Chọn ngày" value="{{dob}}">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
+    <p class="place-holder margin-top-5"> Ngày sinh </p>
+    <div class="date-box">
+     
+        <ngb-datepicker [(ngModel)] = "model"></ngb-datepicker>
+
+    </div>
+
+    <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Giới tính</mat-label>
-      <mat-select placeholder="Chọn giới tính">
+      <mat-select placeholder="Chọn giới tính"  [(ngModel)]="user.gender">
         <mat-option *ngFor="let gender of genders" [value]="gender.value">
-          {{gender.viewValue}}
+          {{ gender.viewValue }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button *ngIf="isMobile" mat-flat-button color="warn" (click)="logout()">Đăng xuất</button>
+    <mat-form-field appearance="outline" class="margin-top-5">
+      <mat-label>Chiều cao (cm)</mat-label>
+      <input matInput  [formControl]="height" [(ngModel)]="user.height" />
+      <mat-icon matSuffix>accessibility_new</mat-icon>
+      <mat-error *ngIf="height && isSubmit">{{ message.error.height }}</mat-error>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="margin-top-5">
+      <mat-label>Căn nặng (kg)</mat-label>
+      <input matInput  [formControl]="weight" [(ngModel)]="user.weight" />
+      <mat-icon matSuffix>accessibility</mat-icon>
+      <mat-error *ngIf="weight && isSubmit">{{ message.error.weight }}</mat-error>
+
+    </mat-form-field>
+    <button *ngIf="isMobile" mat-flat-button color="warn" (click)="logout()">
+      Đăng xuất
+    </button>
   </div>
 </div>

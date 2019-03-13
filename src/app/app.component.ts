@@ -10,7 +10,7 @@ import { fadeAnimation } from './animations';
   animations: [fadeAnimation]
 })
 export class AppComponent implements OnInit {
-  isMobile = null;
+  public isMobile = false;
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService

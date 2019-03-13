@@ -19,4 +19,10 @@ export class UserService {
   deleteToken() {
     localStorage.removeItem('token');
   }
+  updateUser(user: User) {
+    return this.http.put(`${environment.urls.api}/updateUser`, user);
+  }
+  getCurrentUser() {
+    return this.http.get(`${environment.urls.api}/getCurrentUser`);
+  }
 }
