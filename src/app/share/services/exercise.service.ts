@@ -19,8 +19,11 @@ export class ExerciseService {
   public deleteStylebyId(style_id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteStyle/${style_id}`);
   }
-  public addDistance(distance: Number) {
+  public addDistance(distance: Distance) {
     return this.http.post(`${environment.urls.api}` + `/addDistance`, distance);
+  }
+  public deleteDistanceById(distance_id: String) {
+    return this.http.delete(`${environment.urls.api}` + `/deleteDistance/${distance_id}`);
   }
   public getAllDistance() {
     return this.http.get(`${environment.urls.api}` + `/public/getDistance`);

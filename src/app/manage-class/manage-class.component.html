@@ -1,8 +1,10 @@
 <!-- check if desktop or mobile device -->
 <div *ngIf="isMobile" class="content-mobile">
-    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-        <router-outlet #o="outlet"></router-outlet>
-      </main>
+  <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <div class="mobile-view">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+  </main>
   <div style="margin-bottom:50px;"></div>
   <app-tab-bar></app-tab-bar>
 </div>
@@ -52,16 +54,11 @@
         </div>
       </mat-toolbar>
       <mat-nav-list>
-        <!-- <a mat-list-item routerLink="/class/classes" [routerLinkActive]="['list-item-active']">
-          <i class="fas fa-users-class margin-right-15 margin-left-5"></i>
-          Nhóm
-        </a> -->
-
-        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false">
+        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false" [expanded]="teamParentsTab">
           <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="teamParentsTab ? 'list-item-active' : ''">
             <mat-panel-title>
               <i class="fas fa-users margin-right-15 margin-left-5"></i>
-              
+
               Nhóm
             </mat-panel-title>
           </mat-expansion-panel-header>
@@ -75,7 +72,7 @@
           </mat-nav-list>
         </mat-expansion-panel>
 
-        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false">
+        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false" [expanded]="exerciseParentsTab">
           <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="exerciseParentsTab ? 'list-item-active' : ''">
             <mat-panel-title>
               <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>

@@ -44,6 +44,11 @@ export const Constants = {
       message: 'Bạn có muốn xóa nhóm này ?',
       confirm: true
     },
+    edit_team: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn cập nhật thông tin mới cho nhóm này?',
+      confirm: true
+    },
     create_exericise: {
       title: 'Xác nhận',
       message: 'Bạn có muốn tạo bài tập mới ?',
@@ -67,6 +72,16 @@ export const Constants = {
     create_distance: {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm khoảng cách mới ?',
+      confirm: true
+    },
+    delete_distance: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa khoảng cách này?',
+      confirm: true
+    },
+    remove_member: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa thành viên này ra khỏi nhóm?',
       confirm: true
     }
   },

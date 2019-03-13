@@ -1,9 +1,15 @@
 .title {
-    text-align: center;
-    width: 100%;
-    color: #EF5066;
+  text-align: center;
+  width: 100%;
+  color: #EF5066;
 }
-.message{
-    text-align: center;
-    width: 100%;
+
+.message {
+  text-align: center;
+  width: 100%;
+}
+.alert-bg{
+  background: url('../../../../assets/alert-icon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }

@@ -40,17 +40,17 @@
     </mat-expansion-panel-header>
     <div class="row">
       <div class="col-xs-6 center-xs">
-        <button mat-flat-button color="success" (click)="addMember()" class="width-full">
+        <button mat-flat-button color="success" (click)="addMember()" class="width-full" matTooltip="Thêm thành viên">
           <mat-icon>person_add</mat-icon>
         </button>
       </div>
       <div class="col-xs-3 center-xs">
-        <button mat-stroked-button color="primary" (click)="edit(team.name,team.age)" class="width-full">
+        <button mat-stroked-button color="primary" (click)="edit(team.id,team.name,team.age)" class="width-full" matTooltip="Sửa đổi thông tin nhóm">
           <mat-icon>edit</mat-icon>
         </button>
       </div>
       <div class="col-xs-3 center-xs">
-        <button mat-stroked-button color="warn" (click)="delete(team.name)" class="width-full">
+        <button mat-stroked-button color="warn" (click)="delete(team.name)" class="width-full" matTooltip="Xóa nhóm">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

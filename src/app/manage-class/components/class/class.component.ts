@@ -52,34 +52,33 @@ export class ClassComponent implements OnInit {
         title: team,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.subDelelte = this.teamService
           .deleteTeam(this.team.id)
           .subscribe((result: Result) => {
-            console.log(this.teamService
-              .deleteTeam(this.team.id));
+            console.log(this.teamService.deleteTeam(this.team.id));
           });
         this.isRefresh.emit(true);
       }
     });
   }
-  edit(team, age): void {
+  edit(team_id, team_name, team_age): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
       disableClose: true,
       data: {
-        team: team,
-        age: age
+        team: this.team,
+        isRefresh: this.isRefresh
       }
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        this.isRefresh.emit(true);
+        // this.isRefresh.emit(true);
       }
     });
   }
-  addMember() {
-  }
+  addMember() {}
 }

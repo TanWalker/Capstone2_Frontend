@@ -1,23 +1,20 @@
-
-
-
-  <div class="row">
-    <div class="full-width">
-        <img src="https://img.icons8.com/nolan/64/000000/high-priority.png" class="center">
-    </div>
-      <h2 class="title"> {{ title }}</h2>
-  </div> 
-  <div class="row">
-
-      <h3 class="message"> {{ message }} </h3>
-
+<div class="row">
+  <h2 class="title"> {{ title }}</h2>
+</div>
+<br />
+<div class="row">
+  <h3 class="message"> {{ message }} </h3>
+</div>
+<br />
+<div class="full-width row" *ngIf="confirm">
+  <div class="col-xs">
+    <button class="margin-top-10 full-width" mat-raised-button color="fb-blue" (click)="cancel()">
+      Đóng
+    </button>
   </div>
-  <div class="full-width" *ngIf="confirm">
-        <button class="margin-top-10 float-right" mat-raised-button color="ok-red" (click)="ok()">
-          Đồng ý
-         </button> 
-        <button class="margin-top-10 float-right  margin-right-15" mat-raised-button color="fb-blue" (click) = "cancel()">
-         Đóng
-        </button>
-      
+  <div class="col-xs">
+    <button class="margin-top-10 full-width" mat-raised-button color="ok-red" (click)="ok()">
+      Đồng ý
+    </button>
   </div>
+</div>

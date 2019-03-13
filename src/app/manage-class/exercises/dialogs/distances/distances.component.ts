@@ -21,6 +21,7 @@ export class DistancesComponent implements OnInit {
   public distance: Distance = new Distance();
   distances: Distance[] = [];
   public message = message;
+  isAddDisabled = true;
   constructor(
     private dialogRef: MatDialogRef<DistancesComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -47,13 +48,14 @@ export class DistancesComponent implements OnInit {
         title: this.message.box.title,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
 
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.exerciseService
-          .addDistance(this.distance.swim_distance)
+          .addDistance(this.distance)
           .subscribe((result: Result) => {
             if (result.success) {
               console.log('generated');
@@ -61,7 +63,7 @@ export class DistancesComponent implements OnInit {
               messageDialogRef.close(true);
               this.getDistances();
               this.snackBar.open(
-                'Đã thêm kiểu ' + this.distance.swim_distance + ' mới!',
+                'Đã thêm khoảng cách ' + this.distance.swim_distance + ' mới!',
                 'Đóng',
                 {
                   duration: 6000
@@ -75,5 +77,22 @@ export class DistancesComponent implements OnInit {
           });
       }
     });
+  }
+  onChange($event) {
+    if (/\S/.test($event)) {
+      // if input empty disable add button
+      this.isAddDisabled = false;
+    } else {
+      // if input isn't empty disable add button
+      this.isAddDisabled = true;
+    }
+  }
+  refreshDistances($event) {
+    console.log($event);
+    if ($event) {
+      setTimeout(() => {
+        this.getDistances();
+      }, 50);
+    }
   }
 }

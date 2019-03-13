@@ -48,7 +48,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   openDialogDistance() {
     const dialogRef = this.dialog.open(DistancesComponent, {
       disableClose: true,
-      autoFocus: false
+      // autoFocus: false
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
@@ -58,7 +58,7 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   openDialogSwimStyle() {
     const dialogRef = this.dialog.open(SwimstylesComponent, {
       disableClose: true,
-      autoFocus: false
+      // autoFocus: true
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
