@@ -86,12 +86,6 @@ export class ProfilesComponent implements OnInit {
     this.userForm.addControl('weight', this.weight);
 
     // assign current user
-    // this.userService.getCurrentUser().subscribe(
-    //   (data: Result) => {
-    //    this.user = data.success ? data.value : '';
-    //    console.log(this.user);
-    //   }
-    // );
     this.user = this.authService.getCurrentUser();
     // set date
     this.date = new Date(this.user.dob);
@@ -116,7 +110,6 @@ export class ProfilesComponent implements OnInit {
     this.isSubmit = true;
     // check validation
     if (this.userForm.invalid) {
-      console.log(this.userForm.status);
       return;
     }
 
