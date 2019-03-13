@@ -61,7 +61,8 @@ export class ClassesComponent implements OnInit, OnDestroy {
 
   openDialogAddTeam(): void {
     const dialogRef = this.dialog.open(AddClassComponent, {
-      disableClose: true
+      disableClose: true,
+      maxWidth: '300px'
     });
 
     dialogRef.afterClosed().subscribe(res => {

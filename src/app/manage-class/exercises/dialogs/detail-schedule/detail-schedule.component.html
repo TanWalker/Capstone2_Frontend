@@ -1,0 +1,15 @@
+<h1 mat-dialog-title><i class="fas fa-info-square margin-right-5"></i> Chi tiết lịch {{data.schedule.title}}</h1>
+<div class="form row">
+  <div class="col-xs">
+    <mat-form-field appearance="outline">
+      <mat-label>Tên lịch</mat-label>
+      <input matInput placeholder="Placeholder" [value]="data.schedule.title">
+      <mat-icon matSuffix><i class="fas fa-tag fa-xs"></i></mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="col-xs">
+    <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
+  </div>
+</div>
+<br/>
+<button mat-stroked-button class="full-width" [mat-dialog-close]>Đóng</button>

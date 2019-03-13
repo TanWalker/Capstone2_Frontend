@@ -69,6 +69,7 @@ export class ClassComponent implements OnInit {
   edit(team_id, team_name, team_age): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
       disableClose: true,
+      maxWidth: '300px',
       data: {
         team: this.team,
         isRefresh: this.isRefresh

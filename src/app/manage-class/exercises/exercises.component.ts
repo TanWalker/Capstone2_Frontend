@@ -67,7 +67,8 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   }
   openDialogAddLesson(): void {
     const dialogRef = this.dialog.open(AddExerciseComponent, {
-      disableClose: true
+      disableClose: true,
+      maxWidth: '300px',
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {

@@ -14,15 +14,11 @@
         <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">{{exercise.name}}</mat-option>
       </mat-select>
     </mat-form-field>
-
-    <ngb-datepicker #dp [(ngModel)]="dateModel" style="width: 220px; margin-left: 35px"></ngb-datepicker>
-
-
+    <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
     <div class="flex-box">
       <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
       <span class="hour" > <i class="fas fa-arrows-alt-h"></i> </span>
       <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
-
     </div>
   </div>
 </div>

@@ -30,6 +30,7 @@ import { MembersOfTeamComponent } from './components/members-of-team/members-of-
 import { MemberOfTeamComponent } from './components/members-of-team/member-of-team/member-of-team.component';
 import { DistancesComponent } from './exercises/dialogs/distances/distances.component';
 import { DistanceComponent } from './exercises/components/distance/distance.component';
+import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/detail-schedule.component';
 
 @NgModule({
   imports: [
@@ -64,6 +65,7 @@ import { DistanceComponent } from './exercises/components/distance/distance.comp
     MemberComponent,
     AddScheduleComponent,
     EditClassComponent,
+    DetailScheduleComponent,
     SwimstylesComponent,
     DistanceComponent,
     MembersOfTeamComponent,
@@ -76,7 +78,8 @@ import { DistanceComponent } from './exercises/components/distance/distance.comp
     AddScheduleComponent,
     EditClassComponent,
     SwimstylesComponent,
-    DistancesComponent
+    DistancesComponent,
+    DetailScheduleComponent
   ],
   providers: [DatePipe]
 })

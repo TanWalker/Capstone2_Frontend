@@ -40,18 +40,20 @@ h3,
   }
 }
 
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width : 480px) {
   router-outlet~* {
     position: absolute;
     height: calc(100vh - 64px);
     width: 100%;
   }
 }
-
+.mat-icon > svg {
+  vertical-align: 0.2em;
+}
 .alert-bg>.mat-dialog-container {
   background-color: white;
   background-image: url(assets/alert-icon.png);
-  background-size: 94%;
+  background-size: 240px;
   background-repeat: no-repeat;
   background-position: -64px -57px;
 }

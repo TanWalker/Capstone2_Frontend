@@ -163,7 +163,7 @@
   background-color: #ffffff;
 }
 ::ng-deep .mat-dialog-container{
-  max-width: 330px;
+  /* max-width: 330px; */
 }
 .mat-list-theme{
   padding: 0 13px;

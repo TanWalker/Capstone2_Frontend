@@ -7,6 +7,7 @@ import { Result } from 'src/app/share/models/result';
 import { Schedule } from 'src/app/share/models/schedule';
 import { Subject } from 'rxjs';
 import { AddScheduleComponent } from '../dialogs/add-schedule/add-schedule.component';
+import { DetailScheduleComponent } from '../dialogs/detail-schedule/detail-schedule.component';
 
 const colors: any = {
   red: {
@@ -47,10 +48,23 @@ export class ScheduleComponent implements OnInit {
 
   handleEvent(action: string, event: CalendarEvent): void {
     console.log(event);
+    const dialogRef = this.dialog.open(DetailScheduleComponent, {
+      disableClose: true,
+      maxWidth: '600px',
+      data: {
+        schedule: event
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        // this.isRefresh.emit(true);
+      }
+    });
   }
   openScheduleBox(): void {
     const dialogRef = this.dialog.open(AddScheduleComponent, {
-      disableClose: true
+      disableClose: true,
+      maxWidth: '334px'
     });
 
     dialogRef.afterClosed().subscribe(res => {
