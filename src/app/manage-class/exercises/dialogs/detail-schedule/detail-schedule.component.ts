@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-schedule',
@@ -13,11 +13,13 @@ export class DetailScheduleComponent implements OnInit {
     private dialogRef: MatDialogRef<DetailScheduleComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialog: MatDialog,
+    private calendar: NgbCalendar
   ) {
     console.log(data.schedule);
   }
 
   ngOnInit() {
+    this.dateModel = this.calendar.getToday();
   }
 
 }

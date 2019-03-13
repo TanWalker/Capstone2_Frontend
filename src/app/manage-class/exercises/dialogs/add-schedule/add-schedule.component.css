@@ -49,3 +49,12 @@
     margin-right: 5px;
     color: #0056B3;
 }
+::ng-deep .ngb-dp-months {
+  display: block!important;
+}
+::ng-deep .ngb-dp-day, .ngb-dp-week-number{
+  width: 100%!important;
+}
+::ng-deep .ngb-dp-weekday{
+  width: 100%!important;
+}
