@@ -5,7 +5,14 @@ import { Result } from 'src/app/share/models/result';
 import { Class } from 'src/app/share/models/class';
 import { isNullOrUndefined } from 'util';
 import { User } from 'src/app/share/models/user';
+import { Constants } from 'src/app/share/constants';
 
+const message = {
+  message: {
+      dontHaveTeam: Constants.message.manage_member.have_not_member
+  }
+
+};
 @Component({
   selector: 'app-members-of-team',
   templateUrl: './members-of-team.component.html',
@@ -24,6 +31,7 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
   public subMembers: any;
   public members: User[] = [];
   public teams: Class [] = [];
+  public message = message;
   constructor(
     public deviceService: DeviceDetectorService,
     private teamService: TeamService

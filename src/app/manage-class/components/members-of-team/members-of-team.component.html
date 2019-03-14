@@ -4,20 +4,20 @@
       <span>Quản lý thành viên</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class=" full-width">
+  <div class=" full-width" *ngIf="currentTeam">
     <div ngbDropdown class="d-inline-block  full-width">
       <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-       {{ currentTeam.name }}
+       {{ currentTeam?.name }}
       </button>
       <div ngbDropdownMenu>
         
-        <button ngbDropdownItem *ngFor="let team of teams"  on-click="onChange(team)">{{ team.name }}</button>
+        <button ngbDropdownItem *ngFor="let team of teams"  on-click="onChange(team)">{{ team?.name }}</button>
 
       </div>
     </div>
   </div>
   <mat-divider></mat-divider>
-
+  <h3 class="empty-list" *ngIf="!currentTeam">{{ message.message.dontHaveTeam }}</h3>
   <div *ngFor="let member of members">
       <app-member-of-team [member]="member"></app-member-of-team>
     </div>

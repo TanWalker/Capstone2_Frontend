@@ -1,6 +1,6 @@
 <mat-list-item role="listitem">
   
-  <span>{{count}}. {{member.username}}<span class="badge-content"><img src="./../../../../../assets/verify-2.svg" height=15></span></span>
+  <span>{{count}}. {{ member.display_name || member.username}}<span class="badge-content"><img src="./../../../../../assets/verify-2.svg" height=15 *ngIf="member.is_verified"></span></span>
   <div class="title-bar-spacer"></div>
   <button mat-button color="warn" (click)="removeMember()">Xóa</button>
 </mat-list-item>

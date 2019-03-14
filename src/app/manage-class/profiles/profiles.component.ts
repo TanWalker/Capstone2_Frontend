@@ -16,9 +16,9 @@ export interface Gender {
 }
 const message = {
   box: {
-    title: Constants.box.create_schedule.title,
-    message: Constants.box.create_schedule.message,
-    confirm: Constants.box.create_schedule.confirm
+    title: Constants.box.profile.title,
+    message: Constants.box.profile.message,
+    confirm: Constants.box.profile.confirm
   },
   error: {
     first_name: Constants.error.profile.first_name,
