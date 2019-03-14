@@ -17,11 +17,15 @@ import { Exercise } from 'src/app/share/models/exercise';
   ]
 })
 export class DetailScheduleComponent implements OnInit {
+  public startTime = {};
+  public endTime = {};
   public dateModel: NgbDateStruct;
+  public currentScheduledDate: NgbDateStruct;
   public teams: Class[] = [];
   public exercises: Exercise[] = [];
   public currentTeam;
   public currentExercise;
+
   constructor(
     private dialogRef: MatDialogRef<DetailScheduleComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -40,6 +44,13 @@ export class DetailScheduleComponent implements OnInit {
     console.log(this.data);
     this.currentTeam = this.data.schedule.title;
     this.currentExercise = this.data.schedule.id;
+    this.currentScheduledDate = this.calendar.getToday();
+    this.currentScheduledDate.day = this.data.schedule.start.getDate();
+    this.currentScheduledDate.month = this.data.schedule.start.getMonth() + 1;
+    this.currentScheduledDate.year = this.data.schedule.start.getFullYear();
+    this.startTime = {hour: this.data.schedule.start.getHours(), minute: this.data.schedule.start.getMinutes()};
+    this.endTime = {hour: this.data.schedule.end.getHours(), minute: this.data.schedule.end.getMinutes()};
+    // console.log(this.data.schedule.start.getHours());
   }
   getTeams() {
     this.teamService.getTeamByCoach().subscribe((data: Result) => {

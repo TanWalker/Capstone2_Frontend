@@ -162,9 +162,9 @@
   border-radius: 5px;
   background-color: #ffffff;
 }
-::ng-deep .mat-dialog-container{
-  /* max-width: 330px; */
-}
+/* ::ng-deep .mat-dialog-container{
+  max-width: 330px;
+} */
 .mat-list-theme{
   padding: 0 13px;
   margin: 0 15px;
