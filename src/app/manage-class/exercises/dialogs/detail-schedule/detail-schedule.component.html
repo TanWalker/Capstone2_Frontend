@@ -1,20 +1,39 @@
 <h1 mat-dialog-title><i class="fas fa-info-square margin-right-5"></i> Chi tiết lịch của nhóm <span class="hightlight-title">{{data.schedule.title}}</span></h1>
-<div class="form row">
-  <div class="col-xs">
+<div class="row">
+  <div class="col-xs form">
     <!-- <mat-form-field appearance="outline">
       <mat-label>Nhóm</mat-label>
       <input matInput placeholder="Placeholder" [value]="data.schedule.title">
     </mat-form-field> -->
     <mat-form-field appearance="outline">
-        <mat-label>Chọn đội</mat-label>
-        <mat-select [(value)]="hi">
-          <mat-option *ngFor="let team of teams" [value]="team.name">{{team.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <mat-label>Nhóm</mat-label>
+      <mat-select [(ngModel)]="currentTeam">
+        <mat-option *ngFor="let team of teams" [value]="team.name">{{team.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Bài tập</mat-label>
+      <mat-select [(ngModel)]="currentExercise">
+        <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">{{exercise.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="flex-box">
+        <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
+        <span class="hour" > <i class="fas fa-arrows-alt-h"></i> </span>
+        <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
+      </div>
   </div>
   <div class="col-xs">
     <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
   </div>
 </div>
-<br/>
-<button mat-stroked-button class="full-width" [mat-dialog-close]>Đóng</button>
+<br />
+<div class="row">
+  <div class="col-xs">
+    <button mat-stroked-button class="full-width" [mat-dialog-close]>Đóng</button>
+  </div>
+  <div class="col-xs">
+      <button mat-flat-button class="full-width" color="light-blue">Lưu</button>
+      
+  </div>
+</div>
