@@ -47,7 +47,7 @@ import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/det
       useFactory: adapterFactory
     }),
     NgbModule
-  ],
+    ],
   declarations: [
     ManageClassComponent,
     ClassesComponent,
@@ -71,7 +71,7 @@ import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/det
     MembersOfTeamComponent,
     MemberOfTeamComponent,
     DistancesComponent
-  ],
+    ],
   entryComponents: [
     AddClassComponent,
     AddExerciseComponent,
