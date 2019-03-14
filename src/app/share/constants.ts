@@ -26,6 +26,9 @@ export const Constants = {
     },
     profile: {
       verify: 'Tài khoản này đã được chứng thực'
+    },
+    manage_member: {
+      have_not_member: 'Hiện tại chưa có nhóm nào cả'
     }
   },
   box: {

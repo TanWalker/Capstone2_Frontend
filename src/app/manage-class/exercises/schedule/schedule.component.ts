@@ -69,6 +69,8 @@ export class ScheduleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
+        // reset events
+        this.events = [];
         this.getEvent();
       }
     });
