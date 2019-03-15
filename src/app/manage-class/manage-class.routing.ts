@@ -8,6 +8,7 @@ import { ScheduleComponent } from './exercises/schedule/schedule.component';
 import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-detail.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { MembersOfTeamComponent } from './components/members-of-team/members-of-team.component';
+import { RecordComponent } from './record/record.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'exercises', component: ExercisesComponent },
       { path: 'exercises/detail/:id', component: ExerciseDetailComponent },
       { path: 'schedule', component: ScheduleComponent },
+      { path: 'record', component: RecordComponent}
     ]
   }
 ];

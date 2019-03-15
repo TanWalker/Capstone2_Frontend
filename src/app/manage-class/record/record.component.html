@@ -1,0 +1,49 @@
+<div [ngClass]="isMobile ? '' : 'content-desktop'">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>Thành tích</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class=" full-width">
+    <div ngbDropdown class="d-inline-block  full-width">
+      <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+          {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
+           + currentSchedule.day + '/'
+           + currentSchedule.month + '/'
+           + currentSchedule.year
+          }}
+      </button>
+      <div ngbDropdownMenu class="record-drop-down"> 
+        
+        <button ngbDropdownItem *ngFor="let schedule of schedules"  on-click="onChangeSchedule(schedule)"> 
+          {{schedule.start_hour + ':' + schedule.start_minute + ' - '
+          + schedule.day + '/'
+          + schedule.month + '/'
+          + schedule.year
+         }}
+
+        </button>
+
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card >
+    <mat-card-header>
+      <div mat-card-avatar>
+
+        <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" height=45>
+      </div>
+      <mat-card-title>{{currentTeam.name}}</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+     
+    </mat-card-content>
+    <mat-card-actions>
+     
+    </mat-card-actions>
+  </mat-card>
+  <h3 class="empty-list"></h3>
+  
+</div>
