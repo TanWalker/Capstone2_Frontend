@@ -47,7 +47,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    // console.log(event);
+    // console.log(schedule);
     const dialogRef = this.dialog.open(DetailScheduleComponent, {
       disableClose: true,
       maxWidth: '600px',
@@ -99,7 +99,7 @@ export class ScheduleComponent implements OnInit {
               event.end_minute
             ),
             color: colors.blue,
-            id: event.exercise_id
+            id: event.id.toString()
           });
         });
         this.refresh.next();
