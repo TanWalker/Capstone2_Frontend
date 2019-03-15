@@ -29,15 +29,14 @@ const message = {
     '../../../manage-class.component.css'
   ]
 })
-
 export class AddScheduleComponent implements OnInit, OnDestroy {
   public message = message;
-  public startTime = {hour: 8, minute: 0} ;
-  public endTime = {hour: 9, minute: 0} ;
+  public startTime = { hour: 8, minute: 0 };
+  public endTime = { hour: 9, minute: 0 };
   public subExercise: any;
-  public exercises: Exercise [] = [];
+  public exercises: Exercise[] = [];
   public subTeam: any;
-  public teams: Class [] = [];
+  public teams: Class[] = [];
   public subCreate: any;
   public schedule: Schedule = new Schedule();
   public dateModel: NgbDateStruct;
@@ -56,9 +55,12 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
     this.dateModel = this.calendar.getToday();
   }
   ngOnDestroy() {
-    if ( this.subExercise !== null ) { this.subExercise.unsubscribe(); }
-    if ( this.subTeam !== null ) { this.subTeam.unsubscribe(); }
-
+    if (this.subExercise !== null) {
+      this.subExercise.unsubscribe();
+    }
+    if (this.subTeam !== null) {
+      this.subTeam.unsubscribe();
+    }
   }
   getExercises() {
     this.subExercise = this.exerciseService.getExerciseByCoach().subscribe(
@@ -93,15 +95,14 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-
         // init value
-            this.schedule.year = this.dateModel.year;
-            this.schedule.month = this.dateModel.month;
-            this.schedule.day = this.dateModel.day;
-            this.schedule.start_hour = this.startTime.hour;
-            this.schedule.start_minute = this.startTime.minute;
-            this.schedule.end_hour = this.endTime.hour;
-            this.schedule.end_minute = this.endTime.minute;
+        this.schedule.year = this.dateModel.year;
+        this.schedule.month = this.dateModel.month;
+        this.schedule.day = this.dateModel.day;
+        this.schedule.start_hour = this.startTime.hour;
+        this.schedule.start_minute = this.startTime.minute;
+        this.schedule.end_hour = this.endTime.hour;
+        this.schedule.end_minute = this.endTime.minute;
         // add schedule
 
         this.subCreate = this.scheduleService.addSchedule(this.schedule).subscribe(

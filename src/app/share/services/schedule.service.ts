@@ -7,12 +7,14 @@ import { Schedule } from '../models/schedule';
   providedIn: 'root'
 })
 export class ScheduleService {
-
-constructor(private http: HttpClient) { }
-getScheduleByCoach() {
-  return this.http.get(`${environment.urls.api}/getSchedule`);
-}
-addSchedule( schedule: Schedule ) {
-  return this.http.post(`${environment.urls.api}/addSchedule`, schedule);
-}
+  constructor(private http: HttpClient) {}
+  getScheduleByCoach() {
+    return this.http.get(`${environment.urls.api}/getSchedule`);
+  }
+  addSchedule(schedule: Schedule) {
+    return this.http.post(`${environment.urls.api}/addSchedule`, schedule);
+  }
+  updateSchedule(schedule: Schedule) {
+    return this.http.put(`${environment.urls.api}/updateSchedule`, schedule);
+  }
 }

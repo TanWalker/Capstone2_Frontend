@@ -7,9 +7,14 @@ import { UserService } from 'src/app/share/services/user.service';
 import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  Validators,
+  FormGroup
+} from '@angular/forms';
 export interface Gender {
   value: boolean;
   viewValue: string;
@@ -62,8 +67,8 @@ export class ProfilesComponent implements OnInit {
     private calendar: NgbCalendar,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private authService: AuthService
-
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) {}
   genders: Gender[] = [
     { value: false, viewValue: 'Nam' },
@@ -91,9 +96,8 @@ export class ProfilesComponent implements OnInit {
     this.model.day = this.date.getDate() - 1;
     this.model.month = this.date.getMonth() + 1;
     this.model.year = this.date.getFullYear();
-
   }
-  updateAvatar( $info) {
+  updateAvatar($info) {
     // new avatar for user on front-end
     this.user.avatar = $info.cdnUrl;
   }
@@ -104,7 +108,6 @@ export class ProfilesComponent implements OnInit {
     return environment.urls.upload_care_key;
   }
   save() {
-
     // set isSubmit
     this.isSubmit = true;
     // check validation
@@ -117,7 +120,8 @@ export class ProfilesComponent implements OnInit {
         title: this.message.box.title,
         message: this.message.box.message,
         confirm: this.message.box.confirm
-      }
+      },
+      panelClass: 'alert-bg'
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
@@ -125,13 +129,18 @@ export class ProfilesComponent implements OnInit {
         this.user.dob.setDate(this.model.day);
         this.user.dob.setMonth(this.model.month);
         this.user.dob.setFullYear(this.model.year);
-        this.userService.updateUser(this.user).subscribe(
-          (response: Result) => {
-            response.success ? this.isSubmit = false : console.log(response);
-            this.user.is_verified = true;
-            this.authService.setOnlyUser(this.user);
+        this.userService.updateUser(this.user).subscribe((response: Result) => {
+          if (response.success) {
+            this.isSubmit = false;
+            this.snackBar.open('Lưu thông tin thành công!', 'Đóng', {
+              duration: 6000
+            });
+          } else {
+            console.log(response);
           }
-        );
+          this.user.is_verified = true;
+          this.authService.setOnlyUser(this.user);
+        });
       }
     });
   }
