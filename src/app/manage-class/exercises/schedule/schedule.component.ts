@@ -99,7 +99,7 @@ export class ScheduleComponent implements OnInit {
               event.end_minute
             ),
             color: colors.blue,
-            id: event.id.toString()
+            id: event.id
           });
         });
         this.refresh.next();
