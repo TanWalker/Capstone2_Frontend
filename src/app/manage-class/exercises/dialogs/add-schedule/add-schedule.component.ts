@@ -63,16 +63,22 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
   getExercises() {
     this.subExercise = this.exerciseService.getExerciseByCoach().subscribe(
       (data: Result) => {
-        console.log(data);
        this.exercises = data.success ? data.values : [];
+       if ( this.exercises !== []) {
+        this.schedule.exercise_id = this.exercises[0].id;
+        this.schedule.exercise_name = this.exercises[0].name;
+      }
       }
     );
   }
   getTeams() {
     this.subTeam = this.teamService.getTeamByCoach().subscribe(
       (data: Result) => {
-        console.log(data);
         this.teams = data.success ? data.values : [];
+        if ( this.teams !== []) {
+          this.schedule.team_id = this.teams[0].id;
+          this.schedule.team_name = this.teams[0].name;
+        }
       }
     );
   }
@@ -100,10 +106,14 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
 
         this.subCreate = this.scheduleService.addSchedule(this.schedule).subscribe(
           (result: Result) => {
+            console.log(result);
             result.success ? this.dialogRef.close(true) : console.log('create schedule fail');
           }
         );
       }
     });
+  }
+  onChangeTeam(name) {
+    this.schedule.team_name = name;
   }
 }

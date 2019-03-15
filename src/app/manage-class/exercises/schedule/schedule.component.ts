@@ -82,7 +82,7 @@ export class ScheduleComponent implements OnInit {
         this.schedule = data.success ? data.values : [];
         this.schedule.map(event => {
           this.events.push({
-            title: event.team_name,
+            title: event.team_name.toString() + ' - ' + event.exercise_name,
             start: new Date(
               event.year,
               event.month - 1,
@@ -98,7 +98,7 @@ export class ScheduleComponent implements OnInit {
               event.end_minute
             ),
             color: colors.blue,
-            id: event.exercise_id
+            id: event.exercise_id.toString()
           });
         });
         this.refresh.next();
