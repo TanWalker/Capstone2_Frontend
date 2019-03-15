@@ -47,10 +47,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    console.log(event);
+    // console.log(event);
     const dialogRef = this.dialog.open(DetailScheduleComponent, {
       disableClose: true,
       maxWidth: '600px',
+      minWidth: '300px',
       data: {
         schedule: event
       }

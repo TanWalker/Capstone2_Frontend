@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   urls: {
-  // api: 'http://192.168.31.209:3000/api',
+  // api: 'http://10.0.12.64:3000/api',
   api: 'http://localhost:3000/api',
   upload_care_key : 'c7c05222d42cec64dcf7'
  },

@@ -48,7 +48,7 @@ import { RecordComponent } from './record/record.component';
       useFactory: adapterFactory
     }),
     NgbModule
-  ],
+    ],
   declarations: [
     ManageClassComponent,
     ClassesComponent,

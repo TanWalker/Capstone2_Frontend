@@ -47,6 +47,9 @@ h3,
     width: 100%;
   }
 }
+.hightlight-title{
+  color: rgb(187, 0, 0);
+}
 .mat-icon > svg {
   vertical-align: 0.2em;
 }

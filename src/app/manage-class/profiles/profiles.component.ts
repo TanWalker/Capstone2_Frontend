@@ -47,7 +47,6 @@ export class ProfilesComponent implements OnInit {
   public message = message;
   public date: Date;
   public model: NgbDateStruct;
-
   // validation
   public isSubmit = false;
   public userForm: FormGroup;
