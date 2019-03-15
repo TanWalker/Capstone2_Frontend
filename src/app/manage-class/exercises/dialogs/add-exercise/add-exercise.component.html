@@ -6,13 +6,21 @@
       <input matInput [(ngModel)]="exercise.name" />
     </mat-form-field>
     <mat-form-field appearance="outline">
+        <mat-label>Loại bài tập</mat-label>
+        <mat-select placeholder="Loại bài tập" [(ngModel)]="exercise.type_id">
+          <mat-option *ngFor="let type of typeOfExercise" [value]="type.id">{{type?.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Kiểu bơi</mat-label>
       <mat-select placeholder="Kiểu bơi" [(ngModel)]="currentStyle">
         <mat-option *ngFor="let style of styles" [value]="style">{{style?.swim_name}}</mat-option>
       </mat-select>
     </mat-form-field>
-      <mat-card class="margin-bottom-20">{{currentStyle?.description}}</mat-card>
-      <!-- <textarea matInput placeholder="Textarea" rows=8 [value]="currentStyle.description"></textarea> -->
+    <mat-form-field appearance="outline">
+        <mat-label>Miêu tả</mat-label>
+        <textarea matInput placeholder="Textarea" rows=3 [(ngModel)]="exercise.description"></textarea> 
+      </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Khoảng cách</mat-label>
       <mat-select placeholder="Khoảng cách (m)" [(ngModel)]="exercise.distance">
@@ -24,6 +32,10 @@
       <mat-label>Số lần lặp</mat-label>
       <input matInput type="number" [(ngModel)]="exercise.reps" />
     </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Thời gian (ước lượng)</mat-label>
+        <input matInput type="number" [(ngModel)]="exercise.time" />
+      </mat-form-field>
   </div>
 </div>
 <div class="row margin-top-10">

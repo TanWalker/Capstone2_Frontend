@@ -29,6 +29,8 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   public subExercise: any;
   public message = message;
   public isMobile = false;
+  public subTypeOfExercies: any;
+  public typeOfExercises: any;
   constructor(
     private dialog: MatDialog,
     private exerciseService: ExerciseService,
@@ -39,10 +41,14 @@ export class ExercisesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getExercises();
+    this.getTypeOfExercises();
   }
   ngOnDestroy() {
     if (this.subExercise !== null) {
       this.subExercise.unsubscribe();
+    }
+    if (this.subTypeOfExercies !== null) {
+      this.subTypeOfExercies.unsubscribe();
     }
   }
   openDialogDistance() {
@@ -85,5 +91,12 @@ export class ExercisesComponent implements OnInit, OnDestroy {
           ? (this.exercises = data.values)
           : console.log('can not get exercise');
       });
+  }
+  public getTypeOfExercises() {
+    this.subTypeOfExercies = this.exerciseService.getTypeOfExercise().subscribe(
+    (data: Result) => {
+      this.typeOfExercises = data.success ? data.values : [];
+    }
+    );
   }
 }

@@ -17,3 +17,8 @@ a.lesson-link{
   font-size: 18px;
   font-weight: 500;
 }
+.my-card {
+
+  box-shadow: none !important;
+  
+}

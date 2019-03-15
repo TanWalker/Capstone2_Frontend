@@ -35,6 +35,8 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
   public currentStyle: SwimStyle = new SwimStyle();
   public subCreate: any;
   public exercise: Exercise = new Exercise();
+  public subTypeOfExercise: any;
+  public typeOfExercise: any;
   constructor(
     private dialogRef: MatDialogRef<AddExerciseComponent>,
     private exerciseService: ExerciseService,
@@ -45,11 +47,14 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getSwimStyle();
     this.getDistance();
+    this.getTypeOfExercise();
   }
 
   ngOnDestroy() {
     if ( this.subStyle !== null ) { this.subStyle.unsubscribe(); }
     if ( this.subDistance !== null ) { this.subDistance.unsubscribe(); }
+    if ( this.subTypeOfExercise !== null ) { this.subTypeOfExercise.unsubscribe(); }
+
     if ( !isNullOrUndefined( this.subCreate)) { this.subCreate.unsubscribe(); }
 
   }
@@ -73,6 +78,13 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
         } else {
           console.log('Can not get distance');
         }
+      }
+    );
+  }
+  getTypeOfExercise() {
+    this.subTypeOfExercise = this.exerciseService.getTypeOfExercise().subscribe(
+      (data: Result) => {
+          this.typeOfExercise = data.success ? data.values : [] ;
       }
     );
   }

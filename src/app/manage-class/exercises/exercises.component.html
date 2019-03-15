@@ -22,7 +22,23 @@
   <!-- <div *ngIf="exercises.length === 0">
    {{ message.message.have_not_exercise }}
 </div> -->
-  <div *ngFor="let item of exercises">
-    <app-exercise [exercise]="item"></app-exercise>
-  </div>
+
+  <mat-expansion-panel *ngFor="let type of typeOfExercises">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+      {{ type?.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+      
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="exercise-box">
+      <div *ngFor="let item of exercises">
+          <hr>
+        <app-exercise [exercise]="item" [logo]="type.logo"></app-exercise>
+      </div>
+    </div>
+   
+  </mat-expansion-panel>
+
 </div>

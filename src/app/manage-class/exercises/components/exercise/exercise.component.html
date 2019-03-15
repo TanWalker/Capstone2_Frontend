@@ -1,8 +1,8 @@
 <a routerLink="/class/exercises/detail/{{exercise.id}}" class="lesson-link">
-  <mat-card matRipple matRippleColor="rgba(136, 154, 255, 0.2)">
+  <mat-card matRipple matRippleColor="rgba(136, 154, 255, 0.2)" class="my-card">
     <div class="row middle-xs">
       <div class="col-xs-3 center-xs">
-        <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" width="100%">
+        <img [src]="logo" width="100%">
       </div>
       <div class="col-xs-9 reneral-info">
         <div class="lesson-title">Tên bài tập: {{exercise.name}}</div>

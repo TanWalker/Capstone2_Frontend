@@ -6,4 +6,7 @@ export class Exercise {
   public style: String = '';
   public distance: String = '';
   public reps: String = '';
+  public type_id: String = '';
+  public time: Number = 0 ;
+  public description: String = '';
 }

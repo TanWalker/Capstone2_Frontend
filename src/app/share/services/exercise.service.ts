@@ -38,4 +38,8 @@ export class ExerciseService {
   public getExerciseByCoach() {
     return this.http.get(`${environment.urls.api}` + `/getExerciseByCoach`);
   }
+  public getTypeOfExercise() {
+    return this.http.get(`${environment.urls.api}` + `/public/getTypeOfExercise`);
+
+  }
 }
