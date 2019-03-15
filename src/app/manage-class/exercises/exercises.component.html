@@ -33,9 +33,11 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="exercise-box">
-      <div *ngFor="let item of exercises">
+      <div *ngFor="let item of exercises" >
+        <div *ngIf="item.type_id === type.id">
           <hr>
-        <app-exercise [exercise]="item" [logo]="type.logo"></app-exercise>
+        <app-exercise [exercise]="item" [logo]="type.logo" ></app-exercise>
+      </div>
       </div>
     </div>
    
