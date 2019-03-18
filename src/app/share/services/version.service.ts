@@ -17,4 +17,7 @@ getVersionBE() {
 getVersionFRe() {
   console.log(environment.VERSION);
 }
+getAppVersion() {
+  return this.http.get(`${environment.urls.api}` + `/public/appVersion`);
+}
 }

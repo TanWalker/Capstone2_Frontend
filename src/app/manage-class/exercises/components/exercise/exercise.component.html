@@ -1,15 +1,19 @@
-<a routerLink="/class/exercises/detail/{{exercise.id}}" class="lesson-link">
   <mat-card matRipple matRippleColor="rgba(136, 154, 255, 0.2)" class="my-card">
     <div class="row middle-xs">
       <div class="col-xs-3 center-xs">
         <img [src]="logo" width="100%">
       </div>
-      <div class="col-xs-9 reneral-info">
+      <div [ngClass]="isAdded ? 'col-xs-9 reneral-info' : 'col-xs-7 reneral-info'">
         <div class="lesson-title">Tên bài tập: {{exercise.name}}</div>
         <div>Kiểu bơi: {{exercise.style}}</div>
         <div>Khoảng cách: {{exercise.distance}} (m)</div>
         <div>Số lần lặp: {{exercise.reps}}</div>
       </div>
+      <div [ngClass]="isAdded ? 'col-xs-2 goToLesson' : ''">
+          <button mat-mini-fab (click)="sendEx()" color="primary" [hidden]="isAdded"> 
+              <mat-icon>keyboard_arrow_right
+                </mat-icon>
+            </button>
+      </div>
     </div>
   </mat-card>
-  </a>

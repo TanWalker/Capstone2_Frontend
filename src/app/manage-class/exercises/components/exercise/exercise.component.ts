@@ -10,9 +10,11 @@ import { Exercise } from 'src/app/share/models/exercise';
 export class ExerciseComponent implements OnInit {
   @Input() exercise: Exercise;
   @Input() logo: String;
+  @Input() isAdded: Boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  sendEx() {
+  }
 }

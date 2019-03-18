@@ -32,6 +32,7 @@ import { DistancesComponent } from './exercises/dialogs/distances/distances.comp
 import { DistanceComponent } from './exercises/components/distance/distance.component';
 import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/detail-schedule.component';
 import { RecordComponent } from './record/record.component';
+import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.component';
 
 @NgModule({
   imports: [
@@ -72,7 +73,8 @@ import { RecordComponent } from './record/record.component';
     MembersOfTeamComponent,
     MemberOfTeamComponent,
     DistancesComponent,
-    RecordComponent
+    RecordComponent,
+    LessonPlanComponent
   ],
   entryComponents: [
     AddClassComponent,

@@ -1,4 +1,10 @@
-import { MatButtonModule, MatCheckboxModule, MatChipsModule, MatTooltipModule, MatProgressSpinnerModule } from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import { MatButtonModule,
+         MatCheckboxModule,
+         MatChipsModule,
+         MatTooltipModule,
+         MatProgressSpinnerModule,
+         MatStepperModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -39,6 +45,7 @@ import {MatMenuModule} from '@angular/material/menu';
         MatMenuModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
+        MatStepperModule
     ],
     exports: [
         MatButtonModule,
@@ -61,6 +68,7 @@ import {MatMenuModule} from '@angular/material/menu';
         MatChipsModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
+        MatStepperModule
     ],
 })
 export class MaterialModule { }

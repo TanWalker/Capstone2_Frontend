@@ -324,7 +324,9 @@ body {
 .margin-bottom-down-20 {
   margin-bottom: -20px;
 }
-
+.margin-bottom-down-35 {
+  margin-bottom: -35px;
+}
 .padding-top-10 {
   padding-top: 10px;
 }

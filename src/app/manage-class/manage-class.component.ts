@@ -4,6 +4,8 @@ import { AuthService } from '../share/services/auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { User } from '../share/models/user';
 import { fadeAnimation } from '../animations';
+import { MatDialog } from '@angular/material';
+import { VersionBoxComponent } from '../share/components/version-box/version-box.component';
 
 @Component({
   selector: 'app-manage-class',
@@ -21,7 +23,8 @@ export class ManageClassComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     router.events.subscribe((_: NavigationEnd) => {
       // example: NavigationStart, RoutesRecognized, NavigationEnd
@@ -56,6 +59,9 @@ export class ManageClassComponent implements OnInit {
   }
   goToProfile() {
     this.router.navigate(['/class/profiles']);
+  }
+  openVersionDialog() {
+     this.dialog.open(VersionBoxComponent);
   }
   logout() {
     this.authService.logout();

@@ -14,12 +14,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { VersionBoxComponent } from './share/components/version-box/version-box.component';
 @NgModule({
   declarations: [
     AppComponent,
     MessageBoxComponent,
     LoginComponent,
     RegisterComponent,
+    VersionBoxComponent
     ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     UcWidgetModule,
   ],
   entryComponents: [
-    MessageBoxComponent
+    MessageBoxComponent,
+    VersionBoxComponent
   ],
   providers: [
     {
