@@ -36,7 +36,7 @@
       <div *ngFor="let item of exercises" >
         <div *ngIf="item.type_id === type.id">
           <hr>
-        <app-exercise [exercise]="item" [logo]="type.logo" ></app-exercise>
+        <app-exercise [exercise]="item" [logo]="type.logo" (add)="isSended($event)" ></app-exercise>
       </div>
       </div>
     </div>

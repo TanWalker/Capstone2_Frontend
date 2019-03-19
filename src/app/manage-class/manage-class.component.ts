@@ -6,6 +6,7 @@ import { User } from '../share/models/user';
 import { fadeAnimation } from '../animations';
 import { MatDialog } from '@angular/material';
 import { VersionBoxComponent } from '../share/components/version-box/version-box.component';
+import { FeedBackBoxComponent } from '../share/components/feedBack-box/feedBack-box.component';
 
 @Component({
   selector: 'app-manage-class',
@@ -62,6 +63,9 @@ export class ManageClassComponent implements OnInit {
   }
   openVersionDialog() {
      this.dialog.open(VersionBoxComponent);
+  }
+  openFeedBackDialog() {
+    this.dialog.open(FeedBackBoxComponent);
   }
   logout() {
     this.authService.logout();

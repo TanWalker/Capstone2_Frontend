@@ -8,6 +8,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { Constants } from 'src/app/share/constants';
 import { SwimstylesComponent } from './dialogs/swimstyles/swimstyles.component';
 import { DistancesComponent } from './dialogs/distances/distances.component';
+import { ManageLessonPlanService } from 'src/app/share/services/manageLessonPlan.service';
 
 const message = {
   message: {
@@ -34,7 +35,8 @@ export class ExercisesComponent implements OnInit, OnDestroy {
   constructor(
     private dialog: MatDialog,
     private exerciseService: ExerciseService,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private manageLessonService: ManageLessonPlanService
   ) {
     this.isMobile = deviceService.isMobile();
   }
@@ -50,6 +52,8 @@ export class ExercisesComponent implements OnInit, OnDestroy {
     if (this.subTypeOfExercies !== null) {
       this.subTypeOfExercies.unsubscribe();
     }
+
+    // this.manageLessonService.destroySubject();
   }
   openDialogDistance() {
     const dialogRef = this.dialog.open(DistancesComponent, {
@@ -98,5 +102,8 @@ export class ExercisesComponent implements OnInit, OnDestroy {
       this.typeOfExercises = data.success ? data.values : [];
     }
     );
+  }
+  public isSended($event: Exercise) {
+    this.manageLessonService.addExercise($event);
   }
 }

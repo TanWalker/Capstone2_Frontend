@@ -15,13 +15,16 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { VersionBoxComponent } from './share/components/version-box/version-box.component';
+import { FeedBackBoxComponent } from './share/components/feedBack-box/feedBack-box.component';
 @NgModule({
   declarations: [
     AppComponent,
     MessageBoxComponent,
     LoginComponent,
     RegisterComponent,
-    VersionBoxComponent
+    VersionBoxComponent,
+    FeedBackBoxComponent
+
     ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { VersionBoxComponent } from './share/components/version-box/version-box.
   ],
   entryComponents: [
     MessageBoxComponent,
-    VersionBoxComponent
+    VersionBoxComponent,
+    FeedBackBoxComponent
   ],
   providers: [
     {

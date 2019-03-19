@@ -3,15 +3,21 @@
       <div class="col-xs-3 center-xs">
         <img [src]="logo" width="100%">
       </div>
-      <div [ngClass]="isAdded ? 'col-xs-9 reneral-info' : 'col-xs-7 reneral-info'">
-        <div class="lesson-title">Tên bài tập: {{exercise.name}}</div>
+      <div class= "col-xs-7 reneral-info">
+        <div class="lesson-title">Bài tập: {{exercise.name}}</div>
         <div>Kiểu bơi: {{exercise.style}}</div>
         <div>Khoảng cách: {{exercise.distance}} (m)</div>
         <div>Số lần lặp: {{exercise.reps}}</div>
       </div>
-      <div [ngClass]="isAdded ? 'col-xs-2 goToLesson' : ''">
-          <button mat-mini-fab (click)="sendEx()" color="primary" [hidden]="isAdded"> 
+      <div class= "col-xs-2 goToLesson">
+          <button mat-mini-fab (click)="addEx()" color="primary" [hidden]="isAdded"> 
               <mat-icon>keyboard_arrow_right
+                </mat-icon>
+            </button>
+
+            <button mat-mini-fab (click)="removeEx()" color="warn" [hidden]="!isAdded"> 
+              <mat-icon>reply_all
+
                 </mat-icon>
             </button>
       </div>

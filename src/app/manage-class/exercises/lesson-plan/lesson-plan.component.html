@@ -21,11 +21,11 @@
     </div>
     <div class="row margin-bottom-20">
         <div class="col-xs-6 padding-left-0">
-            <button mat-flat-button color="success" (click)="openDialogSwimStyle()" class="margin-right-5 full-width">
+            <button mat-flat-button color="success" class="margin-right-5 full-width">
             Thêm giáo án <i class="far fa-swimmer"></i></button>
           </div>
           <div class="col-xs-6 padding-right-0">
-            <button mat-flat-button color="primary" (click)="openDialogDistance()" class="full-width">
+            <button mat-flat-button color="primary"  class="full-width">
              Lưu giáo án <i class="far fa-water"></i>
             </button>
           </div>
@@ -37,19 +37,19 @@
   </div> -->
   
   <mat-vertical-stepper>
-      <!-- <mat-step *ngFor="let type of typeOfExercises">
+      <mat-step *ngFor="let type of typeExs">
           <form >
               <ng-template matStepLabel>  {{ type?.name }}</ng-template>
               <div class="exercise-box">
                   <div *ngFor="let item of exercises" >
                     <div *ngIf="item.type_id === type.id">
                       <hr>
-                    <app-exercise [exercise]="item" [logo]="type.logo" [isAdded]= true></app-exercise>
+                    <app-exercise [exercise]="item" [logo]="type.logo" [isAdded]= true (remove)="removeEx($event)"></app-exercise>
                   </div>
                   </div>
                 </div>
             </form> 
-        </mat-step> -->
+        </mat-step>
     </mat-vertical-stepper>
   
   </div>
