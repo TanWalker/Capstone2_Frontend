@@ -10,6 +10,19 @@
         <div>Chiều cao: {{member.height || message.default.member.height}} (m)</div>
         <div>Cân nặng: {{member.weight || message.default.member.weight}}</div>
       </div>
+
+     
+    </div>
+    <div class="fullWidth margin-top-20">
+
+      <canvas baseChart
+      [datasets]="radarChartData"
+      [options]="radarChartOptions"
+      [labels]="radarChartLabels"
+      [chartType]="radarChartType">
+    </canvas>
     </div>
   </mat-card>
+
+ 
   </a>

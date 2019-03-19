@@ -10,12 +10,12 @@
         <div>Số lần lặp: {{exercise.reps}}</div>
       </div>
       <div class= "col-xs-2 goToLesson">
-          <button mat-mini-fab (click)="addEx()" color="primary" [hidden]="isAdded"> 
+          <button mat-mini-fab (click)="addEx()" color="primary" [hidden]="isAdded" style="width: 40px">  
               <mat-icon>keyboard_arrow_right
                 </mat-icon>
             </button>
 
-            <button mat-mini-fab (click)="removeEx()" color="warn" [hidden]="!isAdded"> 
+            <button mat-mini-fab (click)="removeEx()" color="warn" [hidden]="!isAdded" style="width: 40px"> 
               <mat-icon>reply_all
 
                 </mat-icon>

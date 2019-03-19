@@ -16,6 +16,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { VersionBoxComponent } from './share/components/version-box/version-box.component';
 import { FeedBackBoxComponent } from './share/components/feedBack-box/feedBack-box.component';
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { FeedBackBoxComponent } from './share/components/feedBack-box/feedBack-b
     DeviceDetectorModule.forRoot(),
     LayoutModule,
     UcWidgetModule,
+    ChartsModule
   ],
   entryComponents: [
     MessageBoxComponent,

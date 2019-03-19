@@ -33,6 +33,7 @@ import { DistanceComponent } from './exercises/components/distance/distance.comp
 import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/detail-schedule.component';
 import { RecordComponent } from './record/record.component';
 import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.compone
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule
+    NgbModule,
+    ChartsModule
     ],
   declarations: [
     ManageClassComponent,
