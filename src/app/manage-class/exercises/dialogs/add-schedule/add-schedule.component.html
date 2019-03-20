@@ -9,9 +9,9 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Bài tập</mat-label>
-      <mat-select [(ngModel)] = "schedule.exercise_id">
-        <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">{{exercise.name}}</mat-option>
+      <mat-label>Giáo án</mat-label>
+      <mat-select [(ngModel)] = "schedule.lesson_id">
+        <mat-option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>

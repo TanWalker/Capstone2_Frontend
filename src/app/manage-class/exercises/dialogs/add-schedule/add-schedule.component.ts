@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 
 import { AddClassComponent } from 'src/app/manage-class/dialogs/add-class/add-class.component';
-import { ExerciseService } from 'src/app/share/services/exercise.service';
-import { Exercise } from 'src/app/share/models/exercise';
 import { Result } from 'src/app/share/models/result';
 import { Class } from 'src/app/share/models/class';
 import { TeamService } from 'src/app/share/services/team.service';
@@ -12,6 +10,8 @@ import { MessageBoxComponent } from 'src/app/share/components/message-box/messag
 import { ScheduleService } from 'src/app/share/services/schedule.service';
 import { Schedule } from 'src/app/share/models/schedule';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { LessonService } from 'src/app/share/services/lesson.service';
+import { Lesson } from 'src/app/share/models/lesson';
 
 const message = {
   box: {
@@ -33,8 +33,8 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
   public message = message;
   public startTime = { hour: 8, minute: 0 };
   public endTime = { hour: 9, minute: 0 };
-  public subExercise: any;
-  public exercises: Exercise[] = [];
+  public subLessons: any;
+  public lessons: Lesson[] = [];
   public subTeam: any;
   public teams: Class[] = [];
   public subCreate: any;
@@ -42,33 +42,33 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
   public dateModel: NgbDateStruct;
   constructor(
     private dialogRef: MatDialogRef<AddClassComponent>,
-    private exerciseService: ExerciseService,
+    private lessonService: LessonService,
     private teamService: TeamService,
     private scheduleService: ScheduleService,
     private dialog: MatDialog,
     private calendar: NgbCalendar
   ) {}
   ngOnInit() {
-    this.getExercises();
+    this.getLessons();
     this.getTeams();
     // set date
     this.dateModel = this.calendar.getToday();
   }
   ngOnDestroy() {
-    if (this.subExercise !== null) {
-      this.subExercise.unsubscribe();
+    if (this.subLessons !== null) {
+      this.subLessons.unsubscribe();
     }
     if (this.subTeam !== null) {
       this.subTeam.unsubscribe();
     }
   }
-  getExercises() {
-    this.subExercise = this.exerciseService.getExerciseByCoach().subscribe(
+  getLessons() {
+    this.subLessons = this.lessonService.getLessonByCoach().subscribe(
       (data: Result) => {
-       this.exercises = data.success ? data.values : [];
-       if ( this.exercises !== []) {
-        this.schedule.exercise_id = this.exercises[0].id;
-        this.schedule.exercise_name = this.exercises[0].name;
+       this.lessons = data.success ? data.values : [];
+       if ( this.lessons !== []) {
+        this.schedule.lesson_id = this.lessons[0].id;
+        this.schedule.lesson_name = this.lessons[0].name;
       }
       }
     );

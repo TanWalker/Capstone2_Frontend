@@ -10,8 +10,8 @@ export class Schedule {
     public end_hour = 0;
     public start_minute = 0;
     public end_minute = 0;
-    public exercise_id: String = '';
-    public exercise_name: String = '';
+    public lesson_id: String = '';
+    public lesson_name: String = '';
     public team_name: String = '';
     public team_id: String = '';
     public display: String = '';
