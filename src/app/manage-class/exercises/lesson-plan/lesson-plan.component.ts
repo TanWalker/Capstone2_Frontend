@@ -120,7 +120,7 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
           (response: Result) => {
            if (response.success) {
              this.exercises.forEach(exercise => {
-               const lesson = res.value;
+               const lesson = response.value;
                const lessonExercise =  new LessonExercise();
                lessonExercise.lesson_id = lesson.id;
                lessonExercise.exercise_id = exercise.id;

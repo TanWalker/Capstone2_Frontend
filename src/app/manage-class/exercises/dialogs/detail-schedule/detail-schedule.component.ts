@@ -67,7 +67,7 @@ export class DetailScheduleComponent implements OnInit {
   }
   saveSchedule() {
     // init value
-    this.schedule.exercise_id = this.currentExercise;
+    // this.schedule.exercise_id = this.currentExercise;
     this.schedule.team_name = this.currentTeam;
     this.schedule.year = this.currentScheduledDate.year;
     this.schedule.month = this.currentScheduledDate.month;
