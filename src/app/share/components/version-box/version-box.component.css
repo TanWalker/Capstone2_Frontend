@@ -1,6 +1,5 @@
-
-::ng-deep .mat-dialog-container {
-    padding: 0px;
+::ng-deep .version-box > .mat-dialog-container{
+    padding: 0px!important;
 }
 .my-version-box {
     width: 400px;

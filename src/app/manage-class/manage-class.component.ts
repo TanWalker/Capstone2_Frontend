@@ -50,10 +50,16 @@ export class ManageClassComponent implements OnInit {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
     // set active parent tab
-    if (this.currentUrl === '/class/classes/teams' || this.currentUrl === '/class/classes/members') {
+    if (
+      this.currentUrl === '/class/classes/teams' ||
+      this.currentUrl === '/class/classes/members'
+    ) {
       this.teamParentsTab = true;
     }
-    if (this.currentUrl === '/class/exercises' || this.currentUrl === '/class/schedule') {
+    if (
+      this.currentUrl === '/class/exercises' ||
+      this.currentUrl === '/class/schedule'
+    ) {
       this.exerciseParentsTab = true;
     }
     console.log(this.user);
@@ -62,10 +68,14 @@ export class ManageClassComponent implements OnInit {
     this.router.navigate(['/class/profiles']);
   }
   openVersionDialog() {
-     this.dialog.open(VersionBoxComponent);
+    this.dialog.open(VersionBoxComponent, {
+      panelClass: 'version-box'
+    });
   }
   openFeedBackDialog() {
-    this.dialog.open(FeedBackBoxComponent);
+    this.dialog.open(FeedBackBoxComponent, {
+      panelClass: 'feedback-box'
+    });
   }
   logout() {
     this.authService.logout();
