@@ -8,13 +8,13 @@
     <mat-form-field appearance="outline">
       <mat-label>Nhóm</mat-label>
       <mat-select [(ngModel)]="currentTeam">
-        <mat-option *ngFor="let team of teams" [value]="team.name">{{team.name}}</mat-option>
+        <mat-option *ngFor="let team of teams" [value]="team">{{team.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Bài tập</mat-label>
-      <mat-select [(ngModel)]="currentExercise">
-        <mat-option *ngFor="let exercise of exercises" [value]="exercise.id">{{exercise.name}}</mat-option>
+      <mat-label>Giáo án</mat-label>
+      <mat-select [(ngModel)]="currentLesson">
+        <mat-option *ngFor="let lesson of Lessons" [value]="lesson">{{lesson.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <div class="flex-box">

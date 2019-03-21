@@ -13,6 +13,9 @@ export class ManageLessonPlanService {
   private exercises: Exercise[] = [];
   constructor() { }
 
+  public setExercise(exercises: Exercise[]) {
+    this.exercises = exercises;
+  }
   public addExercise(exercise: Exercise) {
 
     if (!_.find( this.exercises, exercise)) {

@@ -2,17 +2,16 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatDialog,
   MatSnackBar
 } from '@angular/material';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { Result } from 'src/app/share/models/result';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Class } from 'src/app/share/models/class';
-import { ExerciseService } from 'src/app/share/services/exercise.service';
-import { Exercise } from 'src/app/share/models/exercise';
 import { Schedule } from 'src/app/share/models/schedule';
 import { ScheduleService } from 'src/app/share/services/schedule.service';
+import { Lesson } from 'src/app/share/models/lesson';
+import { LessonService } from 'src/app/share/services/lesson.service';
 
 @Component({
   selector: 'app-detail-schedule',
@@ -28,29 +27,35 @@ export class DetailScheduleComponent implements OnInit {
   public endTime = { hour: null, minute: null };
   public currentScheduledDate: NgbDateStruct;
   public teams: Class[] = [];
-  public exercises: Exercise[] = [];
-  public currentTeam;
-  public currentExercise;
+  public subTeam: any;
+  public subLessons: any;
+  public Lessons: Lesson[] = [];
+  public currentTeam: Class = new Class();
+  public currentLesson: Lesson = new Lesson();
   public schedule: Schedule = new Schedule();
   constructor(
     private dialogRef: MatDialogRef<DetailScheduleComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private calendar: NgbCalendar,
     private teamService: TeamService,
-    private exerciseService: ExerciseService,
+    private lessonService: LessonService,
     private scheduleService: ScheduleService,
     private snackBar: MatSnackBar
-  ) {
-    console.log(data.schedule);
-  }
+  ) { }
 
   ngOnInit() {
     this.getTeams();
-    this.getExercises();
-    console.log(this.data);
-    this.currentTeam = this.data.schedule.title;
-    this.currentExercise = this.data.schedule.id;
+    this.getlessons();
+
+    // setup data
+    // current team
+    this.currentTeam.name = this.data.schedule.meta.team_name;
+    this.currentTeam.id = this.data.schedule.meta.team_id;
+
+    // current lesson
+    this.currentLesson.id = this.data.schedule.meta.lesson_id;
+    this.currentLesson.name = this.data.schedule.meta.lesson_name;
+
     this.currentScheduledDate = this.calendar.getToday();
     this.currentScheduledDate.day = this.data.schedule.start.getDate();
     this.currentScheduledDate.month = this.data.schedule.start.getMonth() + 1;
@@ -63,12 +68,17 @@ export class DetailScheduleComponent implements OnInit {
       hour: this.data.schedule.end.getHours(),
       minute: this.data.schedule.end.getMinutes()
     };
-    // console.log(this.data.schedule.start.getHours());
+     console.log(this.data.schedule);
   }
   saveSchedule() {
     // init value
-    // this.schedule.exercise_id = this.currentExercise;
-    this.schedule.team_name = this.currentTeam;
+    this.schedule.id = this.data.schedule.meta.id;
+    this.schedule.lesson_id = this.currentLesson.id;
+    this.schedule.lesson_name = this.currentLesson.name;
+
+    this.schedule.team_name = this.currentTeam.name;
+    this.schedule.team_id = this.currentTeam.id;
+
     this.schedule.year = this.currentScheduledDate.year;
     this.schedule.month = this.currentScheduledDate.month;
     this.schedule.day = this.currentScheduledDate.day;
@@ -76,7 +86,6 @@ export class DetailScheduleComponent implements OnInit {
     this.schedule.start_minute = this.startTime.minute;
     this.schedule.end_hour = this.endTime.hour;
     this.schedule.end_minute = this.endTime.minute;
-    console.log(this.schedule);
     this.scheduleService
       .updateSchedule(this.schedule)
       .subscribe((result: Result) => {
@@ -87,20 +96,19 @@ export class DetailScheduleComponent implements OnInit {
           });
         } else {
           console.log('cannot save');
-          console.log(result);
         }
       });
   }
   getTeams() {
-    this.teamService.getTeamByCoach().subscribe((data: Result) => {
+   this.subTeam = this.teamService.getTeamByCoach().subscribe((data: Result) => {
       // console.log(data);
       this.teams = data.success ? data.values : [];
     });
   }
-  getExercises() {
-    this.exerciseService.getExerciseByCoach().subscribe((data: Result) => {
+  getlessons() {
+    this.subLessons = this.lessonService.getLessonByCoach().subscribe((data: Result) => {
       // console.log(data);
-      this.exercises = data.success ? data.values : [];
+      this.Lessons = data.success ? data.values : [];
     });
   }
 }

@@ -136,10 +136,10 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
   }
 
   changeLesson(id: String) {
-      console.log(id);
       this.subLessonExercise = this.lessonService.getLessonExerciseByLessonID(id).subscribe(
         (data: Result) => {
-          console.log(data);
+          this.exercises = data.success ? data.values : [];
+          this.manageLessonPlanService.setExercise(this.exercises);
         }
       );
   }
