@@ -32,7 +32,7 @@ export class RecordComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this.getListSchedule();
+    // this.getListSchedule();
   }
   ngOnDestroy() {
     if ( this.subSchedule !== null) {this.subSchedule.unsubscribe(); }

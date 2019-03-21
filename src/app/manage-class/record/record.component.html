@@ -7,20 +7,20 @@
   <div class=" full-width">
     <div ngbDropdown class="d-inline-block  full-width">
       <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
-           + currentSchedule.day + '/'
-           + currentSchedule.month + '/'
-           + currentSchedule.year
-          }}
+        {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
+        + currentSchedule.day + '/'
+        + currentSchedule.month + '/'
+        + currentSchedule.year
+        }}
       </button>
-      <div ngbDropdownMenu class="record-drop-down"> 
-        
-        <button ngbDropdownItem *ngFor="let schedule of schedules"  on-click="onChangeSchedule(schedule)"> 
+      <div ngbDropdownMenu class="record-drop-down">
+
+        <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
           {{schedule.start_hour + ':' + schedule.start_minute + ' - '
           + schedule.day + '/'
           + schedule.month + '/'
           + schedule.year
-         }}
+          }}
 
         </button>
 
@@ -28,7 +28,7 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-  <mat-card >
+  <mat-card>
     <mat-card-header>
       <div mat-card-avatar>
 
@@ -38,12 +38,62 @@
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-     
+      <br />
+      <div class="row">
+        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
+          <mat-form-field class="compact-form">
+            <input matInput placeholder="Min time">
+          </mat-form-field>
+        </div>
+        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
+          <mat-form-field class="compact-form seprate-form">
+            <input matInput placeholder="Max time">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-4 padding-left-0 padding-right-0 fix-height-compact">
+            <mat-form-field class="compact-form">
+              <input matInput placeholder="Heart rate">
+            </mat-form-field>
+          </div>
+          <div class="col-8 padding-left-0 padding-right-0 fix-height-compact">
+            <mat-form-field class="compact-form seprate-form">
+              <input matInput placeholder="Attitude">
+            </mat-form-field>
+          </div>
+        </div>
+      <!-- <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-stopwatch"></i>
+          </span>
+        </div>
+        <input type="text" aria-label="First name" placeholder="Min time" class="form-control">
+        <input type="text" aria-label="Last name" placeholder="Max time" class="form-control">
+      </div>
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-heartbeat"></i>
+          </span>
+        </div>
+        <input type="text" aria-label="First name" placeholder="Heart rate" class="form-control">
+        <input type="text" aria-label="Last name" placeholder="Attitude" class="form-control">
+      </div>
+      <div class="input-group input-group-sm">
+        <input type="text" aria-label="First name" placeholder="Time swim" class="form-control">
+        <input type="text" aria-label="Last name" placeholder="Swim time" class="form-control">
+      </div>
+      <div class="input-group input-group-sm">
+        <input type="text" aria-label="First name" placeholder="Errors" class="form-control">
+        <input type="text" aria-label="Last name" placeholder="Result" class="form-control">
+      </div> -->
     </mat-card-content>
     <mat-card-actions>
-     
+
     </mat-card-actions>
   </mat-card>
   <h3 class="empty-list"></h3>
-  
+
 </div>

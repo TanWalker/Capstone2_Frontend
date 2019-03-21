@@ -1,4 +1,25 @@
 .record-drop-down {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
+}
+
+.input-group-sm>.form-control:not(textarea) {
+  height: calc(1em + 0.5rem + 2px);
+}
+
+::ng-deep .compact-form>div>div>.mat-form-field-infix {
+  width: auto;
+}
+
+.compact-form {
+  width: 100%;
+}
+
+::ng-deep .seprate-form>div>div {
+  padding-left: 5px;
+  border-left: 1px solid #a5a5a5;
+}
+
+.fix-height-compact {
+  height: 39px;
 }
