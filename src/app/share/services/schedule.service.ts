@@ -17,4 +17,9 @@ export class ScheduleService {
   updateSchedule(schedule: Schedule) {
     return this.http.put(`${environment.urls.api}/updateSchedule`, schedule);
   }
+
+  // get default schedule by current date
+  getDefaultScheduleByCurrentDate() {
+    return this.http.get(`${environment.urls.api}/getDefaultSchedule`);
+  }
 }

@@ -6,6 +6,8 @@ import { Schedule } from 'src/app/share/models/schedule';
 import * as _ from 'lodash';
 import { Class } from 'src/app/share/models/class';
 import { Exercise } from 'src/app/share/models/exercise';
+import { Record } from 'src/app/share/models/record';
+import { RecordService } from 'src/app/share/services/record.service';
 
 @Component({
   selector: 'app-record',
@@ -24,15 +26,18 @@ export class RecordComponent implements OnInit, OnDestroy {
   public currentSchedule: Schedule = new Schedule();
   public currentTeam: Class = new Class();
   public currentExercise: Exercise = new Exercise();
+  public subDefaultSchedule: any;
   constructor(
     public deviceService: DeviceDetectorService,
-    private scheduleService: ScheduleService
+    private scheduleService: ScheduleService,
+    private recordService: RecordService
   ) {
     this.isMobile = deviceService.isMobile();
    }
 
   ngOnInit() {
     this.getListSchedule();
+    this.getDefaultSchedule();
   }
   ngOnDestroy() {
     if ( this.subSchedule !== null) {this.subSchedule.unsubscribe(); }
@@ -52,5 +57,37 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
   onChangeSchedule(schedule: Schedule) {
 
+  }
+  getDefaultSchedule() {
+    this.subDefaultSchedule = this.scheduleService.getDefaultScheduleByCurrentDate().subscribe(
+      (data: Result) => {
+        console.log(data);
+      }
+    );
+  }
+  addRecord( record: Record ) {
+      this.recordService.addRecord(record).subscribe(
+        (res: Result) => {
+          console.log(res);
+        }
+      );
+  }
+  testAddRecord() {
+    const record = new Record();
+    record.min_hr = 60;
+    record.max_hr = 80;
+    record.min_time = 12.4;
+    record.max_time = 15.6;
+    record.heart_rate = 65;
+    record.exercise_id = '14';
+    record.schedule_id = '2';
+    record.user_id = '10';
+    record.time_swim = 14;
+    record.errors = 'thực hiện lỗi';
+    record.result = 'good';
+    record.note = ' aaaaaannnnnncccccccc';
+    record.attitude = ' khá tốt ';
+
+    this.addRecord(record);
   }
 }
