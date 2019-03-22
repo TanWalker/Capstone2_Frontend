@@ -9,7 +9,8 @@ import { FeedBackService } from '../../services/feedBack.service';
   selector: 'app-feedBack-box',
   templateUrl: './feedBack-box.component.html',
   styleUrls: ['./feedBack-box.component.css'
-  , './../version-box/version-box.component.css'
+  , './../version-box/version-box.component.css',
+  './../../../app.component.css'
 ]
 })
 export class FeedBackBoxComponent implements OnInit {

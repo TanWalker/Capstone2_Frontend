@@ -34,6 +34,7 @@ import { DetailScheduleComponent } from './exercises/dialogs/detail-schedule/det
 import { RecordComponent } from './record/record.component';
 import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.component';
 import { ChartsModule } from 'ng2-charts';
+import { SingleRecordComponent } from './record/components/single-record/single-record.component';
 
 @NgModule({
   imports: [
@@ -67,6 +68,7 @@ import { ChartsModule } from 'ng2-charts';
     ExercisesComponent,
     ExerciseDetailComponent,
     MemberComponent,
+    SingleRecordComponent,
     AddScheduleComponent,
     EditClassComponent,
     DetailScheduleComponent,

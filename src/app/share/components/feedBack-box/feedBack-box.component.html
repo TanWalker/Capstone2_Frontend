@@ -3,25 +3,33 @@
     <img src="../../../../assets/login-logo.svg" class="logo" />
     <h2 class="my-title">Feed back</h2>
   </div>
-  <div class="my-body-version-box">  
-      <mat-form-field appearance="outline" class="margin-top-15 full-width">
-        <mat-label>Tiêu đề</mat-label>
-        <input matInput placeholder="Tiêu đề" [formControl]="title" [(ngModel)]="feedBack.title" />
-        <mat-error *ngIf="title.invalid && isSubmit">Bạn cần nhập tên tiêu đề</mat-error> 
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="margin-top-15 full-width">
-        <mat-label>Nội dung</mat-label>
-        <textarea type="text" matInput placeholder="Nội dung" (keyup.enter)="sendFeedBack()" [formControl]="content"
-          [(ngModel)]="feedBack.content"> </textarea>
-        <mat-error *ngIf="content.invalid && isSubmit">Bạn cần nhập nội dung</mat-error>
-      </mat-form-field>
+  <div class="my-body-version-box">
+    <mat-form-field appearance="outline" class="margin-top-15 full-width">
+      <mat-label>Tiêu đề</mat-label>
+      <input matInput placeholder="Tiêu đề" [formControl]="title" [(ngModel)]="feedBack.title" />
+      <mat-error *ngIf="title.invalid && isSubmit">Bạn cần nhập tên tiêu đề</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="margin-top-15 full-width">
+      <mat-label>Nội dung</mat-label>
+      <textarea type="text" matInput placeholder="Nội dung" (keyup.enter)="sendFeedBack()" [formControl]="content"
+        [(ngModel)]="feedBack.content"> </textarea>
+      <mat-error *ngIf="content.invalid && isSubmit">Bạn cần nhập nội dung</mat-error>
+    </mat-form-field>
 
-      <button class="margin-top-20 margin-bottom-10"  mat-raised-button color="light-blue" (click)="sendFeedBack()">
-       Gửi
-      </button>
-      <button class="margin-top-20 margin-bottom-10 margin-left-15"  mat-raised-button color="light-blue" (click)="cancel()">
-       Hủy
-      </button>
+
+
+    <div class="full-width row margin-bottom-20">
+      <div class="col-xs">
+        <button class="full-width" color="success" mat-raised-button (click)="sendFeedBack()">
+          Gửi
+        </button>
+      </div>
+      <div class="col-xs">
+        <button class="full-width" mat-raised-button (click)="cancel()">
+          Hủy
+        </button>
+      </div>
+    </div>
   </div>
   <div class="my-footer-version-box">
     <h5 class="my-cpr">@ Enclave team - 2019</h5>

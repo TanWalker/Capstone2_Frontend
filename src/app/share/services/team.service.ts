@@ -25,6 +25,8 @@ export class TeamService {
   }
   getTeamByCoach() {
     return this.http.get(`${environment.urls.api}` + `/getTeamByCoach`);
-
+  }
+  removeTeamMember(id: String) {
+    return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
   }
 }
