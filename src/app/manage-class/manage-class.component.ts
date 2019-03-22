@@ -7,6 +7,8 @@ import { fadeAnimation } from '../animations';
 import { MatDialog } from '@angular/material';
 import { VersionBoxComponent } from '../share/components/version-box/version-box.component';
 import { FeedBackBoxComponent } from '../share/components/feedBack-box/feedBack-box.component';
+import { UserService } from '../share/services/user.service';
+import { Result } from '../share/models/result';
 
 @Component({
   selector: 'app-manage-class',
@@ -62,7 +64,6 @@ export class ManageClassComponent implements OnInit {
     ) {
       this.exerciseParentsTab = true;
     }
-    console.log(this.user);
   }
   goToProfile() {
     this.router.navigate(['/class/profiles']);

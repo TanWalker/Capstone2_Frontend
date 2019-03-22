@@ -25,4 +25,7 @@ export class UserService {
   getCurrentUser() {
     return this.http.get(`${environment.urls.api}/getCurrentUser`);
   }
+  getUserBMITips(bmi: number) {
+    return this.http.get(`${environment.urls.api}/getUserBMITips/` + `${bmi}`);
+  }
 }
