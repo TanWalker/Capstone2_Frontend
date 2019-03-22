@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Record } from 'src/app/share/models/record';
+import { Member } from 'src/app/share/models/member';
+import { Schedule } from 'src/app/share/models/schedule';
 
 @Component({
   selector: 'app-single-record',
@@ -7,11 +8,9 @@ import { Record } from 'src/app/share/models/record';
   styleUrls: ['./single-record.component.css']
 })
 export class SingleRecordComponent implements OnInit {
-  @Input() user_id: String;
-  @Input() schedule_id: String;
-  @Input() team_name: String;
-  constructor() { }
-  ngOnInit() {
-  }
-
+  @Input() member: Member;
+  @Input() currentSchedule: Schedule;
+  public not_available: String = 'N/A';
+  constructor() {}
+  ngOnInit() {}
 }

@@ -9,6 +9,10 @@ import { Exercise } from 'src/app/share/models/exercise';
 import { Record } from 'src/app/share/models/record';
 import { RecordService } from 'src/app/share/services/record.service';
 import { LessonService } from 'src/app/share/services/lesson.service';
+import { Lesson } from 'src/app/share/models/lesson';
+import { TeamService } from 'src/app/share/services/team.service';
+import { Member } from 'src/app/share/models/member';
+import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-record',
@@ -23,15 +27,21 @@ export class RecordComponent implements OnInit, OnDestroy {
   public isMobile = false;
   public subSchedule: any;
   public schedules: Schedule[] = [];
+  public lessons: Lesson[] = [];
+  public members: Member[] = [];
+  public currentLesson: Lesson = new Lesson();
   public currentSchedule: Schedule = new Schedule();
   public currentTeam: Class = new Class();
   public currentExercise: Exercise = new Exercise();
   public subDefaultSchedule: any;
+  public currentScheduledDate: NgbDateStruct;
   constructor(
     private deviceService: DeviceDetectorService,
     private scheduleService: ScheduleService,
     private lessonService: LessonService,
-    private recordService: RecordService
+    private recordService: RecordService,
+    private teamService: TeamService,
+    private calendar: NgbCalendar
   ) {
     this.isMobile = deviceService.isMobile();
   }
@@ -39,13 +49,17 @@ export class RecordComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getListSchedule();
     // this.getDefaultSchedule();
-    this.testAddRecord();
+    // this.testAddRecord();
     this.getListLesson();
+    this.currentScheduledDate = this.calendar.getToday();
   }
   ngOnDestroy() {
     if (this.subSchedule !== null) {
       this.subSchedule.unsubscribe();
     }
+  }
+  printout($event) {
+    console.log($event);
   }
   getListSchedule() {
     this.subSchedule = this.scheduleService
@@ -58,21 +72,39 @@ export class RecordComponent implements OnInit, OnDestroy {
           this.currentTeam.id = this.schedules[0].team_id;
           this.currentTeam.name = this.schedules[0].team_name;
         }
+        console.log(this.schedules);
       });
   }
   getListLesson() {
     this.lessonService.getLessonByCoach().subscribe((data: Result) => {
-      console.log(data.values);
+      this.lessons = data.success ? data.values : [];
+      if (this.lessons !== []) {
+        this.currentLesson = this.lessons[0];
+      }
+      console.log(this.lessons);
     });
   }
   onChangeSchedule(schedule: Schedule) {
-    console.log(schedule);
+    this.currentSchedule = schedule;
+    // console.log(this.currentSchedule.team_id);
+    this.teamService
+      .getMemberByTeam(schedule.team_id)
+      .subscribe((data: Result) => {
+        // console.log(data.values);
+        this.members = data.values;
+      });
+    this.recordService.getRecord().subscribe((data: Result) => {
+      console.log(data.values);
+    });
+  }
+  onChangeLesson(lesson: Lesson) {
+    this.currentLesson = lesson;
   }
   getDefaultSchedule() {
     this.subDefaultSchedule = this.scheduleService
       .getDefaultScheduleByCurrentDate()
       .subscribe((data: Result) => {
-        console.log(data);
+        // console.log(data);
       });
   }
   addRecord(record: Record) {

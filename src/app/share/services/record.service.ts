@@ -7,13 +7,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RecordService {
+  constructor(private http: HttpClient) {}
 
-constructor(
-  private http: HttpClient
-) { }
-
-
-addRecord(record: Record) {
-  return this.http.post(`${environment.urls.api}/addDailyRecord`, record);
-}
+  addRecord(record: Record) {
+    return this.http.post(`${environment.urls.api}/addDailyRecord`, record);
+  }
+  getRecord() {
+    return this.http.get(`${environment.urls.api}/getRecord`);
+  }
 }

@@ -6,6 +6,7 @@
   </mat-toolbar>
   <div class="row">
     <div class="col-xs">
+      <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="printout(currentScheduledDate)"></ngb-datepicker>
       <div ngbDropdown class="d-inline-block full-width">
         <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
           {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
@@ -26,91 +27,22 @@
       </div>
     </div>
     <div class="col-xs">
-      <!-- <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-      </button>
-      <div ngbDropdownMenu class="record-drop-down">
-        <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
-          
+      <div ngbDropdown class="d-inline-block full-width">
+        <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+          {{currentLesson.name}}
         </button>
-      </div> -->
+        <div ngbDropdownMenu class="record-drop-down">
+          <button ngbDropdownItem *ngFor="let lesson of lessons" on-click="onChangeLesson(lesson)">
+            {{lesson.name}}
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <!-- <mat-divider></mat-divider> -->
-  <mat-card class="margin-bottom-10">
-    <div class="row">
-      <div class="col-3">
-        <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" height=45>
-      </div>
-      <div class="col-9">
-        <mat-card-title>{{currentTeam.name}}</mat-card-title>
-        <!-- <mat-card-title>Team name</mat-card-title> -->
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </div>
-    </div>
-    <mat-card-content>
-      <br />
-      <div class="row">
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form">
-            <input matInput placeholder="Min heart rate">
-          </mat-form-field>
-        </div>
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Max heart rate">
-          </mat-form-field>
-        </div>
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Heart rate">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form">
-            <input matInput placeholder="Min time">
-          </mat-form-field>
-        </div>
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Max time">
-          </mat-form-field>
-        </div>
-        <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Swim time">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-9 padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form">
-            <input matInput placeholder="Errors">
-          </mat-form-field>
-        </div>
-        <div class="col-3 padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Result">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-5 padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form">
-            <input matInput placeholder="Attitude">
-          </mat-form-field>
-        </div>
-        <div class="col-7 padding-left-0 padding-right-0 fix-height-compact">
-          <mat-form-field class="compact-form seprate-form">
-            <input matInput placeholder="Notes">
-          </mat-form-field>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
-  </mat-card>
+  <div *ngFor="let member of members">
+    <app-single-record [member]="member" [currentSchedule]="currentSchedule"></app-single-record>
+  </div>
   <button (click)="testAddRecord()"> aaa</button>
   <h3 class="empty-list"></h3>
 

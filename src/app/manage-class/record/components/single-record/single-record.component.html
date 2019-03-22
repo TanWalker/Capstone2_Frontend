@@ -4,8 +4,9 @@
       <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" height=45>
     </div>
     <div class="col-9">
-      <mat-card-title>{{team_name}}</mat-card-title>
-      <mat-card-subtitle>{{user.user_name}}</mat-card-subtitle>
+      <mat-card-title><i class="far fa-users-class margin-right-5" style="color:rgb(177, 177, 177)"></i>
+        {{currentSchedule.team_name}}</mat-card-title>
+      <mat-card-subtitle>{{member.username}} ({{member.display_name || not_available}})</mat-card-subtitle>
     </div>
   </div>
   <mat-card-content>
@@ -68,9 +69,7 @@
         </mat-form-field>
       </div>
     </div>
-
   </mat-card-content>
   <mat-card-actions>
-
   </mat-card-actions>
 </mat-card>
