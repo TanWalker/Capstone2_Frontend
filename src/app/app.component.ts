@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './share/services/auth.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { fadeAnimation } from './animations';
+import { UserService } from './share/services/user.service';
+import { Result } from './share/models/result';
 
 @Component({
   selector: 'app-root',

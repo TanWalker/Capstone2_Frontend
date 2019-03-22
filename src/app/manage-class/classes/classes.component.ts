@@ -39,7 +39,6 @@ export class ClassesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.getVersion();
     this.getTeam();
-    console.log(this.teams);
   }
   ngOnDestroy() {
     if (!isNullOrUndefined(this.subTeams)) {

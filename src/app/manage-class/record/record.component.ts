@@ -79,9 +79,9 @@ export class RecordComponent implements OnInit, OnDestroy {
     record.min_time = 12.4;
     record.max_time = 15.6;
     record.heart_rate = 65;
-    record.exercise_id = '14';
-    record.schedule_id = '2';
-    record.user_id = '10';
+    record.exercise_id = '14'; // dont need
+    record.schedule_id = '2'; // dont need
+    record.user_id = '10'; // dont need
     record.time_swim = 14;
     record.errors = 'thực hiện lỗi';
     record.result = 'good';
