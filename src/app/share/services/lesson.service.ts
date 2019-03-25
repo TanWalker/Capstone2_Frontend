@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { LessonExercise } from '../models/lessonExercise';
+import { Date } from '../models/date';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class LessonService {
   }
   getLessonExerciseByLessonID(id: String) {
     return this.http.get(`${environment.urls.api}` + `/getLessonExerciseByLessonID/${id}`);
-
+  }
+  getLessonByDate(date: Date) {
+    return this.http.post(`${environment.urls.api}` + `/getLessonByDate/`, date);
   }
 }

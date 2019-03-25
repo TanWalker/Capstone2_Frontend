@@ -35,6 +35,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   public currentExercise: Exercise = new Exercise();
   public subDefaultSchedule: any;
   public currentScheduledDate: NgbDateStruct;
+  public currentDateValue: any;
   constructor(
     private deviceService: DeviceDetectorService,
     private scheduleService: ScheduleService,
@@ -47,15 +48,20 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getListSchedule();
-    // this.getDefaultSchedule();
+    // this.getListSchedule();
     // this.testAddRecord();
     this.getListLesson();
+    this.getDefaultSchedule();
     this.currentScheduledDate = this.calendar.getToday();
+    this.lessonService
+      .getLessonByDate(this.currentScheduledDate)
+      .subscribe((data: Result) => {
+        console.log(data.values);
+      });
   }
   ngOnDestroy() {
     if (this.subSchedule !== null) {
-      this.subSchedule.unsubscribe();
+      // this.subSchedule.unsubscribe();
     }
   }
   printout($event) {
@@ -78,9 +84,9 @@ export class RecordComponent implements OnInit, OnDestroy {
   getListLesson() {
     this.lessonService.getLessonByCoach().subscribe((data: Result) => {
       this.lessons = data.success ? data.values : [];
-      if (this.lessons !== []) {
-        this.currentLesson = this.lessons[0];
-      }
+      // if (this.lessons !== []) {
+      //   this.currentLesson = this.lessons[0];
+      // }
       console.log(this.lessons);
     });
   }
@@ -90,10 +96,11 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.teamService
       .getMemberByTeam(schedule.team_id)
       .subscribe((data: Result) => {
-        // console.log(data.values);
-        this.members = data.values;
+        console.log(data.values);
+        // this.members = data.values;
       });
     this.recordService.getRecord().subscribe((data: Result) => {
+      console.log('getRecord');
       console.log(data.values);
     });
   }
@@ -104,7 +111,11 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.subDefaultSchedule = this.scheduleService
       .getDefaultScheduleByCurrentDate()
       .subscribe((data: Result) => {
-        // console.log(data);
+        console.log(data.value);
+        this.currentDateValue = data.value;
+        this.currentLesson.coach_id = this.currentDateValue.coach_id;
+        this.currentLesson.id = this.currentDateValue.coach_id;
+        this.currentLesson.name = this.currentDateValue.lesson_name;
       });
   }
   addRecord(record: Record) {
@@ -120,7 +131,7 @@ export class RecordComponent implements OnInit, OnDestroy {
     record.max_time = 15.6;
     record.heart_rate = 65;
     record.exercise_id = '14';
-    record.schedule_id = '1';
+    record.schedule_id = '2';
     record.user_id = '10';
     record.time_swim = 14;
     record.errors = 'thực hiện lỗi';

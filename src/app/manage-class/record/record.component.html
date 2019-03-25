@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-xs">
       <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="printout(currentScheduledDate)"></ngb-datepicker>
-      <div ngbDropdown class="d-inline-block full-width">
+      <!-- <div ngbDropdown class="d-inline-block full-width">
         <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
           {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
           + currentSchedule.day + '/'
@@ -24,7 +24,7 @@
             }}
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="col-xs">
       <div ngbDropdown class="d-inline-block full-width">
@@ -34,6 +34,16 @@
         <div ngbDropdownMenu class="record-drop-down">
           <button ngbDropdownItem *ngFor="let lesson of lessons" on-click="onChangeLesson(lesson)">
             {{lesson.name}}
+          </button>
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block full-width">
+        <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+          <!-- {{currentLesson.name}} -->
+        </button>
+        <div ngbDropdownMenu class="record-drop-down">
+          <button ngbDropdownItem on-click="onChangeFinalSet(lesson)">
+            <!-- {{lesson.name}} -->
           </button>
         </div>
       </div>
