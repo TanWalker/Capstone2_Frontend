@@ -94,7 +94,7 @@ export const Constants = {
       address: 'Chưa có',
       height: 'Chưa có',
       weight: 'Chưa có',
-      avatar: 'https://ucarecdn.com/5220a947-14ff-4199-9580-d81ceceaa024/new_avatar_2x.jpg'
+      avatar: 'https://ucarecdn.com/3c918300-f523-4559-a7f7-af095d7ddce7/people.png'
     },
   }
 };
