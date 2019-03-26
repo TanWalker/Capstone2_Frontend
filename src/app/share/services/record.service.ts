@@ -12,6 +12,9 @@ export class RecordService {
   addRecord(record: Record) {
     return this.http.post(`${environment.urls.api}/addDailyRecord`, record);
   }
+  getRecordByUserScheduleExercise(record: Record) {
+    return this.http.post(`${environment.urls.api}/getRecordByUserScheduleExercise`, record);
+  }
   getRecord() {
     return this.http.get(`${environment.urls.api}/getRecord`);
   }

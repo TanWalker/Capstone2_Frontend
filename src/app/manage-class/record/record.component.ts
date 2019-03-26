@@ -13,6 +13,7 @@ import { Lesson } from 'src/app/share/models/lesson';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Member } from 'src/app/share/models/member';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { Date } from 'src/app/share/models/date';
 
 @Component({
   selector: 'app-record',
@@ -29,10 +30,11 @@ export class RecordComponent implements OnInit, OnDestroy {
   public schedules: Schedule[] = [];
   public lessons: Lesson[] = [];
   public members: Member[] = [];
+  public FinalExercises: Exercise[] = [];
   public currentLesson: Lesson = new Lesson();
   public currentSchedule: Schedule = new Schedule();
   public currentTeam: Class = new Class();
-  public currentExercise: Exercise = new Exercise();
+  public currentFinalExercise: Exercise = new Exercise();
   public subDefaultSchedule: any;
   public currentScheduledDate: NgbDateStruct;
   public currentDateValue: any;
@@ -50,22 +52,20 @@ export class RecordComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.getListSchedule();
     // this.testAddRecord();
-    this.getListLesson();
+    // this.getListLesson();
     this.getDefaultSchedule();
     this.currentScheduledDate = this.calendar.getToday();
-    this.lessonService
-      .getLessonByDate(this.currentScheduledDate)
-      .subscribe((data: Result) => {
-        console.log(data.values);
-      });
+    // console.log('default lesson');
+    this.getDefaultLesson();
   }
   ngOnDestroy() {
     if (this.subSchedule !== null) {
       // this.subSchedule.unsubscribe();
     }
   }
-  printout($event) {
-    console.log($event);
+  onChangeDate($event) {
+    // console.log($event);
+    this.getListLesson($event);
   }
   getListSchedule() {
     this.subSchedule = this.scheduleService
@@ -78,40 +78,79 @@ export class RecordComponent implements OnInit, OnDestroy {
           this.currentTeam.id = this.schedules[0].team_id;
           this.currentTeam.name = this.schedules[0].team_name;
         }
-        console.log(this.schedules);
+        // console.log(this.schedules);
       });
   }
-  getListLesson() {
-    this.lessonService.getLessonByCoach().subscribe((data: Result) => {
-      this.lessons = data.success ? data.values : [];
-      // if (this.lessons !== []) {
-      //   this.currentLesson = this.lessons[0];
-      // }
-      console.log(this.lessons);
+  getListLesson(date: Date) {
+    this.lessonService.getLessonByDateCoach(date).subscribe((data: Result) => {
+      this.lessons = data.values;
+      console.log(data.values);
+      if (this.lessons !== []) {
+        this.currentLesson = this.lessons[0];
+      }
+      // change final set follows current
+      this.onChangeLesson(this.currentLesson);
+      // console.log(this.currentLesson);
+      this.lessonService
+        .getScheduleByDateLesson(
+          date.day,
+          date.month,
+          date.year,
+          this.currentLesson.id
+        )
+        .subscribe((result: Result) => {
+          const get_team_id = result.values.team_id;
+          this.teamService
+            .getMemberByTeam(get_team_id)
+            .subscribe((team_result: Result) => {
+              // console.log(team_result);
+              this.members = team_result.values;
+            });
+        });
     });
   }
   onChangeSchedule(schedule: Schedule) {
     this.currentSchedule = schedule;
     // console.log(this.currentSchedule.team_id);
-    this.teamService
-      .getMemberByTeam(schedule.team_id)
-      .subscribe((data: Result) => {
-        console.log(data.values);
-        // this.members = data.values;
-      });
     this.recordService.getRecord().subscribe((data: Result) => {
-      console.log('getRecord');
-      console.log(data.values);
+      // console.log('getRecord');
+      // console.log(data.values);
     });
   }
   onChangeLesson(lesson: Lesson) {
     this.currentLesson = lesson;
+    if (lesson !== undefined) {
+      this.lessonService
+        .getFinalExerciseByLessonID(lesson.id)
+        .subscribe((data: Result) => {
+          // console.log(data.values);
+          this.FinalExercises = data.values;
+          if (this.FinalExercises !== []) {
+            this.currentFinalExercise = this.FinalExercises[0];
+          }
+        });
+    }
+    if (lesson === undefined) {
+      this.FinalExercises = [];
+      this.currentFinalExercise = null;
+    }
+  }
+  onChangeFinalSet(finalExercise: Exercise) {
+    this.currentFinalExercise = finalExercise;
+  }
+  getDefaultLesson() {
+    this.lessonService
+      .getLessonByDateCoach(this.calendar.getToday())
+      .subscribe((data: Result) => {
+        this.lessons = data.values;
+        console.log(data.values);
+      });
   }
   getDefaultSchedule() {
     this.subDefaultSchedule = this.scheduleService
       .getDefaultScheduleByCurrentDate()
       .subscribe((data: Result) => {
-        console.log(data.value);
+        // console.log(data.value);
         this.currentDateValue = data.value;
         this.currentLesson.coach_id = this.currentDateValue.coach_id;
         this.currentLesson.id = this.currentDateValue.coach_id;

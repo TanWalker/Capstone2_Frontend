@@ -6,7 +6,7 @@
   </mat-toolbar>
   <div class="row">
     <div class="col-xs">
-      <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="printout(currentScheduledDate)"></ngb-datepicker>
+      <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="onChangeDate(currentScheduledDate)"></ngb-datepicker>
       <!-- <div ngbDropdown class="d-inline-block full-width">
         <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
           {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
@@ -29,7 +29,7 @@
     <div class="col-xs">
       <div ngbDropdown class="d-inline-block full-width">
         <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          {{currentLesson.name}}
+          {{currentLesson?.name}}
         </button>
         <div ngbDropdownMenu class="record-drop-down">
           <button ngbDropdownItem *ngFor="let lesson of lessons" on-click="onChangeLesson(lesson)">
@@ -39,11 +39,11 @@
       </div>
       <div ngbDropdown class="d-inline-block full-width">
         <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          <!-- {{currentLesson.name}} -->
+          {{currentFinalExercise?.name}}
         </button>
         <div ngbDropdownMenu class="record-drop-down">
-          <button ngbDropdownItem on-click="onChangeFinalSet(lesson)">
-            <!-- {{lesson.name}} -->
+          <button ngbDropdownItem *ngFor="let finalExercise of FinalExercises" on-click="onChangeFinalSet(finalExercise)">
+            {{finalExercise?.name}}
           </button>
         </div>
       </div>
