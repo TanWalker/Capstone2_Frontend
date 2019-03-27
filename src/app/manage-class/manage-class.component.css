@@ -173,3 +173,7 @@
   font-size: 16px;
   color: rgb(160, 160, 160);
 }
+
+::ng-deep .mobile-view > .ng-star-inserted > div {
+  margin-bottom: 70px;
+}
