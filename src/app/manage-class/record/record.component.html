@@ -51,7 +51,7 @@
   </div>
   <!-- <mat-divider></mat-divider> -->
   <div *ngFor="let member of members">
-    <app-single-record [member]="member" [currentSchedule]="currentSchedule"></app-single-record>
+    <app-single-record [member]="member" [currentSchedule]="currentSchedule" [currentFinalExercise]="currentFinalExercise"></app-single-record>
   </div>
   <button (click)="testAddRecord()"> aaa</button>
   <h3 class="empty-list"></h3>

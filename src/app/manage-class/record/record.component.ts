@@ -38,6 +38,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   public subDefaultSchedule: any;
   public currentScheduledDate: NgbDateStruct;
   public currentDateValue: any;
+  public selectedDate: Date = new Date();
   constructor(
     private deviceService: DeviceDetectorService,
     private scheduleService: ScheduleService,
@@ -50,6 +51,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log(this.currentLesson.id);
     // this.getListSchedule();
     // this.testAddRecord();
     // this.getListLesson();
@@ -57,6 +59,8 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.currentScheduledDate = this.calendar.getToday();
     // console.log('default lesson');
     this.getDefaultLesson();
+    this.getListLesson(this.calendar.getToday());
+    this.selectedDate = this.calendar.getToday();
   }
   ngOnDestroy() {
     if (this.subSchedule !== null) {
@@ -66,6 +70,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   onChangeDate($event) {
     // console.log($event);
     this.getListLesson($event);
+    this.selectedDate = $event;
   }
   getListSchedule() {
     this.subSchedule = this.scheduleService
@@ -90,23 +95,29 @@ export class RecordComponent implements OnInit, OnDestroy {
       }
       // change final set follows current
       this.onChangeLesson(this.currentLesson);
-      // console.log(this.currentLesson);
-      this.lessonService
-        .getScheduleByDateLesson(
-          date.day,
-          date.month,
-          date.year,
-          this.currentLesson.id
-        )
-        .subscribe((result: Result) => {
-          const get_team_id = result.values.team_id;
-          this.teamService
-            .getMemberByTeam(get_team_id)
-            .subscribe((team_result: Result) => {
-              // console.log(team_result);
-              this.members = team_result.values;
-            });
-        });
+      // console.log(this.currentLesson.id);
+      // if (this.currentLesson !== undefined) {
+      //   this.lessonService
+      //     .getScheduleByDateLesson(
+      //       date.day,
+      //       date.month,
+      //       date.year,
+      //       this.currentLesson.id
+      //     )
+      //     .subscribe((result: Result) => {
+      //       // console.log(this.currentLesson.id);
+      //       const get_team_id = result.values[0].team_id;
+      //       // console.log(get_team_id[0].team_id);
+      //       this.teamService
+      //         .getMemberByTeam(get_team_id)
+      //         .subscribe((team_result: Result) => {
+      //           console.log('lesson: ' + this.currentLesson.id);
+      //           console.log('team: ' + get_team_id);
+      //           // console.log(team_result);
+      //           this.members = team_result.values;
+      //         });
+      //     });
+      // }
     });
   }
   onChangeSchedule(schedule: Schedule) {
@@ -125,6 +136,8 @@ export class RecordComponent implements OnInit, OnDestroy {
         .subscribe((data: Result) => {
           // console.log(data.values);
           this.FinalExercises = data.values;
+          console.log('final ex');
+          console.log(this.FinalExercises);
           if (this.FinalExercises !== []) {
             this.currentFinalExercise = this.FinalExercises[0];
           }
@@ -133,6 +146,33 @@ export class RecordComponent implements OnInit, OnDestroy {
     if (lesson === undefined) {
       this.FinalExercises = [];
       this.currentFinalExercise = null;
+    }
+    // change team on change lesson
+    if (this.currentLesson !== undefined) {
+      this.lessonService
+        .getScheduleByDateLesson(
+          this.selectedDate.day,
+          this.selectedDate.month,
+          this.selectedDate.year,
+          this.currentLesson.id
+        )
+        .subscribe((result: Result) => {
+          this.currentSchedule = result.values;
+          // console.log(result.values);
+          const get_team_id = result.values[0].team_id;
+          // console.log(get_team_id[0].team_id);
+          this.teamService
+            .getMemberByTeam(get_team_id)
+            .subscribe((team_result: Result) => {
+              console.log('lesson: ' + this.currentLesson.id);
+              console.log('team: ' + get_team_id);
+              // console.log(team_result);
+              this.members = team_result.values;
+            });
+        });
+    }
+    if (this.currentLesson === undefined) {
+      this.members = [];
     }
   }
   onChangeFinalSet(finalExercise: Exercise) {

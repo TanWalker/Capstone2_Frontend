@@ -4,6 +4,7 @@ import { Schedule } from 'src/app/share/models/schedule';
 import { Record } from 'src/app/share/models/record';
 import { RecordService } from 'src/app/share/services/record.service';
 import { Result } from 'src/app/share/models/result';
+import { Exercise } from 'src/app/share/models/exercise';
 
 @Component({
   selector: 'app-single-record',
@@ -13,24 +14,28 @@ import { Result } from 'src/app/share/models/result';
 export class SingleRecordComponent implements OnInit {
   @Input() member: Member;
   @Input() currentSchedule: Schedule;
-  @Input() exercise_id: String;
+  @Input() currentFinalExercise: Exercise;
   public record: Record = new Record();
-  public currentRecord: Record = new Record();
   public not_available: String = 'N/A';
-  constructor(
-    private recordService: RecordService
-  ) {}
+  constructor(private recordService: RecordService) {}
   ngOnInit() {
-    // Show existing record in data
-    this.currentRecord.exercise_id = this.exercise_id;
-    this.currentRecord.user_id = this.member.id;
-    this.currentRecord.schedule_id = this.currentSchedule.id;
+    console.log(this.member.id);
+    console.log(this.currentSchedule[0].id);
+    console.log(this.currentFinalExercise.id);
     this.recordService
-      .getRecordByUserScheduleExercise(this.currentRecord)
+      .getRecordByUserScheduleExercise(
+        this.member.id,
+        this.currentSchedule[0].id,
+        this.currentFinalExercise.id
+      )
       .subscribe((data: Result) => {
+        // this.record = data.values[0];
+        // console.log(data.values);
+        if (data.success) {
+          this.record = data.values[0];
+          // console.log(data.values[0]);
+        }
+        // console.log(data);
       });
-    this.record.user_id = this.member.id;
-    this.record.schedule_id = this.currentSchedule.id;
-    this.record.exercise_id = this.exercise_id;
   }
 }

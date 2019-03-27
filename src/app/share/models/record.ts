@@ -2,12 +2,12 @@ export class Record {
     constructor() {}
     public id: String = '';
     public user_id: String = '';
-    public min_time: Number;
-    public max_time: Number;
-    public time_swim:  Number;
-    public min_hr: Number;
-    public max_hr:  Number;
-    public heart_rate:  Number;
+    public min_time: Number = null;
+    public max_time: Number = null;
+    public time_swim:  Number = null;
+    public min_hr: Number = null;
+    public max_hr:  Number = null;
+    public heart_rate:  Number = null;
     public attitude: String = '';
     public schedule_id: String = '';
     public result: String = '';
