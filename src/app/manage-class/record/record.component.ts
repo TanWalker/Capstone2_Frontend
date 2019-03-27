@@ -51,13 +51,8 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.currentLesson.id);
-    // this.getListSchedule();
-    // this.testAddRecord();
-    // this.getListLesson();
     this.getDefaultSchedule();
     this.currentScheduledDate = this.calendar.getToday();
-    // console.log('default lesson');
     this.getDefaultLesson();
     this.getListLesson(this.calendar.getToday());
     this.selectedDate = this.calendar.getToday();
@@ -95,29 +90,6 @@ export class RecordComponent implements OnInit, OnDestroy {
       }
       // change final set follows current
       this.onChangeLesson(this.currentLesson);
-      // console.log(this.currentLesson.id);
-      // if (this.currentLesson !== undefined) {
-      //   this.lessonService
-      //     .getScheduleByDateLesson(
-      //       date.day,
-      //       date.month,
-      //       date.year,
-      //       this.currentLesson.id
-      //     )
-      //     .subscribe((result: Result) => {
-      //       // console.log(this.currentLesson.id);
-      //       const get_team_id = result.values[0].team_id;
-      //       // console.log(get_team_id[0].team_id);
-      //       this.teamService
-      //         .getMemberByTeam(get_team_id)
-      //         .subscribe((team_result: Result) => {
-      //           console.log('lesson: ' + this.currentLesson.id);
-      //           console.log('team: ' + get_team_id);
-      //           // console.log(team_result);
-      //           this.members = team_result.values;
-      //         });
-      //     });
-      // }
     });
   }
   onChangeSchedule(schedule: Schedule) {
@@ -158,15 +130,12 @@ export class RecordComponent implements OnInit, OnDestroy {
         )
         .subscribe((result: Result) => {
           this.currentSchedule = result.values;
-          // console.log(result.values);
           const get_team_id = result.values[0].team_id;
-          // console.log(get_team_id[0].team_id);
           this.teamService
             .getMemberByTeam(get_team_id)
             .subscribe((team_result: Result) => {
               console.log('lesson: ' + this.currentLesson.id);
               console.log('team: ' + get_team_id);
-              // console.log(team_result);
               this.members = team_result.values;
             });
         });
@@ -177,6 +146,26 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
   onChangeFinalSet(finalExercise: Exercise) {
     this.currentFinalExercise = finalExercise;
+    console.log(this.currentFinalExercise.id);
+    // reload list record
+    this.lessonService
+        .getScheduleByDateLesson(
+          this.selectedDate.day,
+          this.selectedDate.month,
+          this.selectedDate.year,
+          this.currentLesson.id
+        )
+        .subscribe((result: Result) => {
+          this.currentSchedule = result.values;
+          const get_team_id = result.values[0].team_id;
+          this.teamService
+            .getMemberByTeam(get_team_id)
+            .subscribe((team_result: Result) => {
+              console.log('lesson: ' + this.currentLesson.id);
+              console.log('team: ' + get_team_id);
+              this.members = team_result.values;
+            });
+        });
   }
   getDefaultLesson() {
     this.lessonService
@@ -217,7 +206,6 @@ export class RecordComponent implements OnInit, OnDestroy {
     record.result = 'good';
     record.note = ' aaaaaannnnnncccccccc';
     record.attitude = ' khá tốt ';
-
     this.addRecord(record);
   }
 }

@@ -19,8 +19,8 @@ export class SingleRecordComponent implements OnInit {
   public not_available: String = 'N/A';
   constructor(private recordService: RecordService) {}
   ngOnInit() {
-    console.log(this.member.id);
-    console.log(this.currentSchedule[0].id);
+    // console.log(this.member.id);
+    // console.log(this.currentSchedule[0].id);
     console.log(this.currentFinalExercise.id);
     this.recordService
       .getRecordByUserScheduleExercise(
