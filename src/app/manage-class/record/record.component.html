@@ -7,24 +7,6 @@
   <div class="row">
     <div class="col-xs">
       <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="onChangeDate(currentScheduledDate)"></ngb-datepicker>
-      <!-- <div ngbDropdown class="d-inline-block full-width">
-        <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          {{currentSchedule.start_hour + ':' + currentSchedule.start_minute + ' - '
-          + currentSchedule.day + '/'
-          + currentSchedule.month + '/'
-          + currentSchedule.year
-          }}
-        </button>
-        <div ngbDropdownMenu class="record-drop-down">
-          <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
-            {{schedule.start_hour + ':' + schedule.start_minute + ' - '
-            + schedule.day + '/'
-            + schedule.month + '/'
-            + schedule.year
-            }}
-          </button>
-        </div>
-      </div> -->
     </div>
     <div class="col-xs">
       <div ngbDropdown class="d-inline-block full-width">
@@ -48,12 +30,19 @@
         </div>
       </div>
     </div>
+    <button class="margin-top-20 margin-bottom-10" mat-raised-button color="light-blue" (click)="fireNotification()">
+    Lưu
+    </button>
   </div>
   <!-- <mat-divider></mat-divider> -->
-  <div *ngFor="let member of members">
-    <app-single-record [member]="member" [currentSchedule]="currentSchedule" [currentFinalExercise]="currentFinalExercise"></app-single-record>
+  <div *ngFor="let member of members" class="margin-top-15">
+    <app-single-record 
+    [member]="member"
+    [currentSchedule]="currentSchedule"
+    [currentFinalExercise]="currentFinalExercise"
+    ></app-single-record>
   </div>
-  <button (click)="testAddRecord()"> aaa</button>
+  <!-- <button (click)="testAddRecord()"> aaa</button> -->
   <h3 class="empty-list"></h3>
 
 </div>

@@ -1,4 +1,4 @@
-<mat-card class="margin-bottom-10">
+<mat-card class="margin-bottom-10 animated fadeInLeft fast">
   <div class="row">
     <div class="col-3">
       <img src="https://image.flaticon.com/icons/png/512/1090/1090671.png" height=45>
@@ -14,58 +14,58 @@
     <div class="row">
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form">
-          <input matInput placeholder="Min heart rate" [value]="record.min_hr">
+          <input matInput placeholder="Min heart rate" [(ngModel)] = "record.min_hr">
         </mat-form-field>
       </div>
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Max heart rate" [value]="record.max_hr">
+          <input matInput placeholder="Max heart rate"  [(ngModel)] ="record.max_hr">
         </mat-form-field>
       </div>
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Heart rate" [value]="record.heart_rate">
+          <input matInput placeholder="Heart rate"  [(ngModel)] ="record.heart_rate">
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form">
-          <input matInput placeholder="Min time" [value]="record.min_time">
+          <input matInput placeholder="Min time"  [(ngModel)] ="record.min_time">
         </mat-form-field>
       </div>
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Max time" [value]="record.max_time">
+          <input matInput placeholder="Max time"  [(ngModel)] ="record.max_time">
         </mat-form-field>
       </div>
       <div class="col-xs padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Swim time" [value]="record.time_swim">
+          <input matInput placeholder="Swim time"  [(ngModel)] ="record.time_swim">
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-9 padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form">
-          <input matInput placeholder="Errors" [value]="record.errors">
+          <input matInput placeholder="Errors"  [(ngModel)] ="record.errors">
         </mat-form-field>
       </div>
       <div class="col-3 padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Result" [value]="record.result">
+          <input matInput placeholder="Result"  [(ngModel)] ="record.result">
         </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-5 padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form">
-          <input matInput placeholder="Attitude" [value]="record.attitude">
+          <input matInput placeholder="Attitude"  [(ngModel)] ="record.attitude">
         </mat-form-field>
       </div>
       <div class="col-7 padding-left-0 padding-right-0 fix-height-compact">
         <mat-form-field class="compact-form seprate-form">
-          <input matInput placeholder="Notes" [value]="record.note">
+          <input matInput placeholder="Notes"  [(ngModel)] ="record.note">
         </mat-form-field>
       </div>
     </div>
