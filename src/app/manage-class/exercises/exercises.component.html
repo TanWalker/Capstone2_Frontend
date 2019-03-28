@@ -42,7 +42,7 @@
     </div>
    
   </mat-expansion-panel>
-
+  
 </div>
 
-<app-lesson-plan></app-lesson-plan>
+<div [ngClass]="isMobile ? '':'content-desktop lessonplan-desktop'" ><app-lesson-plan></app-lesson-plan></div>

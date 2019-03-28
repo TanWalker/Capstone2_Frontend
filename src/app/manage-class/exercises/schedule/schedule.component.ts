@@ -8,6 +8,7 @@ import { Schedule } from 'src/app/share/models/schedule';
 import { Subject } from 'rxjs';
 import { AddScheduleComponent } from '../dialogs/add-schedule/add-schedule.component';
 import { DetailScheduleComponent } from '../dialogs/detail-schedule/detail-schedule.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 const colors: any = {
   red: {
@@ -33,17 +34,19 @@ export class ScheduleComponent implements OnInit {
   public viewDate: Date = new Date();
   public events: CalendarEvent[] = [];
   public schedule: Schedule[] = [];
-
+  public isMobile;
   public subEvents: any;
   refresh: Subject<any> = new Subject();
 
   constructor(
     private scheduleService: ScheduleService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private deviceService: DeviceDetectorService
   ) {}
 
   ngOnInit() {
     this.getEvent();
+    this.isMobile = this.deviceService.isMobile();
   }
 
   handleEvent(action: string, event: CalendarEvent): void {

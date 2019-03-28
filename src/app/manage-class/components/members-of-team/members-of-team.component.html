@@ -4,15 +4,13 @@
       <span>Quản lý thành viên</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class=" full-width" *ngIf="currentTeam">
-    <div ngbDropdown class="d-inline-block  full-width">
-      <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+  <div class="margin-top-5 margin-bottom-10" *ngIf="currentTeam">
+    <div ngbDropdown class="d-inline-block btn-block">
+      <button class="btn btn-outline-primary btn-block" ngbDropdownToggle>
        {{ currentTeam?.name }}
       </button>
-      <div ngbDropdownMenu>
-        
+      <div ngbDropdownMenu class="full-width">
         <button ngbDropdownItem *ngFor="let team of teams"  on-click="onChange(team)">{{ team?.name }}</button>
-
       </div>
     </div>
   </div>

@@ -1,14 +1,13 @@
-<div class="tab-bar flex">
-  <a routerLink="/class/profiles" [ngClass]="currentUrl.includes('/class/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'"
-    matRipple>
+<!-- <div class="tab-bar flex">
+  <a routerLink="/class/profiles"
+    [ngClass]="currentUrl.includes('/class/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-user-circle"></i>
     </div>
     <span class="tab-title">{{user.username}}</span>
   </a>
-  <a [autoClose]="true" [ngbPopover]="subTeams" 
-  [ngClass]="currentUrl.includes('/class/classes') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple
-  >
+  <a [autoClose]="true" [ngbPopover]="subTeams"
+    [ngClass]="currentUrl.includes('/class/classes') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-users-class"></i>
     </div>
@@ -30,10 +29,8 @@
       <i class="far fa-plus-circle"></i>
     </div>
   </a>
-
   <a class="flex-item-center" matRipple [autoClose]="true" [ngbPopover]="subExercises"
-  [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'"
-  >
+    [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'">
     <div class="tab-icon">
       <i class="far fa-calendar-day"></i>
     </div>
@@ -58,4 +55,5 @@
     </div>
     <span class="tab-title">Tin tức</span>
   </a>
-</div>
+</div> -->
+ocean

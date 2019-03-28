@@ -1,58 +1,53 @@
- 
  <!-- Manage session -->
- <div [ngClass]="isMobile ? '':'content-desktop'" style="float: left;">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span>Giáo án</span>
-        <span class="fill-remaining-space"> </span>
-        <mat-button-toggle-group #group="matButtonToggleGroup" style="font-size: 12px">
-          <mat-button-toggle (change)="setUpdate()">
-            Cập nhật
-          </mat-button-toggle>
-          <mat-button-toggle (change)="setCreate()">
-           Tạo mới
-          </mat-button-toggle>
-        </mat-button-toggle-group>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <div class="row">
-      <div class="col-12">
-          <mat-form-field class="full-width" *ngIf="!isAddNewLesson">
-              <mat-select >
-                <mat-option *ngFor="let lesson of lessons" (click)="changeLesson(lesson.id)" [value]="lesson">{{ lesson.name }}</mat-option>
-              </mat-select>
-            </mat-form-field>
+ <mat-toolbar>
+   <mat-toolbar-row>
+     <span>Giáo án</span>
+     <span class="fill-remaining-space"> </span>
+     <mat-button-toggle-group #group="matButtonToggleGroup" style="font-size: 12px">
+       <mat-button-toggle (change)="setUpdate()">
+         Cập nhật
+       </mat-button-toggle>
+       <mat-button-toggle (change)="setCreate()">
+         Tạo mới
+       </mat-button-toggle>
+     </mat-button-toggle-group>
+   </mat-toolbar-row>
+ </mat-toolbar>
+ <div class="row">
+   <div class="col-12">
+     <mat-form-field class="full-width" *ngIf="!isAddNewLesson">
+       <mat-select>
+         <mat-option *ngFor="let lesson of lessons" (click)="changeLesson(lesson.id)" [value]="lesson">
+           {{ lesson.name }}</mat-option>
+       </mat-select>
+     </mat-form-field>
 
-            <mat-form-field  class="full-width " *ngIf="isAddNewLesson">
-              <input matInput placeholder="Nhập tên giáo án" [(ngModel)] = "nameOfLesson">
-            </mat-form-field>
-      </div>
-      
-    </div>
-    <div class="row margin-bottom-20">
-        <div class="col-xs-12 padding-left-0">
-            <button mat-flat-button color="success" class="margin-right-5 full-width" (click)="addOrUpdate()">
-            {{ isAddNewLesson ? ' Thêm giáo án' : 'Cập nhật giáo án' }} <i class="far fa-swimmer" ></i></button>
-          </div>
-    </div>
-    <mat-divider></mat-divider>
-  
-  
-  
-  <mat-vertical-stepper>
-      <mat-step *ngFor="let type of typeExs">
-          <form >
-              <ng-template matStepLabel>  {{ type?.name }}</ng-template>
-              <div class="exercise-box">
-                  <div *ngFor="let item of exercises" >
-                    <div *ngIf="item.type_id === type.id">
-                      <hr>
-                    <app-exercise [exercise]="item" [logo]="type.logo" [isAdded]= true (remove)="removeEx($event)"></app-exercise>
-                  </div>
-                  </div>
-                </div>
-            </form> 
-        </mat-step>
-    </mat-vertical-stepper>
-  
-  </div>
+     <mat-form-field class="full-width " *ngIf="isAddNewLesson">
+       <input matInput placeholder="Nhập tên giáo án" [(ngModel)]="nameOfLesson">
+     </mat-form-field>
+   </div>
+
+ </div>
+ <div class="row margin-bottom-20">
+   <div class="col-xs-12 padding-left-0">
+     <button mat-flat-button color="success" class="margin-right-5 full-width" (click)="addOrUpdate()">
+       {{ isAddNewLesson ? ' Thêm giáo án' : 'Cập nhật giáo án' }} <i class="far fa-swimmer"></i></button>
+   </div>
+ </div>
+ <mat-divider></mat-divider>
+ <mat-vertical-stepper>
+   <mat-step *ngFor="let type of typeExs">
+     <form>
+       <ng-template matStepLabel> {{ type?.name }}</ng-template>
+       <div class="exercise-box">
+         <div *ngFor="let item of exercises">
+           <div *ngIf="item.type_id === type.id">
+             <hr>
+             <app-exercise [exercise]="item" [logo]="type.logo" [isAdded]=true (remove)="removeEx($event)">
+             </app-exercise>
+           </div>
+         </div>
+       </div>
+     </form>
+   </mat-step>
+ </mat-vertical-stepper>

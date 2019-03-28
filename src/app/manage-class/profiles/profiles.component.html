@@ -1,5 +1,5 @@
 <div [ngClass]="isMobile ? '' : 'content-desktop'">
-  <mat-toolbar>
+  <mat-toolbar class="fixed-bar">
     <mat-toolbar-row>
       <span>Hồ sơ</span>
       <span class="title-bar-spacer"></span>
@@ -7,7 +7,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-chip-list>
-    <div class="row center-xs margin-top-10">
+    <div class="row center-xs margin-top-70">
       <ngb-alert *ngIf="!user.is_verified" [dismissible]="false">
         <i class="fas fa-exclamation-square"></i> Bạn cần điền đầy đủ thông tin để xác thực tài khoản
       </ngb-alert>

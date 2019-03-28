@@ -1,18 +1,29 @@
 ::ng-deep .form>* {
   width: 100%;
 }
+
 ::ng-deep .ngb-dp-months {
-  display: block!important;
+  display: block !important;
 }
-::ng-deep .ngb-dp-day, .ngb-dp-week-number{
-  width: 100%!important;
+
+::ng-deep .ngb-dp-day,
+.ngb-dp-week-number {
+  width: 100% !important;
 }
-::ng-deep .ngb-dp-weekday, ngb-datepicker{
-  width: 100%!important;
+
+::ng-deep .ngb-dp-weekday,
+ngb-datepicker {
+  width: 100% !important;
 }
+
 .hour {
   padding-top: 42px;
-    margin-left: 5px;
-    margin-right: 5px;
-    color: #0056B3;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #0056B3;
+}
+
+.detail-content {
+  overflow: auto;
+  max-height: 424px;
 }

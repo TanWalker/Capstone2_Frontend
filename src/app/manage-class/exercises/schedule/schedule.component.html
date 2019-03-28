@@ -1,5 +1,5 @@
 <button mat-flat-button color="light-blue" (click)="openScheduleBox()">Tạo lịch</button>
-<div class="schedule-box">
+<div [ngClass]="isMobile ? 'schedule-box mobile-zoom' : 'schedule-box'">
   <mwl-calendar-week-view
   [viewDate]="viewDate"
   [events]="events"

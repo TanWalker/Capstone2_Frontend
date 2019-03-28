@@ -10,7 +10,12 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
+.fixed-bar{
+  position: fixed;
+  z-index: 999;
+  max-width: inherit;
+  width: calc(100% - 20px);
+}
 .form>* {
     width: 100%;
 }

@@ -14,7 +14,7 @@ import { Result } from './share/models/result';
 export class AppComponent implements OnInit {
   public isMobile = false;
   constructor(
-    private deviceService: DeviceDetectorService,
+    private deviceService:  DeviceDetectorService,
     private authService: AuthService
   ) {
     const openLoading = true;

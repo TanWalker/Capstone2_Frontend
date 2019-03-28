@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/share/services/auth.service';
 import { User } from 'src/app/share/models/user';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { AuthService } from 'src/app/share/services/auth.service';
 
 @Component({
-  selector: 'app-tab-bar',
-  templateUrl: './tab-bar.component.html',
-  styleUrls: ['./tab-bar.component.css']
+  selector: 'app-trainee-tab-bar',
+  templateUrl: './trainee-tab-bar.component.html',
+  styleUrls: ['./trainee-tab-bar.component.css']
 })
-export class TabBarComponent implements OnInit {
+export class TraineeTabBarComponent implements OnInit {
   currentUrl: string;
   public user: User = new User();
   constructor(

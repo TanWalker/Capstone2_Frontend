@@ -33,8 +33,8 @@ export class MemberOfTeamComponent implements OnInit {
   public radarChartLabels: Label[] = ['BMI', 'Speed', 'Endurance'];
 
   public radarChartData: ChartDataSets[] = [
-    { data: [65, 59, 90] },
-    { data: [28, 48, 40]}
+    { data: [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1] },
+    { data: [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1]}
   ];
   public radarChartType: ChartType = 'radar';
   constructor() { }

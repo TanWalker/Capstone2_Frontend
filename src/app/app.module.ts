@@ -17,43 +17,43 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { VersionBoxComponent } from './share/components/version-box/version-box.component';
 import { FeedBackBoxComponent } from './share/components/feedBack-box/feedBack-box.component';
 import { ChartsModule } from 'ng2-charts';
+import { TraineeModule } from './trainee/trainee.module';
+import { TraineeRoutes } from './trainee/trainee.routing';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MessageBoxComponent,
-    LoginComponent,
-    RegisterComponent,
-    VersionBoxComponent,
-    FeedBackBoxComponent
-
-    ],
-  imports: [
-    BrowserModule,
-    ManageClassModule,
-    AppRoutes,
-    MaterialModule,
-    ManageClassRoutes,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    DeviceDetectorModule.forRoot(),
-    LayoutModule,
-    UcWidgetModule,
-    ChartsModule
-  ],
-  entryComponents: [
-    MessageBoxComponent,
-    VersionBoxComponent,
-    FeedBackBoxComponent
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
-  ],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      MessageBoxComponent,
+      LoginComponent,
+      RegisterComponent,
+      VersionBoxComponent,
+      FeedBackBoxComponent,
+   ],
+   imports: [
+      BrowserModule,
+      ManageClassModule,
+      TraineeModule,
+      TraineeRoutes,
+      AppRoutes,
+      MaterialModule,
+      ManageClassRoutes,
+      HttpClientModule,
+      ReactiveFormsModule,
+      FormsModule,
+      DeviceDetectorModule.forRoot(),
+      LayoutModule,
+      UcWidgetModule,
+      ChartsModule
+   ],
+   entryComponents: [
+      MessageBoxComponent,
+      VersionBoxComponent,
+      FeedBackBoxComponent
+   ],
+   providers: [
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

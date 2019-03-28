@@ -1,112 +1,126 @@
-<!-- check if desktop or mobile device -->
-<div *ngIf="isMobile" class="content-mobile">
-  <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-    <div class="mobile-view">
-      <router-outlet #o="outlet"></router-outlet>
-    </div>
-  </main>
-  <app-tab-bar></app-tab-bar>
-</div>
-<span *ngIf="!isMobile">
-  <mat-toolbar color="light-blue">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-    </button>
-    <span class="title-button" matRipple (click)="drawer.toggle()">Swim Tracker</span>
-  </mat-toolbar>
-  <div class="top-navbar-space"></div>
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav-content>
-      <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+<!-- If role (2) login -->
+<div *ngIf="user.role_id === 2">
+  <!-- check if desktop or mobile device -->
+  <div *ngIf="isMobile" class="content-mobile">
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <div class="mobile-view">
         <router-outlet #o="outlet"></router-outlet>
-      </main>
-      <div class="margin-bottom-20"></div>
-    </mat-sidenav-content>
-    <mat-sidenav #drawer class="sidenav" mode="side" opened>
-      <mat-toolbar class="menu-banner">
-        <div class="title-button margin-left-down-10 user-title" matRipple>
-          <div class="mini-avatar">
-            <img [src]="user.avatar || './assets/img_avatar.png'" height="100%" />
+      </div>
+    </main>
+    <app-tab-bar></app-tab-bar>
+  </div>
+  <span *ngIf="!isMobile">
+    <mat-toolbar color="light-blue">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="title-button" matRipple (click)="drawer.toggle()">Swim Tracker</span>
+    </mat-toolbar>
+    <div class="top-navbar-space"></div>
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav-content>
+        <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+          <router-outlet #o="outlet"></router-outlet>
+        </main>
+        <div class="margin-bottom-20"></div>
+      </mat-sidenav-content>
+      <mat-sidenav #drawer class="sidenav" mode="side" opened>
+        <mat-toolbar class="menu-banner">
+          <div class="title-button margin-left-down-10 user-title" matRipple>
+            <div class="mini-avatar">
+              <img [src]="user.avatar || './assets/img_avatar.png'" height="100%" />
+            </div>
+            <span class="user-title-text">{{user.username}}</span>
+
           </div>
-          <span class="user-title-text">{{user.username}}</span>
+          <button mat-flat-button color="ok-red" class="margin-left-up-10" (click)="goToProfile()"
+            *ngIf="!user.is_verified"> Chứng thực </button>
 
-        </div>
-        <button mat-flat-button color="ok-red" class="margin-left-up-10" (click)="goToProfile()" *ngIf="!user.is_verified"> Chứng thực </button>
+          <span class="title-bar-spacer"></span>
+          <div class="right-button">
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+              <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #moreOptions="matMenu">
+              <a class="mat-menu-link" routerLink="/class/profiles">
+                <button mat-menu-item>
+                  <i class="fas fa-user-circle menu-item-icon"></i>
+                  <span>Thông tin cá nhân</span>
+                </button>
+              </a>
+              <mat-divider></mat-divider>
 
-        <span class="title-bar-spacer"></span>
-        <div class="right-button">
-          <button mat-icon-button [matMenuTriggerFor]="moreOptions">
-            <mat-icon>expand_more</mat-icon>
-          </button>
-          <mat-menu #moreOptions="matMenu">
-            <a class="mat-menu-link" routerLink="/class/profiles">
-              <button mat-menu-item>
-                <i class="fas fa-user-circle menu-item-icon"></i>
-                <span>Thông tin cá nhân</span>
+              <button mat-menu-item (click)="openFeedBackDialog()">
+                <i class="fas fa-comment-alt menu-item-icon"></i>
+                <span>Phản hồi</span>
               </button>
-            </a>
-            <mat-divider></mat-divider>
+              <button mat-menu-item (click)="openVersionDialog()">
+                <i class="fas fa-info-circle  menu-item-icon"></i>
+                <span>About Swim Tracker</span>
+              </button>
+              <button mat-menu-item (click)="logout()">
+                <i class="far fa-sign-out menu-item-icon"></i>
+                <span>Đăng xuất</span>
+              </button>
+            </mat-menu>
+          </div>
+        </mat-toolbar>
+        <mat-nav-list>
+          <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false"
+            [expanded]="teamParentsTab">
+            <mat-expansion-panel-header matRipple expandedHeight="48px"
+              [ngClass]="teamParentsTab ? 'list-item-active' : ''">
+              <mat-panel-title>
+                <i class="fas fa-users margin-right-15 margin-left-5"></i>
 
-            <button mat-menu-item (click)="openFeedBackDialog()">
-              <i class="fas fa-comment-alt menu-item-icon"></i>
-              <span>Phản hồi</span>
-            </button>
-            <button mat-menu-item (click)="openVersionDialog()">
-              <i class="fas fa-info-circle  menu-item-icon"></i>
-              <span>About Swim Tracker</span>
-            </button>
-            <button mat-menu-item (click)="logout()">
-              <i class="far fa-sign-out menu-item-icon"></i>
-              <span>Đăng xuất</span>
-            </button>
-          </mat-menu>
-        </div>
-      </mat-toolbar>
-      <mat-nav-list>
-        <mat-expansion-panel (opened)="teamParentsTab = true" (closed)="teamParentsTab = false" [expanded]="teamParentsTab">
-          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="teamParentsTab ? 'list-item-active' : ''">
-            <mat-panel-title>
-              <i class="fas fa-users margin-right-15 margin-left-5"></i>
+                Nhóm
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="/class/classes/teams"
+                [ngClass]="currentUrl.includes('/class/classes/teams') ? 'list-item-active' : ''">
+                <i class="fas fa-users-class margin-right-15 margin-left-5"></i> Quản lý nhóm
+              </a>
+              <a mat-list-item routerLink="/class/classes/members"
+                [ngClass]=" currentUrl.includes('/class/classes/members') ? 'list-item-active' : ''">
+                <i class="fas fa-user-friends margin-right-15 margin-left-5"></i> Quản lý thành viên
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
 
-              Nhóm
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="/class/classes/teams" [ngClass]="currentUrl.includes('/class/classes/teams') ? 'list-item-active' : ''">
-              <i class="fas fa-users-class margin-right-15 margin-left-5"></i> Quản lý nhóm
-            </a>
-            <a mat-list-item routerLink="/class/classes/members" [ngClass]=" currentUrl.includes('/class/classes/members') ? 'list-item-active' : ''">
-              <i class="fas fa-user-friends margin-right-15 margin-left-5"></i> Quản lý thành viên
-            </a>
-          </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false" [expanded]="exerciseParentsTab">
-          <mat-expansion-panel-header matRipple expandedHeight="48px" [ngClass]="exerciseParentsTab ? 'list-item-active' : ''">
-            <mat-panel-title>
-              <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
-              Giáo án
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-nav-list>
-            <a mat-list-item routerLink="/class/exercises" [ngClass]="currentUrl.includes('/class/exercises') ? 'list-item-active' : ''">
-              <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Quản lý bài tập
-            </a>
-            <a mat-list-item routerLink="/class/schedule" [ngClass]="currentUrl.includes('/class/schedule') ? 'list-item-active' : ''">
-              <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Lịch
-            </a>
-            <a mat-list-item routerLink="/class/record" [ngClass]="currentUrl.includes('/class/record') ? 'list-item-active' : ''">
-              <i class="fas fa-chart-line margin-right-15 margin-left-5"></i> Kết quả
-            </a>
-          </mat-nav-list>
-        </mat-expansion-panel>
-        <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
-          Thư viện
-        </a>
-        <a mat-list-item><i class="far fa-newspaper margin-right-15 margin-left-5"></i>
-          Tin tức
-        </a>
-      </mat-nav-list>
-    </mat-sidenav>
-  </mat-sidenav-container>
-</span>
+          <mat-expansion-panel (opened)="exerciseParentsTab = true" (closed)="exerciseParentsTab = false"
+            [expanded]="exerciseParentsTab">
+            <mat-expansion-panel-header matRipple expandedHeight="48px"
+              [ngClass]="exerciseParentsTab ? 'list-item-active' : ''">
+              <mat-panel-title>
+                <i class="far fa-calendar-day margin-right-15 margin-left-5"></i>
+                Giáo án
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="/class/exercises"
+                [ngClass]="currentUrl.includes('/class/exercises') ? 'list-item-active' : ''">
+                <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Quản lý bài tập
+              </a>
+              <a mat-list-item routerLink="/class/schedule"
+                [ngClass]="currentUrl.includes('/class/schedule') ? 'list-item-active' : ''">
+                <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Lịch
+              </a>
+              <a mat-list-item routerLink="/class/record"
+                [ngClass]="currentUrl.includes('/class/record') ? 'list-item-active' : ''">
+                <i class="fas fa-chart-line margin-right-15 margin-left-5"></i> Kết quả
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
+            Thư viện
+          </a>
+          <a mat-list-item><i class="far fa-newspaper margin-right-15 margin-left-5"></i>
+            Tin tức
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </span>
+</div>
+<!-- If role(3) login -->

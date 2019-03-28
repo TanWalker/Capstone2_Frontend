@@ -104,9 +104,9 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.currentLesson = lesson;
     if (lesson !== undefined) {
       this.lessonService
-        .getFinalExerciseByLessonID(lesson.id)
+        .getFinalExerciseByLessonID('4')
         .subscribe((data: Result) => {
-          // console.log(data.values);
+          console.log(lesson.id);
           this.FinalExercises = data.values;
           console.log('final ex');
           console.log(this.FinalExercises);
