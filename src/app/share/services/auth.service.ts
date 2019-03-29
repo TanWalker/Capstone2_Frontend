@@ -71,6 +71,14 @@ public autoGetCurrentUser() {
     this.currentUser = JSON.parse(localStorage.getItem('current_user'));
 }
 
+
+public isCoach() {
+   return (this.currentUser.role_id === '2');
+}
+
+public isMember() {
+  return (this.currentUser.role_id === '3');
+}
 // private getAuthData() {
 //   const token = localStorage.getItem('access_token');
 // //  const expirationDate: any = localStorage.getItem('expires_at');
