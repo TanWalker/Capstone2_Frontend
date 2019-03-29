@@ -51,6 +51,11 @@ import { TraineeRoutes } from './trainee/trainee.routing';
       FeedBackBoxComponent
    ],
    providers: [
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: AuthInterceptor,
+         multi: true
+       }
    ],
    bootstrap: [
       AppComponent
