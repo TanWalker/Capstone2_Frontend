@@ -139,6 +139,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   getDefaultSchedule() {
     this.subDefaultSchedule = this.scheduleService.getDefaultScheduleByCurrentDate().subscribe(
       (data: Result) => {
+        console.log(data);
         this.currentLesson = data.success ? data.value : '';
         this.getListFinalExerciseByLessonID(this.currentLesson.id);
       }
