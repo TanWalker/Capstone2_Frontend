@@ -31,7 +31,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   // sub variable
   public subSchedule: any;
   public subDefaultSchedule: any;
-  public subLessons: any;
+  public subSchedules: any;
   public subFinalExercises: any;
   public subMember: any;
   public subLessonService: any;
@@ -47,7 +47,6 @@ export class RecordComponent implements OnInit, OnDestroy {
   // main variable
   public isMobile = false;
   public schedules: Schedule[] = [];
-  public lessons: Lesson[] = [];
   public members: Member[] = [];
   public FinalExercises: Exercise[] = [];
 
@@ -76,7 +75,7 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     if (this.subDefaultSchedule !== null) { this.subDefaultSchedule.unsubscribe(); }
-    if (this.subLessons !== null) { this.subLessons.unsubscribe(); }
+    if (this.subSchedules !== null) { this.subSchedules.unsubscribe(); }
     if (this.subFinalExercises !== null) { this.subFinalExercises.unsubscribe(); }
     if (this.subLessonService !== null) { this.subLessonService.unsubscribe(); }
     if (this.subMember !== null) { this.subMember.unsubscribe(); }
@@ -97,13 +96,15 @@ export class RecordComponent implements OnInit, OnDestroy {
   }
   // list lesson
   getListScheduleByDate(date: Date , isDefault: boolean = false) {
-     this.subLessons = this.lessonService.getLessonByDateCoach(date).subscribe(
+     this.subSchedules = this.scheduleService.getScheduleByDate(date).subscribe(
       (data: Result) => {
-        this.lessons = data.values;
+        this.schedules = data.values;
+
+        console.log(this.schedules);
        // tslint:disable-next-line:no-unused-expression
-       !isDefault ? this.currentLesson = this.lessons[0] : 0;
+      // !isDefault ? this.currentLesson = this.lessons[0] : 0;
        // tslint:disable-next-line:no-unused-expression
-       !isDefault ? this.getListFinalExerciseByLessonID( this.currentLesson.id) : 0;
+     //  !isDefault ? this.getListFinalExerciseByLessonID( this.currentLesson.id) : 0;
       }
     );
   }
