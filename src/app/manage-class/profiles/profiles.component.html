@@ -50,12 +50,9 @@
 
     </mat-form-field>
     <p class="place-holder margin-top-5"> Ngày sinh </p>
-    <div class="date-box">
-
+    <div class="date-box center-xs">
       <ngb-datepicker [(ngModel)]="model" [minDate]="{year: 1980, month: 1, day: 1}" [maxDate]="calendar.getToday()" [startDate]="model"></ngb-datepicker>
-
     </div>
-
     <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Giới tính</mat-label>
       <mat-select placeholder="Chọn giới tính" [(ngModel)]="user.gender">

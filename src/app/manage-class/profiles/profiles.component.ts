@@ -93,7 +93,7 @@ export class ProfilesComponent implements OnInit {
     this.user = this.authService.getCurrentUser();
     // set date
     this.date = new Date(this.user.dob);
-    this.model.day = this.date.getDate() - 1;
+    this.model.day = this.date.getDate();
     this.model.month = this.date.getMonth() + 1;
     this.model.year = this.date.getFullYear();
   }
