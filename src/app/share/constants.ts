@@ -29,6 +29,9 @@ export const Constants = {
     },
     manage_member: {
       have_not_member: 'Hiện tại chưa có nhóm nào cả'
+    },
+    manage_record: {
+      have_not_schedule: 'Hiện chưa có lịch cho ngày này'
     }
   },
   box: {
@@ -79,12 +82,17 @@ export const Constants = {
     },
     delete_distance: {
       title: 'Xác nhận',
-      message: 'Bạn có muốn xóa khoảng cách này?',
+      message: 'Bạn có muốn xóa khoảng cách này ?',
       confirm: true
     },
     remove_member: {
       title: 'Xác nhận',
-      message: 'Bạn có muốn xóa thành viên này ra khỏi nhóm?',
+      message: 'Bạn có muốn xóa thành viên này ra khỏi nhóm ?',
+      confirm: true
+    },
+    add_record: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn thêm dữ liệu này ?',
       confirm: true
     }
   },

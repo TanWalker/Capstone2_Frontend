@@ -20,27 +20,16 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
   public record: Record = new Record();
   public not_available: String = 'N/A';
   public subNotification: any;
+  public subRecord: any;
   constructor(
     private recordService: RecordService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
     ) {}
   ngOnInit() {
-    // console.log(this.currentFinalExercise.id);
-    // this.recordService
-    //   .getRecordByUserScheduleExercise(
-    //     this.member.id,
-    //     this.currentSchedule[0].id,
-    //     this.currentFinalExercise.id
-    //   )
-    //   .subscribe((data: Result) => {
-    //     // this.record = data.values[0];
-    //     // console.log(data.values);
-    //     if (data.success) {
-    //       this.record = data.values[0];
-    //       // console.log(data.values[0]);
-    //     }
-    //     // console.log(data);
-    //   });
+
+    this.getExistRecord();
+    this.record.schedule_id = this.currentSchedule.id;
+    this.record.exercise_id = this.currentFinalExercise.id;
     this.record.user_id = this.member.id;
     this.getNotification();
   }
@@ -48,34 +37,30 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
       this.notificationService.getNotification().subscribe(
             (notification) => {
               if (notification.isAdd) {
-                console.log(this.record);
+                this.addRecord(this.record);
               }
             }
           );
   }
   ngOnDestroy() {
    if ( !isNullOrUndefined( this.subNotification )) { this.subNotification.unsubscrible(); }
+   if ( !isNullOrUndefined( this.subRecord )) { this.subRecord.unsubscrible(); }
+
   }
 
   addRecord(record: Record) {
     this.recordService.addRecord(record).subscribe((res: Result) => {
-      console.log(res);
     });
   }
-  testAddRecord() {
-    const record = new Record();
-    record.min_hr = this.record.min_hr;
-    record.max_hr = this.record.max_hr;
-    record.min_time = this.record.min_time;
-    record.max_time =  this.record.max_time;
-    record.heart_rate = this.record.heart_rate;
-    record.exercise_id = '14';
-    record.user_id = '10';
-    record.time_swim = 14;
-    record.errors = 'thực hiện lỗi';
-    record.result = 'good';
-    record.note = ' aaaaaannnnnncccccccc';
-    record.attitude = ' khá tốt ';
-    this.addRecord(record);
+
+  getExistRecord() {
+    this.recordService.getRecordByUserScheduleExercise(
+      this.member.id,
+      this.currentSchedule.id,
+      this.currentFinalExercise.id
+    )
+    .subscribe((data: Result) => {
+      this.record = data.success ? data.values[0] : '';
+    });
   }
 }
