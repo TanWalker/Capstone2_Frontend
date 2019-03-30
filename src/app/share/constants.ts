@@ -1,4 +1,9 @@
 export const Constants = {
+
+  role: {
+    role_coach_id : 2,
+    role_trainee_id: 3
+  },
   error: {
     create_team: {
       name: 'Bạn phải nhập tên cho lớp',

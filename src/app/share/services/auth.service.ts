@@ -1,10 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
+import { Constants } from '../constants';
+
+const message = {
+  role: {
+    role_coach_id: Constants.role.role_coach_id,
+    role_trainee_id: Constants.role.role_trainee_id,
+  },
+};
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
 
@@ -73,11 +82,12 @@ public autoGetCurrentUser() {
 
 
 public isCoach() {
-   return (this.currentUser.role_id === '2');
+  console.log(this.currentUser.role_id);
+   return (this.currentUser.role_id === message.role.role_coach_id);
 }
 
-public isMember() {
-  return (this.currentUser.role_id === '3');
+public isTrainee() {
+  return (this.currentUser.role_id === message.role.role_trainee_id);
 }
 // private getAuthData() {
 //   const token = localStorage.getItem('access_token');

@@ -29,6 +29,9 @@ export class ManageClassComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog
   ) {
+    if (authService.isTrainee()) {
+      this.router.navigate(['/trainee']);
+    }
     router.events.subscribe((_: NavigationEnd) => {
       // example: NavigationStart, RoutesRecognized, NavigationEnd
       if (_.url !== undefined) {

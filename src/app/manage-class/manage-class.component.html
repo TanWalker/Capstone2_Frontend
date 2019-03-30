@@ -1,5 +1,5 @@
 <!-- If role (2) login -->
-<span *ngIf="user.role_id === 2">
+<span *ngIf="authService.isCoach()">
   <!-- check if desktop or mobile device -->
   <div *ngIf="isMobile" class="content-mobile">
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
