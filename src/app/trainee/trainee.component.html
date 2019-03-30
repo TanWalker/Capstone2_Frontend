@@ -1,8 +1,10 @@
 <div *ngIf="user.role_id === 3">
-  <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-    <div class="mobile-view">
-      <router-outlet #o="outlet"></router-outlet>
-    </div>
-  </main>
-  <app-trainee-tab-bar></app-trainee-tab-bar>
+  <div *ngIf="isMobile" class="content-mobile">
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+      <div class="mobile-view">
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+    </main>
+    <app-trainee-tab-bar></app-trainee-tab-bar>
+  </div>
 </div>

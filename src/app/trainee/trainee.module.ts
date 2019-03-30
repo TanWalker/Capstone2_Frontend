@@ -5,15 +5,25 @@ import { TraineeTabBarComponent } from './components/trainee-tab-bar/trainee-tab
 import { MaterialModule } from '../material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ProfilesComponent } from './profiles/profiles.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatTooltipModule } from '@angular/material';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { StatsComponent } from './stats/stats.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    NgbModule,
+    ReactiveFormsModule,
+    MatTooltipModule,
+    FormsModule,
+    UcWidgetModule,
+    ChartsModule
   ],
-  declarations: [TraineeComponent, TraineeTabBarComponent, ProfilesComponent]
+  declarations: [TraineeComponent, TraineeTabBarComponent, StatsComponent]
 })
 export class TraineeModule {}

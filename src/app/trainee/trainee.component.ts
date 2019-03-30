@@ -3,6 +3,7 @@ import { User } from '../share/models/user';
 import { AuthService } from '../share/services/auth.service';
 import { Router } from '@angular/router';
 import { fadeAnimation } from '../animations';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-trainee',
@@ -11,10 +12,12 @@ import { fadeAnimation } from '../animations';
   animations: [fadeAnimation]
 })
 export class TraineeComponent implements OnInit {
+  public isMobile = false;
   public user: User = new User();
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private deviceService: DeviceDetectorService
   ) {
     if (authService.isCoach()) {
       this.router.navigate(['/class']);
@@ -23,7 +26,9 @@ export class TraineeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
+    // check mobile or desktop
+    this.isMobile = this.deviceService.isMobile();
+    // console.log(this.user);
   }
 
 }

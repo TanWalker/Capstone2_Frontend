@@ -1,27 +1,28 @@
 <div class="tab-bar flex">
-    <a routerLink="/trainee/profiles" [ngClass]="currentUrl.includes('/trainee/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'"
-    matRipple>
+  <a routerLink="/trainee/profiles"
+    [ngClass]="currentUrl.includes('/trainee/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-user-circle"></i>
     </div>
     <span class="tab-title">{{user.username}}</span>
   </a>
-  <a class="flex-item-center" matRipple>
+  <a routerLink="/trainee/stats"
+    [ngClass]="currentUrl.includes('/trainee/stats') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
-      <i class="fas fa-users-class"></i>
+      <i class="far fa-poll"></i>
     </div>
-    <span class="tab-title">Nhóm</span>
+    <span class="tab-title">Thống kê</span>
   </a>
   <a class="flex-item-center" matRipple>
     <div class="tab-icon">
-      <i class="far fa-calendar-day"></i>
+      <i class="far fa-books"></i>
     </div>
-    <span class="tab-title">Giáo án</span>
+    <span class="tab-title">Thư viện</span>
   </a>
   <a class="flex-item-center" matRipple>
     <div class="tab-icon">
-      <i class="far fa-newspaper"></i>
+      <i class="far fa-books"></i>
     </div>
-    <span class="tab-title">Tin tức</span>
+    <span class="tab-title">Thư viện</span>
   </a>
 </div>

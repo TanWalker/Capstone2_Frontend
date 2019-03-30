@@ -96,6 +96,7 @@ export class ProfilesComponent implements OnInit {
     this.model.day = this.date.getDate();
     this.model.month = this.date.getMonth() + 1;
     this.model.year = this.date.getFullYear();
+    console.log(this.user);
   }
   updateAvatar($info) {
     // new avatar for user on front-end
