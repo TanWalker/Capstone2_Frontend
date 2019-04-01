@@ -1,0 +1,25 @@
+<mat-toolbar class="fixed-bar">
+  <mat-toolbar-row>
+    <span>Thông tin cá nhân</span>
+    <span class="title-bar-spacer"></span>
+    <a *ngIf="authService.isTrainee()" mat-stroked-button color="primary" routerLink="settings"><i
+        class="fas fa-user-cog icon-fa-huge-large"></i> Tải khoản</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div style="padding-top: 65px;">
+  <div class="cover-body row">
+    <div class="col-5">
+      <div class="profiles-avatar-trainee center-xs" layout-align="center center">
+        <img [src]="user.avatar || '../../assets/img_avatar.png'" height="100%" />
+      </div>
+    </div>
+    <div class="col-7 cover-font">
+      <div class="row margin-top-10" style="height:50%;"><i class="fas fa-user margin-right-5"></i> {{user.last_name}} {{user.first_name}}</div>
+      <div class="row" style="height:50%;"><i class="far fa-users-class margin-right-5"></i> Poro</div>
+    </div>
+  </div>
+  <div class="cover-container">
+    <!-- <div class="cover-background-avatar" [ngStyle]="{'background-image':' url(' + user.avatar + ')'}"></div> -->
+    <img class="cover-background-avatar" [src]="user.avatar">
+  </div>
+</div>

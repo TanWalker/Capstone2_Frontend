@@ -9,9 +9,9 @@ import { ChartOptions, ChartDataSets } from 'chart.js';
 })
 export class StatsComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
+    { data: [28, 48, 40, 19, 86, 27, 90, 69, 54, 23, 45, 73], label: 'Series B' },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   public lineChartColors: Color[] = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',

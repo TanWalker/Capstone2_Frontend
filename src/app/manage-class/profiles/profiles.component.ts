@@ -128,7 +128,7 @@ export class ProfilesComponent implements OnInit {
       if (res) {
         this.user.dob = new Date();
         this.user.dob.setDate(this.model.day);
-        this.user.dob.setMonth(this.model.month);
+        this.user.dob.setMonth(this.model.month - 1);
         this.user.dob.setFullYear(this.model.year);
         this.userService.updateUser(this.user).subscribe((response: Result) => {
           if (response.success) {

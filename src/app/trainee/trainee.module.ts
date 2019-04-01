@@ -11,6 +11,7 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StatsComponent } from './stats/stats.component';
 import { ChartsModule } from 'ng2-charts';
+import { TraineeProfilesComponent } from './trainee-profiles/trainee-profiles.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,6 +25,6 @@ import { ChartsModule } from 'ng2-charts';
     UcWidgetModule,
     ChartsModule
   ],
-  declarations: [TraineeComponent, TraineeTabBarComponent, StatsComponent]
+  declarations: [TraineeComponent, TraineeTabBarComponent, StatsComponent, TraineeProfilesComponent]
 })
 export class TraineeModule {}
