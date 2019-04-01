@@ -28,4 +28,8 @@ export class UserService {
   getUserBMITips(bmi: number) {
     return this.http.get(`${environment.urls.api}/getUserBMITips/` + `${bmi}`);
   }
+
+  getAllExistingTrainee() {
+    return this.http.get(`${environment.urls.api}/getTrainee`);
+  }
 }

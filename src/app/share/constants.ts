@@ -17,6 +17,10 @@ export const Constants = {
       phone: 'Bạn phải nhập số điện thoại',
       height: 'Bạn phải nhập chiều cao',
       weight: 'Bạn phải nhập cân nặng'
+    },
+    edit_team: {
+      name: 'Bạn phải nhập tên cho lớp',
+      age: 'Bạn phải nhập độ tuổi',
     }
   },
   message: {
@@ -99,6 +103,13 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm dữ liệu này ?',
       confirm: true
+    }
+  },
+  snackBar: {
+    edit_team: {
+      success: 'Lưu thành công!',
+      fail: 'Lỗi! không thể lưu',
+      title: 'Đóng'
     }
   },
   default: {

@@ -55,8 +55,6 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.loginInfo).subscribe(
       (response: Result) => {
-        console.log(response);
-
         if (response.success) {
           // response should return token and user info
           const data = response.success ? response.values : '';
@@ -65,14 +63,11 @@ export class LoginComponent implements OnInit {
           // this.authService.setUser(response.value, response.value.token);
           this.authService.setUser(data.user, token);
           if (this.authService.isCoach()) {
-            console.log('coach');
             this.router.navigate(['/class']);
           }
           if (this.authService.isTrainee()) {
-            console.log('trainee');
             this.router.navigate(['/trainee']);
           }
-          console.log(typeof this.authService.currentUser.role_id);
           // reset form
           this.isSubmit = false;
         } else {
