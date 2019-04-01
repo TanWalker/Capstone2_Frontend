@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Class } from '../models/class';
+import { Team } from '../models/team';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,8 @@ export class TeamService {
   }
   removeTeamMember(id: String) {
     return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
+  }
+  getTeamByID(id: String) {
+    return this.http.get(`${environment.urls.api}` + `/getTeamByID/${id}`);
   }
 }
