@@ -38,6 +38,9 @@ h3,
     width: calc(100% - 10px);
   }
 }
+a:hover {
+  text-decoration: none;
+}
 .margin-top-70{
   margin-top:70px;
 }
@@ -154,7 +157,9 @@ body {
 .padding-left-0 {
   padding-left: 0 !important;
 }
-
+.margin-bottom-0{
+  margin-bottom: 0!important;
+}
 .padding-right-0 {
   padding-right: 0 !important;
 }
