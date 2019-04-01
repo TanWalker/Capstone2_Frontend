@@ -1,4 +1,5 @@
 <!-- If role (2) login -->
+<span *ngIf="authService.isCoach()">
   <!-- check if desktop or mobile device -->
   <div *ngIf="isMobile" class="content-mobile">
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
@@ -121,4 +122,5 @@
       </mat-sidenav>
     </mat-sidenav-container>
   </span>
+</span>
 <!-- If role(3) login -->

@@ -11,7 +11,6 @@ export const environment = {
   upload_care_key : 'c7c05222d42cec64dcf7'
  },
  VERSION: require('../../package.json').version
-
 };
 
 /*

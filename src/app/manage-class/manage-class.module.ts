@@ -38,6 +38,7 @@ import { SingleRecordComponent } from './record/components/single-record/single-
 
 @NgModule({
   imports: [
+    NgbModule,
     CommonModule,
     MaterialModule,
     RouterModule,
@@ -50,7 +51,6 @@ import { SingleRecordComponent } from './record/components/single-record/single-
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule,
     ChartsModule
     ],
   declarations: [

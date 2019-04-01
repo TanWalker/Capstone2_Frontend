@@ -1,59 +1,28 @@
-<!-- <div class="tab-bar flex">
-  <a routerLink="/class/profiles"
-    [ngClass]="currentUrl.includes('/class/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
+<div class="tab-bar flex">
+  <a routerLink="/trainee/profiles"
+    [ngClass]="currentUrl.includes('/trainee/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-user-circle"></i>
     </div>
     <span class="tab-title">{{user.username}}</span>
   </a>
-  <a [autoClose]="true" [ngbPopover]="subTeams"
-    [ngClass]="currentUrl.includes('/class/classes') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
+  <a routerLink="/trainee/stats"
+    [ngClass]="currentUrl.includes('/trainee/stats') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
-      <i class="fas fa-users-class"></i>
+      <i class="far fa-poll"></i>
     </div>
-    <span class="tab-title">Nhóm</span>
+    <span class="tab-title">Thống kê</span>
   </a>
-  <ng-template #subTeams>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/class/classes/teams">
-        <i class="fal fa-clipboard-list margin-right-15"></i>Quản lý nhóm
-      </a>
-      <a mat-list-item routerLink="/class/classes/members">
-        <i class="fal fa-calendar-alt margin-right-15"></i>Quản lý thành viên
-      </a>
-    </mat-nav-list>
-  </ng-template>
-
-  <a class="flex-item-center" matRipple>
-    <div class="tab-icon special-tab">
-      <i class="far fa-plus-circle"></i>
-    </div>
-  </a>
-  <a class="flex-item-center" matRipple [autoClose]="true" [ngbPopover]="subExercises"
-    [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'">
-    <div class="tab-icon">
-      <i class="far fa-calendar-day"></i>
-    </div>
-    <span class="tab-title">Giáo án</span>
-  </a>
-  <ng-template #subExercises>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/class/exercises">
-        <i class="fal fa-clipboard-list margin-right-15"></i>Quản lý bài tập
-      </a>
-      <a mat-list-item routerLink="/class/schedule">
-        <i class="fal fa-calendar-alt margin-right-15"></i>Lịch
-      </a>
-      <a mat-list-item routerLink="/class/record">
-        <i class="fas fa-chart-line margin-right-15"></i>Kết quả
-      </a>
-    </mat-nav-list>
-  </ng-template>
   <a class="flex-item-center" matRipple>
     <div class="tab-icon">
-      <i class="far fa-newspaper"></i>
+      <i class="far fa-books"></i>
     </div>
-    <span class="tab-title">Tin tức</span>
+    <span class="tab-title">Thư viện</span>
   </a>
-</div> -->
-ocean
+  <a class="flex-item-center" matRipple>
+    <div class="tab-icon">
+      <i class="far fa-books"></i>
+    </div>
+    <span class="tab-title">Thư viện</span>
+  </a>
+</div>

@@ -3,7 +3,7 @@ export class User {
     }
 
     public  id: String = '';
-    public  role_id: String = '';
+    public  role_id = 0;
     public  username: String = '';
     public  first_name: String = '';
     public	last_name: String = '';

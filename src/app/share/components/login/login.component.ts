@@ -64,7 +64,15 @@ export class LoginComponent implements OnInit {
           // const expiresIn = data.expiresIn;
           // this.authService.setUser(response.value, response.value.token);
           this.authService.setUser(data.user, token);
-          this.router.navigate(['/class']);
+          if (this.authService.isCoach()) {
+            console.log('coach');
+            this.router.navigate(['/class']);
+          }
+          if (this.authService.isTrainee()) {
+            console.log('trainee');
+            this.router.navigate(['/trainee']);
+          }
+          console.log(typeof this.authService.currentUser.role_id);
           // reset form
           this.isSubmit = false;
         } else {
