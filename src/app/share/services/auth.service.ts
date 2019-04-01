@@ -25,7 +25,6 @@ constructor(
 
 
 public setUser(user: User, token: string) {
-
   // set new user
   this.currentUser = user;
 
@@ -82,7 +81,6 @@ public autoGetCurrentUser() {
 
 
 public isCoach() {
-  console.log(this.currentUser.role_id);
    return (this.currentUser.role_id === message.role.role_coach_id);
 }
 

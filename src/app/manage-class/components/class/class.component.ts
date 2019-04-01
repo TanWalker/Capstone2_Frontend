@@ -7,6 +7,7 @@ import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
 import { User } from 'src/app/share/models/user';
 import { EditClassComponent } from '../../dialogs/edit-class/edit-class.component';
+import { AddMemberComponent } from '../../dialogs/add-member/add-member.component';
 const message = {
   box: {
     title: Constants.box.delete_team.title,
@@ -40,7 +41,6 @@ export class ClassComponent implements OnInit {
     this.teamService.getMemberByTeam(this.team.id).subscribe((data: Result) => {
       if (data.success) {
         this.members = data.values;
-        console.log(this.members);
       } else {
         console.log(data.errorMessage);
       }
@@ -60,13 +60,16 @@ export class ClassComponent implements OnInit {
         this.subDelelte = this.teamService
           .deleteTeam(this.team.id)
           .subscribe((result: Result) => {
-            console.log(this.teamService.deleteTeam(this.team.id));
+            if (result.success) {
+            } else {
+              console.log(result);
+            }
           });
         this.isRefresh.emit(true);
       }
     });
   }
-  edit(team_id, team_name, team_age): void {
+  edit(): void {
     const dialogRef = this.dialog.open(EditClassComponent, {
       disableClose: true,
       maxWidth: '300px',
@@ -81,5 +84,17 @@ export class ClassComponent implements OnInit {
       }
     });
   }
-  addMember() {}
+  addMember() {
+
+    const dialogRef = this.dialog.open(AddMemberComponent, {
+      disableClose: true,
+      maxWidth: '300px',
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        // this.isRefresh.emit(true);
+      }
+    });
+  }
 }

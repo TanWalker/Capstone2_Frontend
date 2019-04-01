@@ -10,11 +10,21 @@ import { MessageBoxComponent } from 'src/app/share/components/message-box/messag
 import { Constants } from 'src/app/share/constants';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Result } from 'src/app/share/models/result';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 const message = {
   box: {
     title: Constants.box.edit_team.title,
     message: Constants.box.edit_team.message,
     confirm: Constants.box.edit_team.confirm
+  },
+  snackBar: {
+    success: Constants.snackBar.edit_team.success,
+    fail: Constants.snackBar.edit_team.fail,
+    title: Constants.snackBar.edit_team.title,
+  },
+  error: {
+    name: Constants.error.edit_team.name,
+    age: Constants.error.edit_team.age
   }
 };
 @Component({
@@ -24,23 +34,42 @@ const message = {
 })
 export class EditClassComponent implements OnInit {
   public newTeam: Class = new Class();
-  isSaveBtnDisabled = true;
+  public isSaveBtnDisabled = true;
   public message = message;
   public currentTeamId: String = '';
   public currentTeamName: String = '';
   public currentTeamAge: String = '';
+
+  // form
+  public isSubmit = false;
+  public editClassForm: FormGroup;
+  public name = new FormControl('', [Validators.required]);
+  public age = new FormControl('', [Validators.required]);
+
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<EditClassComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: any,
     private dialog: MatDialog,
     private teamService: TeamService,
     private snackBar: MatSnackBar
-  ) {
-    this.currentTeamId = data.team.id;
-    this.currentTeamName = data.team.name;
-    this.currentTeamAge = data.team.age;
-    this.newTeam = data.team;
+  ) {}
+
+  ngOnInit() {
+    this.currentTeamId = this.data.team.id;
+    this.currentTeamName = this.data.team.name;
+    this.currentTeamAge = this.data.team.age;
+    this.newTeam = this.data.team;
+
+    this.initialValidation();
+
   }
+  initialValidation() {
+    this.editClassForm = this.formBuilder.group({});
+    this.editClassForm.addControl('name', this.name);
+    this.editClassForm.addControl('age', this.age);
+  }
+
   onChange() {
     if (
       this.currentTeamName.localeCompare(this.newTeam.name.toString()) === 0 &&
@@ -55,9 +84,15 @@ export class EditClassComponent implements OnInit {
       this.isSaveBtnDisabled = false;
     }
   }
-  ngOnInit() {}
   updateTeam() {
-    // this.class.id = this.data.id;
+
+    // set isSubmit
+    this.isSubmit = true;
+    // check validation
+    if (this.editClassForm.invalid) {
+      return;
+    }
+
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
         title: this.message.box.title,
@@ -74,18 +109,18 @@ export class EditClassComponent implements OnInit {
           .updateTeam(this.newTeam)
           .subscribe((result: Result) => {
             if (result.success) {
-              console.log(result);
-              console.log(this.newTeam);
-              // this.data.isRefresh.emit(true);
               this.dialogRef.close(true);
-              this.snackBar.open('Lưu thành công!', 'Đóng', {
+              this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
                 duration: 6000
               });
             } else {
-              this.snackBar.open('Lỗi! không thể lưu', 'Đóng', {
+              this.snackBar.open(this.message.snackBar.fail, this.message.snackBar.title, {
                 duration: 3000
               });
             }
+
+             // reset form
+          this.isSubmit = false;
           });
       }
     });

@@ -35,6 +35,7 @@ import { RecordComponent } from './record/record.component';
 import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.component';
 import { ChartsModule } from 'ng2-charts';
 import { SingleRecordComponent } from './record/components/single-record/single-record.component';
+import { AddMemberComponent } from './dialogs/add-member/add-member.component';
 
 @NgModule({
   imports: [
@@ -78,7 +79,8 @@ import { SingleRecordComponent } from './record/components/single-record/single-
     MemberOfTeamComponent,
     DistancesComponent,
     RecordComponent,
-    LessonPlanComponent
+    LessonPlanComponent,
+    AddMemberComponent
   ],
   entryComponents: [
     AddClassComponent,
@@ -87,7 +89,8 @@ import { SingleRecordComponent } from './record/components/single-record/single-
     EditClassComponent,
     SwimstylesComponent,
     DistancesComponent,
-    DetailScheduleComponent
+    DetailScheduleComponent,
+    AddMemberComponent
   ],
   providers: [DatePipe]
 })

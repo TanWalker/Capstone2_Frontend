@@ -48,7 +48,6 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
   getListTeam() {
       this.subTeams = this.teamService.getTeamByCoach().subscribe(
         (data: Result) => {
-          console.log(data);
          this.teams = data.success ? data.values : [];
          if ( !isNullOrUndefined(this.teams)) {
           this.currentTeam = this.teams[0];
@@ -65,7 +64,6 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
     this.subMembers = this.teamService.getMemberByTeam(teamId).subscribe(
       (data: Result) => {
         this.members = data.success ? data.values : [];
-        console.log(this.members);
       }
     );
   }
