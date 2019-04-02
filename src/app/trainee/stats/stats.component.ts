@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartDataSets, ChartType } from 'chart.js';
+import { yearsPerPage } from '@angular/material/datepicker/typings/multi-year-view';
+import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-stats',
@@ -8,15 +10,49 @@ import { ChartOptions, ChartDataSets, ChartType } from 'chart.js';
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  public barChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug'];
+  public barChartLabels: Label[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug'
+  ];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Series C', yAxisID: 'y-axis-1' }
+    {
+      data: [
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum()
+      ],
+      label: 'Series B'
+    },
+    {
+      data: [
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum(),
+        this.randomNum()
+      ],
+      label: 'Series C',
+      yAxisID: 'y-axis-1'
+    }
   ];
-  public barChartOptions: (ChartOptions & { annotation: any }) = {
+  public barChartOptions: ChartOptions & { annotation: any } = {
     responsive: true,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
@@ -24,16 +60,16 @@ export class StatsComponent implements OnInit {
       yAxes: [
         {
           id: 'y-axis-0',
-          position: 'left',
+          position: 'left'
         },
         {
           id: 'y-axis-1',
           position: 'right',
           gridLines: {
-            color: 'rgba(255,0,0,0.3)',
+            color: 'rgba(255,0,0,0.3)'
           },
           ticks: {
-            fontColor: 'red',
+            fontColor: 'red'
           }
         }
       ]
@@ -52,12 +88,13 @@ export class StatsComponent implements OnInit {
             fontColor: 'orange',
             content: 'LineAnno'
           }
-        },
-      ],
-    },
+        }
+      ]
+    }
   };
   public barChartColors: Color[] = [
-    { // dark grey
+    {
+      // dark grey
       backgroundColor: 'rgba(77,83,96,0.2)',
       borderColor: 'rgba(77,83,96,1)',
       pointBackgroundColor: 'rgba(77,83,96,1)',
@@ -65,7 +102,8 @@ export class StatsComponent implements OnInit {
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(77,83,96,1)'
     },
-    { // red
+    {
+      // red
       backgroundColor: 'rgba(255,0,0,0.3)',
       borderColor: 'red',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -74,14 +112,50 @@ export class StatsComponent implements OnInit {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
-  constructor() { }
+  public months: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  public years: Number[] = [];
+  public i: number;
+  public isFilterbyYearOnly = false;
+  public dateTypeOption = 1;
+  constructor(private calendar: NgbCalendar) {}
 
   ngOnInit() {
+    // spawn an array of years
+    for (this.i = 2000; this.i <= this.calendar.getToday().year; this.i++) {
+      this.years.push(this.i);
+    }
   }
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartHovered({
+    event,
+    active
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
     console.log(event, active);
   }
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({
+    event,
+    active
+  }: {
+    event: MouseEvent;
+    active: {}[];
+  }): void {
     console.log(event, active);
+  }
+  public randomNum() {
+    return Math.floor(Math.random() * 1000) + 1;
+  }
+  public selectMonth(event) {
+    console.log(event);
+  }
+  public selectDateType() {
+    if (this.dateTypeOption === 2) {
+      this.isFilterbyYearOnly = false;
+    }
+    if (this.dateTypeOption === 1) {
+      this.isFilterbyYearOnly = true;
+    }
+    console.log(this.isFilterbyYearOnly);
   }
 }

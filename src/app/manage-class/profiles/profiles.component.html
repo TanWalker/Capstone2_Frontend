@@ -14,15 +14,17 @@
     </div>
   </mat-chip-list>
   <div class="center-xs">
-    <img src="../../../assets/verify-2.svg" class="verify-logo" *ngIf="user.is_verified" matTooltip="{{message.message.verify}}">
+    <img src="../../../assets/verify-2.svg" class="verify-logo" *ngIf="user.is_verified"
+      matTooltip="{{message.message.verify}}">
     <div class="profiles-avatar center-xs" layout-align="center center">
       <img [src]="user.avatar || '../../assets/img_avatar.png'" height="100%" />
     </div>
   </div>
-  <ngx-uploadcare-widget-custom images-only="true" public-key="{{ getKey() }}" (on-upload-complete)="updateAvatar($event)"
-    #uploadCare>
+  <ngx-uploadcare-widget-custom images-only="true" public-key="{{ getKey() }}"
+    (on-upload-complete)="updateAvatar($event)" #uploadCare>
   </ngx-uploadcare-widget-custom>
-  <button mat-flat-button color="ok-red" class="upload-care" (click)="uploadCare.openDialog()">Thay đổi ảnh đại diện</button>
+  <button mat-flat-button color="ok-red" class="upload-care" (click)="uploadCare.openDialog()">Thay đổi ảnh đại
+    diện</button>
   <div class="form">
     <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Tên</mat-label>
@@ -49,7 +51,8 @@
     </mat-form-field>
     <p class="place-holder margin-top-5"> Ngày sinh </p>
     <div class="date-box center-xs">
-      <ngb-datepicker [(ngModel)]="model" [minDate]="{year: 1980, month: 1, day: 1}" [maxDate]="calendar.getToday()" [startDate]="model"></ngb-datepicker>
+      <ngb-datepicker [(ngModel)]="model" [minDate]="{year: 1980, month: 1, day: 1}" [maxDate]="calendar.getToday()"
+        [startDate]="model"></ngb-datepicker>
     </div>
     <mat-form-field appearance="outline" class="margin-top-5">
       <mat-label>Giới tính</mat-label>
@@ -76,5 +79,6 @@
     <button *ngIf="isMobile" mat-flat-button color="warn" (click)="logout()">
       Đăng xuất
     </button>
+    <div style="height: 70px;display:block;"></div>
   </div>
 </div>

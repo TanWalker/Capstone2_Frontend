@@ -38,12 +38,15 @@ h3,
     width: calc(100% - 10px);
   }
 }
+
 a:hover {
   text-decoration: none;
 }
-.margin-top-70{
-  margin-top:70px;
+
+.margin-top-70 {
+  margin-top: 70px;
 }
+
 @media only screen and (min-width : 480px) {
   router-outlet~* {
     position: absolute;
@@ -51,12 +54,15 @@ a:hover {
     width: 100%;
   }
 }
-.hightlight-title{
+
+.hightlight-title {
   color: rgb(187, 0, 0);
 }
-.mat-icon > svg {
+
+.mat-icon>svg {
   vertical-align: 0.2em;
 }
+
 .alert-bg>.mat-dialog-container {
   background-color: white;
   background-image: url(assets/alert-icon.png);
@@ -154,12 +160,18 @@ body {
   margin-left: -15px;
 }
 
+.padding-0 {
+  padding: 0 !important;
+}
+
 .padding-left-0 {
   padding-left: 0 !important;
 }
-.margin-bottom-0{
-  margin-bottom: 0!important;
+
+.margin-bottom-0 {
+  margin-bottom: 0 !important;
 }
+
 .padding-right-0 {
   padding-right: 0 !important;
 }
@@ -332,9 +344,11 @@ body {
 .margin-bottom-down-20 {
   margin-bottom: -20px;
 }
+
 .margin-bottom-down-35 {
   margin-bottom: -35px;
 }
+
 .padding-top-10 {
   padding-top: 10px;
 }

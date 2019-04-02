@@ -1,22 +1,30 @@
 <div class="row margin-bottom-0">
-  <div class="col-6">
-    <select class="form-control">
-      <option selected disabled>Chọn năm</option>
-      <option>Large select</option>
-      <option>Large select</option>
-      <option>Large select</option>
-    </select>
-  </div>
-  <div class="col-6">
-    <select class="form-control">
-      <option selected disabled>Chọn bài tập</option>
-      <option>Large select</option>
-      <option>Large select</option>
-      <option>Large select</option>
-    </select> 
+  <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" [(ngModel)]="dateTypeOption" (click)="selectDateType()">
+    <label ngbButtonLabel class="btn-success">
+      <input ngbButton type="radio" [value]="1" checked> Theo tháng
+    </label>
+    <label ngbButtonLabel class="btn-success">
+      <input ngbButton type="radio" [value]="2"> Theo năm
+    </label>
   </div>
 </div>
-<canvas baseChart height="400"
+<div class="row margin-top-20" *ngIf="!isFilterbyYearOnly">
+  <div class="col-6 padding-0">
+    <select class="form-control" style="text-align-last: right;" (change)="selectMonth($event)">
+      <option disabled selected>Chọn tháng</option>
+      <option *ngFor="let month of months" [value]="month">{{month}}</option>
+    </select>
+  </div>
+  <div class="col-1" style="padding-right: 19px;padding-left: 10px;font-size: 32px">/</div>
+  <div class="col-5 padding-0">
+    <select class="form-control">
+      <option disabled selected>Chọn năm</option>
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+</div>
+{{isFilterbyYearOnly}}
+<!-- <canvas baseChart height="400"
 [datasets]="barChartData"
 [labels]="barChartLabels"
 [options]="barChartOptions"
@@ -24,5 +32,8 @@
 [chartType]="barChartType"
 [colors]="barChartColors"
 >
-
-</canvas>
+</canvas> -->
+<hr>
+<legend>Các bài tập trong tháng</legend>
+<a routerLink="/trainee/profiles"><mat-card matRipple>Simple card</mat-card></a>
+<div style="height: 70px;display:block;"></div>

@@ -180,3 +180,7 @@
   align-items: center;
   background: rgba(228, 228, 228, 0.7);
 }
+::ng-deep .cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: saturate(180%) blur(30px);
+}
