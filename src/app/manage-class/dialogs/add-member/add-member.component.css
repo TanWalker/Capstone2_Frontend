@@ -1,0 +1,39 @@
+.mat-card{
+    margin-bottom: 10px;
+  }
+  .time-range-box > div:first-child{
+    border-bottom: 1px solid #dedede;
+  }
+  .time-range-box > div{
+    padding: 6px 0;
+  }
+  .reneral-info{
+    line-height: 1.5;
+  }
+  a.lesson-link{
+    text-decoration: none;
+  }
+  .lesson-title{
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 100px;
+
+  }
+  .member-avatar {
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .parent-scroll {
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.child-scroll {
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+    padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility */
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+}

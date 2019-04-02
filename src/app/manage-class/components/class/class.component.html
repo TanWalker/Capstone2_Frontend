@@ -56,7 +56,7 @@
       </div>
     </div>
     <mat-list class="mat-list-theme" role="list" *ngFor="let member of members; let i = index">
-      <app-member [member]="member" [count]="i+1"></app-member>
+      <app-member [member]="member" [count]="i+1" (isDeleted)="refreshClass( $event )"></app-member>
     </mat-list>
   </mat-expansion-panel>
   <div class="margin-bottom-10"></div>

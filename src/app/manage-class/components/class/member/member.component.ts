@@ -1,15 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Member } from 'src/app/share/models/member';
 import { count } from 'rxjs/operators';
 import { Constants } from 'src/app/share/constants';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { TeamService } from 'src/app/share/services/team.service';
+import { Result } from 'src/app/share/models/result';
 const message = {
   box: {
     title: Constants.box.remove_member.title,
     message: Constants.box.remove_member.message,
     confirm: Constants.box.remove_member.confirm
+  },
+  message: {
+    success: Constants.snackBar.remove_member.success,
+    fail: Constants.snackBar.remove_member.fail,
+    title: Constants.snackBar.remove_member.title
   }
 };
 @Component({
@@ -20,16 +26,18 @@ const message = {
 export class MemberComponent implements OnInit {
   @Input() member: Member;
   @Input() count: String;
+  @Output() isDeleted = new EventEmitter<boolean>();
   public message = message;
   constructor(
     private dialog: MatDialog,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private snackBar: MatSnackBar
+
   ) {}
 
   ngOnInit() {
   }
   removeMember() {
-    console.log(this.member);
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
         title: this.message.box.title,
@@ -40,23 +48,22 @@ export class MemberComponent implements OnInit {
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-        // this.teamService
-        //   .updateTeam(this.newTeam)
-        //   .subscribe((result: Result) => {
-        //     if (result.success) {
-        //       console.log(result);
-        //       console.log(this.newTeam);
-        //       // this.data.isRefresh.emit(true);
-        //       this.dialogRef.close(true);
-        //       this.snackBar.open('Lưu thành công!', 'Đóng', {
-        //         duration: 6000
-        //       });
-        //     } else {
-        //       this.snackBar.open('Lỗi! không thể lưu', 'Đóng', {
-        //         duration: 3000
-        //       });
-        //     }
-        //   });
+        this.teamService.removeTeamMember(this.member).subscribe(
+          (response: Result) => {
+            if (response.success) {
+              this.snackBar.open(this.message.message.success, this.message.message.title, {
+                duration: 6000
+              });
+
+              // fire event emitter
+              this.isDeleted.emit(true);
+            } else {
+              this.snackBar.open(this.message.message.fail, this.message.message.title, {
+                duration: 3000
+              });
+            }
+          }
+        );
       }
     });
   }

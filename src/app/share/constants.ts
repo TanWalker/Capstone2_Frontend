@@ -41,6 +41,9 @@ export const Constants = {
     },
     manage_record: {
       have_not_schedule: 'Hiện chưa có lịch cho ngày này'
+    },
+    add_member: {
+      have_not_member: 'Không có dữ liệu'
     }
   },
   box: {
@@ -109,6 +112,11 @@ export const Constants = {
     edit_team: {
       success: 'Lưu thành công!',
       fail: 'Lỗi! không thể lưu',
+      title: 'Đóng'
+    },
+    remove_member: {
+      success: 'Xóa thành công!',
+      fail: 'Lỗi! không thể xóa',
       title: 'Đóng'
     }
   },

@@ -65,7 +65,11 @@ a:hover {
   background-position: -64px -57px;
   padding: 24px;
 }
+.add-class>.mat-dialog-container {
+ 
+  width: 350px;
 
+}
 body {
   font-family: Helvetica, Arial, sans-serif;
   background: transparent;
@@ -124,7 +128,9 @@ body {
 .float-right {
   float: right;
 }
-
+.float-left {
+  float: left;
+}
 ::ng-deep .text-align-right {
   text-align: right !important;
 }
@@ -174,6 +180,9 @@ body {
 
 .margin-top-down-15 {
   margin-top: -15px !important;
+}
+.margin-top-down-10 {
+  margin-top: -10px !important;
 }
 
 .margin-right-5 {
