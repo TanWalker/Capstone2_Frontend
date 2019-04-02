@@ -6,6 +6,8 @@ import { Class } from 'src/app/share/models/class';
 import { isNullOrUndefined } from 'util';
 import { User } from 'src/app/share/models/user';
 import { Constants } from 'src/app/share/constants';
+import { MatDialog } from '@angular/material';
+import { RankingComponent } from '../../dialogs/ranking/ranking.component';
 
 const message = {
   message: {
@@ -34,7 +36,8 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
   public message = message;
   constructor(
     public deviceService: DeviceDetectorService,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private dialog: MatDialog
   ) {
     this.isMobile = deviceService.isMobile();
   }
@@ -67,4 +70,15 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
       }
     );
   }
+  openRanking() {
+
+      const dialogRef = this.dialog.open(RankingComponent, {
+        disableClose: true,
+        data: { team: this.currentTeam }
+      });
+      dialogRef.afterClosed().subscribe(res => {
+        if (res) {
+        }
+      });
+    }
 }

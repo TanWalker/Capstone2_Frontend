@@ -36,6 +36,7 @@ import { LessonPlanComponent } from './exercises/lesson-plan/lesson-plan.compone
 import { ChartsModule } from 'ng2-charts';
 import { SingleRecordComponent } from './record/components/single-record/single-record.component';
 import { AddMemberComponent } from './dialogs/add-member/add-member.component';
+import { RankingComponent } from './dialogs/ranking/ranking.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { AddMemberComponent } from './dialogs/add-member/add-member.component';
     DistancesComponent,
     RecordComponent,
     LessonPlanComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    RankingComponent
   ],
   entryComponents: [
     AddClassComponent,
@@ -90,7 +92,8 @@ import { AddMemberComponent } from './dialogs/add-member/add-member.component';
     SwimstylesComponent,
     DistancesComponent,
     DetailScheduleComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    RankingComponent
   ],
   providers: [DatePipe]
 })

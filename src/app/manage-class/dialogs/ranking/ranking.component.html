@@ -1,0 +1,54 @@
+    
+    <div class="row">
+
+        <div class="col-8">
+            <h3 style="font-weight: 900">Bảng xếp hạng</h3>
+            <p> {{ data.team.name }} </p>
+        </div>
+        <div class="col-4">
+            <button mat-raised-button color="warn" (click)="cancel()" class="float-right">
+                Đóng
+            </button>
+        </div>
+      </div>
+    
+    <mat-expansion-panel *ngFor="let tyle of types" class="margin-top-15">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-weight: 500">
+            {{ tyle.swim_name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- ranking here -->
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12 margin-bottom-15">
+
+           <p >300m</p> 
+          </div>
+        
+          <div class="col-4">
+            
+            <img src="../../../../assets/medal-gold.svg" class="myMedal">
+
+            <p class="gold-name">Nguyễn Đắc Ánh</p>
+            <p class="gold-name">10s</p>
+
+          </div>
+          <div class="col-4">
+              <img src="../../../../assets/medal-bronze.svg" class="myMedal">
+            <p class="silver-name">Nguyễn Đắc Ánh</p>
+            <p class="silver-name">11s</p>
+
+          </div>
+          <div class="col-4">
+              <img src="../../../../assets/medal-sliver.svg" class="myMedal">
+              <p class="brozen-name">Nguyễn Đắc Ánh</p>
+              <p class="brozen-name">12s</p>
+          </div>
+        </div>
+
+      </div>
+    </mat-expansion-panel>
+    

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Class } from '../models/class';
 import { Team } from '../models/team';
+import { Member } from '../models/member';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,14 @@ export class TeamService {
   getTeamByCoach() {
     return this.http.get(`${environment.urls.api}` + `/getTeamByCoach`);
   }
-  removeTeamMember(id: String) {
-    return this.http.delete(`${environment.urls.api}` + `/deleteTeam/${id}`);
+  removeTeamMember(member: Member) {
+    return this.http.post(`${environment.urls.api}` + `/removeTeamMember`,  member);
   }
   getTeamByID(id: String) {
     return this.http.get(`${environment.urls.api}` + `/getTeamByID/${id}`);
+  }
+  addTeamMember(team_id: String, user_id: String) {
+    return this.http.put(`${environment.urls.api}` + `/addTeamMember/`, { team_id , user_id });
+
   }
 }

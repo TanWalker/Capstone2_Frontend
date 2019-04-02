@@ -24,17 +24,25 @@ export class MemberOfTeamComponent implements OnInit {
 
   @Input() member: User;
   public message = constant;
-
+  public isOut = Math.random() >= 0.5;
   // setup for triangle chart
-   // Radar
-   public radarChartOptions: ChartOptions = {
+  // Radar
+  public radarChartOptions: ChartOptions = {
     responsive: true,
   };
   public radarChartLabels: Label[] = ['BMI', 'Speed', 'Endurance'];
 
   public radarChartData: ChartDataSets[] = [
-    { data: [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1] },
-    { data: [Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1, Math.floor(Math.random() * 100) + 1]}
+    { data: [
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1],
+      label: 'Trung bình' },
+    { data: [
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1],
+      label: 'Thực tế'}
   ];
   public radarChartType: ChartType = 'radar';
   constructor() { }

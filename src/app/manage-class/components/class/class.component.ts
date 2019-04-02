@@ -41,6 +41,8 @@ export class ClassComponent implements OnInit {
     this.teamService.getMemberByTeam(this.team.id).subscribe((data: Result) => {
       if (data.success) {
         this.members = data.values;
+        console.log(this.members);
+
       } else {
         console.log(data.errorMessage);
       }
@@ -87,14 +89,25 @@ export class ClassComponent implements OnInit {
   addMember() {
 
     const dialogRef = this.dialog.open(AddMemberComponent, {
-      disableClose: true,
-      maxWidth: '300px',
-      data: {}
+      disableClose: false,
+      maxWidth: '400px',
+      data: {
+        team: this.team
+      },
+      panelClass: 'add-class'
+
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         // this.isRefresh.emit(true);
       }
     });
+  }
+
+  refreshClass( $event ) {
+    if ($event) {
+      this.getListMember();
+    }
+    console.log($event);
   }
 }

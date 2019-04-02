@@ -41,6 +41,9 @@ export const Constants = {
     },
     manage_record: {
       have_not_schedule: 'Hiện chưa có lịch cho ngày này'
+    },
+    add_member: {
+      have_not_member: 'Không có dữ liệu'
     }
   },
   box: {
@@ -103,12 +106,27 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm dữ liệu này ?',
       confirm: true
+    },
+    add_member: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn thêm thành viên này ?',
+      confirm: true
     }
   },
   snackBar: {
     edit_team: {
       success: 'Lưu thành công!',
       fail: 'Lỗi! không thể lưu',
+      title: 'Đóng'
+    },
+    remove_member: {
+      success: 'Xóa thành công!',
+      fail: 'Lỗi! không thể xóa',
+      title: 'Đóng'
+    },
+    add_member: {
+      success: 'Thêm thành viên thành công!',
+      fail: 'Lỗi! không thể thêm',
       title: 'Đóng'
     }
   },

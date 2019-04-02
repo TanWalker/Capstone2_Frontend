@@ -9,4 +9,5 @@ export class Member {
   public  username: String = '';
   public  is_verified: Boolean = false;
   public display_name: String = '';
+  public team_id: String = '';
 }

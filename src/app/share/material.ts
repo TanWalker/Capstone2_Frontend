@@ -4,7 +4,8 @@ import { MatButtonModule,
          MatChipsModule,
          MatTooltipModule,
          MatProgressSpinnerModule,
-         MatStepperModule } from '@angular/material';
+         MatStepperModule,
+         MatTreeModule} from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -45,7 +46,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatMenuModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
-        MatStepperModule
+        MatStepperModule,
+        MatTreeModule
     ],
     exports: [
         MatButtonModule,
@@ -68,7 +70,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatChipsModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
-        MatStepperModule
+        MatStepperModule,
+        MatTreeModule
     ],
 })
 export class MaterialModule { }
