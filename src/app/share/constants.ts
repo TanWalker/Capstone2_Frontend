@@ -106,6 +106,11 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm dữ liệu này ?',
       confirm: true
+    },
+    add_member: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn thêm thành viên này ?',
+      confirm: true
     }
   },
   snackBar: {
@@ -117,6 +122,11 @@ export const Constants = {
     remove_member: {
       success: 'Xóa thành công!',
       fail: 'Lỗi! không thể xóa',
+      title: 'Đóng'
+    },
+    add_member: {
+      success: 'Thêm thành viên thành công!',
+      fail: 'Lỗi! không thể thêm',
       title: 'Đóng'
     }
   },

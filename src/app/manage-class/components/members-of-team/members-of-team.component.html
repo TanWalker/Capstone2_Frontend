@@ -1,7 +1,11 @@
 <div [ngClass]="isMobile ? '' : 'content-desktop'">
   <mat-toolbar>
-    <mat-toolbar-row>
+    <mat-toolbar-row class="flex-box">
       <span>Quản lý thành viên</span>
+      <span class="fill-remaining-space "></span>
+      <button mat-flat-button color="primary" (click)="openRanking()">
+         Xếp hạng <i class="far fa-swimmer"></i>
+      </button>
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="margin-top-5 margin-bottom-10" *ngIf="currentTeam">
@@ -16,7 +20,7 @@
   </div>
   <mat-divider></mat-divider>
   <h3 class="empty-list" *ngIf="!currentTeam">{{ message.message.dontHaveTeam }}</h3>
-  <div *ngFor="let member of members">
+  <div *ngFor="let member of members" class="animated fadeInLeft fast">
       <app-member-of-team [member]="member"></app-member-of-team>
     </div>
 </div>

@@ -6,9 +6,21 @@
       </div>
       <div class="col-xs-9 reneral-info">
         <div class="lesson-title">Tên thành viên: {{ member.display_name || member.username}}</div>
-        <div>Sđt: {{member.phone || message.default.member.phone}}</div>
-        <div>Chiều cao: {{member.height || message.default.member.height}} (m)</div>
-        <div>Cân nặng: {{member.weight || message.default.member.weight}}</div>
+
+        <div class="float-left">
+            <div>Sđt: {{member.phone || message.default.member.phone}}</div>
+            <div>Chiều cao: {{member.height || message.default.member.height}} (m)</div>
+            <div>Cân nặng: {{member.weight || message.default.member.weight}}</div>
+
+        </div>
+        <div class="float-right" *ngIf="isOut">
+            <button mat-mini-fab color="warn" style="width: 40px"   matTooltip="Đề nghị chuyển lên lớp cao hơn">  
+                <mat-icon>
+                  trending_up
+                </mat-icon>
+                
+            </button>
+        </div>
       </div>
 
      

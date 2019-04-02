@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import {MatCardModule} from '@angular/material/card';
         MatProgressSpinnerModule,
         MatSnackBarModule,
         MatStepperModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatTreeModule
     ],
     exports: [
         MatButtonModule,
@@ -77,7 +79,8 @@ import {MatCardModule} from '@angular/material/card';
         MatProgressSpinnerModule,
         MatSnackBarModule,
         MatStepperModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatTreeModule
     ],
 })
 export class MaterialModule { }
