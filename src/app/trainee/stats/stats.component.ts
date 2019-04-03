@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartDataSets, ChartType } from 'chart.js';
 import { yearsPerPage } from '@angular/material/datepicker/typings/multi-year-view';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar } from '@angular/material';
 
+declare var jQuery: any;
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
@@ -120,11 +122,16 @@ export class StatsComponent implements OnInit {
   public month: Number;
   public year: Number;
   public yearOnly: Number;
-  constructor(private calendar: NgbCalendar) {}
-
+  public isYearOnly: boolean = null;
+  public summitedMonth;
+  public summitedYear;
+  public summitedYearOnly;
+  constructor(private calendar: NgbCalendar, private snackBar: MatSnackBar) {}
   ngOnInit() {
+    // render bootstrap-select when load page
+    jQuery('.selectpicker').selectpicker('render');
     // spawn an array of years
-    for (this.i = 2000; this.i <= this.calendar.getToday().year; this.i++) {
+    for (this.i = 2010; this.i <= this.calendar.getToday().year; this.i++) {
       this.years.push(this.i);
     }
   }
@@ -169,5 +176,37 @@ export class StatsComponent implements OnInit {
       this.isFilterbyYearOnly = false;
     }
     // console.log(this.isFilterbyYearOnly);
+  }
+  public submitDateEx() {
+    if (this.isFilterbyYearOnly && this.yearOnly !== undefined) {
+      this.isYearOnly = true;
+    }
+    if (
+      !this.isFilterbyYearOnly &&
+      this.year !== undefined &&
+      this.month !== undefined
+    ) {
+      this.isYearOnly = false;
+    }
+    if (
+      (!this.isFilterbyYearOnly &&
+        this.year === undefined &&
+        this.month === undefined) &&
+      (this.year === undefined || this.month === undefined)
+    ) {
+      this.snackBar.open('Vui lòng chọn tháng, năm!', 'Đóng', {
+        duration: 2000
+      });
+    }
+    if (this.isFilterbyYearOnly && this.yearOnly === undefined) {
+      this.snackBar.open('Vui lòng chọn năm!', 'Đóng', {
+        duration: 2000
+      });
+    }
+    this.summitedMonth = this.month;
+    this.summitedYear = this.year;
+    this.summitedYearOnly = this.yearOnly;
+    // console.log(this.isFilterbyYearOnly);
+    // console.log(this.yearOnly);
   }
 }

@@ -49,3 +49,7 @@ button {
     background-color: white;
   }
 }
+.login-button{
+  font-size: 18px;
+  height: 70px;
+}

@@ -9,9 +9,15 @@
   <a routerLink="/trainee/stats"
     [ngClass]="currentUrl.includes('/trainee/stats') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
-      <i class="far fa-poll"></i>
+      <i class="fas fa-analytics"></i>
     </div>
     <span class="tab-title">Thống kê</span>
+  </a>
+  <a class="flex-item-center" matRipple>
+    <div class="tab-icon">
+      <i class="far fa-calendar"></i>
+    </div>
+    <span class="tab-title">Lịch học</span>
   </a>
   <a class="flex-item-center" matRipple>
     <div class="tab-icon">

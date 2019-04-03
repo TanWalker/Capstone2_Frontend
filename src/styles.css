@@ -4,7 +4,7 @@
 @import '../node_modules/angular-calendar/css/angular-calendar.css';
 @import '~animate.css/animate.min.css';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,500';
-
+@import "~bootstrap-select/dist/css/bootstrap-select.css";
 html {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%;
@@ -405,7 +405,7 @@ body {
 }
 
 .padding-left-10 {
-  padding-left: 10px;
+  padding-left: 10px!important;
 }
 
 .padding-left-15 {
