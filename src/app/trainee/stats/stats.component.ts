@@ -117,6 +117,9 @@ export class StatsComponent implements OnInit {
   public i: number;
   public isFilterbyYearOnly = false;
   public dateTypeOption = 1;
+  public month: Number;
+  public year: Number;
+  public yearOnly: Number;
   constructor(private calendar: NgbCalendar) {}
 
   ngOnInit() {
@@ -147,15 +150,24 @@ export class StatsComponent implements OnInit {
     return Math.floor(Math.random() * 1000) + 1;
   }
   public selectMonth(event) {
-    console.log(event);
+    this.month = event;
+    // console.log(event);
   }
-  public selectDateType() {
-    if (this.dateTypeOption === 2) {
-      this.isFilterbyYearOnly = false;
-    }
-    if (this.dateTypeOption === 1) {
+  public selectYear(event) {
+    this.year = event;
+    // console.log(event);
+  }
+  public selectYearOnly(event) {
+    this.yearOnly = event;
+    // console.log(event);
+  }
+  public selectDateType(event) {
+    if (event === '2') {
       this.isFilterbyYearOnly = true;
     }
-    console.log(this.isFilterbyYearOnly);
+    if (event === '1') {
+      this.isFilterbyYearOnly = false;
+    }
+    // console.log(this.isFilterbyYearOnly);
   }
 }

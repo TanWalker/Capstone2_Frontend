@@ -1,0 +1,7 @@
+.mat-card {
+  margin-bottom: 5px;
+  display: flex;
+}
+.title-bar-spacer {
+  flex: 1 1 auto;
+}
