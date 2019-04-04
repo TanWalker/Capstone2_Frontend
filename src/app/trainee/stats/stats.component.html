@@ -1,4 +1,9 @@
-<div class="row margin-bottom-0">
+<mat-toolbar>
+    <mat-toolbar-row>
+      <span>Thống kê kết quả</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<div class="row margin-bottom-0 margin-top-15">
   <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" [(ngModel)]="dateTypeOption"
     (click)="selectDateType($event.target.value)">
     <label ngbButtonLabel class="btn-touch btn-success d-flex align-items-center justify-content-center">
@@ -27,7 +32,7 @@
     </select>
   </div>
   <div class="col-3 padding-0 padding-left-10">
-    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">OK</button>
+    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">TÌM</button>
   </div>
 </div>
 <div [ngClass]="isFilterbyYearOnly ? 'row margin-top-20':'row margin-top-20 display-none'">
@@ -39,34 +44,18 @@
     </select>
   </div>
   <div class="col-3 padding-0 padding-left-10">
-    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">OK</button>
+    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">TÌM</button>
   </div>
 </div>
 <span *ngIf="isYearOnly !== null">
   <hr>
-  <legend *ngIf="!isYearOnly">Các bài tập trong tháng <span
-      *ngIf="month && year">{{summitedMonth}}/{{summitedYear}}</span>
+  <legend *ngIf="!isYearOnly">Bài tập trong tháng <span
+      *ngIf="month && year">{{submittedMonth}}/{{submittedYear}}</span>
   </legend>
-  <legend *ngIf="isYearOnly">Các bài tập trong năm {{summitedYearOnly}}</legend>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple><span>Exercise 1</span><span class="title-bar-spacer"></span><i
-        class="fas fa-chevron-right"></i>
-    </mat-card>
-  </a>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple>Exercise 2</mat-card>
-  </a>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple>Exercise 3</mat-card>
-  </a>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple>Exercise 4</mat-card>
-  </a>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple>Exercise 5</mat-card>
-  </a>
-  <a routerLink="/trainee/profiles">
-    <mat-card matRipple>Exercise 6</mat-card>
-  </a>
+  <legend *ngIf="isYearOnly">Bài tập trong năm {{submittedYearOnly}}</legend>
+  <app-exercise *ngFor="let recordExercise of recordExercises" [recordExercise]="recordExercise"
+    [submittedYear]="submittedYear" [submittedMonth]="submittedMonth" [submittedYearOnly]="submittedYearOnly"
+    [isYearOnly]="isYearOnly"></app-exercise>
+  <span *ngIf="!recordExercises" style="color:rgb(165, 165, 165)">Không có bài tập nào cả</span>
 </span>
 <div style="height: 70px;display:block;"></div>

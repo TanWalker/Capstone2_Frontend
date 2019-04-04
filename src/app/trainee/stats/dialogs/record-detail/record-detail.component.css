@@ -1,0 +1,9 @@
+.title-bar-spacer {
+  flex: 1 1 auto;
+}
+.list-group-item{
+  display: flex;
+}
+::ng-deep .cdk-overlay-pane{
+  margin: 0 auto!important;
+}

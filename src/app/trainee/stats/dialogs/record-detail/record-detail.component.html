@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Chi tiết kết quả</h1>
+<div mat-dialog-content>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Bài tập: <span class="title-bar-spacer "></span>{{record?.exercise.name}}</li>
+    <li class="list-group-item">Kiểu bơi: <span class="title-bar-spacer "></span><i
+        class="fas fa-swimmer margin-right-5" style="color: rgb(100, 100, 247)"></i> {{record?.exercise.style}}
+    </li>
+    <li class="list-group-item">Nhịp tim: <span class="title-bar-spacer "></span><i
+        class="fas fa-heartbeat margin-right-5" style="color: tomato"></i> {{record?.heart_rate}}
+    </li>
+    <li class="list-group-item">Thời gian: <span class="title-bar-spacer "></span>
+      <i class="fas fa-stopwatch margin-right-5" style="color: orange"></i> {{record?.time_swim}}
+    </li>
+
+    <li class="list-group-item">Thái độ: <span class="title-bar-spacer "></span>
+      <i class="fas fa-smile margin-right-5" style="color: rgb(0, 185, 77)"></i>{{record?.attitude}}
+    </li>
+    <!-- <li class="list-group-item">Kết quả tốt nhất: <span class="title-bar-spacer "></span>
+      {{record?.best_result}}
+    </li> -->
+    <li class="list-group-item">Lỗi: <span class="title-bar-spacer "></span>
+      <i class="fas fa-exclamation-triangle margin-right-5" style="color: rgb(155, 0, 0)"></i> {{record?.errors}}
+    </li>
+    <li class="list-group-item">Kết quả: <span class="title-bar-spacer "></span>
+      <i class="fas fa-poll-h margin-right-5" style="color: rgb(0, 108, 128)"></i>{{record?.result}}
+    </li>
+  </ul>
+</div>
+<button mat-stroked-button class="full-width margin-top-10" [mat-dialog-close]>Đóng</button>

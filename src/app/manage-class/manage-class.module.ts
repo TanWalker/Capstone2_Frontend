@@ -66,7 +66,6 @@ import { RankingComponent } from './dialogs/ranking/ranking.component';
     AddExerciseComponent,
     ExerciseComponent,
     SwimstyleComponent,
-    DistanceComponent,
     ExercisesComponent,
     ExerciseDetailComponent,
     MemberComponent,
