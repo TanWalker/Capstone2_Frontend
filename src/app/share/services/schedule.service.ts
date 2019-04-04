@@ -30,4 +30,10 @@ export class ScheduleService {
     return this.http.post(`${environment.urls.api}/getScheduleByDate`, date);
 
   }
+
+    // delete schedule
+
+  deleteSchedule(id: String) {
+     return this.http.delete(`${environment.urls.api}/deleteSchedule` + `/${id}`);
+  }
 }

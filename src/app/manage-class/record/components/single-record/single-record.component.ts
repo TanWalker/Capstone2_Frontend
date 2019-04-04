@@ -27,10 +27,11 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
     ) {}
   ngOnInit() {
 
-    this.getExistRecord();
+   // this.getExistRecord();
     this.record.schedule_id = this.currentSchedule.id;
     this.record.exercise_id = this.currentFinalExercise.id;
     this.record.user_id = this.member.id;
+    console.log(this.record);
     this.getNotification();
   }
   getNotification() {
@@ -50,6 +51,7 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
 
   addRecord(record: Record) {
     this.recordService.addRecord(record).subscribe((res: Result) => {
+      console.log(res);
     });
   }
 
@@ -60,7 +62,11 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
       this.currentFinalExercise.id
     )
     .subscribe((data: Result) => {
-      this.record = data.success ? data.values[0] : '';
+
+      if (data.success) {
+        this.record = data.values[0];
+      }
     });
   }
+
 }

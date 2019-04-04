@@ -21,6 +21,9 @@ export const Constants = {
     edit_team: {
       name: 'Bạn phải nhập tên cho lớp',
       age: 'Bạn phải nhập độ tuổi',
+    },
+    create_lesson_plan: {
+      name: 'Bạn phải nhập tên giáo án'
     }
   },
   message: {
@@ -111,6 +114,26 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm thành viên này ?',
       confirm: true
+    },
+    create_lesson_exercise: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn tạo giáo án mới ?',
+      confirm: true
+    },
+    update_lesson_exercise: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn chỉnh sửa giáo án này ?',
+      confirm: true
+    },
+    update_detail_schedule: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn cập nhật lịch chi tiết ?',
+      confirm: true
+    },
+    delete_schedule_box: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa lịch này ?',
+      confirm: true
     }
   },
   snackBar: {
@@ -127,6 +150,26 @@ export const Constants = {
     add_member: {
       success: 'Thêm thành viên thành công!',
       fail: 'Lỗi! không thể thêm',
+      title: 'Đóng'
+    },
+    add_lesson_plan: {
+      success: 'Thêm giáo án thành công!',
+      fail: 'Lỗi! không thể thêm',
+      title: 'Đóng'
+    },
+    update_lesson_plan: {
+      success: 'Chỉnh sửa giáo án thành công!',
+      fail: 'Lỗi! không thể Chỉnh sửa',
+      title: 'Đóng'
+    },
+    update_detail_schedule: {
+      success: 'Chỉnh sửa lịch thành công!',
+      fail: 'Lỗi! không thể Chỉnh sửa',
+      title: 'Đóng'
+    },
+    delete_detail_schedule: {
+      success: 'Xóa lịch thành công!',
+      fail: 'Lỗi! không thể xóa',
       title: 'Đóng'
     }
   },

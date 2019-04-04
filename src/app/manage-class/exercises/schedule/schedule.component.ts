@@ -61,7 +61,9 @@ export class ScheduleComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        // this.isRefresh.emit(true);
+         // reset events
+         this.events = [];
+         this.getEvent();
       }
     });
   }
@@ -108,5 +110,9 @@ export class ScheduleComponent implements OnInit {
         });
         this.refresh.next();
       });
+  }
+
+  openCopyBox() {
+
   }
 }

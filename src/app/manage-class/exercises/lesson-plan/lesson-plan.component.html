@@ -16,14 +16,16 @@
  <div class="row">
    <div class="col-12">
      <mat-form-field class="full-width" *ngIf="!isAddNewLesson">
-       <mat-select>
+       <mat-select [(value)] = "currentLesson">
          <mat-option *ngFor="let lesson of lessons" (click)="changeLesson(lesson.id)" [value]="lesson">
            {{ lesson.name }}</mat-option>
        </mat-select>
      </mat-form-field>
 
      <mat-form-field class="full-width " *ngIf="isAddNewLesson">
-       <input matInput placeholder="Nhập tên giáo án" [(ngModel)]="nameOfLesson">
+       <input matInput placeholder="Nhập tên giáo án" [formControl]="nameOfLessonPLan" [(ngModel)]="nameOfLesson">
+       <mat-error *ngIf="nameOfLessonPLan.invalid && isSubmit">{{ message.error }}</mat-error>
+
      </mat-form-field>
    </div>
 

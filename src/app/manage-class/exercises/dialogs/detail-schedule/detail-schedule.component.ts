@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatSnackBar
+  MatSnackBar,
+  MatDialog
 } from '@angular/material';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { Result } from 'src/app/share/models/result';
@@ -12,7 +13,33 @@ import { Schedule } from 'src/app/share/models/schedule';
 import { ScheduleService } from 'src/app/share/services/schedule.service';
 import { Lesson } from 'src/app/share/models/lesson';
 import { LessonService } from 'src/app/share/services/lesson.service';
+import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
+import { Constants } from 'src/app/share/constants';
 
+
+const message = {
+  box: {
+    title: Constants.box.update_detail_schedule.title,
+    message: Constants.box.update_detail_schedule.message,
+    confirm: Constants.box.update_detail_schedule.confirm
+  },
+  error: Constants.error.create_lesson_plan.name,
+  snackBar: {
+    success: Constants.snackBar.update_detail_schedule.success,
+    fail: Constants.snackBar.update_detail_schedule.fail,
+    title: Constants.snackBar.update_detail_schedule.title,
+  },
+  snackBarDelete: {
+    success: Constants.snackBar.delete_detail_schedule.success,
+    fail: Constants.snackBar.delete_detail_schedule.fail,
+    title: Constants.snackBar.delete_detail_schedule.title,
+  },
+  deleteBox: {
+    title: Constants.box.delete_schedule_box.title,
+    message: Constants.box.delete_schedule_box.message,
+    confirm: Constants.box.delete_schedule_box.confirm
+  },
+};
 @Component({
   selector: 'app-detail-schedule',
   templateUrl: './detail-schedule.component.html',
@@ -33,6 +60,7 @@ export class DetailScheduleComponent implements OnInit {
   public currentTeam: Class = new Class();
   public currentLesson: Lesson = new Lesson();
   public schedule: Schedule = new Schedule();
+  public message = message;
   constructor(
     private dialogRef: MatDialogRef<DetailScheduleComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -40,7 +68,8 @@ export class DetailScheduleComponent implements OnInit {
     private teamService: TeamService,
     private lessonService: LessonService,
     private scheduleService: ScheduleService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -48,10 +77,6 @@ export class DetailScheduleComponent implements OnInit {
     this.getlessons();
 
     // setup data
-    // current team
-    this.currentTeam.name = this.data.schedule.meta.team_name;
-    this.currentTeam.id = this.data.schedule.meta.team_id;
-
     // current lesson
     this.currentLesson.id = this.data.schedule.meta.lesson_id;
     this.currentLesson.name = this.data.schedule.meta.lesson_name;
@@ -68,10 +93,11 @@ export class DetailScheduleComponent implements OnInit {
       hour: this.data.schedule.end.getHours(),
       minute: this.data.schedule.end.getMinutes()
     };
-     console.log(this.data.schedule);
+
   }
   saveSchedule() {
     // init value
+console.log(this.currentTeam);
     this.schedule.id = this.data.schedule.meta.id;
     this.schedule.lesson_id = this.currentLesson.id;
     this.schedule.lesson_name = this.currentLesson.name;
@@ -90,25 +116,72 @@ export class DetailScheduleComponent implements OnInit {
       .updateSchedule(this.schedule)
       .subscribe((result: Result) => {
         if (result.success) {
+          console.log(result);
           this.dialogRef.close(true);
-          this.snackBar.open('Lưu lịch thành công!', 'Đóng', {
+          this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
             duration: 6000
           });
         } else {
-          console.log('cannot save');
-        }
-      });
+          this.snackBar.open(this.message.snackBar.fail, this.message.snackBar.title, {
+            duration: 3000 }); } });
+  }
+
+  openConfirmBox() {
+    const messageDialogRef = this.dialog.open(MessageBoxComponent, {
+      data: {
+        title: this.message.box.title,
+        message: this.message.box.message,
+        confirm: this.message.box.confirm
+      },
+      panelClass: 'alert-bg'
+    });
+    messageDialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.saveSchedule();
+      }
+    });
   }
   getTeams() {
    this.subTeam = this.teamService.getTeamByCoach().subscribe((data: Result) => {
-      // console.log(data);
       this.teams = data.success ? data.values : [];
+
+     const index = this.teams.findIndex(x => x.id === this.data.schedule.meta.team_id);
+     this.currentTeam = this.teams[index];
+     console.log(this.currentTeam);
     });
   }
   getlessons() {
     this.subLessons = this.lessonService.getLessonByCoach().subscribe((data: Result) => {
       // console.log(data);
       this.Lessons = data.success ? data.values : [];
+    });
+  }
+
+  clearSchedule() {
+    const messageDialogRef = this.dialog.open(MessageBoxComponent, {
+      data: {
+        title: this.message.deleteBox.title,
+        message: this.message.deleteBox.message,
+        confirm: this.message.deleteBox.confirm
+      },
+      panelClass: 'alert-bg'
+    });
+    messageDialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.scheduleService.deleteSchedule(this.data.schedule.meta.id).subscribe(
+          (response: Result) => {
+            if (response.success) {
+              this.dialogRef.close(true);
+            this.snackBar.open(this.message.snackBarDelete.success, this.message.snackBarDelete.title, {
+              duration: 6000
+            });
+          } else {
+            this.dialogRef.close(false);
+            this.snackBar.open(this.message.snackBarDelete.fail, this.message.snackBarDelete.title, {
+              duration: 3000 });
+          }}
+        );
+      }
     });
   }
 }
