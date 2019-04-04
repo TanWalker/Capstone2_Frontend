@@ -30,6 +30,12 @@ const message = {
     fail: Constants.snackBar.add_lesson_plan.fail,
     title: Constants.snackBar.add_lesson_plan.title,
 
+  },
+  snackBarUpdate: {
+    success: Constants.snackBar.add_lesson_plan.success,
+    fail: Constants.snackBar.add_lesson_plan.fail,
+    title: Constants.snackBar.add_lesson_plan.title,
+
   }
 };
 @Component({
@@ -196,25 +202,34 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-             this.exercises.forEach(exercise => {
-              //  const lesson = response.value;
-               const lessonExercise =  new LessonExercise();
-               lessonExercise.lesson_id =  this.currentLesson.id;
-               lessonExercise.exercise_id = exercise.id;
-               lessonExercise.type_of_exercise_id = exercise.type_id;
-               lessonExercise.is_important = false;
-               this.lessonService.updateLessonExercise(lessonExercise).subscribe((result: Result) => {
-                 console.log(lessonExercise);
-                 console.log(result);
-               } );
-             });
-
-             // show message
-              this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
-                duration: 6000
-              });
-      }
-    });
+             // first delete all lesson exercise
+              this.lessonService.deleteLessonExercise( this.currentLesson.id).subscribe(
+                  (deleted: Result) => {
+                    if (deleted.success) {
+                      // second we will add new lesson exercise
+                           this.exercises.forEach(exercise => {
+                             const lesson = this.currentLesson;
+                             const lessonExercise =  new LessonExercise();
+                             lessonExercise.lesson_id = lesson.id;
+                             lessonExercise.exercise_id = exercise.id;
+                             lessonExercise.type_of_exercise_id = exercise.type_id;
+                             lessonExercise.is_important = false;
+                             this.lessonService.addLessonExercise(lessonExercise).subscribe((result: Result) => {} );
+                           });
+                           // show message
+                            this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
+                              duration: 6000
+                            });
+                          } else {
+                            this.snackBar.open(this.message.snackBar.fail, this.message.snackBar.title, {
+                              duration: 3000
+                            });
+                          }
+                        }
+                       );
+                    }
+                  }
+              );
   }
   changeLesson(id: String) {
       this.subLessonExercise = this.lessonService.getLessonExerciseByLessonID(id).subscribe(

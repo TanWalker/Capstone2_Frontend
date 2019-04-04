@@ -125,6 +125,16 @@ export const Constants = {
       message: 'Bạn có muốn chỉnh sửa giáo án này ?',
       confirm: true
     },
+    update_detail_schedule: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn cập nhật lịch chi tiết ?',
+      confirm: true
+    },
+    delete_schedule_box: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn xóa lịch này ?',
+      confirm: true
+    }
   },
   snackBar: {
     edit_team: {
@@ -145,6 +155,21 @@ export const Constants = {
     add_lesson_plan: {
       success: 'Thêm giáo án thành công!',
       fail: 'Lỗi! không thể thêm',
+      title: 'Đóng'
+    },
+    update_lesson_plan: {
+      success: 'Chỉnh sửa giáo án thành công!',
+      fail: 'Lỗi! không thể Chỉnh sửa',
+      title: 'Đóng'
+    },
+    update_detail_schedule: {
+      success: 'Chỉnh sửa lịch thành công!',
+      fail: 'Lỗi! không thể Chỉnh sửa',
+      title: 'Đóng'
+    },
+    delete_detail_schedule: {
+      success: 'Xóa lịch thành công!',
+      fail: 'Lỗi! không thể xóa',
       title: 'Đóng'
     }
   },

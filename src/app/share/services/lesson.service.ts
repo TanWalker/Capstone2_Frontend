@@ -52,4 +52,8 @@ export class LessonService {
   ) {
     return this.http.post(`${environment.urls.api}` + `/getScheduleByDateLesson/`, { day, month, year, lesson_id });
   }
+
+  deleteLessonExercise(lesson_id: String) {
+    return this.http.delete(`${environment.urls.api}` + `/deleteLessonExerciseByLessonID/${lesson_id}`);
+  }
 }

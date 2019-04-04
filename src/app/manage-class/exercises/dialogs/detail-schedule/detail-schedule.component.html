@@ -1,4 +1,18 @@
-<h1 mat-dialog-title><i class="fas fa-info-square margin-right-5"></i> Chi tiết lịch của nhóm <span class="hightlight-title">{{data.schedule.title}}</span></h1>
+<button
+  mat-mini-fab
+  color="warn"
+  style="width: 30px;height: 30px;"
+  class="float-right margin-top-down-10"
+  [mat-dialog-close]
+>
+  <mat-icon class="margin-top-down-10">
+    clear
+  </mat-icon>
+</button>
+<h1 mat-dialog-title>
+  <i class="fas fa-info-square margin-right-5"></i> Chi tiết lịch:
+  <span class="hightlight-title">{{ data.schedule.title }}</span>
+</h1>
 <div class="row detail-content">
   <div class="col-xs form">
     <!-- <mat-form-field appearance="outline">
@@ -7,33 +21,51 @@
     </mat-form-field> -->
     <mat-form-field appearance="outline">
       <mat-label>Nhóm</mat-label>
-      <mat-select [(ngModel)]="currentTeam">
-        <mat-option *ngFor="let team of teams" [value]="team">{{team.name}}</mat-option>
+      <mat-select [(value)]="currentTeam">
+        <mat-option *ngFor="let team of teams" [value]="team">{{
+          team.name
+        }}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Giáo án</mat-label>
-      <mat-select [(ngModel)]="currentLesson">
-        <mat-option *ngFor="let lesson of Lessons" [value]="lesson">{{lesson.name}}</mat-option>
+      <mat-select [(value)]="currentLesson.id">
+        <mat-option *ngFor="let lesson of Lessons" [value]="lesson.id">{{
+          lesson.name
+        }}</mat-option>
       </mat-select>
     </mat-form-field>
     <div class="flex-box">
-        <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
-        <span class="hour" > <i class="fas fa-arrows-alt-h"></i> </span>
-        <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
-      </div>
+      <ngb-timepicker
+        [(ngModel)]="startTime"
+        [meridian]="false"
+      ></ngb-timepicker>
+      <span class="hour"> <i class="fas fa-arrows-alt-h"></i> </span>
+      <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
+    </div>
   </div>
   <div class="col-xs">
-    <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate"></ngb-datepicker>
+    <ngb-datepicker
+      [(ngModel)]="currentScheduledDate"
+      [startDate]="currentScheduledDate"
+    ></ngb-datepicker>
   </div>
 </div>
 <br />
 <div class="row">
   <div class="col-xs">
-    <button mat-stroked-button class="full-width" [mat-dialog-close]>Đóng</button>
+    <button
+      mat-flat-button
+      class="full-width"
+      color="light-blue"
+      (click)="openConfirmBox()"
+    >
+      Lưu
+    </button>
   </div>
   <div class="col-xs">
-      <button mat-flat-button class="full-width" color="light-blue" (click)="saveSchedule()">Lưu</button>
-      
+    <button mat-stroked-button class="full-width" (click)="clearSchedule()">
+      Xóa
+    </button>
   </div>
 </div>
