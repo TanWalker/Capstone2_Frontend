@@ -27,7 +27,7 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
     ) {}
   ngOnInit() {
 
-   // this.getExistRecord();
+    this.getExistRecord();
     this.record.schedule_id = this.currentSchedule.id;
     this.record.exercise_id = this.currentFinalExercise.id;
     this.record.user_id = this.member.id;

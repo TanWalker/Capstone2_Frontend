@@ -173,6 +173,8 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
                this.lessonService.addLessonExercise(lessonExercise).subscribe((result: Result) => {} );
              });
 
+             // reset list lesson
+             this.getListLesson();
              // show message
               this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
                 duration: 6000
