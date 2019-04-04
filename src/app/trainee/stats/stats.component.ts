@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Color, Label } from 'ng2-charts';
-import { ChartOptions, ChartDataSets, ChartType } from 'chart.js';
-import { yearsPerPage } from '@angular/material/datepicker/typings/multi-year-view';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { MatSnackBar } from '@angular/material';
+import { RecordService } from 'src/app/share/services/record.service';
+import { Result } from 'src/app/share/models/result';
+import { Record } from 'src/app/share/models/record';
 
 declare var jQuery: any;
 @Component({
@@ -12,108 +12,6 @@ declare var jQuery: any;
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  public barChartLabels: Label[] = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'June',
-    'July',
-    'Aug'
-  ];
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-
-  public barChartData: ChartDataSets[] = [
-    {
-      data: [
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum()
-      ],
-      label: 'Series B'
-    },
-    {
-      data: [
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum()
-      ],
-      label: 'Series C',
-      yAxisID: 'y-axis-1'
-    }
-  ];
-  public barChartOptions: ChartOptions & { annotation: any } = {
-    responsive: true,
-    scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
-      xAxes: [{}],
-      yAxes: [
-        {
-          id: 'y-axis-0',
-          position: 'left'
-        },
-        {
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(255,0,0,0.3)'
-          },
-          ticks: {
-            fontColor: 'red'
-          }
-        }
-      ]
-    },
-    annotation: {
-      annotations: [
-        {
-          type: 'line',
-          mode: 'vertical',
-          scaleID: 'x-axis-0',
-          value: 'March',
-          borderColor: 'orange',
-          borderWidth: 2,
-          label: {
-            enabled: true,
-            fontColor: 'orange',
-            content: 'LineAnno'
-          }
-        }
-      ]
-    }
-  };
-  public barChartColors: Color[] = [
-    {
-      // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
-    {
-      // red
-      backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    }
-  ];
   public months: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   public years: Number[] = [];
   public i: number;
@@ -123,10 +21,15 @@ export class StatsComponent implements OnInit {
   public year: Number;
   public yearOnly: Number;
   public isYearOnly: boolean = null;
-  public summitedMonth;
-  public summitedYear;
-  public summitedYearOnly;
-  constructor(private calendar: NgbCalendar, private snackBar: MatSnackBar) {}
+  public submittedMonth;
+  public submittedYear;
+  public submittedYearOnly;
+  public recordExercises: Record = null;
+  constructor(
+    private calendar: NgbCalendar,
+    private snackBar: MatSnackBar,
+    private recordService: RecordService
+  ) {}
   ngOnInit() {
     // render bootstrap-select when load page
     jQuery('.selectpicker').selectpicker('render');
@@ -153,9 +56,7 @@ export class StatsComponent implements OnInit {
   }): void {
     console.log(event, active);
   }
-  public randomNum() {
-    return Math.floor(Math.random() * 1000) + 1;
-  }
+
   public selectMonth(event) {
     this.month = event;
     // console.log(event);
@@ -178,8 +79,22 @@ export class StatsComponent implements OnInit {
     // console.log(this.isFilterbyYearOnly);
   }
   public submitDateEx() {
+    // console.log(this.recordExercises);
+    this.submittedMonth = this.month;
+    this.submittedYear = this.year;
+    this.submittedYearOnly = this.yearOnly;
+
     if (this.isFilterbyYearOnly && this.yearOnly !== undefined) {
       this.isYearOnly = true;
+      this.recordService
+        .getRecordByYearOfCurrentUser(this.submittedYearOnly)
+        .subscribe((data: Result) => {
+          if (data.success) {
+            this.recordExercises = data.values;
+          } else {
+            this.recordExercises = null;
+          }
+        });
     }
     if (
       !this.isFilterbyYearOnly &&
@@ -187,13 +102,24 @@ export class StatsComponent implements OnInit {
       this.month !== undefined
     ) {
       this.isYearOnly = false;
+      this.recordService
+        .getRecordByMonthYearOfCurrentUser(this.submittedMonth, this.submittedYear)
+        .subscribe((data: Result) => {
+          if (data.success) {
+            this.recordExercises = data.values;
+          } else {
+            this.recordExercises = null;
+          }
+        });
     }
     if (
       (!this.isFilterbyYearOnly &&
         this.year === undefined &&
-        this.month === undefined) &&
-      (this.year === undefined || this.month === undefined)
+        this.month === undefined) ||
+      (!this.isFilterbyYearOnly && this.year === undefined) ||
+      (!this.isFilterbyYearOnly && this.month === undefined)
     ) {
+      console.log(this.isFilterbyYearOnly);
       this.snackBar.open('Vui lòng chọn tháng, năm!', 'Đóng', {
         duration: 2000
       });
@@ -203,10 +129,16 @@ export class StatsComponent implements OnInit {
         duration: 2000
       });
     }
-    this.summitedMonth = this.month;
-    this.summitedYear = this.year;
-    this.summitedYearOnly = this.yearOnly;
     // console.log(this.isFilterbyYearOnly);
     // console.log(this.yearOnly);
   }
+  // currentExerciseInRecordByMonthYear(month, year) {
+  //   this.recordService
+  //     .getRecordByMonthYearOfCurrentUser(month, year)
+  //     .subscribe((data: Result) => {
+  //       if (data.success) {
+  //         return data.values;
+  //       }
+  //     });
+  // }
 }

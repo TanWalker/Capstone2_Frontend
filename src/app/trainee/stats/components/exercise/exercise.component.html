@@ -1,0 +1,16 @@
+<a [routerLink]="['records-exercise-by-monthyear']"
+  [queryParams]="{exercise_id: recordExercise.exercise_id, month: submittedMonth, year: submittedYear}" *ngIf="!isYearOnly">
+  <mat-card matRipple>
+    <span>{{recordExercise.exercise.name}}</span>
+    <span class="title-bar-spacer"></span>
+    <i class="fas fa-chevron-right"></i>
+  </mat-card>
+</a>
+<a [routerLink]="['records-exercise-by-year']"
+  [queryParams]="{exercise_id: recordExercise.exercise_id, year: submittedYearOnly}" *ngIf="isYearOnly">
+  <mat-card matRipple>
+    <span>{{recordExercise.exercise.name}}</span>
+    <span class="title-bar-spacer"></span>
+    <i class="fas fa-chevron-right"></i>
+  </mat-card>
+</a>

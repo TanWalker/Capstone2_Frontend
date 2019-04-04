@@ -21,4 +21,13 @@ export class RecordService {
   getRecord() {
     return this.http.get(`${environment.urls.api}/getRecord`);
   }
+  getRecordByMonthYearOfCurrentUser(month: Number, year: Number) {
+    return this.http.post(`${environment.urls.api}/getRecordByMonthYearOfCurrentUser`, {month, year});
+  }
+  getRecordByYearOfCurrentUser(year: Number) {
+    return this.http.post(`${environment.urls.api}/getRecordByYearOfCurrentUser`, {year});
+  }
+  getRecordByID(id: String) {
+  return this.http.get(`${environment.urls.api}/getRecordByID/${id}`);
+  }
 }

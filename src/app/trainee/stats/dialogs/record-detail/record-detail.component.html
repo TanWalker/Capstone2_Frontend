@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Chi tiết kết quả</h1>
+<div mat-dialog-content>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Bài tập: <span class="title-bar-spacer "></span>{{record?.exercise.name}}</li>
+    <li class="list-group-item"><span class="record-item-title">Kiểu bơi: </span><span
+        class="title-bar-spacer "></span><i class="fas fa-swimmer margin-right-5"
+        style="color: rgb(100, 100, 247); margin-top: 1px;"></i> {{record?.exercise.style}}
+    </li>
+    <li class="list-group-item"><span class="record-item-title">Nhịp tim: </span><span
+        class="title-bar-spacer "></span><i class="fas fa-heartbeat margin-right-5"
+        style="color: tomato; margin-top: 1px;"></i> {{record?.heart_rate}}
+    </li>
+    <li class="list-group-item"><span class="record-item-title">Thời gian: </span><span
+        class="title-bar-spacer "></span>
+      <i class="fas fa-stopwatch margin-right-5" style="color: orange; margin-top: 1px;"></i> {{record?.time_swim}}
+    </li>
+
+    <li class="list-group-item"><span class="record-item-title">Thái độ: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-smile margin-right-5" style="color: rgb(0, 185, 77); margin-top: 1px;"></i>{{record?.attitude}}
+    </li>
+    <!-- <li class="list-group-item">Kết quả tốt nhất: <span class="title-bar-spacer "></span>
+      {{record?.best_result}}
+    </li> -->
+    <li class="list-group-item"><span class="record-item-title">Lỗi: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-exclamation-triangle margin-right-5" style="color: rgb(155, 0, 0); margin-top: 1px;"></i>
+      {{record?.errors}}
+    </li>
+    <li class="list-group-item"><span class="record-item-title">Kết quả: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-poll-h margin-right-5" style="color: rgb(0, 108, 128); margin-top: 1px;"></i>{{record?.result}}
+    </li>
+  </ul>
+</div>
+<button mat-stroked-button class="full-width margin-top-10" [mat-dialog-close]>Đóng</button>

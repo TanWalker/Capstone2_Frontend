@@ -1,12 +1,3 @@
-.mat-card {
-  margin-bottom: 5px;
-  display: flex;
-}
-
-.title-bar-spacer {
-  flex: 1 1 auto;
-}
-
 .display-none {
   display: none;
 }
@@ -19,4 +10,7 @@
 }
 .btn-touch {
   height: 50px;
+}
+.title-bar-spacer {
+  flex: 1 1 auto;
 }

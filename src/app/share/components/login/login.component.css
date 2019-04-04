@@ -46,7 +46,7 @@ button {
 }
 @media screen and (max-width: 480px) {
   ::ng-deep html {
-    background-color: white;
+    background: white;
   }
 }
 .login-button{
