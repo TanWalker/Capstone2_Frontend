@@ -1,28 +1,72 @@
 <div class="row margin-bottom-0">
-  <div class="col-6">
-    <select class="form-control">
-      <option selected disabled>Chọn năm</option>
-      <option>Large select</option>
-      <option>Large select</option>
-      <option>Large select</option>
-    </select>
-  </div>
-  <div class="col-6">
-    <select class="form-control">
-      <option selected disabled>Chọn bài tập</option>
-      <option>Large select</option>
-      <option>Large select</option>
-      <option>Large select</option>
-    </select> 
+  <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" [(ngModel)]="dateTypeOption"
+    (click)="selectDateType($event.target.value)">
+    <label ngbButtonLabel class="btn-touch btn-success d-flex align-items-center justify-content-center">
+      <input ngbButton type="radio" [value]="1" checked> Theo tháng
+    </label>
+    <label ngbButtonLabel class="btn-touch btn-success d-flex align-items-center justify-content-center">
+      <input ngbButton type="radio" [value]="2"> Theo năm
+    </label>
   </div>
 </div>
-<canvas baseChart height="400"
-[datasets]="barChartData"
-[labels]="barChartLabels"
-[options]="barChartOptions"
-[legend]="barChartLegend"
-[chartType]="barChartType"
-[colors]="barChartColors"
->
+<div [ngClass]="!isFilterbyYearOnly ? 'row margin-top-20':'row margin-top-20 display-none'">
+  <div class="col-4 padding-0">
+    <select class="form-control selectpicker" data-style="btn-primary text-align-right" data-live-search="true"
+      style="text-align-last: right;" (change)="selectMonth($event.target.value)">
+      <option disabled selected>Tháng</option>
+      <option *ngFor="let month of months" [value]="month">{{month}}</option>
+    </select>
 
-</canvas>
+  </div>
+  <div class="col-1" style="padding-right: 5.333333%;padding-left: 3%;font-size: 32px">/</div>
+  <div class="col-4 padding-0">
+    <select class="form-control selectpicker" data-style="btn-primary" data-live-search="true"
+      (change)="selectYear($event.target.value)">
+      <option disabled selected>Năm</option>
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+  <div class="col-3 padding-0 padding-left-10">
+    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">OK</button>
+  </div>
+</div>
+<div [ngClass]="isFilterbyYearOnly ? 'row margin-top-20':'row margin-top-20 display-none'">
+  <div class="col-9 padding-0">
+    <select class="form-control selectpicker" data-style="btn-primary" data-live-search="true"
+      style="text-align-last: center;" (change)="selectYearOnly($event.target.value)">
+      <option disabled selected>Chọn năm</option>
+      <option *ngFor="let year of years" [value]="year">{{year}}</option>
+    </select>
+  </div>
+  <div class="col-3 padding-0 padding-left-10">
+    <button type="button" class="btn btn-light btn-block" (click)="submitDateEx()">OK</button>
+  </div>
+</div>
+<span *ngIf="isYearOnly !== null">
+  <hr>
+  <legend *ngIf="!isYearOnly">Các bài tập trong tháng <span
+      *ngIf="month && year">{{summitedMonth}}/{{summitedYear}}</span>
+  </legend>
+  <legend *ngIf="isYearOnly">Các bài tập trong năm {{summitedYearOnly}}</legend>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple><span>Exercise 1</span><span class="title-bar-spacer"></span><i
+        class="fas fa-chevron-right"></i>
+    </mat-card>
+  </a>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple>Exercise 2</mat-card>
+  </a>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple>Exercise 3</mat-card>
+  </a>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple>Exercise 4</mat-card>
+  </a>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple>Exercise 5</mat-card>
+  </a>
+  <a routerLink="/trainee/profiles">
+    <mat-card matRipple>Exercise 6</mat-card>
+  </a>
+</span>
+<div style="height: 70px;display:block;"></div>

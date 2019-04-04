@@ -19,21 +19,23 @@ import { Team } from 'src/app/share/models/team';
 export class TraineeProfilesComponent implements OnInit {
   public user: User = new User();
   public team: Team = new Team();
+  public dob: Date = new Date();
+  public age: Number;
   public radarChartOptions: ChartOptions = {
-    responsive: true
+    responsive: true,
+    scales: {
+      ticks: {
+        beginAtZero: false,
+        max: 100,
+        min: 0,
+        stepSize: 10
+      }
+    }
   };
-  public radarChartLabels: Label[] = [
-    'Eating',
-    'Drinking',
-    'Sleeping',
-    'Designing',
-    'Coding',
-    'Cycling',
-    'Running'
-  ];
+  public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping'];
 
   public radarChartData: ChartDataSets[] = [
-    { data: [56, 48, 40, 45, 96, 50, 100], label: 'Series B' }
+    { data: [85, 100, 70], label: 'Series B' }
   ];
   public radarChartType: ChartType = 'radar';
 
@@ -44,8 +46,18 @@ export class TraineeProfilesComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getCurrentUser();
-    this.teamService.getTeamByID(this.user.team_id).subscribe((result: Result) => {
-      this.team = result.value;
-    });
+    this.teamService
+      .getTeamByID(this.user.team_id)
+      .subscribe((result: Result) => {
+        this.team = result.value;
+      });
+    this.dob = new Date(this.user.dob);
+    this.age = this.calculateAge(this.dob);
+  }
+  public calculateAge(birthday: Date) {
+    // birthday is a date
+    const ageDifMs = Date.now() - birthday.getTime();
+    const ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 }
