@@ -1,9 +1,16 @@
 .title-bar-spacer {
   flex: 1 1 auto;
 }
-.list-group-item{
+
+.list-group-item {
   display: flex;
 }
-::ng-deep .cdk-overlay-pane{
-  margin: 0 auto!important;
+
+::ng-deep .cdk-overlay-pane {
+  margin: 0 auto !important;
+}
+
+.record-item-title {
+  white-space: nowrap;
+  margin-right: 10px;
 }
