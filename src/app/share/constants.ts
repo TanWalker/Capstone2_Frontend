@@ -21,6 +21,9 @@ export const Constants = {
     edit_team: {
       name: 'Bạn phải nhập tên cho lớp',
       age: 'Bạn phải nhập độ tuổi',
+    },
+    create_lesson_plan: {
+      name: 'Bạn phải nhập tên giáo án'
     }
   },
   message: {
@@ -111,7 +114,17 @@ export const Constants = {
       title: 'Xác nhận',
       message: 'Bạn có muốn thêm thành viên này ?',
       confirm: true
-    }
+    },
+    create_lesson_exercise: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn tạo giáo án mới ?',
+      confirm: true
+    },
+    update_lesson_exercise: {
+      title: 'Xác nhận',
+      message: 'Bạn có muốn chỉnh sửa giáo án này ?',
+      confirm: true
+    },
   },
   snackBar: {
     edit_team: {
@@ -126,6 +139,11 @@ export const Constants = {
     },
     add_member: {
       success: 'Thêm thành viên thành công!',
+      fail: 'Lỗi! không thể thêm',
+      title: 'Đóng'
+    },
+    add_lesson_plan: {
+      success: 'Thêm giáo án thành công!',
       fail: 'Lỗi! không thể thêm',
       title: 'Đóng'
     }

@@ -22,6 +22,12 @@ export class LessonService {
       lessonExercise
     );
   }
+  updateLessonExercise(lessonExercise: LessonExercise) {
+    return this.http.put(
+      `${environment.urls.api}/updateLessonExercise`,
+      lessonExercise
+    );
+  }
   getLessonExerciseByLessonID(id: String) {
     return this.http.get(
       `${environment.urls.api}` + `/getLessonExerciseByLessonID/${id}`
