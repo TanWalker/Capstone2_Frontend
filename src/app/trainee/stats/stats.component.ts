@@ -93,6 +93,7 @@ export class StatsComponent implements OnInit {
             this.recordExercises = data.values;
           } else {
             this.recordExercises = null;
+            console.log(data.errorMessage);
           }
         });
     }
@@ -103,12 +104,16 @@ export class StatsComponent implements OnInit {
     ) {
       this.isYearOnly = false;
       this.recordService
-        .getRecordByMonthYearOfCurrentUser(this.submittedMonth, this.submittedYear)
+        .getRecordByMonthYearOfCurrentUser(
+          this.submittedMonth,
+          this.submittedYear
+        )
         .subscribe((data: Result) => {
           if (data.success) {
             this.recordExercises = data.values;
           } else {
             this.recordExercises = null;
+            console.log(data.errorMessage);
           }
         });
     }

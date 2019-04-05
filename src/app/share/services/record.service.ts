@@ -22,12 +22,24 @@ export class RecordService {
     return this.http.get(`${environment.urls.api}/getRecord`);
   }
   getRecordByMonthYearOfCurrentUser(month: Number, year: Number) {
-    return this.http.post(`${environment.urls.api}/getRecordByMonthYearOfCurrentUser`, {month, year});
+    return this.http.post(
+      `${environment.urls.api}/getRecordByMonthYearOfCurrentUser`,
+      { month, year }
+    );
   }
   getRecordByYearOfCurrentUser(year: Number) {
-    return this.http.post(`${environment.urls.api}/getRecordByYearOfCurrentUser`, {year});
+    return this.http.post(
+      `${environment.urls.api}/getRecordByYearOfCurrentUser`,
+      { year }
+    );
   }
   getRecordByID(id: String) {
-  return this.http.get(`${environment.urls.api}/getRecordByID/${id}`);
+    return this.http.get(`${environment.urls.api}/getRecordByID/${id}`);
+  }
+  getListRecordByMonthOfYear(month, year, exercise_id) {
+    return this.http.post(
+      `${environment.urls.api}/getListRecordByMonthOfYear`,
+      { month: month, year: year, exercise_id: exercise_id }
+    );
   }
 }

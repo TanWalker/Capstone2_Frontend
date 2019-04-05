@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { RecordService } from 'src/app/share/services/record.service';
+import { Result } from 'src/app/share/models/result';
+import { Record } from 'src/app/share/models/record';
 
 @Component({
   selector: 'app-record-by-month-year',
@@ -21,7 +24,7 @@ export class RecordByMonthYearComponent implements OnInit {
     'T9',
     'T10',
     'T11',
-    'T12',
+    'T12'
   ];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
@@ -40,7 +43,7 @@ export class RecordByMonthYearComponent implements OnInit {
         this.randomNum(),
         this.randomNum(),
         this.randomNum(),
-        this.randomNum(),
+        this.randomNum()
       ],
       label: 'Thời gian'
     },
@@ -57,7 +60,7 @@ export class RecordByMonthYearComponent implements OnInit {
         this.randomNum(),
         this.randomNum(),
         this.randomNum(),
-        this.randomNum(),
+        this.randomNum()
       ],
       label: 'Nhịp tim',
       yAxisID: 'y-axis-1'
@@ -123,13 +126,32 @@ export class RecordByMonthYearComponent implements OnInit {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
-  constructor(private activatedRoute: ActivatedRoute) {
+  public month: Number;
+  public year: Number;
+  public exercise_id: Number;
+  public records: Record[];
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private recordService: RecordService
+  ) {
     this.activatedRoute.queryParams.subscribe(params => {
-      console.log(params);
-  });
+      this.month = params.month;
+      this.year = params.year;
+      this.exercise_id = params.exercise_id;
+      // console.log(params.month);
+    });
   }
 
   ngOnInit() {
+    this.recordService
+      .getListRecordByMonthOfYear(this.month, this.year, this.exercise_id)
+      .subscribe((data: Result) => {
+        if (data.success) {
+          console.log(data);
+          this.records = data.values;
+        }
+        console.log(data);
+      });
   }
   public randomNum() {
     return Math.floor(Math.random() * 1000) + 1;

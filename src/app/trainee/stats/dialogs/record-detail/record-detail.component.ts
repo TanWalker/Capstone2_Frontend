@@ -17,16 +17,10 @@ export class RecordDetailComponent implements OnInit {
     private dialog: MatDialog,
     private recordService: RecordService
   ) {
-    recordService
-      .getRecordByID(this.data.record_id)
-      .subscribe((result: Result) => {
-        // console.log(result.value);
-        if (result.success) {
-          this.record = result.value;
-          console.log(this.record);
-        }
-      });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.record = this.data.record;
+    console.log(this.record);
+  }
 }

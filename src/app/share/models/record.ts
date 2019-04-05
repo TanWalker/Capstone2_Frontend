@@ -1,4 +1,5 @@
 import { Exercise } from './exercise';
+import { Schedule } from './schedule';
 
 export class Record {
   constructor() {}
@@ -19,4 +20,5 @@ export class Record {
   public coach_id: String = '';
   public exercise_id: String = '';
   public exercise: Exercise;
+  public schedule: Schedule;
 }

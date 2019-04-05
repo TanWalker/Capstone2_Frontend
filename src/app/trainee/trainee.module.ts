@@ -16,6 +16,8 @@ import { ExerciseComponent } from './stats/components/exercise/exercise.componen
 import { RecordByMonthYearComponent } from './stats/record-by-month-year/record-by-month-year.component';
 import { RecordByYearComponent } from './stats/record-by-year/record-by-year.component';
 import { RecordDetailComponent } from './stats/dialogs/record-detail/record-detail.component';
+// tslint:disable-next-line:max-line-length
+import { RecordByMonthYearExComponent } from './stats/record-by-month-year/components/record-by-month-year-ex/record-by-month-year-ex.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -29,9 +31,7 @@ import { RecordDetailComponent } from './stats/dialogs/record-detail/record-deta
     UcWidgetModule,
     ChartsModule
   ],
-  exports: [
-    ExerciseComponent
-  ],
+  exports: [ExerciseComponent, RecordByMonthYearExComponent],
   declarations: [
     TraineeComponent,
     TraineeTabBarComponent,
@@ -40,10 +40,9 @@ import { RecordDetailComponent } from './stats/dialogs/record-detail/record-deta
     ExerciseComponent,
     RecordByMonthYearComponent,
     RecordByYearComponent,
-    RecordDetailComponent
+    RecordDetailComponent,
+    RecordByMonthYearExComponent
   ],
-  entryComponents: [
-    RecordDetailComponent
-  ]
+  entryComponents: [RecordDetailComponent]
 })
 export class TraineeModule {}

@@ -128,8 +128,6 @@ export class RecordByYearComponent implements OnInit {
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private recordService: RecordService,
-    private dialog: MatDialog
   ) {
     this.activatedRoute.queryParams.subscribe(params => {
       console.log(params);
@@ -142,18 +140,5 @@ export class RecordByYearComponent implements OnInit {
   public randomNum() {
     return Math.floor(Math.random() * 1000) + 1;
   }
-  openDialogRecordDetail() {
-    const dialogRef = this.dialog.open(RecordDetailComponent, {
-      maxWidth: '360px',
-      width: '100%',
-      data: {
-        record_id: '1500'
-      }
-      // autoFocus: false
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      if (res) {
-      }
-    });
-  }
+
 }
