@@ -25,7 +25,7 @@ export class ManageClassComponent implements OnInit {
 
   constructor(
     private deviceService: DeviceDetectorService,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private dialog: MatDialog
   ) {
