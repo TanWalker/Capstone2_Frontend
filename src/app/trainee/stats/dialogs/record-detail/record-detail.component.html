@@ -5,9 +5,19 @@
       Bài tập: <span class="title-bar-spacer "> </span>{{ record?.exercise.name || 'Chưa có' }}
     </li>
     <li class="list-group-item">
+      <span class="record-item-title">Ngày thực hiện: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-calendar-day margin-right-5" style="color: rgb(231, 6, 164); margin-top: 1px;"></i>
+        {{record?.schedule.day}}/{{record?.schedule.month}}/{{record?.schedule.year}}
+    </li>
+    <li class="list-group-item">
       <span class="record-item-title">Cự li bơi: </span><span class="title-bar-spacer "></span><i
         class="fas fa-water margin-right-5" style="color: rgb(100, 213, 247); margin-top: 1px;"></i>
       {{ record?.exercise.distance || 'Chưa có' }}
+    </li>
+    <li class="list-group-item">
+      <span class="record-item-title">Số lần lặp: </span><span class="title-bar-spacer "></span><i
+        class="fas fa-repeat margin-right-5" style="color: rgb(0, 214, 143); margin-top: 1px;"></i>
+      {{ record?.exercise.reps || 'Chưa có' }}
     </li>
     <li class="list-group-item">
       <span class="record-item-title">Kiểu bơi: </span><span class="title-bar-spacer "></span>
