@@ -101,14 +101,15 @@ export class AddMemberComponent implements OnInit, OnDestroy {
       if (res) {
         // team id get from data
         const teamID = this.data.team.id;
-        this.teamService.addTeamMember(userID, teamID).subscribe(
+
+        this.teamService.addTeamMember(teamID, userID).subscribe(
           (response: Result) => {
-            console.log(response);
             if (response.success) {
+
+              this.dialogRef.close(true);
               this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
                 duration: 6000
               });
-
             } else {
               this.snackBar.open(this.message.snackBar.fail, this.message.snackBar.title, {
                 duration: 3000

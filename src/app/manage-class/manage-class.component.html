@@ -1,6 +1,9 @@
 <!-- If role (2) login -->
 <span *ngIf="authService.isCoach()">
   <!-- check if desktop or mobile device -->
+
+    <!-- mobile site -->
+
   <div *ngIf="isMobile" class="content-mobile">
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
       <div class="mobile-view">
@@ -9,6 +12,9 @@
     </main>
     <app-tab-bar></app-tab-bar>
   </div>
+  <!-- mobile site -->
+
+  <!-- desktop site -->
   <span *ngIf="!isMobile">
     <mat-toolbar color="light-blue">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
@@ -121,5 +127,8 @@
       </mat-sidenav>
     </mat-sidenav-container>
   </span>
+
+    <!-- desktop site -->
+
 </span>
 <!-- If role(3) login -->

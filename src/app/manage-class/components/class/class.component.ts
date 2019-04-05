@@ -99,7 +99,7 @@ export class ClassComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        // this.isRefresh.emit(true);
+      this.getListMember();
       }
     });
   }

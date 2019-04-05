@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './share/services/auth.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { fadeAnimation } from './animations';
-import { UserService } from './share/services/user.service';
-import { Result } from './share/models/result';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +11,11 @@ import { Result } from './share/models/result';
 })
 export class AppComponent implements OnInit {
   public isMobile = false;
+  public openLoading = false;
   constructor(
     private deviceService:  DeviceDetectorService,
     private authService: AuthService
   ) {
-    const openLoading = true;
   }
   ngOnInit() {
     this.authService.autoGetCurrentUser();

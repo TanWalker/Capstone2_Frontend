@@ -35,7 +35,7 @@ export class TeamService {
     return this.http.get(`${environment.urls.api}` + `/getTeamByID/${id}`);
   }
   addTeamMember(team_id: String, user_id: String) {
-    return this.http.put(`${environment.urls.api}` + `/addTeamMember/`, { team_id , user_id });
+    return this.http.put(`${environment.urls.api}` + `/addTeamMember/`, { user_id , team_id });
 
   }
 }
