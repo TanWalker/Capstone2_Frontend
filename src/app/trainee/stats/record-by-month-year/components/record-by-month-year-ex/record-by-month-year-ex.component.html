@@ -1,5 +1,6 @@
 <mat-card matRipple (click)="openDialogRecordDetail(record)">
-  <span>Kết quả ID: #{{record?.id}}</span>
+  <span class="badge badge-primary margin-right-5">#{{record?.id}}</span>
+  <span>Kết quả ngày: {{record?.schedule.day}}/{{record?.schedule.month}}/{{record?.schedule.year}}</span>
   <span class="title-bar-spacer"></span>
   <i class="fas fa-chevron-right"></i>
 </mat-card>
