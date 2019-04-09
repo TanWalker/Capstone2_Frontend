@@ -122,17 +122,17 @@ export class RecordByMonthYearComponent implements OnInit {
           this.records = data.values;
           console.log(this.records.length);
           this.records.forEach(record => {
-            if (this.count < 10) {
+            // if (this.count < 10) {
               this.barChartLabels.push(
                 'Ngày ' + record.schedule.day.toString()
               );
               this.times.push(record.time_swim);
               this.heart_rate.push(record.heart_rate);
               this.widthChart = this.widthChart + 50;
-            }
-            this.count++;
+            // }
+            // this.count++;
           });
-          console.log(this.widthChart);
+          // console.log(this.widthChart);
           // this.widthChart = 1200;
           this.divStyle = 'block';
           setTimeout(function() {
