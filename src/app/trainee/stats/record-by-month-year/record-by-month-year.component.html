@@ -8,18 +8,12 @@
     </canvas>
 </div> -->
 <div class="chartWrapper" [ngStyle]="{'display': divStyle}">
-  <div class="chartAreaWrapper" [ngStyle]="{'width.%': widthChart}">
-      <canvas baseChart height="100"
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [chartType]="barChartType"
-    [colors]="barChartColors">
+  <div class="chartAreaWrapper" [ngStyle]="{'width.px': widthChart}">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [chartType]="barChartType" [colors]="barChartColors">
     </canvas>
   </div>
   <!-- <canvas id="axis-Test" height="300" width="0"></canvas> -->
 </div>
-
-
 <hr>
 <app-record-by-month-year-ex *ngFor="let record of records" [record]="record"></app-record-by-month-year-ex>

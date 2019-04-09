@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Color, Label } from 'ng2-charts';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
@@ -31,7 +31,8 @@ export class RecordByMonthYearComponent implements OnInit {
     }
   ];
   public barChartOptions: ChartOptions & { annotation: any } = {
-    // responsive: true,
+    // responsive: false,
+    maintainAspectRatio: false,
     // maintainAspectRatio: false,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
@@ -97,7 +98,8 @@ export class RecordByMonthYearComponent implements OnInit {
   public records: Record[];
   public teststyle: NgStyle;
   public divStyle;
-  public widthChart;
+  public widthChart = 150;
+  public count = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
     private recordService: RecordService
@@ -120,10 +122,18 @@ export class RecordByMonthYearComponent implements OnInit {
           this.records = data.values;
           console.log(this.records.length);
           this.records.forEach(record => {
-            this.barChartLabels.push('Ngày ' + record.schedule.day.toString());
-            this.times.push(record.time_swim);
-            this.heart_rate.push(record.heart_rate);
+            if (this.count < 10) {
+              this.barChartLabels.push(
+                'Ngày ' + record.schedule.day.toString()
+              );
+              this.times.push(record.time_swim);
+              this.heart_rate.push(record.heart_rate);
+              this.widthChart = this.widthChart + 50;
+            }
+            this.count++;
           });
+          console.log(this.widthChart);
+          // this.widthChart = 1200;
           this.divStyle = 'block';
           setTimeout(function() {
             this.widthChart = '100';
