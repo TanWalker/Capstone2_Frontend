@@ -7,6 +7,8 @@ import { ProfilesComponent } from '../manage-class/profiles/profiles.component';
 import { TraineeProfilesComponent } from './trainee-profiles/trainee-profiles.component';
 import { RecordByMonthYearComponent } from './stats/record-by-month-year/record-by-month-year.component';
 import { RecordByYearComponent } from './stats/record-by-year/record-by-year.component';
+import { TechniquesComponent } from './library/techniques/techniques.component';
+import { NutritionComponent } from './library/nutrition/nutrition.component';
 const routes: Routes = [
   {
     path: 'trainee',
@@ -17,10 +19,18 @@ const routes: Routes = [
       { path: 'profiles', component: TraineeProfilesComponent },
       { path: 'profiles/settings', component: ProfilesComponent },
       { path: 'stats', component: StatsComponent },
-      { path: 'stats/records-exercise-by-monthyear', component: RecordByMonthYearComponent },
-      { path: 'stats/records-exercise-by-year', component: RecordByYearComponent },
+      {
+        path: 'stats/records-exercise-by-monthyear',
+        component: RecordByMonthYearComponent
+      },
+      {
+        path: 'stats/records-exercise-by-year',
+        component: RecordByYearComponent
+      },
+      { path: 'library/techniques', component: TechniquesComponent },
+      { path: 'library/nutrition', component: NutritionComponent }
     ]
-  },
+  }
 ];
 
 @NgModule({

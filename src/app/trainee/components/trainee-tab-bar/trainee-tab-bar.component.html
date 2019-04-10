@@ -19,10 +19,24 @@
     </div>
     <span class="tab-title">Lịch học</span>
   </a>
-  <a class="flex-item-center" matRipple>
+
+  <a [autoClose]="true" [ngbPopover]="subLibrary" class="flex-item-center" matRipple>
     <div class="tab-icon">
       <i class="far fa-books"></i>
     </div>
     <span class="tab-title">Thư viện</span>
   </a>
+  <ng-template #subLibrary >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/trainee/library/techniques">
+        <i class="fas fa-swimmer margin-right-15"></i>Kĩ thuật
+      </a>
+      <a mat-list-item routerLink="/trainee/library/nutrition">
+        <i class="fas fa-utensils-alt margin-right-15"></i>Dinh dưỡng
+      </a>
+    </mat-nav-list>
+  </ng-template>
+
+
+
 </div>

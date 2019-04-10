@@ -23,6 +23,7 @@ export class TraineeComponent implements OnInit {
       this.router.navigate(['/class']);
     }
     this.user = authService.currentUser;
+    console.log(authService.getCurrentUser);
   }
 
   ngOnInit() {

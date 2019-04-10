@@ -2,9 +2,8 @@
 
   <!-- manage team -->
 
-  <a [autoClose]="true" [ngbPopover]="subTeams" 
-  [ngClass]="currentUrl.includes('/class/classes') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple
-  >
+  <a [autoClose]="true" [ngbPopover]="subTeams"
+    [ngClass]="currentUrl.includes('/class/classes') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-users-class"></i>
     </div>
@@ -26,8 +25,7 @@
   <!-- manage lesson plan -->
 
   <a class="flex-item-center" matRipple [autoClose]="true" [ngbPopover]="subExercises"
-  [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'"
-  >
+    [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'">
     <div class="tab-icon">
       <i class="far fa-calendar-day"></i>
     </div>
@@ -46,13 +44,13 @@
       </a>
     </mat-nav-list>
   </ng-template>
-  
+
   <!-- manage lesson plan -->
 
   <!-- manage user -->
 
-  <a routerLink="/class/profiles" [ngClass]="currentUrl.includes('/class/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'"
-    matRipple>
+  <a routerLink="/class/profiles"
+    [ngClass]="currentUrl.includes('/class/profiles') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple>
     <div class="tab-icon">
       <i class="fas fa-user-circle"></i>
     </div>
@@ -60,10 +58,9 @@
   </a>
 
   <a class="flex-item-center" matRipple [autoClose]="true" [ngbPopover]="subLib"
-  [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'"
-  >
+    [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'">
     <div class="tab-icon">
-        <i class="fal fa-books"></i>
+      <i class="fal fa-books"></i>
     </div>
     <span class="tab-title">Thư viện</span>
   </a>
@@ -80,10 +77,9 @@
   <!-- manage report -->
 
   <a class="flex-item-center" matRipple [autoClose]="true" [ngbPopover]="subReport"
-  [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'"
-  >
+    [ngClass]="currentUrl.includes('/class/exercises') || currentUrl.includes('/class/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'">
     <div class="tab-icon">
-        <i class="fal fa-receipt"></i>
+      <i class="fal fa-receipt"></i>
     </div>
     <span class="tab-title">Báo cáo</span>
   </a>

@@ -18,6 +18,8 @@ import { RecordByYearComponent } from './stats/record-by-year/record-by-year.com
 import { RecordDetailComponent } from './stats/dialogs/record-detail/record-detail.component';
 // tslint:disable-next-line:max-line-length
 import { RecordByMonthYearExComponent } from './stats/record-by-month-year/components/record-by-month-year-ex/record-by-month-year-ex.component';
+import { TechniquesComponent } from './library/techniques/techniques.component';
+import { NutritionComponent } from './library/nutrition/nutrition.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -41,7 +43,9 @@ import { RecordByMonthYearExComponent } from './stats/record-by-month-year/compo
     RecordByMonthYearComponent,
     RecordByYearComponent,
     RecordDetailComponent,
-    RecordByMonthYearExComponent
+    RecordByMonthYearExComponent,
+    TechniquesComponent,
+    NutritionComponent
   ],
   entryComponents: [RecordDetailComponent]
 })
