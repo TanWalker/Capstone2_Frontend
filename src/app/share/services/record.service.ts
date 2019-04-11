@@ -33,6 +33,12 @@ export class RecordService {
       { year }
     );
   }
+  getListRecordByYear(year: Number, exercise_id: Number) {
+    return this.http.post(`${environment.urls.api}/getListRecordByYear`, {
+      year,
+      exercise_id
+    });
+  }
   getRecordByID(id: String) {
     return this.http.get(`${environment.urls.api}/getRecordByID/${id}`);
   }

@@ -1,4 +1,8 @@
-<canvas baseChart height="270" [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-  [chartType]="barChartType" [colors]="barChartColors">
-</canvas>
-<hr>
+<div class="chartWrapper" [ngStyle]="{'display': divStyle}">
+  <div class="chartAreaWrapper" [ngStyle]="{'width.px': widthChart}">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [chartType]="barChartType" [colors]="barChartColors">
+    </canvas>
+  </div>
+  <!-- <canvas id="axis-Test" height="300" width="0"></canvas> -->
+</div>

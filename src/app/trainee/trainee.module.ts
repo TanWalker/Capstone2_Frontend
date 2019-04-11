@@ -20,6 +20,9 @@ import { RecordDetailComponent } from './stats/dialogs/record-detail/record-deta
 import { RecordByMonthYearExComponent } from './stats/record-by-month-year/components/record-by-month-year-ex/record-by-month-year-ex.component';
 import { TechniquesComponent } from './library/techniques/techniques.component';
 import { NutritionComponent } from './library/nutrition/nutrition.component';
+import { YoutubeVideoComponent } from './library/techniques/components/youtube-video/youtube-video.component';
+import { CategoryComponent } from './library/techniques/components/category/category.component';
+import { InCategoryComponent } from './library/techniques/components/category/in-category/in-category.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +36,13 @@ import { NutritionComponent } from './library/nutrition/nutrition.component';
     UcWidgetModule,
     ChartsModule
   ],
-  exports: [ExerciseComponent, RecordByMonthYearExComponent],
+  exports: [
+    ExerciseComponent,
+    YoutubeVideoComponent,
+    RecordByMonthYearExComponent,
+    CategoryComponent,
+    InCategoryComponent
+  ],
   declarations: [
     TraineeComponent,
     TraineeTabBarComponent,
@@ -45,7 +54,10 @@ import { NutritionComponent } from './library/nutrition/nutrition.component';
     RecordDetailComponent,
     RecordByMonthYearExComponent,
     TechniquesComponent,
-    NutritionComponent
+    NutritionComponent,
+    YoutubeVideoComponent,
+    CategoryComponent,
+    InCategoryComponent
   ],
   entryComponents: [RecordDetailComponent]
 })

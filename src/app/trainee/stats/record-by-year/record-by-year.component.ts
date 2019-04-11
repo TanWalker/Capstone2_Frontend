@@ -4,70 +4,34 @@ import { Label, Color } from 'ng2-charts';
 import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
 import { RecordService } from 'src/app/share/services/record.service';
 import { Result } from 'src/app/share/models/result';
-import { RecordDetailComponent } from '../dialogs/record-detail/record-detail.component';
-import { MatDialog } from '@angular/material';
+import { MonthlyRecord } from 'src/app/share/models/monthly_record';
 @Component({
   selector: 'app-record-by-year',
   templateUrl: './record-by-year.component.html',
   styleUrls: ['./record-by-year.component.css']
 })
 export class RecordByYearComponent implements OnInit {
-  public barChartLabels: Label[] = [
-    'T1',
-    'T2',
-    'T3',
-    'T4',
-    'T6',
-    'T6',
-    'T7',
-    'T8',
-    'T9',
-    'T10',
-    'T11',
-    'T12'
-  ];
+  public times = [];
+  public heart_rate = [];
+  public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
     {
-      data: [
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum()
-      ],
+      data: this.times,
       label: 'Thời gian'
     },
     {
-      data: [
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum(),
-        this.randomNum()
-      ],
+      data: this.heart_rate,
       label: 'Nhịp tim',
       yAxisID: 'y-axis-1'
     }
   ];
   public barChartOptions: ChartOptions & { annotation: any } = {
-    responsive: true,
+    // responsive: false,
+    maintainAspectRatio: false,
+    // maintainAspectRatio: false,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -126,19 +90,77 @@ export class RecordByYearComponent implements OnInit {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
+  public year: Number;
+  public exercise_id: Number;
+  public MonthlyRecord: MonthlyRecord[];
+  public divStyle;
+  public widthChart = 150;
+  public count = 1;
+  public tempLabels: Label[] = [];
   constructor(
     private activatedRoute: ActivatedRoute,
+    private recordService: RecordService
   ) {
     this.activatedRoute.queryParams.subscribe(params => {
-      console.log(params);
+      this.year = params.year;
+      this.exercise_id = params.exercise_id;
     });
   }
 
   ngOnInit() {
-
+    // this.recordService
+    //   .getListRecordByMonthOfYear(this.month, this.year, this.exercise_id)
+    //   .subscribe((data: Result) => {
+    //     if (data.success) {
+    //       // console.log(data);
+    //       this.records = data.values;
+    //       console.log(this.records.length);
+    //       this.records.forEach(record => {
+    //         // if (this.count < 10) {
+    //         this.barChartLabels.push('Ngày ' + record.schedule.day.toString());
+    //         this.times.push(record.time_swim);
+    //         this.heart_rate.push(record.heart_rate);
+    //         this.widthChart = this.widthChart + 50;
+    //         // }
+    //         // this.count++;
+    //       });
+    //       // console.log(this.widthChart);
+    //       // this.widthChart = 1200;
+    //       this.divStyle = 'block';
+    //       setTimeout(function() {
+    //         this.widthChart = '100';
+    //         console.log('hello');
+    //       }, 100);
+    //       // this.widthChart = '100';
+    //     }
+    //   });
+    this.divStyle = 'none';
+    this.recordService
+      .getListRecordByYear(this.year, this.exercise_id)
+      .subscribe((data: Result) => {
+        if (data.success) {
+          this.MonthlyRecord = data.values;
+          console.log(this.MonthlyRecord.length);
+          this.MonthlyRecord.forEach(record => {
+            // if (this.count < 10) {
+            this.barChartLabels.push(record.month.toString());
+            this.times.push(record.avg_time);
+            this.heart_rate.push(record.avg_hr);
+            this.widthChart = this.widthChart + 50;
+            // }
+            // this.count++;
+          });
+          // console.log(this.widthChart);
+          // this.widthChart = 1200;
+          this.divStyle = 'block';
+          // this.widthChart = '100';
+          console.log(this.times);
+          console.log(this.heart_rate);
+          console.log(this.barChartLabels);
+        }
+      });
   }
   public randomNum() {
     return Math.floor(Math.random() * 1000) + 1;
   }
-
 }
