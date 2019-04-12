@@ -187,7 +187,7 @@ export class DetailScheduleComponent implements OnInit {
         this.scheduleService
           .deleteSchedule(this.data.schedule.meta.id)
           .subscribe((response: Result) => {
-            console.log(response);
+            console.log(this.data.schedule.meta.id);
             if (response.success) {
               this.dialogRef.close(true);
               this.snackBar.open(
