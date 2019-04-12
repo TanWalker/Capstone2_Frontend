@@ -16,7 +16,6 @@ import { LessonService } from 'src/app/share/services/lesson.service';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { Constants } from 'src/app/share/constants';
 
-
 const message = {
   box: {
     title: Constants.box.update_detail_schedule.title,
@@ -27,18 +26,18 @@ const message = {
   snackBar: {
     success: Constants.snackBar.update_detail_schedule.success,
     fail: Constants.snackBar.update_detail_schedule.fail,
-    title: Constants.snackBar.update_detail_schedule.title,
+    title: Constants.snackBar.update_detail_schedule.title
   },
   snackBarDelete: {
     success: Constants.snackBar.delete_detail_schedule.success,
     fail: Constants.snackBar.delete_detail_schedule.fail,
-    title: Constants.snackBar.delete_detail_schedule.title,
+    title: Constants.snackBar.delete_detail_schedule.title
   },
   deleteBox: {
     title: Constants.box.delete_schedule_box.title,
     message: Constants.box.delete_schedule_box.message,
     confirm: Constants.box.delete_schedule_box.confirm
-  },
+  }
 };
 @Component({
   selector: 'app-detail-schedule',
@@ -70,7 +69,7 @@ export class DetailScheduleComponent implements OnInit {
     private scheduleService: ScheduleService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getTeams();
@@ -93,11 +92,11 @@ export class DetailScheduleComponent implements OnInit {
       hour: this.data.schedule.end.getHours(),
       minute: this.data.schedule.end.getMinutes()
     };
-
+    console.log(this.data);
   }
   saveSchedule() {
     // init value
-console.log(this.currentTeam);
+    console.log(this.currentTeam);
     this.schedule.id = this.data.schedule.meta.id;
     this.schedule.lesson_id = this.currentLesson.id;
     this.schedule.lesson_name = this.currentLesson.name;
@@ -118,12 +117,23 @@ console.log(this.currentTeam);
         if (result.success) {
           console.log(result);
           this.dialogRef.close(true);
-          this.snackBar.open(this.message.snackBar.success, this.message.snackBar.title, {
-            duration: 6000
-          });
+          this.snackBar.open(
+            this.message.snackBar.success,
+            this.message.snackBar.title,
+            {
+              duration: 6000
+            }
+          );
         } else {
-          this.snackBar.open(this.message.snackBar.fail, this.message.snackBar.title, {
-            duration: 3000 }); } });
+          this.snackBar.open(
+            this.message.snackBar.fail,
+            this.message.snackBar.title,
+            {
+              duration: 3000
+            }
+          );
+        }
+      });
   }
 
   openConfirmBox() {
@@ -142,19 +152,25 @@ console.log(this.currentTeam);
     });
   }
   getTeams() {
-   this.subTeam = this.teamService.getTeamByCoach().subscribe((data: Result) => {
-      this.teams = data.success ? data.values : [];
+    this.subTeam = this.teamService
+      .getTeamByCoach()
+      .subscribe((data: Result) => {
+        this.teams = data.success ? data.values : [];
 
-     const index = this.teams.findIndex(x => x.id === this.data.schedule.meta.team_id);
-     this.currentTeam = this.teams[index];
-     console.log(this.currentTeam);
-    });
+        const index = this.teams.findIndex(
+          x => x.id === this.data.schedule.meta.team_id
+        );
+        this.currentTeam = this.teams[index];
+        console.log(this.currentTeam);
+      });
   }
   getlessons() {
-    this.subLessons = this.lessonService.getLessonByCoach().subscribe((data: Result) => {
-      // console.log(data);
-      this.Lessons = data.success ? data.values : [];
-    });
+    this.subLessons = this.lessonService
+      .getLessonByCoach()
+      .subscribe((data: Result) => {
+        // console.log(data);
+        this.Lessons = data.success ? data.values : [];
+      });
   }
 
   clearSchedule() {
@@ -168,19 +184,30 @@ console.log(this.currentTeam);
     });
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
-        this.scheduleService.deleteSchedule(this.data.schedule.meta.id).subscribe(
-          (response: Result) => {
+        this.scheduleService
+          .deleteSchedule(this.data.schedule.meta.id)
+          .subscribe((response: Result) => {
+            console.log(response);
             if (response.success) {
               this.dialogRef.close(true);
-            this.snackBar.open(this.message.snackBarDelete.success, this.message.snackBarDelete.title, {
-              duration: 6000
-            });
-          } else {
-            this.dialogRef.close(false);
-            this.snackBar.open(this.message.snackBarDelete.fail, this.message.snackBarDelete.title, {
-              duration: 3000 });
-          }}
-        );
+              this.snackBar.open(
+                this.message.snackBarDelete.success,
+                this.message.snackBarDelete.title,
+                {
+                  duration: 6000
+                }
+              );
+            } else {
+              this.dialogRef.close(false);
+              this.snackBar.open(
+                this.message.snackBarDelete.fail,
+                this.message.snackBarDelete.title,
+                {
+                  duration: 3000
+                }
+              );
+            }
+          });
       }
     });
   }

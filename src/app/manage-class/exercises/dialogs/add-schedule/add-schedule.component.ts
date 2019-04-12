@@ -63,26 +63,31 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
     }
   }
   getLessons() {
-    this.subLessons = this.lessonService.getLessonByCoach().subscribe(
-      (data: Result) => {
-       this.lessons = data.success ? data.values : [];
-       if ( this.lessons !== []) {
-        this.schedule.lesson_id = this.lessons[0].id;
-        this.schedule.lesson_name = this.lessons[0].name;
-      }
-      }
-    );
+    this.subLessons = this.lessonService
+      .getLessonByCoach()
+      .subscribe((data: Result) => {
+        this.lessons = data.success ? data.values : [];
+        if (this.lessons !== []) {
+          this.schedule.lesson_id = this.lessons[0].id;
+          this.schedule.lesson_name = this.lessons[0].name;
+        }
+      });
   }
   getTeams() {
-    this.subTeam = this.teamService.getTeamByCoach().subscribe(
-      (data: Result) => {
+    this.subTeam = this.teamService
+      .getTeamByCoach()
+      .subscribe((data: Result) => {
         this.teams = data.success ? data.values : [];
-        if ( this.teams !== []) {
+        if (this.teams !== []) {
           this.schedule.team_id = this.teams[0].id;
           this.schedule.team_name = this.teams[0].name;
         }
-      }
-    );
+      });
+  }
+  changeLessonName(value) {
+    this.schedule.lesson_name = value;
+    // console.log(this.lessons[event]);
+    // console.log(this.lessons);
   }
   openMessageBox() {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
@@ -105,12 +110,15 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
         this.schedule.end_minute = this.endTime.minute;
         // add schedule
 
-        this.subCreate = this.scheduleService.addSchedule(this.schedule).subscribe(
-          (result: Result) => {
+        this.subCreate = this.scheduleService
+          .addSchedule(this.schedule)
+          .subscribe((result: Result) => {
             console.log(result);
-            result.success ? this.dialogRef.close(true) : console.log('create schedule fail');
-          }
-        );
+            console.log(this.schedule);
+            result.success
+              ? this.dialogRef.close(true)
+              : console.log('create schedule fail');
+          });
       }
     });
   }

@@ -10,8 +10,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Giáo án</mat-label>
-      <mat-select [(ngModel)] = "schedule.lesson_id">
-        <mat-option *ngFor="let lesson of lessons" [value]="lesson.id">{{lesson.name}}</mat-option>
+      <mat-select [(ngModel)] = "schedule.lesson_id" >
+        <mat-option *ngFor="let lesson of lessons" [value]="lesson.id" (click)="changeLessonName(lesson.name)">{{lesson.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
