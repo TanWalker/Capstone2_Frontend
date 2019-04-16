@@ -8,7 +8,9 @@ import { SwimStyle } from 'src/app/share/models/swimStyle';
 })
 export class CategoryComponent implements OnInit {
   @Input() swimStyle: SwimStyle;
+  @Input() color;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

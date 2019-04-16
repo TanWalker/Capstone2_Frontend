@@ -15,9 +15,21 @@ export class TechniquesComponent implements OnInit {
   public color: String;
   public randColor: String = '';
   public swimStyles: SwimStyle[] = [];
-  constructor(
-    private exerciseService: ExerciseService
-  ) {}
+  public colors = [
+    'Blue ',
+    'Green',
+    'Red',
+    'Orange',
+    'Violet',
+    'Indigo',
+    'DarkSalmon ',
+    'DarkSeaGreen ',
+    'DarkSlateBlue ',
+    'DeepPink ',
+    'DeepSkyBlue ',
+    'DimGray '
+  ];
+  constructor(private exerciseService: ExerciseService) {}
   ngOnInit() {
     this.youtubeLink = 'https://www.youtube.com/watch?v=J_ub7Etch2U';
     console.log(this.getRandomColor());

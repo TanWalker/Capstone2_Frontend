@@ -13,5 +13,6 @@
   </div>
 </div>
 <div class="row margin-top-10">
-    <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles" [swimStyle]="swimStyle"></app-category>
+    <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]" [swimStyle]="swimStyle"></app-category>
 </div>
+<div style="height: 70px;display:block;"></div>
