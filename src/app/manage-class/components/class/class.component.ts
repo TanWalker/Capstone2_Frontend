@@ -92,7 +92,8 @@ export class ClassComponent implements OnInit {
       disableClose: false,
       maxWidth: '400px',
       data: {
-        team: this.team
+        team: this.team,
+        members: this.members
       },
       panelClass: 'add-class'
 

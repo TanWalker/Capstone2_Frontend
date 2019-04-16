@@ -60,16 +60,7 @@ export class EditClassComponent implements OnInit {
     this.currentTeamName = this.data.team.name;
     this.currentTeamAge = this.data.team.age;
     this.newTeam = this.data.team;
-
-    this.initialValidation();
-
   }
-  initialValidation() {
-    this.editClassForm = this.formBuilder.group({});
-    this.editClassForm.addControl('name', this.name);
-    this.editClassForm.addControl('age', this.age);
-  }
-
   onChange() {
     if (
       this.currentTeamName.localeCompare(this.newTeam.name.toString()) === 0 &&
@@ -85,13 +76,9 @@ export class EditClassComponent implements OnInit {
     }
   }
   updateTeam() {
-
+    console.log('update team');
     // set isSubmit
     this.isSubmit = true;
-    // check validation
-    if (this.editClassForm.invalid) {
-      return;
-    }
 
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
