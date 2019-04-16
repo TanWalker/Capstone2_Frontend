@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { YoutubeService } from 'src/app/share/services/youtube.service';
+import { Result } from 'src/app/share/models/result';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-in-category',
@@ -8,9 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InCategoryComponent implements OnInit {
   public idStyle: String;
-  constructor(private activatedRoute: ActivatedRoute) {
-    activatedRoute.params.subscribe(params => this.idStyle = params.id);
+  public youtubeLinks;
+  public isMobile;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private youtubeService: YoutubeService,
+    private deviceService: DeviceDetectorService
+  ) {
+    activatedRoute.params.subscribe(params => (this.idStyle = params.id));
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isMobile = this.deviceService.isMobile();
+    this.youtubeService
+      .getYoutubeByStyleId(this.idStyle)
+      .subscribe((data: Result) => {
+        console.log(data);
+        if (data.success) {
+          this.youtubeLinks = data.values;
+        }
+      });
+  }
 }

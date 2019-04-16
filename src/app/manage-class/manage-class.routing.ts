@@ -9,6 +9,8 @@ import { ExerciseDetailComponent } from './exercises/exercise-detail/exercise-de
 import { ExercisesComponent } from './exercises/exercises.component';
 import { MembersOfTeamComponent } from './components/members-of-team/members-of-team.component';
 import { RecordComponent } from './record/record.component';
+import { TechniquesComponent } from '../trainee/library/techniques/techniques.component';
+import { InCategoryComponent } from '../trainee/library/techniques/components/category/in-category/in-category.component';
 const routes: Routes = [
   {
     path: 'class',
@@ -22,7 +24,9 @@ const routes: Routes = [
       { path: 'exercises', component: ExercisesComponent },
       { path: 'exercises/detail/:id', component: ExerciseDetailComponent },
       { path: 'schedule', component: ScheduleComponent },
-      { path: 'record', component: RecordComponent}
+      { path: 'record', component: RecordComponent },
+      { path: 'library/techiques', component: TechniquesComponent },
+      { path: 'library/techniques/:id', component: InCategoryComponent }
     ]
   }
 ];

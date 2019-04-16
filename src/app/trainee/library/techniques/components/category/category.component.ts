@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SwimStyle } from 'src/app/share/models/swimStyle';
+import { AuthService } from 'src/app/share/services/auth.service';
 
 @Component({
   selector: 'app-category',
@@ -9,8 +10,7 @@ import { SwimStyle } from 'src/app/share/models/swimStyle';
 export class CategoryComponent implements OnInit {
   @Input() swimStyle: SwimStyle;
   @Input() color;
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

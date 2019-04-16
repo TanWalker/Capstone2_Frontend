@@ -1,18 +1,24 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Video mới</h5>
-    <div class="row">
-      <div class="col-6 padding-0">
-        <app-youtube-video [youtubeLink]="youtubeLink"></app-youtube-video>
-      </div>
-      <div class="col-6 padding-0">
-        <app-youtube-video youtubeLink="https://www.youtube.com/watch?v=GgQFO8dL5XQ"></app-youtube-video>
+<div [ngClass]="isMobile ? '' : 'content-desktop'">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Video mới</h5>
+      <div class="frame-new-videos">
+        <div class="new-videos">
+          <app-youtube-video *ngFor="let newVideo of newVideos" [youtubeLink]="newVideo.link" class="new-video">
+          </app-youtube-video>
+        </div>
       </div>
     </div>
-
   </div>
+  <hr>
+  <!-- for coach role -->
+  <div *ngIf="authService.isCoach()">
+    <button mat-flat-button color="primary" (click)="openDialogAddVideo()">Thêm video mới</button>
+  </div>
+  <!--  -->
+  <div class="row margin-top-10">
+    <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]"
+      [swimStyle]="swimStyle"></app-category>
+  </div>
+  <div style="height: 70px;display:block;"></div>
 </div>
-<div class="row margin-top-10">
-    <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]" [swimStyle]="swimStyle"></app-category>
-</div>
-<div style="height: 70px;display:block;"></div>

@@ -37,6 +37,7 @@ import { ChartsModule } from 'ng2-charts';
 import { SingleRecordComponent } from './record/components/single-record/single-record.component';
 import { AddMemberComponent } from './dialogs/add-member/add-member.component';
 import { RankingComponent } from './dialogs/ranking/ranking.component';
+import { TechniquesComponent } from '../trainee/library/techniques/techniques.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,7 @@ import { RankingComponent } from './dialogs/ranking/ranking.component';
       useFactory: adapterFactory
     }),
     ChartsModule
-    ],
+  ],
   declarations: [
     ManageClassComponent,
     ClassesComponent,

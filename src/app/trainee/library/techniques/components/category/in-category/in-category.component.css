@@ -1,3 +1,9 @@
 .col-inCat {
   width: 147px;
 }
+.content-desktop {
+  max-width: 421px;
+  padding: 5px 7px 0 10px;
+  height: 95%;
+  width: 100%;
+}

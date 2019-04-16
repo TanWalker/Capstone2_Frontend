@@ -1,7 +1,15 @@
-<a routerLink="/trainee/library/techniques/{{swimStyle.id}}">
+
+<a *ngIf="authService.isTrainee()" routerLink="/trainee/library/techniques/{{swimStyle.id}}">
 <div class="lib-category">
   <div class="cover-glass" [ngStyle]="{'background': color}"></div>
   <!-- <img src="https://ymcayarmouthtest.files.wordpress.com/2014/10/swim-lessons-banner.png"> -->
   <span>{{swimStyle.swim_name}}</span>
 </div>
+</a>
+<a *ngIf="authService.isCoach()" routerLink="/class/library/techniques/{{swimStyle.id}}">
+  <div class="lib-category">
+    <div class="cover-glass" [ngStyle]="{'background': color}"></div>
+    <!-- <img src="https://ymcayarmouthtest.files.wordpress.com/2014/10/swim-lessons-banner.png"> -->
+    <span>{{swimStyle.swim_name}}</span>
+  </div>
 </a>

@@ -23,6 +23,7 @@ import { NutritionComponent } from './library/nutrition/nutrition.component';
 import { YoutubeVideoComponent } from './library/techniques/components/youtube-video/youtube-video.component';
 import { CategoryComponent } from './library/techniques/components/category/category.component';
 import { InCategoryComponent } from './library/techniques/components/category/in-category/in-category.component';
+import { AddVideoComponent } from './library/techniques/dialogs/add-video/add-video.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -57,8 +58,9 @@ import { InCategoryComponent } from './library/techniques/components/category/in
     NutritionComponent,
     YoutubeVideoComponent,
     CategoryComponent,
-    InCategoryComponent
+    InCategoryComponent,
+    AddVideoComponent
   ],
-  entryComponents: [RecordDetailComponent]
+  entryComponents: [RecordDetailComponent, AddVideoComponent]
 })
 export class TraineeModule {}

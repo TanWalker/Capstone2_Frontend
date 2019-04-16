@@ -2,7 +2,7 @@
 <span *ngIf="authService.isCoach()">
   <!-- check if desktop or mobile device -->
 
-    <!-- mobile site -->
+  <!-- mobile site -->
 
   <div *ngIf="isMobile" class="content-mobile">
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
@@ -117,9 +117,27 @@
               </a>
             </mat-nav-list>
           </mat-expansion-panel>
-          <a mat-list-item><i class="far fa-books margin-right-15 margin-left-5"></i>
-            Thư viện
-          </a>
+          <mat-expansion-panel (opened)="libraryParentsTab = true" (closed)="libraryParentsTab = false"
+            [expanded]="libraryParentsTab">
+            <mat-expansion-panel-header matRipple expandedHeight="48px"
+              [ngClass]="libraryParentsTab ? 'list-item-active' : ''">
+              <mat-panel-title>
+                <i class="far fa-books margin-right-15 margin-left-5"></i>
+                Thư viện
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <a mat-list-item routerLink="/class/library/techiques"
+                [ngClass]="currentUrl.includes('/class/library/techiques') ? 'list-item-active' : ''">
+                <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Kĩ thuật
+              </a>
+              <a mat-list-item routerLink="/class/library/nutrition"
+                [ngClass]="currentUrl.includes('/class/library/nutrition') ? 'list-item-active' : ''">
+                <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Dinh dưỡng
+              </a>
+            </mat-nav-list>
+          </mat-expansion-panel>
+
           <a mat-list-item><i class="far fa-newspaper margin-right-15 margin-left-5"></i>
             Tin tức
           </a>
@@ -128,7 +146,7 @@
     </mat-sidenav-container>
   </span>
 
-    <!-- desktop site -->
+  <!-- desktop site -->
 
 </span>
 <!-- If role(3) login -->
