@@ -22,6 +22,7 @@ export class ManageClassComponent implements OnInit {
   public user = new User();
   public exerciseParentsTab: boolean;
   public teamParentsTab: boolean;
+  public libraryParentsTab: boolean;
 
   constructor(
     private deviceService: DeviceDetectorService,
@@ -67,6 +68,12 @@ export class ManageClassComponent implements OnInit {
       this.currentUrl === '/class/schedule'
     ) {
       this.exerciseParentsTab = true;
+    }
+    if (
+      this.currentUrl === '/class/library/techniques' ||
+      this.currentUrl === '/class/library/nutrition'
+    ) {
+      this.libraryParentsTab = true;
     }
   }
   goToProfile() {

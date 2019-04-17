@@ -29,7 +29,7 @@ export class TraineeComponent implements OnInit {
   ngOnInit() {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
-    // console.log(this.user);
+    console.log(this.user);
   }
 
 }
