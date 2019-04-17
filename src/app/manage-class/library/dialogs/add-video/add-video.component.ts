@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import {
   MatDialog,
   MatDialogRef,
@@ -13,7 +13,7 @@ import { YoutubeService } from 'src/app/share/services/youtube.service';
 @Component({
   selector: 'app-add-video',
   templateUrl: './add-video.component.html',
-  styleUrls: ['./add-video.component.css']
+  styleUrls: ['./add-video.component.css', './../../../../app.component.css']
 })
 export class AddVideoComponent implements OnInit {
   public swimStyles: SwimStyle[];
@@ -30,7 +30,7 @@ export class AddVideoComponent implements OnInit {
 
   ngOnInit() {
     this.exerciseService.getAllStyle().subscribe((result: Result) => {
-      console.log(result);
+      // console.log(result);
       if (result.success) {
         this.swimStyles = result.values;
       }
@@ -41,7 +41,7 @@ export class AddVideoComponent implements OnInit {
       .uploadLinkByStyleId(this.currentLink, this.currentStyle)
       .subscribe((result: Result) => {
         if (result.success) {
-          this.dialogRef.close();
+          this.dialogRef.close(true);
           this.snackBar.open('Thêm video thành công!', 'Đóng', {
             duration: 6000
           });

@@ -1,0 +1,21 @@
+<div class="lesson-link animated slideInLeft fast">
+  <mat-expansion-panel [expanded]="panelOpenState">
+    <mat-expansion-panel-header collapsedHeight="70px" expandedHeight="80px" class="disableFont team-panel-header">
+      <div class="row">
+        <div class="col-xs-4 center-xs">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg/1280px-YouTube_play_buttom_icon_%282013-2017%29.svg.png" width="60%">
+        </div>
+        <div class="col-xs-8 reneral-info class-comp">
+          <div class="lesson-title">
+            <i class="fas fa-folder margin-right-5" style="color:rgb(177, 177, 177)"></i> {{swimStyle?.swim_name}}
+          </div>
+          <!-- <div class="lesson-description">Mô tả: {{swimStyle?.description}}</div> -->
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+    <mat-list class="mat-list-theme" role="list" *ngFor="let youtubeLink of youtubeLinks; let i = index">
+      <app-video-row [youtubeLink]="youtubeLink" (isRefresh)="refreshLinks($event)" [count]="i+1"></app-video-row>
+    </mat-list>
+  </mat-expansion-panel>
+  <div class="margin-bottom-10"></div>
+</div>

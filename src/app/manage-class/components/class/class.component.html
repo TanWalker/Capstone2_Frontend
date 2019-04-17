@@ -1,24 +1,4 @@
 <div class="lesson-link animated slideInLeft fast" >
-  <!-- <mat-card>
-    <div class="row middle-xs">
-      <div class="col-xs-3 center-xs">
-        <img src="https://www.shareicon.net/data/2016/08/04/806837_sports_512x512.png" width="100%">
-      </div>
-      <div class="col-xs-6 reneral-info">
-        <div class="lesson-title">Tên nhóm: {{ team.name }}</div>
-        <div>Độ tuổi: {{ team.age }}</div>
-        <a (click)="openListMember()"> Danh sách </a>
-      </div>
-      <div class="col-xs-3 center-xs">
-        <button mat-flat-button color="success" (click)="edit()" class="margin-bottom-5">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-stroked-button (click)="delete()">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-    </div>
-  </mat-card> -->
   <mat-expansion-panel [expanded]="panelOpenState">
     <mat-expansion-panel-header collapsedHeight="70px" expandedHeight="80px" class="disableFont team-panel-header">
       <div class="row">
@@ -31,11 +11,6 @@
           </div>
           <div class="lesson-description">Độ tuổi: {{ team.age }}</div>
         </div>
-        <!-- <div class="col-xs-3 center-xs mid-collapse-btn">
-          <button mat-icon-button class="collapse-icon-btn" (click)="togglePanel()">
-            <i class="far fa-clipboard-list-check fa-2x"></i>
-          </button>
-        </div> -->
       </div>
     </mat-expansion-panel-header>
     <div class="row">

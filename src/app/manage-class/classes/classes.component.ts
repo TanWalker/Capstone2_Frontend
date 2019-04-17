@@ -67,6 +67,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
       if (res) {
         this.getTeam();
       }
+      console.log(res);
     });
   }
   refresh($event) {

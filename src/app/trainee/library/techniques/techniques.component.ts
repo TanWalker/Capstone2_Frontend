@@ -5,7 +5,7 @@ import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { SwimStyle } from 'src/app/share/models/swimStyle';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthService } from 'src/app/share/services/auth.service';
-import { AddVideoComponent } from './dialogs/add-video/add-video.component';
+import { AddVideoComponent } from '../../../manage-class/library/dialogs/add-video/add-video.component';
 import { MatDialog } from '@angular/material';
 
 @Component({

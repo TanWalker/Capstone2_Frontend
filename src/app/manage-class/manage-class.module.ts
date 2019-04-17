@@ -37,7 +37,10 @@ import { ChartsModule } from 'ng2-charts';
 import { SingleRecordComponent } from './record/components/single-record/single-record.component';
 import { AddMemberComponent } from './dialogs/add-member/add-member.component';
 import { RankingComponent } from './dialogs/ranking/ranking.component';
-import { TechniquesComponent } from '../trainee/library/techniques/techniques.component';
+import { AddVideoComponent } from './library/dialogs/add-video/add-video.component';
+import { TechniquesComponent } from './library/techniques/techniques.component';
+import { CategoryComponent } from './library/techniques/components/category/category.component';
+import { VideoRowComponent } from './library/techniques/components/video-row/video-row.component';
 
 @NgModule({
   imports: [
@@ -82,7 +85,11 @@ import { TechniquesComponent } from '../trainee/library/techniques/techniques.co
     RecordComponent,
     LessonPlanComponent,
     AddMemberComponent,
-    RankingComponent
+    RankingComponent,
+    AddVideoComponent,
+    TechniquesComponent,
+    CategoryComponent,
+    VideoRowComponent
   ],
   entryComponents: [
     AddClassComponent,
@@ -93,7 +100,10 @@ import { TechniquesComponent } from '../trainee/library/techniques/techniques.co
     DistancesComponent,
     DetailScheduleComponent,
     AddMemberComponent,
-    RankingComponent
+    RankingComponent,
+    AddVideoComponent,
+    CategoryComponent,
+    VideoRowComponent
   ],
   providers: [DatePipe]
 })

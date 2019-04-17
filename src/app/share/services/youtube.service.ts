@@ -26,4 +26,9 @@ export class YoutubeService {
   getNewLink() {
     return this.http.get(`${environment.urls.api}/getNewLink`);
   }
+  deleteLink(link_id: String) {
+    return this.http.delete(
+      `${environment.urls.api}` + `/deleteLink/${link_id}`
+    );
+  }
 }

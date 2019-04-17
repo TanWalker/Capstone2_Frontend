@@ -1,0 +1,9 @@
+.video-title {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+img.video-thumbnail {
+  max-height: 25px;
+  margin-right: 10px;
+}

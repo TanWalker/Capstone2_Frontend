@@ -1,0 +1,63 @@
+.mat-card{
+  margin-bottom: 10px;
+}
+.time-range-box > div:first-child{
+  border-bottom: 1px solid #dedede;
+}
+.time-range-box > div{
+  padding: 6px 0;
+}
+.reneral-info{
+  line-height: 1.5;
+}
+a.lesson-link{
+  text-decoration: none;
+}
+.lesson-title{
+  font-size: 18px;
+  font-weight: 500;
+}
+.lesson-description{
+  font-size: 13px;
+}
+
+.disableFont {
+  color: black;
+}
+
+.collapse-icon-btn {
+  padding: 0;
+  min-width: 0;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  line-height: 0;
+  color: rgb(100, 100, 100);
+}
+
+.team-panel-header{
+  padding: 17px 30px 17px 1px;
+}
+.mid-collapse-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.class-comp > button{
+  min-width: 60px;
+  line-height: 27px;
+  margin-right: 10px;
+}
+.sm-icon{
+  font-size: 18px;
+  height: 20px;
+  width: 20px;
+}
+.sm-icon-edit{
+  font-size: 15px;
+}
+.sm-btn-edit{
+  width: 23px;
+  height: 23px;
+  line-height: 22px;
+}
