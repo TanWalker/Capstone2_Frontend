@@ -53,6 +53,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       } else {
         console.log(data.errorMessage);
+        this.isLoading = false;
       }
     });
   }

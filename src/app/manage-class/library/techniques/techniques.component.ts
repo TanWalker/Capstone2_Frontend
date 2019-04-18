@@ -14,7 +14,7 @@ import { Result } from 'src/app/share/models/result';
   ]
 })
 export class TechniquesComponent implements OnInit {
-  public swimStyles;
+  public swimStyles = [];
   constructor(
     private dialog: MatDialog,
     private exerciseService: ExerciseService
@@ -22,8 +22,11 @@ export class TechniquesComponent implements OnInit {
 
   ngOnInit() {
     this.getCategory();
+    console.log(this.swimStyles);
   }
-
+  print() {
+    console.log(this.swimStyles.length);
+  }
   openDialogAddVideo() {
     const dialogRef = this.dialog.open(AddVideoComponent, {
       disableClose: true,

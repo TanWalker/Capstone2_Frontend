@@ -11,9 +11,8 @@ import { RankingComponent } from '../../dialogs/ranking/ranking.component';
 
 const message = {
   message: {
-      dontHaveTeam: Constants.message.manage_member.have_not_member
+    dontHaveTeam: Constants.message.manage_member.have_not_member
   }
-
 };
 @Component({
   selector: 'app-members-of-team',
@@ -21,18 +20,16 @@ const message = {
   styleUrls: [
     './members-of-team.component.css',
     './../../../app.component.css',
-    './../../manage-class.component.css',
-
+    './../../manage-class.component.css'
   ]
 })
 export class MembersOfTeamComponent implements OnInit, OnDestroy {
-
   public currentTeam: Class = new Class();
   public isMobile = false;
   public subTeams: any;
   public subMembers: any;
   public members: User[] = [];
-  public teams: Class [] = [];
+  public teams: Class[] = [];
   public message = message;
   constructor(
     public deviceService: DeviceDetectorService,
@@ -46,39 +43,41 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
     this.getListTeam();
   }
   ngOnDestroy() {
-    if (this.subTeams !== null) { this.subTeams.unsubscribe(); }
+    if (this.subTeams !== null) {
+      this.subTeams.unsubscribe();
+    }
   }
   getListTeam() {
-      this.subTeams = this.teamService.getTeamByCoach().subscribe(
-        (data: Result) => {
-         this.teams = data.success ? data.values : [];
-         if ( !isNullOrUndefined(this.teams)) {
+    this.subTeams = this.teamService
+      .getTeamByCoach()
+      .subscribe((data: Result) => {
+        this.teams = data.success ? data.values : [];
+        console.log(this.teams);
+        if (this.teams.length !== 0) {
           this.currentTeam = this.teams[0];
           this.getMemberByTeam(this.currentTeam.id);
-         }
         }
-      );
+      });
   }
   onChange(team: Class) {
-   this.currentTeam = team;
-   this.getMemberByTeam(this.currentTeam.id);
+    this.currentTeam = team;
+    this.getMemberByTeam(this.currentTeam.id);
   }
   getMemberByTeam(teamId: String) {
-    this.subMembers = this.teamService.getMemberByTeam(teamId).subscribe(
-      (data: Result) => {
+    this.subMembers = this.teamService
+      .getMemberByTeam(teamId)
+      .subscribe((data: Result) => {
         this.members = data.success ? data.values : [];
-      }
-    );
+      });
   }
   openRanking() {
-
-      const dialogRef = this.dialog.open(RankingComponent, {
-        disableClose: true,
-        data: { team: this.currentTeam }
-      });
-      dialogRef.afterClosed().subscribe(res => {
-        if (res) {
-        }
-      });
-    }
+    const dialogRef = this.dialog.open(RankingComponent, {
+      disableClose: true,
+      data: { team: this.currentTeam }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+      }
+    });
+  }
 }
