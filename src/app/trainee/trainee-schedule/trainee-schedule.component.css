@@ -1,0 +1,10 @@
+.schedule-box {
+  max-width: 1024px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+::ng-deep .mobile-zoom {
+  zoom: 0.5;
+}

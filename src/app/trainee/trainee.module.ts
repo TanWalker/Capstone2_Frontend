@@ -6,7 +6,7 @@ import { MaterialModule } from '../material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatTooltipModule } from '@angular/material';
+import { MatTooltipModule, DateAdapter } from '@angular/material';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StatsComponent } from './stats/stats.component';
@@ -23,6 +23,9 @@ import { NutritionComponent } from './library/nutrition/nutrition.component';
 import { YoutubeVideoComponent } from './library/techniques/components/youtube-video/youtube-video.component';
 import { CategoryComponent } from './library/techniques/components/category/category.component';
 import { InCategoryComponent } from './library/techniques/components/category/in-category/in-category.component';
+import { TraineeScheduleComponent } from './trainee-schedule/trainee-schedule.component';
+import { CalendarModule } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +37,11 @@ import { InCategoryComponent } from './library/techniques/components/category/in
     MatTooltipModule,
     FormsModule,
     UcWidgetModule,
-    ChartsModule
+    ChartsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   exports: [
     ExerciseComponent,
@@ -57,7 +64,8 @@ import { InCategoryComponent } from './library/techniques/components/category/in
     NutritionComponent,
     YoutubeVideoComponent,
     CategoryComponent,
-    InCategoryComponent
+    InCategoryComponent,
+    TraineeScheduleComponent
   ],
   entryComponents: [RecordDetailComponent]
 })

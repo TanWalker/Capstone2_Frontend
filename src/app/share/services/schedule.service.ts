@@ -12,6 +12,9 @@ export class ScheduleService {
   getScheduleByCoach() {
     return this.http.get(`${environment.urls.api}/getSchedule`);
   }
+  getScheduleByTeam() {
+    return this.http.get(`${environment.urls.api}/getScheduleByTeam`);
+  }
   addSchedule(schedule: Schedule) {
     return this.http.post(`${environment.urls.api}/addSchedule`, schedule);
   }
@@ -28,12 +31,13 @@ export class ScheduleService {
 
   getScheduleByDate(date: Date) {
     return this.http.post(`${environment.urls.api}/getScheduleByDate`, date);
-
   }
 
-    // delete schedule
+  // delete schedule
 
   deleteSchedule(id: String) {
-     return this.http.delete(`${environment.urls.api}/deleteSchedule` + `/${id}`);
+    return this.http.delete(
+      `${environment.urls.api}/deleteSchedule` + `/${id}`
+    );
   }
 }

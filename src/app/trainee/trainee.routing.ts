@@ -10,6 +10,7 @@ import { RecordByYearComponent } from './stats/record-by-year/record-by-year.com
 import { TechniquesComponent } from './library/techniques/techniques.component';
 import { NutritionComponent } from './library/nutrition/nutrition.component';
 import { InCategoryComponent } from './library/techniques/components/category/in-category/in-category.component';
+import { TraineeScheduleComponent } from './trainee-schedule/trainee-schedule.component';
 const routes: Routes = [
   {
     path: 'trainee',
@@ -30,7 +31,8 @@ const routes: Routes = [
       },
       { path: 'library/techniques', component: TechniquesComponent },
       { path: 'library/techniques/:id', component: InCategoryComponent },
-      { path: 'library/nutrition', component: NutritionComponent }
+      { path: 'library/nutrition', component: NutritionComponent },
+      { path: 'schedule', component: TraineeScheduleComponent }
     ]
   }
 ];

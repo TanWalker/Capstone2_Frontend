@@ -13,7 +13,9 @@
     </div>
     <span class="tab-title">Thống kê</span>
   </a>
-  <a class="flex-item-center" matRipple>
+
+  <a routerLink="/trainee/schedule"
+    [ngClass]="currentUrl.includes('/trainee/schedule') ? 'flex-item-center tab-active' : 'flex-item-center'" matRipple matRipple>
     <div class="tab-icon">
       <i class="far fa-calendar"></i>
     </div>
