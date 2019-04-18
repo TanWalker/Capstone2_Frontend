@@ -84,7 +84,6 @@ export class AddVideoComponent implements OnInit {
     }
   }
   onChangeStyle(event) {
-    console.log(this.currentLink);
     if (this.currentStyle && this.currentLink !== undefined) {
       // if input empty disable add button
       this.isAddDisabled = false;
