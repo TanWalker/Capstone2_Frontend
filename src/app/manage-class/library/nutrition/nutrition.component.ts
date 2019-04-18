@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AddNutritionComponent } from './dialogs/add-nutrition/add-nutrition.component';
+import { YoutubeService } from 'src/app/share/services/youtube.service';
+import { Result } from 'src/app/share/models/result';
 
 @Component({
   selector: 'app-nutrition',
@@ -12,9 +14,15 @@ import { AddNutritionComponent } from './dialogs/add-nutrition/add-nutrition.com
   ]
 })
 export class NutritionComponent implements OnInit {
-  constructor(private dialog: MatDialog) {}
+  public nutritions = [];
+  constructor(
+    private dialog: MatDialog,
+    private youtubeService: YoutubeService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getNutrition();
+  }
   openDialogAddVideo() {
     const dialogRef = this.dialog.open(AddNutritionComponent, {
       disableClose: true,
@@ -23,9 +31,28 @@ export class NutritionComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        // this.getCategory();
+        this.getNutrition();
       }
       console.log(res);
     });
+  }
+  getNutrition() {
+    this.youtubeService.getLinkNutrition().subscribe((result: Result) => {
+      console.log(result);
+      if (result.success) {
+        this.nutritions = result.values;
+      }
+      if (!result.success) {
+        this.nutritions = [];
+      }
+    });
+  }
+  refreshLinks($event) {
+    // console.log($event);
+    if ($event) {
+      setTimeout(() => {
+        this.getNutrition();
+      }, 50);
+    }
   }
 }

@@ -13,22 +13,38 @@ export class YoutubeService {
     );
   }
   getYoutubeByStyleId(style_id) {
-    return this.http.post(`${environment.urls.api}/getYoutubeByStyleId`, {
+    return this.http.post(`${environment.urls.api}/getLinkTechniqueByStyleId`, {
       style_id
     });
   }
+  getLinkNutrition() {
+    return this.http.get(`${environment.urls.api}/getLinkNutrition`);
+  }
   uploadLinkByStyleId(link, style_id) {
-    return this.http.post(`${environment.urls.api}/uploadLinkByStyleId`, {
-      link: link,
-      style_id: style_id
+    return this.http.post(
+      `${environment.urls.api}/uploadLinkTechniqueByStyleId`,
+      {
+        link: link,
+        style_id: style_id
+      }
+    );
+  }
+  uploadLinkNutrition(link) {
+    return this.http.post(`${environment.urls.api}/uploadLinkNutrition`, {
+      link: link
     });
   }
   getNewLink() {
-    return this.http.get(`${environment.urls.api}/getNewLink`);
+    return this.http.get(`${environment.urls.api}/getNewLinkTechnique`);
   }
   deleteLink(link_id: String) {
     return this.http.delete(
-      `${environment.urls.api}` + `/deleteLink/${link_id}`
+      `${environment.urls.api}` + `/deleteLinkTechnique/${link_id}`
+    );
+  }
+  deleteLinkNutrition(link_id: String) {
+    return this.http.delete(
+      `${environment.urls.api}` + `/deleteLinkNutrition/${link_id}`
     );
   }
 }

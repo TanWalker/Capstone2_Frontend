@@ -19,6 +19,7 @@ export class AddVideoComponent implements OnInit {
   public swimStyles: SwimStyle[];
   public currentStyle;
   public currentLink;
+  isAddDisabled = true;
   constructor(
     private dialogRef: MatDialogRef<AddVideoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -47,13 +48,30 @@ export class AddVideoComponent implements OnInit {
           });
         }
         if (!result.success) {
+          console.log(result);
           this.snackBar.open('Lỗi! không thể thêm video', 'Đóng', {
             duration: 6000
           });
         }
       });
   }
+  onChange($event) {
+    if (/\S/.test($event) && this.currentStyle) {
+      // if input empty disable add button
+      this.isAddDisabled = false;
+    } else {
+      // if input isn't empty disable add button
+      this.isAddDisabled = true;
+    }
+  }
   onChangeStyle(event) {
-    console.log(this.currentStyle);
+    console.log(this.currentLink);
+    if (this.currentStyle && this.currentLink !== undefined) {
+      // if input empty disable add button
+      this.isAddDisabled = false;
+    } else {
+      // if input isn't empty disable add button
+      this.isAddDisabled = true;
+    }
   }
 }

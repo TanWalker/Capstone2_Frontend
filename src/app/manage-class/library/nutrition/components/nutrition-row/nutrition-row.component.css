@@ -1,0 +1,21 @@
+::ng-deep .mat-list-item-content-custom .mat-list-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: inherit;
+}
+.video-title {
+  margin-left: 7px;
+}
+.video-title {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+img.video-thumbnail {
+  max-height: 25px;
+  margin-right: 10px;
+}

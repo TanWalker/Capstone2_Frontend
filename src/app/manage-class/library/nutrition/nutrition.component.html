@@ -7,4 +7,9 @@
           class="fas fa-plus-square margin-left-5"></i></button>
     </mat-toolbar-row>
   </mat-toolbar>
+  <hr>
+    <app-nutrition-row *ngFor="let nutrition of nutritions" (isRefresh)="refreshLinks($event)" [nutrition]="nutrition"></app-nutrition-row>
+    <div *ngIf="nutritions.length === 0 || nutritions === []" class="empty-list">
+      <div>Không có video về dinh dưỡng nào cả!</div>
+    </div>
 </div>

@@ -2,7 +2,7 @@
   <a [href]="youtubeLink?.link" class="video-title" target="_blank">
     <img class="video-thumbnail" [src]="youtubeInfo?.thumbnail_url || ''">
     <span class="video-title">{{count}}. {{youtubeInfo?.title}}</span>
-    <div class="title-bar-spacer"></div>
   </a>
+  <div class="title-bar-spacer"></div>
   <button mat-button color="warn" (click)="removeLink()">Xóa</button>
 </mat-list-item>

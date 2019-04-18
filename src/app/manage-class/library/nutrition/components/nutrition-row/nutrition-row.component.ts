@@ -1,22 +1,21 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { YoutubeService } from 'src/app/share/services/youtube.service';
-import { Result } from 'src/app/share/models/result';
-import { MatDialog, MatSnackBar } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { Result } from 'src/app/share/models/result';
 
 @Component({
-  selector: 'app-video-row',
-  templateUrl: './video-row.component.html',
+  selector: 'app-nutrition-row',
+  templateUrl: './nutrition-row.component.html',
   styleUrls: [
-    './video-row.component.css',
+    './nutrition-row.component.css',
     './../../../../manage-class.component.css'
   ]
 })
-export class VideoRowComponent implements OnInit {
-  @Input() youtubeLink;
-  @Input() count;
+export class NutritionRowComponent implements OnInit {
+  @Input() nutrition;
+  public nutritionInfo;
   @Output() isRefresh = new EventEmitter<boolean>();
-  public youtubeInfo;
   constructor(
     private youtubeService: YoutubeService,
     private dialog: MatDialog,
@@ -24,14 +23,13 @@ export class VideoRowComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.youtubeService.getVideoInfo(this.youtubeLink.link).subscribe(data => {
+    this.youtubeService.getVideoInfo(this.nutrition.link).subscribe(data => {
       // console.log(data);
-      this.youtubeInfo = data;
-      // console.log(this.youtubeInfo);
+      this.nutritionInfo = data;
+      console.log(this.nutritionInfo);
     });
   }
   removeLink() {
-    // console.log(this.youtubeLink);
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
         title: 'Cảnh báo!',
@@ -44,7 +42,7 @@ export class VideoRowComponent implements OnInit {
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.youtubeService
-          .deleteLink(this.youtubeLink.id)
+          .deleteLinkNutrition(this.nutrition.id)
           .subscribe((result: Result) => {
             if (result.success) {
               this.snackBar.open('Xóa video thành công!', 'Đóng', {

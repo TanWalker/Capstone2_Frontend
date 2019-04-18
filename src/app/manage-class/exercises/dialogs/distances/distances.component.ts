@@ -1,5 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatSnackBar } from '@angular/material';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatSnackBar
+} from '@angular/material';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Result } from 'src/app/share/models/result';
 import { Distance } from 'src/app/share/models/distance';
