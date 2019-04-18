@@ -67,7 +67,8 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
       .getLessonByCoach()
       .subscribe((data: Result) => {
         this.lessons = data.success ? data.values : [];
-        if (this.lessons !== []) {
+        // console.log(this.lessons);
+        if (this.lessons.length) {
           this.schedule.lesson_id = this.lessons[0].id;
           this.schedule.lesson_name = this.lessons[0].name;
         }
@@ -78,7 +79,7 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
       .getTeamByCoach()
       .subscribe((data: Result) => {
         this.teams = data.success ? data.values : [];
-        if (this.teams !== []) {
+        if (this.teams.length) {
           this.schedule.team_id = this.teams[0].id;
           this.schedule.team_name = this.teams[0].name;
         }

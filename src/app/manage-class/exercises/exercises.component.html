@@ -1,4 +1,4 @@
-<div [ngClass]="isMobile ? '':'content-desktop'"  style="float: left;">
+<div [ngClass]="isMobile ? '':'content-desktop'"  style="display: inline-block;width:100%;">
   <mat-toolbar>
     <mat-toolbar-row>
       <span>Quản lý bài tập</span>
@@ -46,3 +46,4 @@
 </div>
 
 <div [ngClass]="isMobile ? '':'content-desktop lessonplan-desktop'" ><app-lesson-plan></app-lesson-plan></div>
+<div *ngIf="isMobile" style="height: 70px;display:block;"></div>
