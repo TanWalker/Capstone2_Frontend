@@ -26,7 +26,6 @@ export class NutritionRowComponent implements OnInit {
     this.youtubeService.getVideoInfo(this.nutrition.link).subscribe(data => {
       // console.log(data);
       this.nutritionInfo = data;
-      console.log(this.nutritionInfo);
     });
   }
   removeLink() {

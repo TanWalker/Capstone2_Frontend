@@ -22,7 +22,6 @@ export class TechniquesComponent implements OnInit {
 
   ngOnInit() {
     this.getCategory();
-    console.log(this.swimStyles);
   }
   print() {
     console.log(this.swimStyles.length);

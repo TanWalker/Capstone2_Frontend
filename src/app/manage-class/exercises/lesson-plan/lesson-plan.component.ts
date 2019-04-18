@@ -124,7 +124,6 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
     this.subLessons = this.lessonService
       .getLessonByCoach()
       .subscribe((data: Result) => {
-        console.log(data);
         if (data.success) {
           this.lessons = data.values;
           if (data.values.length !== 0) {

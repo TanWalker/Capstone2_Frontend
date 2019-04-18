@@ -45,7 +45,6 @@ export class ManageClassComponent implements OnInit {
   ngOnInit() {
     // install URL
     this.currentUrl = this.router.url;
-    console.log(this.currentUrl);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
@@ -53,7 +52,6 @@ export class ManageClassComponent implements OnInit {
     });
     // get current user
     this.user = this.authService.currentUser;
-    console.log(this.user.role_id);
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
     // set active parent tab

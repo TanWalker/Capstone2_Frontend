@@ -52,7 +52,6 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
       .getTeamByCoach()
       .subscribe((data: Result) => {
         this.teams = data.success ? data.values : [];
-        console.log(this.teams);
         if (this.teams.length !== 0) {
           this.currentTeam = this.teams[0];
           this.getMemberByTeam(this.currentTeam.id);

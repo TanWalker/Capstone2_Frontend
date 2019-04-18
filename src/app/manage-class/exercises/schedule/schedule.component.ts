@@ -85,7 +85,6 @@ export class ScheduleComponent implements OnInit {
     this.subEvents = this.scheduleService
       .getScheduleByCoach()
       .subscribe((data: Result) => {
-        console.log(data);
         this.schedule = data.success ? data.values : [];
         this.schedule.map(event => {
           this.events.push({

@@ -21,7 +21,6 @@ export class CategoryComponent implements OnInit {
     this.youtubeService
       .getYoutubeByStyleId(this.swimStyle.id)
       .subscribe((data: Result) => {
-        console.log(data);
         if (data.success) {
           this.youtubeLinks = data.values;
         }

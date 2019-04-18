@@ -38,7 +38,6 @@ export class NutritionComponent implements OnInit {
   }
   getNutrition() {
     this.youtubeService.getLinkNutrition().subscribe((result: Result) => {
-      console.log(result);
       if (result.success) {
         this.nutritions = result.values;
       }
