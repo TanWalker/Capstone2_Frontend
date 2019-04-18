@@ -122,25 +122,21 @@
             <mat-expansion-panel-header matRipple expandedHeight="48px"
               [ngClass]="libraryParentsTab ? 'list-item-active' : ''">
               <mat-panel-title>
-                <i class="far fa-books margin-right-15 margin-left-5"></i>
+                <i class="fab fa-youtube margin-right-15 margin-left-5"></i>
                 Thư viện
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-nav-list>
               <a mat-list-item routerLink="/class/library/techniques"
                 [ngClass]="currentUrl.includes('/class/library/techniques') ? 'list-item-active' : ''">
-                <i class="fal fa-clipboard-list margin-right-15 margin-left-5"></i> Kĩ thuật
+                <i class="fal fa-running margin-right-15 margin-left-5"></i> Kĩ thuật
               </a>
               <a mat-list-item routerLink="/class/library/nutrition"
                 [ngClass]="currentUrl.includes('/class/library/nutrition') ? 'list-item-active' : ''">
-                <i class="fal fa-calendar-alt margin-right-15 margin-left-5"></i> Dinh dưỡng
+                <i class="fal fa-utensils margin-right-15 margin-left-5"></i> Dinh dưỡng
               </a>
             </mat-nav-list>
           </mat-expansion-panel>
-
-          <a mat-list-item><i class="far fa-newspaper margin-right-15 margin-left-5"></i>
-            Tin tức
-          </a>
         </mat-nav-list>
       </mat-sidenav>
     </mat-sidenav-container>

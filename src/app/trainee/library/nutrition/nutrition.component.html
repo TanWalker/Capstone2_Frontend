@@ -1,3 +1,13 @@
-<p>
-  nutrition works!
-</p>
+<div [ngClass]="isMobile ? '' : 'content-desktop'">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>Thư viện dinh dưỡng</span>
+      <span class="title-bar-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="row margin-top-15">
+    <app-youtube-video class="col col-inCat" *ngFor="let youtubeLink of youtubeLinks" [youtubeLink]="youtubeLink.link">
+    </app-youtube-video>
+    <div *ngIf="!youtubeLinks">Không có video nào cả</div>
+  </div>
+</div>

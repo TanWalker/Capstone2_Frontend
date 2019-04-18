@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { YoutubeService } from 'src/app/share/services/youtube.service';
 import { Result } from 'src/app/share/models/result';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ExerciseService } from 'src/app/share/services/exercise.service';
+import { SwimStyle } from 'src/app/share/models/swimStyle';
 
 @Component({
   selector: 'app-in-category',
@@ -13,10 +15,12 @@ export class InCategoryComponent implements OnInit {
   public idStyle: String;
   public youtubeLinks;
   public isMobile;
+  public swimStyle: SwimStyle;
   constructor(
     private activatedRoute: ActivatedRoute,
     private youtubeService: YoutubeService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private exerciService: ExerciseService
   ) {
     activatedRoute.params.subscribe(params => (this.idStyle = params.id));
   }
@@ -29,6 +33,13 @@ export class InCategoryComponent implements OnInit {
         console.log(data);
         if (data.success) {
           this.youtubeLinks = data.values;
+        }
+      });
+    this.exerciService
+      .getStyleById(this.idStyle)
+      .subscribe((result: Result) => {
+        if (result.success) {
+          this.swimStyle = result.value;
         }
       });
   }
