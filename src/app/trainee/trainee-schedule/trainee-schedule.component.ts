@@ -40,6 +40,9 @@ export class TraineeScheduleComponent implements OnInit {
     this.getEvent();
     this.isMobile = this.deviceService.isMobile();
   }
+  handleEvent(action: string, event: CalendarEvent): void {
+
+  }
   getEvent() {
     this.scheduleService.getScheduleByTeam().subscribe((data: Result) => {
       this.schedule = data.success ? data.values : [];

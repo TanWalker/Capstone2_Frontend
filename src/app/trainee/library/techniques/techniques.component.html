@@ -18,7 +18,7 @@
   </div>
   <hr>
   <!-- for coach role -->
-  <div *ngIf="authService.isCoach()">
+  <div *ngIf="authUser.isCoach()">
     <button mat-flat-button color="primary" (click)="openDialogAddVideo()">Thêm video mới</button>
   </div>
   <!--  -->

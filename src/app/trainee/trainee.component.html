@@ -1,4 +1,4 @@
-<div *ngIf="authService.isTrainee()">
+<div *ngIf="authUser.isTrainee()">
   <div *ngIf="isMobile" class="content-mobile">
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
       <div class="mobile-view">

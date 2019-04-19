@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>Thông tin cá nhân</span>
     <span class="title-bar-spacer"></span>
-    <a *ngIf="authService.isTrainee()" mat-stroked-button color="primary" routerLink="settings"><i
+    <a *ngIf="authUser.isTrainee()" mat-stroked-button color="primary" routerLink="settings"><i
         class="fas fa-user-cog icon-fa-huge-large"></i></a>
   </mat-toolbar-row>
 </mat-toolbar>

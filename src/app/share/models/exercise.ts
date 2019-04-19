@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Exercise {
   constructor() {
   }
@@ -9,4 +11,5 @@ export class Exercise {
   public type_id: String = '';
   public time: Number = 0 ;
   public description: String = '';
+  public user: User;
 }

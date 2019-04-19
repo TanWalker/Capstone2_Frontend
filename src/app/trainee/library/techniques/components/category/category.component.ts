@@ -10,7 +10,10 @@ import { AuthService } from 'src/app/share/services/auth.service';
 export class CategoryComponent implements OnInit {
   @Input() swimStyle: SwimStyle;
   @Input() color;
-  constructor(private authService: AuthService) {}
+  public authUser;
+  constructor(private authService: AuthService) {
+    this.authUser = authService;
+  }
 
   ngOnInit() {}
 }

@@ -3,6 +3,7 @@ import { AddVideoComponent } from '../dialogs/add-video/add-video.component';
 import { MatDialog } from '@angular/material';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
 import { Result } from 'src/app/share/models/result';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-techniques',
@@ -15,13 +16,16 @@ import { Result } from 'src/app/share/models/result';
 })
 export class TechniquesComponent implements OnInit {
   public swimStyles = [];
+  public isMobile;
   constructor(
     private dialog: MatDialog,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private deviceService: DeviceDetectorService
   ) {}
 
   ngOnInit() {
     this.getCategory();
+    this.isMobile = this.deviceService.isMobile();
   }
   print() {
     console.log(this.swimStyles.length);

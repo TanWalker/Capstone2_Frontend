@@ -14,6 +14,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 export class TraineeComponent implements OnInit {
   public isMobile = false;
   public user: User = new User();
+  public authUser;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -24,11 +25,11 @@ export class TraineeComponent implements OnInit {
     }
     this.user = authService.currentUser;
     console.log(authService.getCurrentUser);
+    this.authUser = authService;
   }
 
   ngOnInit() {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
   }
-
 }

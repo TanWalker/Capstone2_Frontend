@@ -64,7 +64,7 @@ export class ProfilesComponent implements OnInit {
   constructor(
     private deviceService: DeviceDetectorService,
     private userService: UserService,
-    private calendar: NgbCalendar,
+    public calendar: NgbCalendar,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private authService: AuthService,

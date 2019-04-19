@@ -9,7 +9,7 @@ export class YoutubeService {
   constructor(private http: HttpClient) {}
   getVideoInfo(id: String) {
     return this.http.get(
-      `https://www.youtube.com/oembed?url=${id}&format=json`
+      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Fb72TZdg3Fw&format=json`
     );
   }
   getYoutubeByStyleId(style_id) {

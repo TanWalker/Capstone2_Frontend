@@ -21,6 +21,7 @@ export class TraineeProfilesComponent implements OnInit {
   public team: Team = new Team();
   public dob: Date = new Date();
   public age: Number;
+  public authUser;
   public radarChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -42,7 +43,9 @@ export class TraineeProfilesComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private teamService: TeamService
-  ) {}
+  ) {
+    this.authUser = authService;
+  }
 
   ngOnInit() {
     this.user = this.authService.getCurrentUser();

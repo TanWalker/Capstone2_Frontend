@@ -34,13 +34,17 @@ export class TechniquesComponent implements OnInit {
     'DimGray '
   ];
   public newVideos;
+  public authUser;
   constructor(
     private exerciseService: ExerciseService,
     private deviceService: DeviceDetectorService,
     private authService: AuthService,
     private dialog: MatDialog,
     private youtubeService: YoutubeService
-  ) {}
+  ) {
+    this.authUser = authService;
+  }
+  
   ngOnInit() {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();

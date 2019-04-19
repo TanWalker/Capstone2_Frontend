@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import { AddNutritionComponent } from './dialogs/add-nutrition/add-nutrition.component';
 import { YoutubeService } from 'src/app/share/services/youtube.service';
 import { Result } from 'src/app/share/models/result';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-nutrition',
@@ -15,13 +16,16 @@ import { Result } from 'src/app/share/models/result';
 })
 export class NutritionComponent implements OnInit {
   public nutritions = [];
+  public isMobile;
   constructor(
     private dialog: MatDialog,
-    private youtubeService: YoutubeService
+    private youtubeService: YoutubeService,
+    private deviceService: DeviceDetectorService
   ) {}
 
   ngOnInit() {
     this.getNutrition();
+    this.isMobile = this.deviceService.isMobile();
   }
   openDialogAddVideo() {
     const dialogRef = this.dialog.open(AddNutritionComponent, {
