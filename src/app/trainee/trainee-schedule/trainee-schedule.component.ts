@@ -5,6 +5,8 @@ import { CalendarEvent } from 'calendar-utils';
 import { Schedule } from 'src/app/share/models/schedule';
 import { Subject } from 'rxjs';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { MatDialog } from '@angular/material';
+import { ScheduleInfoComponent } from './dialog/schedule-info/schedule-info.component';
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -33,7 +35,8 @@ export class TraineeScheduleComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   constructor(
     private scheduleService: ScheduleService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -41,7 +44,19 @@ export class TraineeScheduleComponent implements OnInit {
     this.isMobile = this.deviceService.isMobile();
   }
   handleEvent(action: string, event: CalendarEvent): void {
-
+    const dialogRef = this.dialog.open(ScheduleInfoComponent, {
+      disableClose: true,
+      maxWidth: '360px',
+      width: '100%',
+      data: {
+        schedule: event
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        // reset events
+      }
+    });
   }
   getEvent() {
     this.scheduleService.getScheduleByTeam().subscribe((data: Result) => {

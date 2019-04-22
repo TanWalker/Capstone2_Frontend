@@ -24,11 +24,15 @@ export class VideoRowComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.youtubeService.getVideoInfo(this.youtubeLink.link).subscribe(data => {
-      // console.log(data);
-      this.youtubeInfo = data;
-      // console.log(this.youtubeInfo);
-    });
+    this.youtubeService
+      .getVideoInfo(this.youtubeLink.link)
+      .subscribe((data: Result) => {
+        // console.log(data);
+        if (data.success) {
+          this.youtubeInfo = data.value;
+        }
+        console.log(this.youtubeInfo);
+      });
   }
   removeLink() {
     // console.log(this.youtubeLink);

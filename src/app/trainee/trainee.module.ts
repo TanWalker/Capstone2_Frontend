@@ -26,6 +26,7 @@ import { InCategoryComponent } from './library/techniques/components/category/in
 import { TraineeScheduleComponent } from './trainee-schedule/trainee-schedule.component';
 import { CalendarModule } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ScheduleInfoComponent } from './trainee-schedule/dialog/schedule-info/schedule-info.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -65,8 +66,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     YoutubeVideoComponent,
     CategoryComponent,
     InCategoryComponent,
-    TraineeScheduleComponent
+    TraineeScheduleComponent,
+    ScheduleInfoComponent
   ],
-  entryComponents: [RecordDetailComponent]
+  entryComponents: [RecordDetailComponent, ScheduleInfoComponent]
 })
 export class TraineeModule {}

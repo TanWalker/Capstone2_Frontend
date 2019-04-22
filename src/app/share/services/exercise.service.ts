@@ -13,6 +13,9 @@ export class ExerciseService {
   public getAllStyle() {
     return this.http.get(`${environment.urls.api}` + `/public/getStyle`);
   }
+  public getAllStyleWithBackground() {
+    return this.http.get(`${environment.urls.api}` + `/getBackground`);
+  }
   public addStyle(swimStyle: SwimStyle) {
     return this.http.post(`${environment.urls.api}` + `/addStyle`, swimStyle);
   }
@@ -50,6 +53,11 @@ export class ExerciseService {
   public getStyleById(style_id) {
     return this.http.get(
       `${environment.urls.api}` + `/getStyleById/${style_id}`
+    );
+  }
+  public getExerciseByLessonID(lesson_id) {
+    return this.http.get(
+      `${environment.urls.api}` + `/getExerciseByLessonID/${lesson_id}`
     );
   }
 }

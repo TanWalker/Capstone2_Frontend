@@ -1,0 +1,45 @@
+<h1 mat-dialog-title><i class="fas fa-calendar-day margin-right-5"
+    style="color: rgb(231, 6, 164); margin-top: 1px;"></i> Lịch học ngày
+  {{schedule?.day}}/{{schedule?.month}}/{{schedule?.year}}</h1>
+<div mat-dialog-content>
+  <ul class="list-group list-group-flush">
+    <!-- <li class="list-group-item">
+      Bài tập: <span class="title-bar-spacer "> </span>{{ record?.exercise.name || 'Chưa có' }}
+    </li>
+    <li class="list-group-item">
+      <span class="record-item-title">Huấn luyện viên: </span><span class="title-bar-spacer "></span><i
+        class="fas fa-chalkboard-teacher margin-right-5" style="color: rgb(113, 37, 255); margin-top: 1px;"></i>
+      {{ record?.exercise.user.display_name || 'Chưa có' }}
+    </li> -->
+    <li class="list-group-item">
+      <span class="record-item-title">Giờ học: </span><span class="title-bar-spacer "></span><i
+        class="fas fa-clock margin-right-5" style="color: rgb(100, 213, 247); margin-top: 1px;"></i>
+      {{ convertTwoDigits(schedule?.start_hour) || 'Chưa có' }}:{{ convertTwoDigits(schedule?.start_minute) }} - 
+      {{ convertTwoDigits(schedule?.end_hour) || 'Chưa có' }}:{{ convertTwoDigits(schedule?.end_minute) }}
+    </li>
+    keep updating...
+    <!-- <li class="list-group-item">
+      <span class="record-item-title">Warm up: </span><span class="title-bar-spacer "></span>
+      {{ record?.exercise.reps || 'Chưa có' }}
+    </li>
+    <li class="list-group-item">
+      <span class="record-item-title">Kiểu bơi: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-swimmer margin-right-5" style="color: rgb(130, 130, 247); margin-top: 1px;"></i>
+      {{ record?.exercise.style || 'Chưa có' }}
+    </li>
+    <li class="list-group-item">
+      <span class="record-item-title">Nhịp tim: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-heartbeat margin-right-5" style="color: tomato; margin-top: 1px;"></i>
+      {{ record?.heart_rate || 'Chưa có' }}
+    </li>
+    <li class="list-group-item">
+      <span class="record-item-title">Thời gian: </span><span class="title-bar-spacer "></span>
+      <i class="fas fa-stopwatch margin-right-5" style="color: orange; margin-top: 1px;"></i>
+      {{ record?.time_swim || 'Chưa có' }}
+    </li> -->
+
+  </ul>
+</div>
+<button mat-stroked-button class="full-width margin-top-10" [mat-dialog-close]>
+  Đóng
+</button>

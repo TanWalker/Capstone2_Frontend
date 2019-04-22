@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { YoutubeService } from 'src/app/share/services/youtube.service';
+import { Result } from 'src/app/share/models/result';
 
 @Component({
   selector: 'app-youtube-video',
@@ -12,9 +13,11 @@ export class YoutubeVideoComponent implements OnInit {
   constructor(private youtubeService: YoutubeService) {}
 
   ngOnInit() {
-    this.youtubeService.getVideoInfo(this.youtubeLink).subscribe(data => {
+    this.youtubeService.getVideoInfo(this.youtubeLink).subscribe((data: Result) => {
       console.log(data);
-      this.youtubeInfo = data;
+      if (data.success) {
+        this.youtubeInfo = data.value;
+      }
     });
   }
 }

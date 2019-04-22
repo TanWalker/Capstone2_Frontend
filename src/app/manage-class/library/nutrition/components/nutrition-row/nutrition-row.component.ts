@@ -23,10 +23,14 @@ export class NutritionRowComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.youtubeService.getVideoInfo(this.nutrition.link).subscribe(data => {
-      // console.log(data);
-      this.nutritionInfo = data;
-    });
+    this.youtubeService
+      .getVideoInfo(this.nutrition.link)
+      .subscribe((data: Result) => {
+        // console.log(data);
+        if (data.success) {
+          this.nutritionInfo = data.value;
+        }
+      });
   }
   removeLink() {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {

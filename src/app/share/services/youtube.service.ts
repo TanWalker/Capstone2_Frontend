@@ -7,9 +7,12 @@ import { environment } from 'src/environments/environment';
 })
 export class YoutubeService {
   constructor(private http: HttpClient) {}
-  getVideoInfo(id: String) {
-    return this.http.get(
-      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Fb72TZdg3Fw&format=json`
+  getVideoInfo(link: String) {
+    return this.http.post(
+      `${environment.urls.api}/public/getYoutubeVideoInfo`,
+      {
+        link: link
+      }
     );
   }
   getYoutubeByStyleId(style_id) {
