@@ -14,7 +14,6 @@ export class YoutubeVideoComponent implements OnInit {
 
   ngOnInit() {
     this.youtubeService.getVideoInfo(this.youtubeLink).subscribe((data: Result) => {
-      console.log(data);
       if (data.success) {
         this.youtubeInfo = data.value;
       }

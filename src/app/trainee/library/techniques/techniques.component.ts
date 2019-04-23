@@ -44,17 +44,26 @@ export class TechniquesComponent implements OnInit {
   ) {
     this.authUser = authService;
   }
-  
   ngOnInit() {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
     console.log(this.getRandomColor());
     this.randColor = this.getRandomColor();
-    this.exerciseService.getAllStyle().subscribe((data: Result) => {
-      if (data.success) {
-        this.swimStyles = data.values;
-      }
-    });
+    // this.exerciseService
+    //   .getAllStyle()
+    //   .subscribe((data: Result) => {
+    //     if (data.success) {
+    //       this.swimStyles = data.values;
+    //     }
+    //   });
+    this.exerciseService
+      .getAllStyleWithBackground()
+      .subscribe((data: Result) => {
+        console.log(data);
+        if (data.success) {
+          this.swimStyles = data.values;
+        }
+      });
     this.getNewVideos();
   }
   getNewVideos() {

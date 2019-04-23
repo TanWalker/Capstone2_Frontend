@@ -1,14 +1,14 @@
 
 <a *ngIf="authUser.isTrainee()" routerLink="/trainee/library/techniques/{{swimStyle.id}}">
 <div class="lib-category">
-  <div class="cover-glass" [ngStyle]="{'background': color}"></div>
+  <div class="cover-glass" [ngStyle]="{'background-image': 'url('+swimStyle.url+')'}"></div>
   <!-- <img src="https://ymcayarmouthtest.files.wordpress.com/2014/10/swim-lessons-banner.png"> -->
   <span>{{swimStyle.swim_name}}</span>
 </div>
 </a>
 <a *ngIf="authUser.isCoach()" routerLink="/class/library/techniques/{{swimStyle.id}}">
   <div class="lib-category">
-    <div class="cover-glass" [ngStyle]="{'background': color}"></div>
+    <div class="cover-glass" [ngStyle]="{'background-image': 'url('+swimStyle.url+')'}"></div>
     <!-- <img src="https://ymcayarmouthtest.files.wordpress.com/2014/10/swim-lessons-banner.png"> -->
     <span>{{swimStyle.swim_name}}</span>
   </div>

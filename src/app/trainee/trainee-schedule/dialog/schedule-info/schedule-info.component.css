@@ -14,3 +14,7 @@
   white-space: nowrap;
   margin-right: 10px;
 }
+.flex-space-between {
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
