@@ -8,13 +8,18 @@ import { environment } from 'src/environments/environment';
 export class YoutubeService {
   constructor(private http: HttpClient) {}
   getVideoInfo(link: String) {
-    return this.http.post(
-      `${environment.urls.api}/public/getYoutubeVideoInfo`,
-      {
-        link: link
-      }
+    return this.http.get(
+      `https://www.youtube.com/oembed?url=${link}&format=json`
     );
   }
+  // getVideoInfo(link: String) {
+  //   return this.http.post(
+  //     `${environment.urls.api}/public/getYoutubeVideoInfo`,
+  //     {
+  //       link: link
+  //     }
+  //   );
+  // }
   getYoutubeByStyleId(style_id) {
     return this.http.post(`${environment.urls.api}/getLinkTechniqueByStyleId`, {
       style_id
