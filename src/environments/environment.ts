@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   urls: {
-    // api: 'http://10.0.12.64:3000/api',
-    api: 'https://node.mtasa.vn/api',
-    // api: 'http://10.0.12.64:3000/api',
-    upload_care_key: 'c7c05222d42cec64dcf7'
-  },
-  VERSION: require('../../package.json').version
+  // api: 'http://10.0.12.64:3000/api',
+  api: 'http://localhost:3000/api',
+  // api: 'http://10.0.12.64:3000/api',
+  upload_care_key : 'c7c05222d42cec64dcf7'
+ },
+ VERSION: require('../../package.json').version
 };
 
 /*

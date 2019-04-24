@@ -20,7 +20,6 @@ export class NutritionComponent implements OnInit {
   ngOnInit() {
     this.isMobile = this.deviceService.isMobile();
     this.youtubeService.getLinkNutrition().subscribe((data: Result) => {
-      console.log(data);
       if (data.success) {
         this.youtubeLinks = data.values;
       }
