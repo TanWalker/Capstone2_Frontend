@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { AddVideoComponent } from '../dialogs/add-video/add-video.component';
 import { MatDialog } from '@angular/material';
 import { ExerciseService } from 'src/app/share/services/exercise.service';
@@ -14,7 +14,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     './../../../app.component.css'
   ]
 })
-export class TechniquesComponent implements OnInit {
+export class TechniquesComponent implements OnInit, AfterViewInit {
   public swimStyles = [];
   public isMobile;
   constructor(
@@ -26,6 +26,9 @@ export class TechniquesComponent implements OnInit {
   ngOnInit() {
     this.getCategory();
     this.isMobile = this.deviceService.isMobile();
+  }
+  ngAfterViewInit() {
+    console.log('done load youtube');
   }
   print() {
     console.log(this.swimStyles.length);

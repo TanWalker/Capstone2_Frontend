@@ -18,15 +18,13 @@ import { MatDialog } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { isNullOrUndefined } from 'util';
 
-
 const message = {
   box: {
     title: Constants.box.add_record.title,
     message: Constants.box.add_record.message,
     confirm: Constants.box.add_record.confirm
   },
-  error: {
-  },
+  error: {},
   message: {
     haventSchedule: Constants.message.manage_record.have_not_schedule
   }
@@ -89,19 +87,27 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.selectedDate = this.calendar.getToday();
   }
   ngOnDestroy() {
-    if (this.subDefaultSchedule !== null) { this.subDefaultSchedule.unsubscribe(); }
-    if (this.subSchedules !== null) { this.subSchedules.unsubscribe(); }
-    if (this.subFinalExercises !== null) { this.subFinalExercises.unsubscribe(); }
-    if (!isNullOrUndefined( this.subMember )) { this.subMember.unsubscribe(); }
+    if (this.subDefaultSchedule !== null) {
+      this.subDefaultSchedule.unsubscribe();
+    }
+    if (this.subSchedules !== null) {
+      this.subSchedules.unsubscribe();
+    }
+    if (this.subFinalExercises !== null) {
+      this.subFinalExercises.unsubscribe();
+    }
+    if (!isNullOrUndefined(this.subMember)) {
+      this.subMember.unsubscribe();
+    }
   }
 
   onChangeSchedule(schedule: Schedule) {
     this.currentSchedule = schedule;
     this.getListFinalExerciseByLessonID(this.currentSchedule.lesson_id);
-
   }
   onChangeFinalSet(finalExercise: Exercise) {
-     this.currentFinalExercise = finalExercise;
+    this.currentFinalExercise = finalExercise;
+    this.getListMember();
   }
 
   onChangeDate($event) {
@@ -109,10 +115,10 @@ export class RecordComponent implements OnInit, OnDestroy {
     this.selectedDate = $event;
   }
   // list lesson
-  getListScheduleByDate(date: Date , isDefault: boolean = false) {
-     this.subSchedules = this.scheduleService.getScheduleByDate(date).subscribe(
-      (data: Result) => {
-
+  getListScheduleByDate(date: Date, isDefault: boolean = false) {
+    this.subSchedules = this.scheduleService
+      .getScheduleByDate(date)
+      .subscribe((data: Result) => {
         if (data.success) {
           // hidden message haven't schedule
           this.isHaventSchedule = false;
@@ -121,46 +127,49 @@ export class RecordComponent implements OnInit, OnDestroy {
           this.schedules = data.values;
           console.log(data);
           // tslint:disable-next-line:no-unused-expression
-          !isDefault ? this.currentSchedule = this.schedules[0] : 0;
+          !isDefault ? (this.currentSchedule = this.schedules[0]) : 0;
           // tslint:disable-next-line:no-unused-expression
-         !isDefault ? this.getListFinalExerciseByLessonID( this.currentSchedule.lesson_id) : 0;
+          !isDefault
+            ? this.getListFinalExerciseByLessonID(
+                this.currentSchedule.lesson_id
+              )
+            : 0;
         } else {
           // if we dont have team for this schedule we will reset it
           this.members = [];
           this.isHaventSchedule = true;
         }
-      }
-    );
+      });
   }
   // list final exercise
   getListFinalExerciseByLessonID(lessonID: String) {
-   this.subFinalExercises = this.lessonService.getFinalExerciseByLessonID(lessonID).subscribe(
-     (data: Result) => {
-          if (data.success && data.total > 0) {
-            this.FinalExercises = data.values;
-            this.currentFinalExercise = this.FinalExercises[0];
-            // get list member
-           this.getListMember();
-          }
-    });
+    this.subFinalExercises = this.lessonService
+      .getFinalExerciseByLessonID(lessonID)
+      .subscribe((data: Result) => {
+        if (data.success && data.total > 0) {
+          this.FinalExercises = data.values;
+          this.currentFinalExercise = this.FinalExercises[0];
+          // get list member
+          this.getListMember();
+        }
+      });
   }
   // list member
   getListMember() {
-        this.subMember = this.teamService.getMemberByTeam(this.currentSchedule.team_id).subscribe(
-
-          (data: Result) => {
-            this.members = data.success ? data.values : [];
-          }
-        );
+    this.subMember = this.teamService
+      .getMemberByTeam(this.currentSchedule.team_id)
+      .subscribe((data: Result) => {
+        this.members = data.success ? data.values : [];
+      });
   }
   // default lesson
   getDefaultSchedule() {
-    this.subDefaultSchedule = this.scheduleService.getDefaultScheduleByCurrentDate().subscribe(
-      (data: Result) => {
+    this.subDefaultSchedule = this.scheduleService
+      .getDefaultScheduleByCurrentDate()
+      .subscribe((data: Result) => {
         this.currentSchedule = data.success ? data.value : '';
         this.getListFinalExerciseByLessonID(this.currentSchedule.lesson_id);
-      }
-    );
+      });
   }
   fireNotification() {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {

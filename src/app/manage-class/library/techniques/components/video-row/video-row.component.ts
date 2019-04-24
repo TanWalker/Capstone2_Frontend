@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { YoutubeService } from 'src/app/share/services/youtube.service';
 import { Result } from 'src/app/share/models/result';
 import { MatDialog, MatSnackBar } from '@angular/material';
@@ -31,7 +31,6 @@ export class VideoRowComponent implements OnInit {
         if (data.success) {
           this.youtubeInfo = data.value;
         }
-        console.log(this.youtubeInfo);
       });
   }
   removeLink() {
