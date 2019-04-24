@@ -129,11 +129,7 @@ export class RecordComponent implements OnInit, OnDestroy {
           // tslint:disable-next-line:no-unused-expression
           !isDefault ? (this.currentSchedule = this.schedules[0]) : 0;
           // tslint:disable-next-line:no-unused-expression
-          !isDefault
-            ? this.getListFinalExerciseByLessonID(
-                this.currentSchedule.lesson_id
-              )
-            : 0;
+          !isDefault ? this.getListFinalExerciseByLessonID(this.currentSchedule.lesson_id) : 0;
         } else {
           // if we dont have team for this schedule we will reset it
           this.members = [];

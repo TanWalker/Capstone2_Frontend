@@ -56,6 +56,9 @@ export class TraineeProfilesComponent implements OnInit {
       });
     this.dob = new Date(this.user.dob);
     this.age = this.calculateAge(this.dob);
+    this.authService.getUserIndex().subscribe((data: Result) => {
+      console.log(data);
+    });
   }
   public calculateAge(birthday: Date) {
     // birthday is a date
