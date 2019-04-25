@@ -1,10 +1,5 @@
-<button
-  mat-mini-fab
-  color="warn"
-  style="width: 30px;height: 30px;"
-  class="float-right margin-top-down-10"
-  [mat-dialog-close]
->
+<button mat-icon-button color="white" style="width: 30px;height: 30px;" class="float-right margin-top-down-10"
+  [mat-dialog-close]>
   <mat-icon class="margin-top-down-10">
     clear
   </mat-icon>
@@ -36,35 +31,24 @@
       </mat-select>
     </mat-form-field>
     <div class="flex-box">
-      <ngb-timepicker
-        [(ngModel)]="startTime"
-        [meridian]="false"
-      ></ngb-timepicker>
+      <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
       <span class="hour"> <i class="fas fa-arrows-alt-h"></i> </span>
       <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
     </div>
   </div>
   <div class="col-xs">
-    <ngb-datepicker
-      [(ngModel)]="currentScheduledDate"
-      [startDate]="currentScheduledDate"
-    ></ngb-datepicker>
+    <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate"></ngb-datepicker>
   </div>
 </div>
 <br />
 <div class="row">
-  <div class="col-xs">
-    <button
-      mat-flat-button
-      class="full-width"
-      color="light-blue"
-      (click)="openConfirmBox()"
-    >
+  <div class="col-md-9">
+    <button mat-flat-button class="full-width" color="light-blue" (click)="openConfirmBox()">
       Lưu
     </button>
   </div>
-  <div class="col-xs">
-    <button mat-stroked-button class="full-width" (click)="clearSchedule()">
+  <div class="col-md-3">
+    <button mat-flat-button color="warn" class="full-width" (click)="clearSchedule()">
       Xóa
     </button>
   </div>

@@ -26,25 +26,32 @@ export class TraineeProfilesComponent implements OnInit {
     responsive: true,
     scales: {
       ticks: {
-        beginAtZero: false,
+        beginAtZero: true,
         max: 100,
         min: 0,
         stepSize: 10
       }
     }
   };
-  public radarChartLabels: Label[] = ['Eating', 'Drinking', 'Sleeping'];
-
-  public radarChartData: ChartDataSets[] = [
-    { data: [85, 100, 70], label: 'Series B' }
-  ];
+  public radarChartLabels: Label[] = ['Endurance', 'BMI', 'Speed'];
+  public radarChartDataArr = [];
   public radarChartType: ChartType = 'radar';
-
+  public endurance = 0;
+  public bmi = 0;
+  public speed = 0;
+  public rateEndurance;
+  public rateBmi;
+  public rateSpeed;
+  public divStyle;
+  public radarChartData: ChartDataSets[] = [
+    { data: this.radarChartDataArr, label: 'Series B' }
+  ];
   constructor(
     private authService: AuthService,
     private teamService: TeamService
   ) {
     this.authUser = authService;
+    this.getUserIndexAndRate();
   }
 
   ngOnInit() {
@@ -56,9 +63,36 @@ export class TraineeProfilesComponent implements OnInit {
       });
     this.dob = new Date(this.user.dob);
     this.age = this.calculateAge(this.dob);
+  }
+  getUserIndexAndRate() {
+    this.divStyle = 'none';
     this.authService.getUserIndex().subscribe((data: Result) => {
       console.log(data);
+      this.endurance = data.value.endurance;
+      this.bmi = data.value.bmi;
+      this.speed = data.value.speed;
+      this.authService
+        .getUserHRTips(this.endurance)
+        .subscribe((enData: Result) => {
+          if (enData.success) {
+            this.rateEndurance = enData.values[0].myStatus;
+          }
+        });
+      this.authService.getUserBMITips(this.bmi).subscribe((bmiData: Result) => {
+        if (bmiData.success) {
+          this.rateBmi = bmiData.values[0].myStatus;
+        }
+      });
+      this.authService
+        .getUserSpeedTips(this.speed)
+        .subscribe((speedData: Result) => {
+          if (speedData.success) {
+            this.rateSpeed = speedData.values[0].myStatus;
+          }
+        });
     });
+    this.radarChartData = [{ data: [50, 60, 90], label: 'Series B' }];
+    this.divStyle = 'block';
   }
   public calculateAge(birthday: Date) {
     // birthday is a date

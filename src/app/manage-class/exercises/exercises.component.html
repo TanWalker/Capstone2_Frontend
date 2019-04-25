@@ -1,49 +1,56 @@
-<div [ngClass]="isMobile ? '':'content-desktop'"  style="display: inline-table;width:100%;">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <span>Quản lý bài tập</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <div class="row">
-    <div class="col-xs-6 padding-left-0">
-      <button mat-flat-button color="success" (click)="openDialogSwimStyle()" class="margin-right-5 full-width">
-        Kiểu bơi <i class="far fa-swimmer"></i></button>
-    </div>
-    <div class="col-xs-6 padding-right-0">
-      <button mat-flat-button color="primary" (click)="openDialogDistance()" class="full-width">
-        Khoảng cách <i class="far fa-water"></i>
-      </button>
-    </div>
-  </div>
-  <button mat-flat-button color="light-blue" (click)="openDialogAddLesson()" class="btn-huge-large">Thêm bài tập <i
-      class="far fa-calendar-plus icon-fa-huge-large"></i></button>
-  <mat-divider></mat-divider>
+<div class="row" style="max-width: 842px;">
+  <div class="col-lg-6 padding-0">
+    <div [ngClass]="isMobile ? '':'content-desktop'" style="display: inline-table;width:100%;">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>Quản lý bài tập</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div class="row">
+        <div class="col-xs-6 padding-left-0">
+          <button mat-flat-button color="success" (click)="openDialogSwimStyle()" class="margin-right-5 full-width">
+            Kiểu bơi <i class="far fa-swimmer"></i></button>
+        </div>
+        <div class="col-xs-6 padding-right-0">
+          <button mat-flat-button color="primary" (click)="openDialogDistance()" class="full-width">
+            Khoảng cách <i class="far fa-water"></i>
+          </button>
+        </div>
+      </div>
+      <button mat-flat-button color="light-blue" (click)="openDialogAddLesson()" class="btn-huge-large">Thêm bài tập <i
+          class="far fa-calendar-plus icon-fa-huge-large"></i></button>
+      <mat-divider></mat-divider>
 
-  <!-- <div *ngIf="exercises.length === 0">
+      <!-- <div *ngIf="exercises.length === 0">
    {{ message.message.have_not_exercise }}
 </div> -->
 
-  <mat-expansion-panel *ngFor="let type of typeOfExercises">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-      {{ type?.name }}
-      </mat-panel-title>
-      <mat-panel-description>
-      
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="exercise-box">
-      <div *ngFor="let item of exercises" >
-        <div *ngIf="item.type_id === type.id">
-          <hr>
-        <app-exercise [exercise]="item" [logo]="type.logo" (add)="isSended($event)" ></app-exercise>
-      </div>
-      </div>
-    </div>
-   
-  </mat-expansion-panel>
-  
-</div>
+      <mat-expansion-panel *ngFor="let type of typeOfExercises">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ type?.name }}
+          </mat-panel-title>
+          <mat-panel-description>
 
-<div [ngClass]="isMobile ? '':'content-desktop lessonplan-desktop'" ><app-lesson-plan></app-lesson-plan></div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="exercise-box">
+          <div *ngFor="let item of exercises">
+            <div *ngIf="item.type_id === type.id">
+              <hr>
+              <app-exercise [exercise]="item" [logo]="type.logo" (add)="isSended($event)"></app-exercise>
+            </div>
+          </div>
+        </div>
+
+      </mat-expansion-panel>
+
+    </div>
+  </div>
+  <div class="col-lg-6 padding-0">
+    <div [ngClass]="isMobile ? '':'content-desktop lessonplan-desktop'">
+      <app-lesson-plan></app-lesson-plan>
+    </div>
+  </div>
+</div>
 <div *ngIf="isMobile" style="height: 70px;display:block;"></div>

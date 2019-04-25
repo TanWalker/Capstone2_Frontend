@@ -38,7 +38,8 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
       this.notificationService.getNotification().subscribe(
             (notification) => {
               if (notification.isAdd) {
-                this.addRecord(this.record);
+                // this.addRecord(this.record);
+                console.log(this.record);
               }
             }
           );

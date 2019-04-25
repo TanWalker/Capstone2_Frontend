@@ -179,6 +179,7 @@ export class RecordComponent implements OnInit, OnDestroy {
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.notificationService.fireEvent();
+        // console.log(this.members);
       }
     });
   }

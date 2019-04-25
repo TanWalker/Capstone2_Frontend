@@ -81,6 +81,17 @@ export class AuthService {
   public getUserIndex() {
     return this.http.get(`${environment.urls.api}` + `/getUserIndex`);
   }
+  public getUserBMITips(bmi) {
+    return this.http.get(`${environment.urls.api}` + `/getUserBMITips/${bmi}`);
+  }
+  public getUserHRTips(hr) {
+    return this.http.get(`${environment.urls.api}` + `/getUserHRTips/${hr}`);
+  }
+  public getUserSpeedTips(speed) {
+    return this.http.get(
+      `${environment.urls.api}` + `/getUserSpeedTips/${speed}`
+    );
+  }
   // private getAuthData() {
   //   const token = localStorage.getItem('access_token');
   // //  const expirationDate: any = localStorage.getItem('expires_at');
