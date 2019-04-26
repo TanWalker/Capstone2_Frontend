@@ -6,20 +6,19 @@ import { isNullOrUndefined } from 'util';
   providedIn: 'root'
 })
 export class NotificationService {
-
   private subject = new Subject<any>();
 
-  constructor() {
-  }
+  constructor() {}
   public getNotification() {
-    if (!isNullOrUndefined(this.subject)) { return this.subject.asObservable(); }
+    if (!isNullOrUndefined(this.subject)) {
+      return this.subject.asObservable();
+    }
   }
 
   public destroySubject() {
-    if (this.subject !== null) {this.subject.unsubscribe(); }
+    this.subject = new Subject<any>();
   }
   public fireEvent() {
-    this.subject.next( { isAdd : true } );
+    this.subject.next({ isAdd: true });
   }
-
 }

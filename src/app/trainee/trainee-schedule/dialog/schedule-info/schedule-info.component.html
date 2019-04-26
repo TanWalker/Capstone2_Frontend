@@ -12,9 +12,8 @@
       {{ record?.exercise.user.display_name || 'Chưa có' }}
     </li> -->
     <li class="list-group-item">
-      <span class="record-item-title">Giờ học</span><span
-        class="title-bar-spacer "></span>
-        <i class="fas fa-clock margin-right-5" style="color: rgb(100, 213, 247); margin-top: 1px;"></i>
+      <span class="record-item-title">Giờ học</span><span class="title-bar-spacer "></span>
+      <i class="fas fa-clock margin-right-5" style="color: rgb(100, 213, 247); margin-top: 1px;"></i>
       {{ convertTwoDigits(schedule?.start_hour) || 'Chưa có' }}:{{ convertTwoDigits(schedule?.start_minute) }} -
       {{ convertTwoDigits(schedule?.end_hour) || 'Chưa có' }}:{{ convertTwoDigits(schedule?.end_minute) }}
     </li>
@@ -27,7 +26,8 @@
       <span class="record-item-title">Warm up </span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
-          <div *ngIf="exercisesWarmUp.type_id == 1"><i class="fas fa-fire margin-right-5" style="color: rgb(255, 95, 21); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
+          <div *ngIf="exercisesWarmUp.type_id == 1"><i class="fas fa-fire margin-right-5"
+              style="color: rgb(255, 95, 21); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
         </div>
       </div>
     </li>
@@ -35,7 +35,8 @@
       <span class="record-item-title">Main stroke </span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
-          <div *ngIf="exercisesWarmUp.type_id == 2"><i class="fas fa-swimmer margin-right-5" style="color: rgb(51, 139, 255); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
+          <div *ngIf="exercisesWarmUp.type_id == 2"><i class="fas fa-swimmer margin-right-5"
+              style="color: rgb(51, 139, 255); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
         </div>
       </div>
     </li>
@@ -44,7 +45,13 @@
       <span class="record-item-title">Final set</span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
-          <div *ngIf="exercisesWarmUp.type_id == 3"><i class="fas fa-exclamation margin-right-5" style="color: rgb(252, 150, 34); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
+          <div *ngIf="exercisesWarmUp.type_id == 3">
+            <i class="fas fa-exclamation margin-right-5" style="color: rgb(252, 150, 34); margin-top: 1px;"></i>
+            {{exercisesWarmUp.name}}
+            <!-- <button mat-icon-button>
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+          </button> -->
+          </div>
         </div>
       </div>
     </li>
@@ -52,7 +59,8 @@
       <span class="record-item-title">Swim down</span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
-          <div *ngIf="exercisesWarmUp.type_id == 4"><i class="fas fa-swimming-pool margin-right-5" style="color: rgb(0, 164, 175); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
+          <div *ngIf="exercisesWarmUp.type_id == 4"><i class="fas fa-swimming-pool margin-right-5"
+              style="color: rgb(0, 164, 175); margin-top: 1px;"></i> {{exercisesWarmUp.name}}</div>
         </div>
       </div>
     </li>

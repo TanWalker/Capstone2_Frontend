@@ -56,7 +56,6 @@ export class RecordComponent implements OnInit, OnDestroy {
   public currentScheduledDate: NgbDateStruct;
   public currentDateValue: any;
   public selectedDate: Date = new Date();
-
   // main variable
   public isMobile = false;
   public schedules: Schedule[] = [];
@@ -122,18 +121,25 @@ export class RecordComponent implements OnInit, OnDestroy {
         if (data.success) {
           // hidden message haven't schedule
           this.isHaventSchedule = false;
-
           // assign data
           this.schedules = data.values;
           console.log(data);
           // tslint:disable-next-line:no-unused-expression
           !isDefault ? (this.currentSchedule = this.schedules[0]) : 0;
           // tslint:disable-next-line:no-unused-expression
-          !isDefault ? this.getListFinalExerciseByLessonID(this.currentSchedule.lesson_id) : 0;
+          !isDefault
+            ? this.getListFinalExerciseByLessonID(
+                this.currentSchedule.lesson_id
+              )
+            : 0;
         } else {
           // if we dont have team for this schedule we will reset it
           this.members = [];
+          this.FinalExercises = [];
+          this.schedules = [];
           this.isHaventSchedule = true;
+          this.currentFinalExercise = null;
+          this.currentSchedule = null;
         }
       });
   }
@@ -156,6 +162,8 @@ export class RecordComponent implements OnInit, OnDestroy {
       .getMemberByTeam(this.currentSchedule.team_id)
       .subscribe((data: Result) => {
         this.members = data.success ? data.values : [];
+        this.notificationService.destroySubject();
+        console.log(this.members);
       });
   }
   // default lesson

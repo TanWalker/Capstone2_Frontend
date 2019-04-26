@@ -4,56 +4,63 @@
       <span>Thành tích</span>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class="row">
-    <div class="col-xs">
-      <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate" (click)="onChangeDate(currentScheduledDate)"></ngb-datepicker>
+  <div>
+    <div class="row center-xs">
+      <ngb-datepicker [(ngModel)]="currentScheduledDate" [startDate]="currentScheduledDate"
+        (click)="onChangeDate(currentScheduledDate)"></ngb-datepicker>
     </div>
-    <div class="col-xs">
-      <div ngbDropdown class="d-inline-block full-width">
-        <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          {{currentSchedule?.lesson_name}}
-        </button>
-        <div ngbDropdownMenu class="record-drop-down">
-          <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
-            {{schedule.lesson_name}}
+    <div class="row margin-top-5">
+      <div class="col-xs">
+        <div ngbDropdown class="d-inline-block full-width" style="max-width: 230px;">
+          <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+            {{currentSchedule?.lesson_name}}
           </button>
+          <div ngbDropdownMenu class="record-drop-down">
+            <button ngbDropdownItem *ngIf="schedules == []">Không có giáo án</button>
+            <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
+              {{schedule.lesson_name}}
+            </button>
+          </div>
         </div>
       </div>
-      <div ngbDropdown class="d-inline-block full-width">
-        <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-          {{currentFinalExercise?.name}}
-        </button>
-        <div ngbDropdownMenu class="record-drop-down">
-          <button ngbDropdownItem *ngFor="let finalExercise of FinalExercises" on-click="onChangeFinalSet(finalExercise)">
-            {{finalExercise?.name}}
+      <div class="col-xs">
+        <div ngbDropdown class="d-inline-block full-width" style="max-width: 230px;">
+          <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
+            {{currentFinalExercise?.name}}
           </button>
+          <div ngbDropdownMenu class="record-drop-down">
+            <button ngbDropdownItem *ngIf="FinalExercises == []">Không có bài tập</button>
+            <button ngbDropdownItem *ngFor="let finalExercise of FinalExercises"
+              on-click="onChangeFinalSet(finalExercise)">
+              {{finalExercise?.name}}
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <button class="margin-top-20 margin-bottom-10" mat-raised-button color="light-blue" (click)="fireNotification()">
-    Lưu
-    </button>
+    <div class="row center-xs">
+      <button class="margin-top-20 margin-bottom-10 full-width" style="max-width: 100px;" mat-raised-button
+        color="light-blue" (click)="fireNotification()">
+        Lưu
+      </button>
+    </div>
   </div>
- <mat-divider></mat-divider> 
-<div class="margin-top-15" *ngIf= "!isHaventSchedule">
-  <div *ngFor="let member of members" >
-    <app-single-record 
-    [member]="member"
-    [currentSchedule]="currentSchedule"
-    [currentFinalExercise]="currentFinalExercise"
-    ></app-single-record>
+  <mat-divider></mat-divider>
+  <div class="margin-top-15" *ngIf="!isHaventSchedule">
+    <div *ngFor="let member of members">
+      <app-single-record [member]="member" [currentSchedule]="currentSchedule"
+        [currentFinalExercise]="currentFinalExercise"></app-single-record>
+    </div>
   </div>
 
-</div>
+  <div class="margin-top-15" *ngIf="isHaventSchedule">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span> {{ message.message.haventSchedule }} </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
 
-<div class="margin-top-15" *ngIf= "isHaventSchedule">
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <span> {{ message.message.haventSchedule }} </span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
- 
   <!-- <button (click)="testAddRecord()"> aaa</button> -->
   <h3 class="empty-list"></h3>
 

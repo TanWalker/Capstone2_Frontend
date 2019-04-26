@@ -63,6 +63,7 @@ export class ManageClassComponent implements OnInit {
     }
     if (
       this.currentUrl === '/class/exercises' ||
+      this.currentUrl === '/class/record' ||
       this.currentUrl === '/class/schedule'
     ) {
       this.exerciseParentsTab = true;
