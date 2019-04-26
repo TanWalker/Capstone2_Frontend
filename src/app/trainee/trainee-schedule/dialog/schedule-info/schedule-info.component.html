@@ -42,15 +42,15 @@
     </li>
 
     <li class="list-group-item flex-space-between">
-      <span class="record-item-title">Final set</span>
+      <span class="record-item-title">Final set:</span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
           <div *ngIf="exercisesWarmUp.type_id == 3">
             <i class="fas fa-exclamation margin-right-5" style="color: rgb(252, 150, 34); margin-top: 1px;"></i>
             {{exercisesWarmUp.name}}
-            <!-- <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-          </button> -->
+            <a [href]="apiUrl+'/miband'+'/'+schedule.coach_id+'/'+user.id+'/'+schedule.id+'/'+exercisesWarmUp.id" target="_blank" mat-icon-button>
+              <i class="fas fa-heartbeat" style="color: red;"></i>
+            </a>
           </div>
         </div>
       </div>
