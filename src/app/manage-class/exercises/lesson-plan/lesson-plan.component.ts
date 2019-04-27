@@ -128,7 +128,7 @@ export class LessonPlanComponent implements OnInit, OnDestroy {
           this.lessons = data.values;
           if (data.values.length !== 0) {
             this.currentLesson = this.lessons[0];
-            console.log(this.currentLesson);
+            // console.log(this.currentLesson);
             this.changeLesson(this.currentLesson.id);
           }
         }

@@ -44,9 +44,9 @@ export class DistanceComponent implements OnInit {
         this.exerciseService
           .deleteDistanceById(this.distance.id)
           .subscribe((result: Result) => {
-            console.log(result);
+            // console.log(result);
             if (result.success) {
-              console.log('deleted style');
+              // console.log('deleted style');
               messageDialogRef.close(true);
               this.isRefresh.emit(true);
               this.snackBar.open(
@@ -57,7 +57,7 @@ export class DistanceComponent implements OnInit {
                 }
               );
             } else {
-              console.log('delete error');
+              // console.log('delete error');
             }
           });
       }

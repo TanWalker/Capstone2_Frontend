@@ -47,7 +47,7 @@ export class TechniquesComponent implements OnInit {
   ngOnInit() {
     // check mobile or desktop
     this.isMobile = this.deviceService.isMobile();
-    console.log(this.getRandomColor());
+    // console.log(this.getRandomColor());
     this.randColor = this.getRandomColor();
     // this.exerciseService
     //   .getAllStyle()
@@ -59,7 +59,7 @@ export class TechniquesComponent implements OnInit {
     this.exerciseService
       .getAllStyleWithBackground()
       .subscribe((data: Result) => {
-        console.log(data);
+        // console.log(data);
         if (data.success) {
           this.swimStyles = data.values;
         }

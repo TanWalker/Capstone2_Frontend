@@ -21,6 +21,6 @@ export class RecordDetailComponent implements OnInit {
 
   ngOnInit() {
     this.record = this.data.record;
-    console.log(this.record);
+    // console.log(this.record);
   }
 }

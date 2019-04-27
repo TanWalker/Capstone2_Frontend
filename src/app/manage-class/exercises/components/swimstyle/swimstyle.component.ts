@@ -29,7 +29,7 @@ export class SwimstyleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.last);
+    // console.log(this.last);
   }
   deleteThisStyle() {
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
@@ -46,9 +46,9 @@ export class SwimstyleComponent implements OnInit {
         this.exerciseService
           .deleteStylebyId(this.style.id)
           .subscribe((result: Result) => {
-            console.log(result);
+            // console.log(result);
             if (result.success) {
-              console.log('deleted style');
+              // console.log('deleted style');
               messageDialogRef.close(true);
               this.isRefresh.emit(true);
               this.snackBar.open(
@@ -59,7 +59,7 @@ export class SwimstyleComponent implements OnInit {
                 }
               );
             } else {
-              console.log('delete error');
+              // console.log('delete error');
             }
           });
       }

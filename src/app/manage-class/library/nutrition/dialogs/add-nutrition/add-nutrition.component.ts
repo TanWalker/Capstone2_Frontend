@@ -40,7 +40,7 @@ export class AddNutritionComponent implements OnInit {
             });
           }
           if (!result.success) {
-            console.log(result);
+            // console.log(result);
             this.snackBar.open('Lỗi! không thể thêm video', 'Đóng', {
               duration: 6000
             });
@@ -57,10 +57,10 @@ export class AddNutritionComponent implements OnInit {
       const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
       const match = url.match(regExp);
       if (match && match[2].length === 11) {
-        console.log('valid');
+        // console.log('valid');
         return true;
       } else {
-        console.log('not valid');
+        // console.log('not valid');
         return false;
       }
     }

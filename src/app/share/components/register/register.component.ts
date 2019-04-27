@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   regis() {
       this.userService.regis(this.user).subscribe(
         (res: Result) => {
-            console.log(res);
+            // console.log(res);
         }
       );
   }

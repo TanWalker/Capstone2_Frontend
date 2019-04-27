@@ -26,7 +26,7 @@ export class UserGuard implements CanActivate {
 
     // not a vendor in so redirect to login page with the return url
     this.router.navigate([''], { queryParams: { returnUrl: state.url } });
-    console.log('is');
+    // console.log('is');
     return false;
   }
 }

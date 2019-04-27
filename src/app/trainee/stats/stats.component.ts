@@ -45,7 +45,7 @@ export class StatsComponent implements OnInit {
     event: MouseEvent;
     active: {}[];
   }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
   public chartClicked({
     event,
@@ -54,7 +54,7 @@ export class StatsComponent implements OnInit {
     event: MouseEvent;
     active: {}[];
   }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
 
   public selectMonth(event) {
@@ -93,7 +93,7 @@ export class StatsComponent implements OnInit {
             this.recordExercises = data.values;
           } else {
             this.recordExercises = null;
-            console.log(data.errorMessage);
+            // console.log(data.errorMessage);
           }
         });
     }
@@ -113,7 +113,7 @@ export class StatsComponent implements OnInit {
             this.recordExercises = data.values;
           } else {
             this.recordExercises = null;
-            console.log(data.errorMessage);
+            // console.log(data.errorMessage);
           }
         });
     }
@@ -124,7 +124,7 @@ export class StatsComponent implements OnInit {
       (!this.isFilterbyYearOnly && this.year === undefined) ||
       (!this.isFilterbyYearOnly && this.month === undefined)
     ) {
-      console.log(this.isFilterbyYearOnly);
+      // console.log(this.isFilterbyYearOnly);
       this.snackBar.open('Vui lòng chọn tháng, năm!', 'Đóng', {
         duration: 2000
       });

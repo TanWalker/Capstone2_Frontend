@@ -25,7 +25,7 @@ export class VersionBoxComponent implements OnInit, OnDestroy {
     this.subVersion = this.versionService
       .getAppVersion()
       .subscribe((res: Result) => {
-        console.log(res);
+        // console.log(res);
         this.version = res.success ? res.value : '';
       });
   }

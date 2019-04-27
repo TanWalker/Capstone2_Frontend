@@ -39,7 +39,7 @@ export class SwimstylesComponent implements OnInit {
     this.getSwimStyle();
   }
   addSwimStyle() {
-    console.log(this.SwimStyle);
+    // console.log(this.SwimStyle);
     const messageDialogRef = this.dialog.open(MessageBoxComponent, {
       data: {
         title: this.message.box.title,
@@ -55,8 +55,8 @@ export class SwimstylesComponent implements OnInit {
           .addStyle(this.SwimStyle)
           .subscribe((result: Result) => {
             if (result.success) {
-              console.log('generated');
-              console.log(result.values);
+              // console.log('generated');
+              // console.log(result.values);
               messageDialogRef.close(true);
               this.getSwimStyle();
               this.snackBar.open(
@@ -70,7 +70,7 @@ export class SwimstylesComponent implements OnInit {
               this.SwimStyle.description = '';
               this.isAddDisabled = true;
             } else {
-              console.log('create error');
+              // console.log('create error');
             }
           });
       }
@@ -91,14 +91,14 @@ export class SwimstylesComponent implements OnInit {
       .subscribe((data: Result) => {
         if (data.success) {
           this.styles = data.values;
-          console.log(this.styles);
+          // console.log(this.styles);
         } else {
-          console.log('Can not get swim style');
+          // console.log('Can not get swim style');
         }
       });
   }
   refreshSwimStyle($event) {
-    console.log($event);
+    // console.log($event);
     if ($event) {
       setTimeout(() => {
         this.getSwimStyle();

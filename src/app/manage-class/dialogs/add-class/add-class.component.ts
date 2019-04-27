@@ -83,11 +83,11 @@ export class AddClassComponent implements OnInit {
           .createTeam(this.class)
           .subscribe((result: Result) => {
             if (result.success) {
-              console.log('generated');
-              console.log(result.values);
+              // console.log('generated');
+              // console.log(result.values);
               this.dialogRef.close(true);
             } else {
-              console.log('create error');
+              // console.log('create error');
             }
             // closeloading
           });

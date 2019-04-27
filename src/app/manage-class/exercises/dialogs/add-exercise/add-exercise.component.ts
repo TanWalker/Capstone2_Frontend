@@ -65,7 +65,7 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
         this.styles = data.values ;
         this.currentStyle = this.styles[0];
       } else {
-        console.log('Can not get swim style');
+        // console.log('Can not get swim style');
       }
       }
     );
@@ -76,7 +76,7 @@ export class AddExerciseComponent implements OnInit, OnDestroy {
         if (data.success) {
           this.distances = data.values ;
         } else {
-          console.log('Can not get distance');
+          // console.log('Can not get distance');
         }
       }
     );

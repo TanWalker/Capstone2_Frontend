@@ -114,7 +114,7 @@ export class RecordByYearComponent implements OnInit {
     //     if (data.success) {
     //       // console.log(data);
     //       this.records = data.values;
-    //       console.log(this.records.length);
+    //       // console.log(this.records.length);
     //       this.records.forEach(record => {
     //         // if (this.count < 10) {
     //         this.barChartLabels.push('Ngày ' + record.schedule.day.toString());
@@ -129,7 +129,7 @@ export class RecordByYearComponent implements OnInit {
     //       this.divStyle = 'block';
     //       setTimeout(function() {
     //         this.widthChart = '100';
-    //         console.log('hello');
+    //         // console.log('hello');
     //       }, 100);
     //       // this.widthChart = '100';
     //     }
@@ -140,7 +140,7 @@ export class RecordByYearComponent implements OnInit {
       .subscribe((data: Result) => {
         if (data.success) {
           this.MonthlyRecord = data.values;
-          console.log(this.MonthlyRecord.length);
+          // console.log(this.MonthlyRecord.length);
           this.MonthlyRecord.forEach(record => {
             // if (this.count < 10) {
             this.barChartLabels.push(record.month.toString());
@@ -154,9 +154,9 @@ export class RecordByYearComponent implements OnInit {
           // this.widthChart = 1200;
           this.divStyle = 'block';
           // this.widthChart = '100';
-          console.log(this.times);
-          console.log(this.heart_rate);
-          console.log(this.barChartLabels);
+          // console.log(this.times);
+          // console.log(this.heart_rate);
+          // console.log(this.barChartLabels);
         }
       });
   }

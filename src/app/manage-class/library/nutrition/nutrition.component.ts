@@ -37,7 +37,7 @@ export class NutritionComponent implements OnInit {
       if (res) {
         this.getNutrition();
       }
-      console.log(res);
+      // console.log(res);
     });
   }
   getNutrition() {

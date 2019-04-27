@@ -43,7 +43,7 @@ export class DistancesComponent implements OnInit {
       if (data.success) {
         this.distances = data.values;
       } else {
-        console.log('Can not get swim style');
+        // console.log('Can not get swim style');
       }
     });
   }
@@ -63,8 +63,8 @@ export class DistancesComponent implements OnInit {
           .addDistance(this.distance)
           .subscribe((result: Result) => {
             if (result.success) {
-              console.log('generated');
-              console.log(result.values);
+              // console.log('generated');
+              // console.log(result.values);
               messageDialogRef.close(true);
               this.getDistances();
               this.snackBar.open(
@@ -77,7 +77,7 @@ export class DistancesComponent implements OnInit {
               this.distance.swim_distance = null;
               // this.isAddDisabled = true;
             } else {
-              console.log('create error');
+              // console.log('create error');
             }
           });
       }
@@ -93,7 +93,7 @@ export class DistancesComponent implements OnInit {
     }
   }
   refreshDistances($event) {
-    console.log($event);
+    // console.log($event);
     if ($event) {
       setTimeout(() => {
         this.getDistances();

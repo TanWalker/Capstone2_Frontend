@@ -67,7 +67,7 @@ export class TraineeProfilesComponent implements OnInit {
   getUserIndexAndRate() {
     this.divStyle = 'none';
     this.authService.getUserIndex().subscribe((data: Result) => {
-      console.log(data);
+      // console.log(data);
       this.endurance = data.value.endurance;
       this.bmi = data.value.bmi;
       this.speed = data.value.speed;

@@ -80,14 +80,14 @@ export class AddMemberComponent implements OnInit, OnDestroy {
         for (this.count = 0; this.count < this.users.length; this.count++) {
           this.members.forEach(element => {
             if (this.users[this.count]['id'] === element['id']) {
-              console.log(this.users[this.count]['id']);
-              console.log(element['id']);
+              // console.log(this.users[this.count]['id']);
+              // console.log(element['id']);
               this.users.splice(this.count, 1);
             }
           });
         }
-        console.log(this.users);
-        console.log(this.members);
+        // console.log(this.users);
+        // console.log(this.members);
         this.usersSearch = this.users;
       });
   }

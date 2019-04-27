@@ -52,7 +52,7 @@ export class ClassesComponent implements OnInit, OnDestroy {
         this.teams = data.values;
         this.isLoading = false;
       } else {
-        console.log(data.errorMessage);
+        // console.log(data.errorMessage);
         this.isLoading = false;
       }
     });
@@ -68,11 +68,11 @@ export class ClassesComponent implements OnInit, OnDestroy {
       if (res) {
         this.getTeam();
       }
-      console.log(res);
+      // console.log(res);
     });
   }
   refresh($event) {
-    console.log($event);
+    // console.log($event);
     if ($event) {
       setTimeout(() => {
         this.getTeam();

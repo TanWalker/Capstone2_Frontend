@@ -38,7 +38,7 @@ export class FeedBackBoxComponent implements OnInit {
   sendFeedBack() {
     this.feedBackService.sendFeedBack(this.feedBack).subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
       }
     );
   }

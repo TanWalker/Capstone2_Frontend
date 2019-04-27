@@ -136,7 +136,7 @@ export class ProfilesComponent implements OnInit {
               duration: 6000
             });
           } else {
-            console.log(response);
+            // console.log(response);
           }
           this.user.is_verified = true;
           this.authService.setOnlyUser(this.user);

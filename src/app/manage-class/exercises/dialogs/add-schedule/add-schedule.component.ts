@@ -114,8 +114,8 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
         this.subCreate = this.scheduleService
           .addSchedule(this.schedule)
           .subscribe((result: Result) => {
-            console.log(result);
-            console.log(this.schedule);
+            // console.log(result);
+            // console.log(this.schedule);
             result.success
               ? this.dialogRef.close(true)
               : console.log('create schedule fail');

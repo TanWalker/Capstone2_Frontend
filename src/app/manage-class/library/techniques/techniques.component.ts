@@ -28,10 +28,10 @@ export class TechniquesComponent implements OnInit, AfterViewInit {
     this.isMobile = this.deviceService.isMobile();
   }
   ngAfterViewInit() {
-    console.log('done load youtube');
+    // console.log('done load youtube');
   }
   print() {
-    console.log(this.swimStyles.length);
+    // console.log(this.swimStyles.length);
   }
   openDialogAddVideo() {
     const dialogRef = this.dialog.open(AddVideoComponent, {
@@ -43,7 +43,7 @@ export class TechniquesComponent implements OnInit, AfterViewInit {
       if (res) {
         this.getCategory();
       }
-      console.log(res);
+      // console.log(res);
     });
   }
   getCategory() {

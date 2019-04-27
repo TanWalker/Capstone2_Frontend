@@ -123,7 +123,7 @@ export class RecordComponent implements OnInit, OnDestroy {
           this.isHaventSchedule = false;
           // assign data
           this.schedules = data.values;
-          console.log(data);
+          // console.log(data);
           // tslint:disable-next-line:no-unused-expression
           !isDefault ? (this.currentSchedule = this.schedules[0]) : 0;
           // tslint:disable-next-line:no-unused-expression
@@ -163,7 +163,7 @@ export class RecordComponent implements OnInit, OnDestroy {
       .subscribe((data: Result) => {
         this.members = data.success ? data.values : [];
         this.notificationService.destroySubject();
-        console.log(this.members);
+        // console.log(this.members);
       });
   }
   // default lesson
@@ -187,7 +187,7 @@ export class RecordComponent implements OnInit, OnDestroy {
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.notificationService.fireEvent();
-        // console.log(this.members);
+        // console.log('xong');
       }
     });
   }

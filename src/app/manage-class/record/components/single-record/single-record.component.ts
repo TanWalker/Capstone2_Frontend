@@ -31,15 +31,15 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
     this.record.schedule_id = this.currentSchedule.id;
     this.record.exercise_id = this.currentFinalExercise.id;
     this.record.user_id = this.member.id;
-    console.log(this.record);
+    // console.log(this.record);
     this.getNotification();
   }
   getNotification() {
       this.notificationService.getNotification().subscribe(
             (notification) => {
               if (notification.isAdd) {
-                // this.addRecord(this.record);
-                console.log(this.record);
+                this.addRecord(this.record);
+                // console.log(this.record);
               }
             }
           );
@@ -52,7 +52,7 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
 
   addRecord(record: Record) {
     this.recordService.addRecord(record).subscribe((res: Result) => {
-      console.log(res);
+      // console.log(res);
     });
   }
 

@@ -30,7 +30,7 @@ export class InCategoryComponent implements OnInit {
     this.youtubeService
       .getYoutubeByStyleId(this.idStyle)
       .subscribe((data: Result) => {
-        console.log(data);
+        // console.log(data);
         if (data.success) {
           this.youtubeLinks = data.values;
         }

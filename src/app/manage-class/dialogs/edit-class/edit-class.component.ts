@@ -76,7 +76,7 @@ export class EditClassComponent implements OnInit {
     }
   }
   updateTeam() {
-    console.log('update team');
+    // console.log('update team');
     // set isSubmit
     this.isSubmit = true;
 

@@ -92,11 +92,11 @@ export class DetailScheduleComponent implements OnInit {
       hour: this.data.schedule.end.getHours(),
       minute: this.data.schedule.end.getMinutes()
     };
-    console.log(this.data);
+    // console.log(this.data);
   }
   saveSchedule() {
     // init value
-    console.log(this.currentTeam);
+    // console.log(this.currentTeam);
     this.schedule.id = this.data.schedule.meta.id;
     this.schedule.lesson_id = this.currentLesson.id;
     this.schedule.lesson_name = this.currentLesson.name;
@@ -115,7 +115,7 @@ export class DetailScheduleComponent implements OnInit {
       .updateSchedule(this.schedule)
       .subscribe((result: Result) => {
         if (result.success) {
-          console.log(result);
+          // console.log(result);
           this.dialogRef.close(true);
           this.snackBar.open(
             this.message.snackBar.success,
@@ -161,7 +161,7 @@ export class DetailScheduleComponent implements OnInit {
           x => x.id === this.data.schedule.meta.team_id
         );
         this.currentTeam = this.teams[index];
-        console.log(this.currentTeam);
+        // console.log(this.currentTeam);
       });
   }
   getlessons() {
@@ -187,7 +187,7 @@ export class DetailScheduleComponent implements OnInit {
         this.scheduleService
           .deleteSchedule(this.data.schedule.meta.id)
           .subscribe((response: Result) => {
-            console.log(this.data.schedule.meta.id);
+            // console.log(this.data.schedule.meta.id);
             if (response.success) {
               this.dialogRef.close(true);
               this.snackBar.open(

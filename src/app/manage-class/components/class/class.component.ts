@@ -41,10 +41,10 @@ export class ClassComponent implements OnInit {
     this.teamService.getMemberByTeam(this.team.id).subscribe((data: Result) => {
       if (data.success) {
         this.members = data.values;
-        console.log(this.members);
+        // console.log(this.members);
 
       } else {
-        console.log(data.errorMessage);
+        // console.log(data.errorMessage);
       }
     });
   }
@@ -64,7 +64,7 @@ export class ClassComponent implements OnInit {
           .subscribe((result: Result) => {
             if (result.success) {
             } else {
-              console.log(result);
+              // console.log(result);
             }
           });
         this.isRefresh.emit(true);
@@ -109,6 +109,6 @@ export class ClassComponent implements OnInit {
     if ($event) {
       this.getListMember();
     }
-    console.log($event);
+    // console.log($event);
   }
 }
