@@ -72,11 +72,19 @@ export class AuthService {
   }
 
   public isCoach() {
-    return this.currentUser.role_id === message.role.role_coach_id;
+    if (this.currentUser) {
+      return this.currentUser.role_id === message.role.role_coach_id;
+    } else {
+      return false;
+    }
   }
 
   public isTrainee() {
-    return this.currentUser.role_id === message.role.role_trainee_id;
+    if (this.currentUser) {
+      return this.currentUser.role_id === message.role.role_trainee_id;
+    } else {
+      return false;
+    }
   }
   public getUserIndex() {
     return this.http.get(`${environment.urls.api}` + `/getUserIndex`);

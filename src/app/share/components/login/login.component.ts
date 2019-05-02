@@ -38,6 +38,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.initialValidation();
     this.isMobile = this.deviceService.isMobile();
+    if (this.authService.isCoach()) {
+      this.router.navigate(['/class']);
+    }
+    if (this.authService.isTrainee()) {
+      this.router.navigate(['/trainee']);
+    }
   }
 
   initialValidation() {
