@@ -75,7 +75,7 @@ export class DistancesComponent implements OnInit {
                 }
               );
               this.distance.swim_distance = null;
-              // this.isAddDisabled = true;
+              this.isAddDisabled = true;
             } else {
               // console.log('create error');
             }

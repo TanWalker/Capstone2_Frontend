@@ -44,7 +44,7 @@ export class TraineeProfilesComponent implements OnInit {
   public rateSpeed;
   public divStyle;
   public radarChartData: ChartDataSets[] = [
-    { data: this.radarChartDataArr, label: 'Series B' }
+    { data: this.radarChartDataArr, label: 'Chỉ số' }
   ];
   constructor(
     private authService: AuthService,
@@ -91,7 +91,7 @@ export class TraineeProfilesComponent implements OnInit {
           }
         });
     });
-    this.radarChartData = [{ data: [50, 60, 90], label: 'Series B' }];
+    this.radarChartData = [{ data: [50, 60, 90], label: 'Chỉ số' }];
     this.divStyle = 'block';
   }
   public calculateAge(birthday: Date) {
