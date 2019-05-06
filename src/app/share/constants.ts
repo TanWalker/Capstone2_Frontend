@@ -1,7 +1,6 @@
 export const Constants = {
-
   role: {
-    role_coach_id : 2,
+    role_coach_id: 2,
     role_trainee_id: 3
   },
   error: {
@@ -20,7 +19,7 @@ export const Constants = {
     },
     edit_team: {
       name: 'Bạn phải nhập tên cho lớp',
-      age: 'Bạn phải nhập độ tuổi',
+      age: 'Bạn phải nhập độ tuổi'
     },
     create_lesson_plan: {
       name: 'Bạn phải nhập tên giáo án'
@@ -158,12 +157,12 @@ export const Constants = {
       title: 'Đóng'
     },
     update_lesson_plan: {
-      success: 'Chỉnh sửa giáo án thành công!',
+      success: 'Cập nhật giáo án thành công!',
       fail: 'Lỗi! không thể Chỉnh sửa',
       title: 'Đóng'
     },
     update_detail_schedule: {
-      success: 'Chỉnh sửa lịch thành công!',
+      success: 'Cập nhật lịch thành công!',
       fail: 'Lỗi! không thể Chỉnh sửa',
       title: 'Đóng'
     },
@@ -179,7 +178,8 @@ export const Constants = {
       address: 'Chưa có',
       height: 'Chưa có',
       weight: 'Chưa có',
-      avatar: 'https://ucarecdn.com/3c918300-f523-4559-a7f7-af095d7ddce7/people.png'
-    },
+      avatar:
+        'https://ucarecdn.com/3c918300-f523-4559-a7f7-af095d7ddce7/people.png'
+    }
   }
 };

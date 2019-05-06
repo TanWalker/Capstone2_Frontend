@@ -24,6 +24,8 @@ const message = {
 export class ClassComponent implements OnInit {
   @Input() team: Class;
   @Output() isRefresh = new EventEmitter<boolean>();
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() refreshList: EventEmitter<any> = new EventEmitter();
   public message = message;
   public subDelelte: any;
   panelOpenState = false;
@@ -42,7 +44,6 @@ export class ClassComponent implements OnInit {
       if (data.success) {
         this.members = data.values;
         // console.log(this.members);
-
       } else {
         // console.log(data.errorMessage);
       }
@@ -87,7 +88,6 @@ export class ClassComponent implements OnInit {
     });
   }
   addMember() {
-
     const dialogRef = this.dialog.open(AddMemberComponent, {
       disableClose: false,
       maxWidth: '400px',
@@ -96,16 +96,16 @@ export class ClassComponent implements OnInit {
         members: this.members
       },
       panelClass: 'add-class'
-
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-      this.getListMember();
+        // this.getListMember();
+        this.refreshList.emit();
       }
     });
   }
 
-  refreshClass( $event ) {
+  refreshClass($event) {
     if ($event) {
       this.getListMember();
     }

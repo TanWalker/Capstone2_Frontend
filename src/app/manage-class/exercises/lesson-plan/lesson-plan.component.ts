@@ -30,14 +30,14 @@ const message = {
   },
   error: Constants.error.create_lesson_plan.name,
   snackBar: {
-    success: Constants.snackBar.add_lesson_plan.success,
-    fail: Constants.snackBar.add_lesson_plan.fail,
-    title: Constants.snackBar.add_lesson_plan.title
+    success: Constants.snackBar.update_lesson_plan.success,
+    fail: Constants.snackBar.update_lesson_plan.fail,
+    title: Constants.snackBar.update_lesson_plan.title
   },
   snackBarUpdate: {
-    success: Constants.snackBar.add_lesson_plan.success,
-    fail: Constants.snackBar.add_lesson_plan.fail,
-    title: Constants.snackBar.add_lesson_plan.title
+    success: Constants.snackBar.update_lesson_plan.success,
+    fail: Constants.snackBar.update_lesson_plan.fail,
+    title: Constants.snackBar.update_lesson_plan.title
   }
 };
 @Component({
