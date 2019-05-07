@@ -29,13 +29,23 @@ export class TeamService {
     return this.http.get(`${environment.urls.api}` + `/getTeamByCoach`);
   }
   removeTeamMember(member: Member) {
-    return this.http.post(`${environment.urls.api}` + `/removeTeamMember`,  member);
+    return this.http.post(
+      `${environment.urls.api}` + `/removeTeamMember`,
+      member
+    );
+  }
+  getRankByTeam(team_id, exercise_id) {
+    return this.http.post(
+      `${environment.urls.api}` + `/getRankByTeam/`, {team_id, exercise_id}
+    );
   }
   getTeamByID(id: String) {
     return this.http.get(`${environment.urls.api}` + `/getTeamByID/${id}`);
   }
   addTeamMember(team_id: String, user_id: String) {
-    return this.http.put(`${environment.urls.api}` + `/addTeamMember/`, { user_id , team_id });
-
+    return this.http.put(`${environment.urls.api}` + `/addTeamMember/`, {
+      user_id,
+      team_id
+    });
   }
 }

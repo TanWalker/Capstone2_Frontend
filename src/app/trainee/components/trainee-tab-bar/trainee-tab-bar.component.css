@@ -2,6 +2,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  z-index: 10;
   width: 100%;
   background: white;
   color: #a0a0a0;
@@ -9,7 +10,7 @@
   height: 50px;
   font-weight: 600;
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);
   z-index: 999;
 }
 

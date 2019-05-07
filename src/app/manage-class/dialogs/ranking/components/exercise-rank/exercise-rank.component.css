@@ -1,0 +1,25 @@
+.myMedal {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 40px;
+}
+
+.gold-name {
+    margin-top: 5px;
+    color: #FDE475;
+    text-align: center
+}
+
+.silver-name {
+    margin-top: 5px;
+    color: #ADC5DA;
+    text-align: center
+
+}
+
+.brozen-name {
+    margin-top: 5px;
+    color: #F9A357;
+    text-align: center
+}

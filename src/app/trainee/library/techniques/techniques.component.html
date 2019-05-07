@@ -17,11 +17,6 @@
     </div>
   </div>
   <hr>
-  <!-- for coach role -->
-  <div *ngIf="authUser.isCoach()">
-    <button mat-flat-button color="primary" (click)="openDialogAddVideo()">Thêm video mới</button>
-  </div>
-  <!--  -->
   <div class="row margin-top-10">
     <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]"
       [swimStyle]="swimStyle"></app-category>

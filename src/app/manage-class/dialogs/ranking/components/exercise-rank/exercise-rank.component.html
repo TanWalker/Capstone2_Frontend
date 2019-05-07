@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-12 margin-bottom-15">
+      <p>Khoảng cách: {{exercise.distance}}, lần lặp: {{exercise.reps}}</p>
+    </div>
+  </div>
+  <div *ngIf="!top3" class="col-12 margin-bottom-20 margin-top-down-15" style="color: rgb(167, 167, 167);">
+    Bài tập này chưa có xếp hạng học viên nào cả!
+  </div>
+  <div class="row">
+    <div class="col-4" *ngFor="let member of top3; let i = index">
+      <div *ngIf="i == 0">
+        <img src="../../../../assets/medal-gold.svg" class="myMedal">
+        <p class="gold-name">{{member.user.display_name}}</p>
+        <!-- <p class="gold-name">10s</p> -->
+      </div>
+      <div *ngIf="i == 1">
+        <img src="../../../../assets/medal-silver.svg" class="myMedal">
+        <p class="silver-name">{{member.user.display_name}}</p>
+        <!-- <p class="gold-name">10s</p> -->
+      </div>
+      <div *ngIf="i == 2">
+        <img src="../../../../assets/medal-bronze.svg" class="myMedal">
+        <p class="brozen-name">{{member.user.display_name}}</p>
+        <!-- <p class="gold-name">10s</p> -->
+      </div>
+    </div>
+
+  </div>
+</div>

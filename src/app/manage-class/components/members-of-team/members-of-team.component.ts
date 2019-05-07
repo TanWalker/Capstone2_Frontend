@@ -72,7 +72,9 @@ export class MembersOfTeamComponent implements OnInit, OnDestroy {
   openRanking() {
     const dialogRef = this.dialog.open(RankingComponent, {
       disableClose: true,
-      data: { team: this.currentTeam }
+      data: { team: this.currentTeam },
+      maxWidth: '520px',
+      autoFocus: false
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {

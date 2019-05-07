@@ -44,6 +44,8 @@ import { VideoRowComponent } from './library/techniques/components/video-row/vid
 import { NutritionComponent } from './library/nutrition/nutrition.component';
 import { AddNutritionComponent } from './library/nutrition/dialogs/add-nutrition/add-nutrition.component';
 import { NutritionRowComponent } from './library/nutrition/components/nutrition-row/nutrition-row.component';
+import { StyleRankComponent } from './dialogs/ranking/components/style-rank/style-rank.component';
+import { ExerciseRankComponent } from './dialogs/ranking/components/exercise-rank/exercise-rank.component';
 
 @NgModule({
   imports: [
@@ -95,7 +97,9 @@ import { NutritionRowComponent } from './library/nutrition/components/nutrition-
     VideoRowComponent,
     NutritionComponent,
     AddNutritionComponent,
-    NutritionRowComponent
+    NutritionRowComponent,
+    StyleRankComponent,
+    ExerciseRankComponent
   ],
   entryComponents: [
     AddClassComponent,
@@ -111,7 +115,9 @@ import { NutritionRowComponent } from './library/nutrition/components/nutrition-
     CategoryComponent,
     VideoRowComponent,
     AddNutritionComponent,
-    NutritionRowComponent
+    NutritionRowComponent,
+    StyleRankComponent,
+    ExerciseRankComponent
   ],
   providers: [DatePipe]
 })

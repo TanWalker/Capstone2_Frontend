@@ -1,6 +1,7 @@
 .tab-bar {
   position: fixed;
   left: 0;
+  z-index: 10;
   bottom: 0;
   width: 100%;
   background: white;
@@ -9,7 +10,7 @@
   height: 50px;
   font-weight: 600;
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);
 }
 
 @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {

@@ -1,0 +1,9 @@
+<mat-expansion-panel class="margin-top-15">
+  <mat-expansion-panel-header>
+    <mat-panel-title style="font-weight: 500">
+      {{style_name}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+ <app-exercise-rank *ngFor="let exercise of exercises" [exercise]="exercise" [team]="team.team"></app-exercise-rank>
+</mat-expansion-panel>

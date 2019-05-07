@@ -10,24 +10,30 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./ranking.component.css']
 })
 export class RankingComponent implements OnInit, OnDestroy {
-
-  public types: SwimStyle[] = [];
+  public stypes: SwimStyle[] = [];
   public subTypes: any;
+  public ranks;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private exerciseService: ExerciseService,
     private dialogRef: MatDialogRef<RankingComponent>
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.subTypes = this.exerciseService.getAllStyle().subscribe(
-      (data: Result) => {
-        this.types = data.success ? data.values : [];
-      }
-    );
+    this.subTypes = this.exerciseService
+      .getAllStyle()
+      .subscribe((data: Result) => {
+        this.stypes = data.success ? data.values : [];
+      });
+    this.exerciseService.getExerciseGroupByStyle().subscribe((data: Result) => {
+      this.ranks = data.values;
+      // console.log(this.ranks);
+    });
   }
   ngOnDestroy() {
-    if ( this.subTypes !== null) { this.subTypes.unsubscribe(); }
+    if (this.subTypes !== null) {
+      this.subTypes.unsubscribe();
+    }
   }
 
   cancel() {

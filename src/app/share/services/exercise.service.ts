@@ -60,4 +60,9 @@ export class ExerciseService {
       `${environment.urls.api}` + `/getExerciseByLessonID/${lesson_id}`
     );
   }
+  public getExerciseGroupByStyle() {
+    return this.http.get(
+      `${environment.urls.api}` + `/getExerciseGroupByStyle`
+    );
+  }
 }
