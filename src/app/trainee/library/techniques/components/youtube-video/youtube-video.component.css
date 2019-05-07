@@ -17,3 +17,11 @@
   text-overflow: ellipsis;
   color: rgb(102, 102, 102);
 }
+.frame-thumb{
+  height: 100%;
+  max-height: 74px;
+  max-width: 131px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}

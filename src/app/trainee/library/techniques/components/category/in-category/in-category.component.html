@@ -6,8 +6,10 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="row">
-    <app-youtube-video class="col col-inCat" *ngFor="let youtubeLink of youtubeLinks" [youtubeLink]="youtubeLink.link">
-    </app-youtube-video>
+      <div class="col-sm" *ngFor="let youtubeLink of youtubeLinks">
+          <app-youtube-video [youtubeLink]="youtubeLink.link">
+          </app-youtube-video>
+        </div>
     <div *ngIf="!youtubeLinks">Không có video nào cả</div>
   </div>
 </div>

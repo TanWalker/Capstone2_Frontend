@@ -33,7 +33,7 @@ export class TraineeProfilesComponent implements OnInit {
       }
     }
   };
-  public radarChartLabels: Label[] = ['Endurance', 'BMI', 'Speed'];
+  public radarChartLabels: Label[] = ['BMI', 'Speed', 'Endurance'];
   public radarChartDataArr = [];
   public radarChartType: ChartType = 'radar';
   public endurance = 0;
@@ -71,6 +71,7 @@ export class TraineeProfilesComponent implements OnInit {
       this.endurance = data.value.endurance;
       this.bmi = data.value.bmi;
       this.speed = data.value.speed;
+      console.log(this.endurance + ',' + this.bmi + ',' + this.speed);
       this.authService
         .getUserHRTips(this.endurance)
         .subscribe((enData: Result) => {
@@ -90,8 +91,10 @@ export class TraineeProfilesComponent implements OnInit {
             this.rateSpeed = speedData.values[0].myStatus;
           }
         });
+      this.radarChartData = [
+        { data: [this.bmi, this.speed, this.endurance], label: 'Chỉ số' }
+      ];
     });
-    this.radarChartData = [{ data: [50, 60, 90], label: 'Chỉ số' }];
     this.divStyle = 'block';
   }
   public calculateAge(birthday: Date) {

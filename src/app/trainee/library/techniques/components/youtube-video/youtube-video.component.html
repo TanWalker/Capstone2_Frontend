@@ -1,4 +1,6 @@
 <a [href]="youtubeLink" target="_blank" class="youtube-thumb">
-  <img src="{{youtubeInfo?.thumbnailUrl}}">
+  <div class="frame-thumb">
+    <img src="{{youtubeInfo?.thumbnailUrl}}">
+  </div>
   <span>{{youtubeInfo?.title}}</span>
 </a>
