@@ -32,7 +32,7 @@
       </div>
     </li>
     <li class="list-group-item flex-space-between">
-      <span class="record-item-title">Main stroke </span>
+      <span class="record-item-title">Main Stroke </span>
       <div>
         <div *ngFor="let exercisesWarmUp of exercises">
           <div *ngIf="exercisesWarmUp.type_id == 2"><i class="fas fa-swimmer margin-right-5"
@@ -43,14 +43,17 @@
 
     <li class="list-group-item flex-space-between">
       <span class="record-item-title">Final Set:</span>
-      <div>
-        <div *ngFor="let exercisesWarmUp of exercises">
-          <div *ngIf="exercisesWarmUp.type_id == 3">
-            <i class="fas fa-exclamation margin-right-5" style="color: rgb(252, 150, 34); margin-top: 1px;"></i>
-            {{exercisesWarmUp.name}}
-            <a [href]="apiUrl+'/miband'+'/'+schedule.coach_id+'/'+user.id+'/'+schedule.id+'/'+exercisesWarmUp.id" target="_blank" mat-icon-button>
-              <i class="fas fa-heartbeat" style="color: red;"></i>
-            </a>
+      <div style="width: 100%">
+        <div style="float:right;">
+          <div *ngFor="let exercisesWarmUp of exercises">
+            <div *ngIf="exercisesWarmUp.type_id == 3">
+              <i class="fas fa-exclamation margin-right-5" style="color: rgb(252, 150, 34); margin-top: 1px;"></i>
+              {{exercisesWarmUp.name}}
+              <a [href]="apiUrl+'/miband'+'/'+schedule.coach_id+'/'+user.id+'/'+schedule.id+'/'+exercisesWarmUp.id"
+                target="_blank" mat-icon-button>
+                <i class="fas fa-heartbeat" style="color: red;"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>

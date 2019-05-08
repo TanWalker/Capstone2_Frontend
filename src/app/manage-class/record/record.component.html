@@ -1,7 +1,7 @@
 <div [ngClass]="isMobile ? '' : 'content-desktop'">
   <mat-toolbar>
     <mat-toolbar-row>
-      <span>Thành tích</span>
+      <span>Kết quả</span>
     </mat-toolbar-row>
   </mat-toolbar>
   <div>
@@ -10,21 +10,21 @@
         (click)="onChangeDate(currentScheduledDate)"></ngb-datepicker>
     </div>
     <div class="row margin-top-5">
-      <div class="col-xs">
-        <div ngbDropdown class="d-inline-block full-width" style="max-width: 230px;">
+      <div class="col-xs center-xs" style="margin-bottom: 5px;">
+        <div ngbDropdown class="d-inline-block full-width">
           <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
-            {{currentSchedule?.lesson_name}}
+            <span *ngIf="currentSchedule">{{currentSchedule?.lesson_name}} ({{currentSchedule?.team_name}})</span>
           </button>
           <div ngbDropdownMenu class="record-drop-down">
             <button ngbDropdownItem *ngIf="schedules == []">Không có giáo án</button>
             <button ngbDropdownItem *ngFor="let schedule of schedules" on-click="onChangeSchedule(schedule)">
-              {{schedule.lesson_name}}
+              <span *ngIf="schedule">{{schedule.lesson_name}} ({{schedule.team_name}})</span>
             </button>
           </div>
         </div>
       </div>
-      <div class="col-xs">
-        <div ngbDropdown class="d-inline-block full-width" style="max-width: 230px;">
+      <div class="col-xs center-xs" style="margin-bottom: 5px;">
+        <div ngbDropdown class="d-inline-block full-width">
           <button class="btn btn-outline-primary full-width" ngbDropdownToggle>
             {{currentFinalExercise?.name}}
           </button>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="row center-xs">
-      <button class="margin-top-20 margin-bottom-10 full-width" style="max-width: 100px;" mat-raised-button
+      <button class="margin-top-10 margin-bottom-10 full-width" style="max-width: 100px;" mat-raised-button
         color="light-blue" (click)="fireNotification()">
         Lưu
       </button>

@@ -31,9 +31,6 @@ export class UserService {
   getUserHRTips(hr: number) {
     return this.http.get(`${environment.urls.api}/getUserHRTips/` + `${hr}`);
   }
-  getUserIndex(hr: number) {
-    return this.http.get(`${environment.urls.api}/getUserIndex/` + `${hr}`);
-  }
   getUserSpeedTips(tips: number) {
     return this.http.get(
       `${environment.urls.api}/getUserSpeedTips/` + `${tips}`

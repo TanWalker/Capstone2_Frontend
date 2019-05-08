@@ -6,7 +6,11 @@ import { User } from 'src/app/share/models/user';
 import { UserService } from 'src/app/share/services/user.service';
 import { Result } from 'src/app/share/models/result';
 import { Constants } from 'src/app/share/constants';
-import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDateStruct,
+  NgbCalendar,
+  NgbDatepickerI18n
+} from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import {
@@ -15,6 +19,7 @@ import {
   Validators,
   FormGroup
 } from '@angular/forms';
+import { I18n, DatepickerFormat } from '../record/datepicker-format.provider';
 export interface Gender {
   value: boolean;
   viewValue: string;
@@ -44,7 +49,8 @@ const message = {
     './profiles.component.scss',
     './../manage-class.component.css',
     './../../app.component.css'
-  ]
+  ],
+  providers: [I18n, { provide: NgbDatepickerI18n, useClass: DatepickerFormat }] // define custom NgbDatepickerI18n provider
 })
 export class ProfilesComponent implements OnInit {
   public isMobile = null;

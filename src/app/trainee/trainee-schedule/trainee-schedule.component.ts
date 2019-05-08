@@ -7,6 +7,8 @@ import { Subject } from 'rxjs';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { MatDialog } from '@angular/material';
 import { ScheduleInfoComponent } from './dialog/schedule-info/schedule-info.component';
+import { CalendarDateFormatter } from 'angular-calendar';
+import { CustomDateFormatter } from 'src/app/manage-class/exercises/schedule/custom-date-formatter.provider';
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -24,7 +26,13 @@ const colors: any = {
 @Component({
   selector: 'app-trainee-schedule',
   templateUrl: './trainee-schedule.component.html',
-  styleUrls: ['./trainee-schedule.component.css']
+  styleUrls: ['./trainee-schedule.component.css'],
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter
+    }
+  ]
 })
 export class TraineeScheduleComponent implements OnInit {
   public viewDate: Date = new Date();
@@ -32,6 +40,7 @@ export class TraineeScheduleComponent implements OnInit {
   public schedule: Schedule[] = [];
   public subEvents: any;
   public isMobile;
+  locale = 'vi';
   refresh: Subject<any> = new Subject();
   constructor(
     private scheduleService: ScheduleService,

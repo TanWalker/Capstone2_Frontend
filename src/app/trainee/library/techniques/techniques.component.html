@@ -18,7 +18,7 @@
   </div>
   <hr>
   <div class="row margin-top-10">
-    <app-category class="col margin-top-10" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]"
+    <app-category class="col margin-top-10" style="display: flex;align-items: center;justify-content: center;" *ngFor="let swimStyle of swimStyles; let i = index" [color]="colors[i]"
       [swimStyle]="swimStyle"></app-category>
   </div>
   <div style="height: 70px;display:block;"></div>

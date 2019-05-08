@@ -5,7 +5,7 @@ import {
   MatSnackBar,
   MatDialog
 } from '@angular/material';
-import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import { Result } from 'src/app/share/models/result';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Class } from 'src/app/share/models/class';
@@ -15,6 +15,7 @@ import { Lesson } from 'src/app/share/models/lesson';
 import { LessonService } from 'src/app/share/services/lesson.service';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { Constants } from 'src/app/share/constants';
+import { I18n, DatepickerFormat } from 'src/app/manage-class/record/datepicker-format.provider';
 
 const message = {
   box: {
@@ -46,7 +47,8 @@ const message = {
     './detail-schedule.component.css',
     '../../../../app.component.css',
     '../../../manage-class.component.css'
-  ]
+  ],
+  providers: [I18n, { provide: NgbDatepickerI18n, useClass: DatepickerFormat }] // define custom NgbDatepickerI18n provider
 })
 export class DetailScheduleComponent implements OnInit {
   public startTime = { hour: null, minute: null };

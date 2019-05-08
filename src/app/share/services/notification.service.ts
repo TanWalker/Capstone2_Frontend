@@ -19,7 +19,7 @@ export class NotificationService {
     this.subject = new Subject<any>();
   }
   public fireEvent() {
-    console.log(this.subject);
+    // console.log(this.subject);
     this.subject.next({ isAdd: true });
   }
 }

@@ -21,7 +21,7 @@ export class ExerciseRankComponent implements OnInit {
       .subscribe((result: Result) => {
         if (result.success) {
           this.top3 = result.values;
-          console.log(this.top3);
+          // console.log(this.top3);
         }
         // console.log(result);
       });

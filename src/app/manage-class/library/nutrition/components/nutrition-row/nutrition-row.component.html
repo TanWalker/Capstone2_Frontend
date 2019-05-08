@@ -9,7 +9,7 @@
 
   <mat-list-item role="listitem" class="mat-list-item-content-custom">
     <a [href]="nutrition?.link" class="video-title" target="_blank">
-      <img class="video-thumbnail" [src]="nutritionInfo?.thumbnailUrl || ''">
+      <div style="display: inline-block;"><img class="video-thumbnail" [src]="nutritionInfo?.thumbnailUrl || ''"></div>
       <span class="video-title">{{nutritionInfo?.title}}</span>
     </a>
     <div class="title-bar-spacer"></div>

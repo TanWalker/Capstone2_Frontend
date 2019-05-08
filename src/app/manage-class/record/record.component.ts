@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ScheduleService } from 'src/app/share/services/schedule.service';
 import { Result } from 'src/app/share/models/result';
@@ -10,14 +10,18 @@ import { RecordService } from 'src/app/share/services/record.service';
 import { LessonService } from 'src/app/share/services/lesson.service';
 import { TeamService } from 'src/app/share/services/team.service';
 import { Member } from 'src/app/share/models/member';
-import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDateStruct,
+  NgbCalendar,
+  NgbDatepickerI18n
+} from '@ng-bootstrap/ng-bootstrap';
 import { Date } from 'src/app/share/models/date';
 import { NotificationService } from 'src/app/share/services/notification.service';
 import { Constants } from 'src/app/share/constants';
 import { MatDialog } from '@angular/material';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { isNullOrUndefined } from 'util';
-
+import { DatepickerFormat, I18n } from './datepicker-format.provider';
 const message = {
   box: {
     title: Constants.box.add_record.title,
@@ -36,7 +40,8 @@ const message = {
     './record.component.css',
     './../manage-class.component.css',
     './../../app.component.css'
-  ]
+  ],
+  providers: [I18n, { provide: NgbDatepickerI18n, useClass: DatepickerFormat }] // define custom NgbDatepickerI18n provider
 })
 export class RecordComponent implements OnInit, OnDestroy {
   // message
@@ -102,6 +107,7 @@ export class RecordComponent implements OnInit, OnDestroy {
 
   onChangeSchedule(schedule: Schedule) {
     this.currentSchedule = schedule;
+    // console.log(this.currentSchedule);
     this.getListFinalExerciseByLessonID(this.currentSchedule.lesson_id);
   }
   onChangeFinalSet(finalExercise: Exercise) {
@@ -131,6 +137,7 @@ export class RecordComponent implements OnInit, OnDestroy {
             ? this.getListFinalExerciseByLessonID(
                 this.currentSchedule.lesson_id
               )
+            // tslint:disable-next-line:no-unused-expression
             : 0;
         } else {
           // if we dont have team for this schedule we will reset it

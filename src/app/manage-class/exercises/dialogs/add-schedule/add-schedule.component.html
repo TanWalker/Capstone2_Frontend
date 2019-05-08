@@ -3,7 +3,7 @@
 <div mat-dialog-content>
   <div class="form">
     <mat-form-field appearance="outline">
-      <mat-label>Chọn đội</mat-label>
+      <mat-label>Chọn nhóm</mat-label>
       <mat-select [(ngModel)] = "schedule.team_id">
         <mat-option *ngFor="let team of teams" [value]="team.id"  on-click="onChangeTeam(team.name)">{{team?.name}}</mat-option>
       </mat-select>
@@ -14,12 +14,12 @@
         <mat-option *ngFor="let lesson of lessons" [value]="lesson.id" (click)="changeLessonName(lesson.name)">{{lesson.name}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
-    <div class="flex-box">
+    <div class="flex-box" style="justify-content: center;">
       <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
-      <span class="hour" > <i class="fas fa-arrows-alt-h"></i> </span>
+      <span class="hour"> <i class="fas fa-arrows-alt-h"></i> </span>
       <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
     </div>
+    <ngb-datepicker #dp [(ngModel)]="dateModel"></ngb-datepicker>
   </div>
 </div>
 <div class="row margin-top-10">

@@ -8,7 +8,7 @@
         <div class="lesson-title">Tên thành viên: {{ member.display_name || member.username}}</div>
 
         <div class="float-left">
-            <div>Số điện thoại: {{member.phone || message.default.member.phone}}</div>
+            <div>Số điện thoại: {{formatPhoneNumber(member.phone) || message.default.member.phone}}</div>
             <div>Chiều cao: {{member.height || message.default.member.height}} (cm)</div>
             <div>Cân nặng: {{member.weight || message.default.member.weight}} (kg)</div>
 

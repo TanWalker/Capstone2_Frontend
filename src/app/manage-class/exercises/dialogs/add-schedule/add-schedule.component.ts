@@ -9,9 +9,10 @@ import { Constants } from 'src/app/share/constants';
 import { MessageBoxComponent } from 'src/app/share/components/message-box/message-box.component';
 import { ScheduleService } from 'src/app/share/services/schedule.service';
 import { Schedule } from 'src/app/share/models/schedule';
-import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerI18n } from '@ng-bootstrap/ng-bootstrap';
 import { LessonService } from 'src/app/share/services/lesson.service';
 import { Lesson } from 'src/app/share/models/lesson';
+import { I18n, DatepickerFormat } from 'src/app/manage-class/record/datepicker-format.provider';
 
 const message = {
   box: {
@@ -27,7 +28,8 @@ const message = {
     './add-schedule.component.css',
     '../../../../app.component.css',
     '../../../manage-class.component.css'
-  ]
+  ],
+  providers: [I18n, { provide: NgbDatepickerI18n, useClass: DatepickerFormat }] // define custom NgbDatepickerI18n provider
 })
 export class AddScheduleComponent implements OnInit, OnDestroy {
   public message = message;

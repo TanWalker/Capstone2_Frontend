@@ -1,7 +1,7 @@
 
-<mat-toolbar class="schedule-box">
+<mat-toolbar style="margin-top: 15px;margin-right: 10px;margin-left: 10px;max-width: 1024px;width: 98%!important;">
   <mat-toolbar-row>
-    <span>Thời gian biểu</span>
+    <span>Quản lý lịch dạy</span>
     <span class="fill-remaining-space"> </span>
     <button mat-flat-button color="primary" (click)="openScheduleBox()" class="margin-right-10">
       Tạo lịch <i class="far fa-calendar-plus margin-left-15"></i></button>
@@ -15,6 +15,7 @@
   [events]="events"
   (eventClicked)="handleEvent('Clicked', $event.event)"
   [refresh]="refresh"
+  [locale]="locale"
   [dayStartHour]="8"
   [dayEndHour]="20"
   weekStartsOn="1"

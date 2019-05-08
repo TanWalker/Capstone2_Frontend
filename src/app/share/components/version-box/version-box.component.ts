@@ -18,7 +18,7 @@ export class VersionBoxComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     if (this.subVersion !== null) {
-      this.subVersion.unsubscrible();
+      this.subVersion.unsubscribe();
     }
   }
   getVersionApp() {

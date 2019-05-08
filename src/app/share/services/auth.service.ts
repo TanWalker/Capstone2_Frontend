@@ -86,8 +86,8 @@ export class AuthService {
       return false;
     }
   }
-  public getUserIndex() {
-    return this.http.get(`${environment.urls.api}` + `/getUserIndex`);
+  public getUserIndex(id_user) {
+    return this.http.get(`${environment.urls.api}` + `/getUserIndex/${id_user}`);
   }
   public getUserBMITips(bmi) {
     return this.http.get(`${environment.urls.api}` + `/getUserBMITips/${bmi}`);

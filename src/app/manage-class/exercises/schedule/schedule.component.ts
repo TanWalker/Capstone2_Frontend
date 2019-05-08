@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarEvent } from 'angular-calendar';
-
+import {
+  CalendarEvent,
+  DateFormatterParams,
+  CalendarDateFormatter
+} from 'angular-calendar';
 import { MatDialog } from '@angular/material';
 import { ScheduleService } from 'src/app/share/services/schedule.service';
 import { Result } from 'src/app/share/models/result';
@@ -9,6 +12,7 @@ import { Subject } from 'rxjs';
 import { AddScheduleComponent } from '../dialogs/add-schedule/add-schedule.component';
 import { DetailScheduleComponent } from '../dialogs/detail-schedule/detail-schedule.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { CustomDateFormatter } from './custom-date-formatter.provider';
 
 const colors: any = {
   red: {
@@ -28,16 +32,22 @@ const colors: any = {
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css']
+  styleUrls: ['./schedule.component.css'],
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter
+    }
+  ]
 })
 export class ScheduleComponent implements OnInit {
+  locale = 'vi';
   public viewDate: Date = new Date();
   public events: CalendarEvent[] = [];
   public schedule: Schedule[] = [];
   public isMobile;
   public subEvents: any;
   refresh: Subject<any> = new Subject();
-
   constructor(
     private scheduleService: ScheduleService,
     private dialog: MatDialog,
@@ -61,16 +71,16 @@ export class ScheduleComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-         // reset events
-         this.events = [];
-         this.getEvent();
+        // reset events
+        this.events = [];
+        this.getEvent();
       }
     });
   }
   openScheduleBox(): void {
     const dialogRef = this.dialog.open(AddScheduleComponent, {
       disableClose: true,
-      maxWidth: '334px'
+      maxWidth: '370px'
     });
 
     dialogRef.afterClosed().subscribe(res => {
@@ -112,8 +122,5 @@ export class ScheduleComponent implements OnInit {
         this.refresh.next();
       });
   }
-
-  openCopyBox() {
-
-  }
+  openCopyBox() {}
 }

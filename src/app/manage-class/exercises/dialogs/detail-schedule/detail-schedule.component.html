@@ -30,7 +30,7 @@
         }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="flex-box">
+    <div class="flex-box" style="justify-content: center;">
       <ngb-timepicker [(ngModel)]="startTime" [meridian]="false"></ngb-timepicker>
       <span class="hour"> <i class="fas fa-arrows-alt-h"></i> </span>
       <ngb-timepicker [(ngModel)]="endTime" [meridian]="false"></ngb-timepicker>
@@ -42,12 +42,12 @@
 </div>
 <br />
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-xs-9">
     <button mat-flat-button class="full-width" color="light-blue" (click)="openConfirmBox()">
       Lưu
     </button>
   </div>
-  <div class="col-md-3">
+  <div class="col-xs-3">
     <button mat-flat-button color="warn" class="full-width" (click)="clearSchedule()">
       Xóa
     </button>

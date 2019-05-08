@@ -27,7 +27,6 @@ export class RankingComponent implements OnInit, OnDestroy {
       });
     this.exerciseService.getExerciseGroupByStyle().subscribe((data: Result) => {
       this.ranks = data.values;
-      // console.log(this.ranks);
     });
   }
   ngOnDestroy() {

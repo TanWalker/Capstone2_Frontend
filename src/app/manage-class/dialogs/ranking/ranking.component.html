@@ -1,7 +1,7 @@
-<div class="row">
 
+<h1 mat-dialog-title><div class="row">
   <div class="col-8">
-    <h3 style="font-weight: 900">Bảng xếp hạng</h3>
+    <p style="font-weight: 200">Bảng xếp hạng</p>
     <p> {{ data.team.name }} </p>
   </div>
   <div class="col-4">
@@ -9,8 +9,7 @@
       Đóng
     </button>
   </div>
-</div>
-
-<div style="height: 70vh;overflow: auto;padding: 0 5px;">
-  <app-style-rank *ngFor="let rank of ranks; let i = index" [style]="rank" [team]="data"></app-style-rank>
+</div></h1>
+<div mat-dialog-content>
+    <app-style-rank *ngFor="let rank of ranks; let i = index" [style]="rank" [team]="data"></app-style-rank>
 </div>

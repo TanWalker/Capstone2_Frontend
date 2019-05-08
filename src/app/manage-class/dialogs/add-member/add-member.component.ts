@@ -77,7 +77,7 @@ export class AddMemberComponent implements OnInit, OnDestroy {
       .subscribe((result: Result) => {
         this.users = result.success ? result.values : [];
         // setup for search
-        for (this.count = 0; this.count < this.users.length; this.count++) {
+        for (this.count = 0; this.count < this.users.length - 1; this.count++) {
           this.members.forEach(element => {
             if (this.users[this.count]['id'] === element['id']) {
               // console.log(this.users[this.count]['id']);

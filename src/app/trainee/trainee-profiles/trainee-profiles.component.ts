@@ -51,11 +51,10 @@ export class TraineeProfilesComponent implements OnInit {
     private teamService: TeamService
   ) {
     this.authUser = authService;
-    this.getUserIndexAndRate();
+    this.user = this.authService.getCurrentUser();
   }
 
   ngOnInit() {
-    this.user = this.authService.getCurrentUser();
     this.teamService
       .getTeamByID(this.user.team_id)
       .subscribe((result: Result) => {
@@ -63,15 +62,15 @@ export class TraineeProfilesComponent implements OnInit {
       });
     this.dob = new Date(this.user.dob);
     this.age = this.calculateAge(this.dob);
+    this.getUserIndexAndRate();
   }
   getUserIndexAndRate() {
     this.divStyle = 'none';
-    this.authService.getUserIndex().subscribe((data: Result) => {
+    this.authService.getUserIndex(this.user.id).subscribe((data: Result) => {
       // console.log(data);
       this.endurance = data.value.endurance;
       this.bmi = data.value.bmi;
       this.speed = data.value.speed;
-      console.log(this.endurance + ',' + this.bmi + ',' + this.speed);
       this.authService
         .getUserHRTips(this.endurance)
         .subscribe((enData: Result) => {

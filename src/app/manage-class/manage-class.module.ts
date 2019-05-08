@@ -46,7 +46,9 @@ import { AddNutritionComponent } from './library/nutrition/dialogs/add-nutrition
 import { NutritionRowComponent } from './library/nutrition/components/nutrition-row/nutrition-row.component';
 import { StyleRankComponent } from './dialogs/ranking/components/style-rank/style-rank.component';
 import { ExerciseRankComponent } from './dialogs/ranking/components/exercise-rank/exercise-rank.component';
-
+import { registerLocaleData } from '@angular/common';
+import localeVi from '@angular/common/locales/vi';
+registerLocaleData(localeVi, 'vi');
 @NgModule({
   imports: [
     NgbModule,

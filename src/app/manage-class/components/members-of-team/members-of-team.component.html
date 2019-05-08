@@ -4,23 +4,24 @@
       <span>Quản lý thành viên</span>
       <span class="fill-remaining-space "></span>
       <button mat-flat-button color="primary" (click)="openRanking()">
-         Xếp hạng <i class="far fa-swimmer"></i>
+        Xếp hạng <i class="far fa-swimmer"></i>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="margin-top-5 margin-bottom-10" *ngIf="currentTeam">
     <div ngbDropdown class="d-inline-block btn-block">
       <button class="btn btn-outline-primary btn-block" ngbDropdownToggle>
-       {{ currentTeam?.name }}
+        {{ currentTeam?.name }}
       </button>
       <div ngbDropdownMenu class="full-width">
-        <button ngbDropdownItem *ngFor="let team of teams"  on-click="onChange(team)">{{ team?.name }}</button>
+        <button ngbDropdownItem *ngFor="let team of teams" on-click="onChange(team)">{{ team?.name }}</button>
       </div>
     </div>
   </div>
   <mat-divider></mat-divider>
   <h3 class="empty-list" *ngIf="!currentTeam">{{ message.message.dontHaveTeam }}</h3>
   <div *ngFor="let member of members" class="animated fadeInLeft fast">
-      <app-member-of-team [member]="member"></app-member-of-team>
-    </div>
+    <app-member-of-team [member]="member"></app-member-of-team>
+  </div>
+  <div style="height: 70px;display:block;"></div>
 </div>
