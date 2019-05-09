@@ -1,54 +1,50 @@
 <div class="row">
 
   <div class="col-8">
-      <h3>Thêm thành viên</h3>
-      <p> {{ data.team.name }} </p>
+    <h3>Thêm thành viên</h3>
+    <p> {{ data.team.name }} </p>
   </div>
   <div class="col-4">
-      <button mat-stroked-button color="warn" (click)="cancel()">
-          Đóng
-        </button>
+    <button mat-stroked-button color="warn" (click)="cancel()">
+      Đóng
+    </button>
   </div>
 </div>
 <mat-form-field appearance="fill" class="full-width margin-top-15">
-    <mat-label>Tìm Kiếm </mat-label>
-    <input matInput placeholder="Nhập tên thành viên" (input)="onChange($event.target.value)">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <mat-label>Tìm Kiếm </mat-label>
+  <input matInput placeholder="Nhập tên thành viên" (input)="onChange($event.target.value)">
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
 
-  <div class="parent-scroll">
+<div mat-dialog-content>
+  <div *ngIf="users.length > 0">
+    <div *ngFor="let user of users" class="margin-top-15">
+      <div class="row middle-xs">
+        <div class="col-3 center-xs">
 
-    <div class="child-scroll " >
-      <div *ngIf="users.length > 0">
-          <div *ngFor="let user of users" class="margin-top-15">
-              <div class="row middle-xs">
-                <div class="col-3 center-xs">
-                  
-                <img [src]="user.avatar || message.default.user.avatar" class="user-avatar" width="100%"> 
-        
-                </div>
-                <div class="col-9 reneral-info">
-    
-                  <div class="float-left">
-                      <div class="lesson-title">Tên thành viên: {{ user.display_name || user.username}}</div>    
-                      <div>Sđt: {{user.phone || message.default.user.phone}}</div>
-                  </div>
-                <div class="float-right">
-                    <button mat-mini-fab color="warn" style="width: 40px" class="margin-top-15" (click)="addMember(user.id)">  
-                        <mat-icon>add_circle
-    
-                          </mat-icon>
-                      </button>
-                </div>
-                </div>
-              </div>
-              <mat-divider  class="margin-top-15"></mat-divider>
-    
+          <img [src]="user.avatar || message.default.user.avatar" class="user-avatar" width="100%">
+
+        </div>
+        <div class="col-9 reneral-info">
+
+          <div class="float-left">
+            <div class="lesson-title">Tên thành viên: {{ user.display_name || user.username}}</div>
+            <div>Sđt: {{user.phone || message.default.user.phone}}</div>
           </div>
+          <div class="float-right">
+            <button mat-mini-fab color="warn" style="width: 40px" class="margin-top-15" (click)="addMember(user.id)">
+              <mat-icon>add_circle
+
+              </mat-icon>
+            </button>
+          </div>
+        </div>
       </div>
-      <div *ngIf="users.length === 0" class="full-width">
-          <h3 style="text-align: center">{{ message.default.message }}</h3>
-      </div>
+      <mat-divider class="margin-top-15"></mat-divider>
+
     </div>
   </div>
-  
+  <div *ngIf="users.length === 0" class="full-width">
+    <h3 style="text-align: center">{{ message.default.message }}</h3>
+  </div>
+</div>
