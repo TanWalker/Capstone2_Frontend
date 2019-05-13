@@ -53,6 +53,7 @@ const message = {
   providers: [I18n, { provide: NgbDatepickerI18n, useClass: DatepickerFormat }] // define custom NgbDatepickerI18n provider
 })
 export class ProfilesComponent implements OnInit {
+  hide = true;
   public isMobile = null;
   public user: User = new User();
   public message = message;
@@ -145,6 +146,7 @@ export class ProfilesComponent implements OnInit {
             // console.log(response);
           }
           this.user.is_verified = true;
+          this.user.password = null;
           this.authService.setOnlyUser(this.user);
         });
       }

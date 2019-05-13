@@ -194,6 +194,15 @@ export class RecordComponent implements OnInit, OnDestroy {
     messageDialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.notificationService.fireEvent();
+        setTimeout(function() {
+          this.snackBar.open(
+            'Lưu thành công!',
+            'Đóng',
+            {
+              duration: 6000
+            }
+          );
+        }, 500);
         // console.log('xong');
       }
     });

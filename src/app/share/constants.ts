@@ -158,12 +158,12 @@ export const Constants = {
     },
     update_lesson_plan: {
       success: 'Cập nhật giáo án thành công!',
-      fail: 'Lỗi! không thể Chỉnh sửa',
+      fail: 'Lỗi! không thể chỉnh sửa',
       title: 'Đóng'
     },
     update_detail_schedule: {
       success: 'Cập nhật lịch thành công!',
-      fail: 'Lỗi! không thể Chỉnh sửa',
+      fail: 'Lỗi! không thể chỉnh sửa',
       title: 'Đóng'
     },
     delete_detail_schedule: {

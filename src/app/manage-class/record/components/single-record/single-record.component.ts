@@ -63,7 +63,6 @@ export class SingleRecordComponent implements OnInit, OnDestroy {
       this.currentFinalExercise.id
     )
     .subscribe((data: Result) => {
-
       if (data.success) {
         this.record = data.values[0];
       }

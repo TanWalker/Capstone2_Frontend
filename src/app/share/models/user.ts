@@ -11,6 +11,7 @@ export class User {
   public phone: String = '';
   public email: String = '';
   public address: String = '';
+  public password: String = null;
   public parent_name: String = '';
   public parent_phone: String = '';
   public gender: Boolean = true;
