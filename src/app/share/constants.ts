@@ -101,7 +101,7 @@ export const Constants = {
     },
     remove_member: {
       title: 'Xác nhận',
-      message: 'Bạn có muốn xóa thành viên này ra khỏi nhóm ?',
+      message: 'Bạn có muốn loại thành viên này ra khỏi nhóm ?',
       confirm: true
     },
     add_record: {
