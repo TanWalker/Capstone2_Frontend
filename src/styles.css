@@ -1,16 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 @import '~bootstrap/dist/css/bootstrap.css';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '../node_modules/angular-calendar/css/angular-calendar.css';
 @import '~animate.css/animate.min.css';
-@import 'https://fonts.googleapis.com/css?family=Roboto:400,500';
 @import "~bootstrap-select/dist/css/bootstrap-select.css";
 html {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%;
   font-size: 15px;
 }
-
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6{
+  font: 700 20px/32px Roboto,"Helvetica Neue",sans-serif;
+}
+.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button{
+  font-family: "Helvetica Neue",sans-serif;
+  font-weight: 600;
+}
 * {
   outline: none !important;
 }
